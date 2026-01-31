@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Catalog | Eco Companion Consultants | Biodiversity | Thailand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&family=Inter:wght@400;600&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        num: ['Inter', 'sans-serif'],
+                        thai: ['"Noto Sans Thai"', 'sans-serif'], 
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F392B',
+                            darker: '#061C15',
+                            light: '#E6F0EB',
+                            gold: '#C5A065',
+                            sand: '#F5F5F0',
+                            slate: '#334155',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(15, 57, 43, 0.08)',
+                        'gold-glow': '0 0 15px rgba(197, 160, 101, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F5F5F0; }
+        body { transition: font-family 0.2s ease; }
+
+        body.lang-th { font-family: 'Noto Sans Thai', sans-serif; }
+        body.lang-th .font-serif, body.lang-th h1, body.lang-th h2, body.lang-th h3 { 
+            font-family: 'Noto Sans Thai', sans-serif !important; 
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(15, 57, 43, 0.1);
+            border-color: #C5A065;
+        }
+        
+        .sidebar-link.active {
+            color: #0F392B;
+            font-weight: 700;
+            border-left-color: #C5A065;
+            background: linear-gradient(to right, #E6F0EB, transparent);
+        }
+        .lang-active {
+            font-weight: 700;
+            color: #C5A065;
+            border-bottom: 2px solid #C5A065;
+        }
+    </style>
+</head>
+<body class="text-slate-700 antialiased lang-th">
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Left: Back Button (FIXED: Links to index.html) -->
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-slate-400 group-hover:text-brand-dark transition"></i>
+                    <span class="text-sm font-bold text-slate-600 group-hover:text-brand-dark transition" data-i18n="back_home">Back to Home</span>
+                </a>
+                
+                <!-- Center: Logo (FIXED: Links to index.html) -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="logo.png" alt="Eco Companion" class="h-16 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="hidden flex-col" id="logo-fallback-catalog">
+                        <span class="font-serif font-bold text-lg text-brand-dark tracking-wide leading-none uppercase">Eco Companion</span>
+                        <span class="text-[9px] text-brand-gold font-bold tracking-[0.1em] uppercase mt-1">Consultants</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3 text-xs font-medium border-r border-slate-200 pr-6">
+                        <button onclick="changeLanguage('th')" id="btn-th" class="px-1 hover:text-brand-gold transition lang-active">TH</button>
+                        <span class="text-slate-300">/</span>
+                        <button onclick="changeLanguage('en')" id="btn-en" class="px-1 hover:text-brand-gold transition">EN</button>
+                    </div>
+
+                    <a href="#contact" class="bg-brand-dark text-white px-5 py-2.5 rounded-sm text-xs font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-brand-dark transition shadow-md">
+                        <span data-i18n="get_proposal">Get Proposal</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-brand-dark text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="header_subtitle">Comprehensive Solutions</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6" data-i18n="header_title">Full Service Directory</h1>
+            <p class="text-brand-light/90 max-w-2xl mx-auto text-lg font-light leading-relaxed" data-i18n="header_desc">
+                สำรวจบริการที่ครอบคลุมทุกมิติของการจัดการธรรมชาติ ตั้งแต่การประเมินความเสี่ยงเชิงวิทยาศาสตร์ ไปจนถึงกลยุทธ์องค์กรและการสร้างคุณค่าร่วมกับชุมชน
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <aside class="hidden lg:block w-64 flex-shrink-0">
+                <div class="sticky top-28 space-y-1">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 px-4" data-i18n="categories">Categories</p>
+                    <a href="#cat-A" class="sidebar-link block px-4 py-3 text-sm text-slate-500 border-l-2 border-transparent hover:text-brand-dark transition">A) Assess <span class="text-xs ml-1 opacity-50 block" data-i18n="cat_a_sub">Risk & Baseline</span></a>
+                    <a href="#cat-B" class="sidebar-link block px-4 py-3 text-sm text-slate-500 border-l-2 border-transparent hover:text-brand-dark transition">B) Plan <span class="text-xs ml-1 opacity-50 block" data-i18n="cat_b_sub">Strategy & Design</span></a>
+                    <a href="#cat-C" class="sidebar-link block px-4 py-3 text-sm text-slate-500 border-l-2 border-transparent hover:text-brand-dark transition">C) Monitor <span class="text-xs ml-1 opacity-50 block" data-i18n="cat_c_sub">MRV & Impact</span></a>
+                    <a href="#cat-D" class="sidebar-link block px-4 py-3 text-sm text-slate-500 border-l-2 border-transparent hover:text-brand-dark transition">D) Digitize <span class="text-xs ml-1 opacity-50 block" data-i18n="cat_d_sub">Data Systems</span></a>
+                    <a href="#cat-E" class="sidebar-link block px-4 py-3 text-sm text-slate-500 border-l-2 border-transparent hover:text-brand-dark transition">E) Engage <span class="text-xs ml-1 opacity-50 block" data-i18n="cat_e_sub">Community</span></a>
+                </div>
+            </aside>
+
+            <div class="flex-1 space-y-20">
+                <!-- Categories Sections -->
+                <section id="cat-A" class="scroll-mt-28">
+                    <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-sm flex items-center justify-center border border-blue-100"><i data-lucide="search" class="w-6 h-6"></i></div>
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-brand-dark">A) Assess</h2>
+                            <p class="text-slate-500 text-sm" data-i18n="cat_a_desc">การประเมินความเสี่ยงและการสำรวจฐานข้อมูล</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6" id="grid-A"></div>
+                </section>
+
+                <section id="cat-B" class="scroll-mt-28">
+                    <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-sm flex items-center justify-center border border-emerald-100"><i data-lucide="map" class="w-6 h-6"></i></div>
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-brand-dark">B) Plan</h2>
+                            <p class="text-slate-500 text-sm" data-i18n="cat_b_desc">การวางแผนกลยุทธ์และการออกแบบเชิงนิเวศ</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6" id="grid-B"></div>
+                </section>
+
+                <section id="cat-C" class="scroll-mt-28">
+                    <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-sm flex items-center justify-center border border-amber-100"><i data-lucide="activity" class="w-6 h-6"></i></div>
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-brand-dark">C) Monitor</h2>
+                            <p class="text-slate-500 text-sm" data-i18n="cat_c_desc">การติดตามผลและการวัดผลสัมฤทธิ์</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6" id="grid-C"></div>
+                </section>
+                
+                 <section id="cat-D" class="scroll-mt-28">
+                    <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-sm flex items-center justify-center border border-purple-100"><i data-lucide="database" class="w-6 h-6"></i></div>
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-brand-dark">D) Digitize</h2>
+                            <p class="text-slate-500 text-sm" data-i18n="cat_d_desc">ระบบฐานข้อมูลและเทคโนโลยีสารสนเทศ</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-1 gap-6" id="grid-D"></div>
+                </section>
+
+                <section id="cat-E" class="scroll-mt-28">
+                    <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                        <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-sm flex items-center justify-center border border-pink-100"><i data-lucide="users" class="w-6 h-6"></i></div>
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-brand-dark">E) Engage</h2>
+                            <p class="text-slate-500 text-sm" data-i18n="cat_e_desc">การมีส่วนร่วมและการสื่อสาร</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6" id="grid-E"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section id="contact" class="bg-brand-sand py-20 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl font-bold text-brand-dark mb-6" data-i18n="custom_title">Can't find exactly what you need?</h2>
+            <p class="text-slate-600 mb-8" data-i18n="custom_desc">เรามีความยืดหยุ่นในการปรับแต่งบริการ (Tailor-made) เพื่อให้ตอบโจทย์ความต้องการเฉพาะของโครงการและงบประมาณของคุณ</p>
+            <div class="flex justify-center gap-4">
+                <a href="mailto:consultants.ecc@gmail.com" class="bg-brand-dark text-white px-8 py-3 rounded-sm font-bold shadow-lg hover:bg-brand-gold hover:text-brand-dark transition" data-i18n="custom_btn">Contact Us for Custom Solution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white/40 py-8 text-center text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Footer Link (FIXED: Links to index.html) -->
+            &copy; 2026 Eco Companion Consultants Co., Ltd. All rights reserved. | <a href="index.html" class="hover:text-white" data-i18n="back_home">Back to Home</a>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // --- DATA & TRANSLATIONS ---
+        const translations = {
+            en: {
+                back_home: "Back to Home",
+                get_proposal: "Get Proposal",
+                header_subtitle: "Comprehensive Solutions",
+                header_title: "Full Service Directory",
+                header_desc: "Explore our end-to-end nature management services, from scientific risk assessment to corporate strategy and community engagement.",
+                categories: "Categories",
+                cat_a_sub: "Risk & Baseline",
+                cat_b_sub: "Strategy & Design",
+                cat_c_sub: "MRV & Impact",
+                cat_d_sub: "Data Systems",
+                cat_e_sub: "Community",
+                cat_a_desc: "Risk Assessment & Baseline Survey",
+                cat_b_desc: "Strategic Planning & Eco-Design",
+                cat_c_desc: "Monitoring, Reporting & Verification (MRV)",
+                cat_d_desc: "Biodiversity Data Management Systems",
+                cat_e_desc: "Engagement & Communication",
+                custom_title: "Can't find exactly what you need?",
+                custom_desc: "We offer tailor-made solutions to fit your specific project needs and budget constraints.",
+                custom_btn: "Contact Us for Custom Solution",
+                label_deliv: "Deliverables:",
+                label_dur: "Duration:",
+                label_ideal: "Ideal for:",
+                label_method: "Methodology:",
+                label_features: "Key Features:"
+            },
+            th: {
+                back_home: "กลับสู่หน้าหลัก",
+                get_proposal: "ขอใบเสนอราคา",
+                header_subtitle: "บริการที่ครอบคลุม",
+                header_title: "สารบัญบริการทั้งหมด",
+                header_desc: "สำรวจบริการที่ครอบคลุมทุกมิติของการจัดการธรรมชาติ ตั้งแต่การประเมินความเสี่ยงเชิงวิทยาศาสตร์ ไปจนถึงกลยุทธ์องค์กรและการสร้างคุณค่าร่วมกับชุมชน",
+                categories: "หมวดหมู่",
+                cat_a_sub: "ประเมินความเสี่ยง",
+                cat_b_sub: "วางแผนและออกแบบ",
+                cat_c_sub: "ติดตามและวัดผล",
+                cat_d_sub: "ระบบข้อมูล",
+                cat_e_sub: "การมีส่วนร่วม",
+                cat_a_desc: "การประเมินความเสี่ยงและการสำรวจฐานข้อมูล",
+                cat_b_desc: "การวางแผนกลยุทธ์และการออกแบบเชิงนิเวศ",
+                cat_c_desc: "การติดตามผลและการวัดผลสัมฤทธิ์",
+                cat_d_desc: "ระบบฐานข้อมูลและเทคโนโลยีสารสนเทศ",
+                cat_e_desc: "การมีส่วนร่วมและการสื่อสาร",
+                custom_title: "ไม่พบบริการที่ตรงความต้องการ?",
+                custom_desc: "เรามีความยืดหยุ่นในการปรับแต่งบริการ (Tailor-made) เพื่อให้ตอบโจทย์ความต้องการเฉพาะของโครงการและงบประมาณของคุณ",
+                custom_btn: "ติดต่อเราเพื่อรับคำปรึกษาพิเศษ",
+                label_deliv: "สิ่งที่ได้รับ:",
+                label_dur: "ระยะเวลา:",
+                label_ideal: "เหมาะสำหรับ:",
+                label_method: "กระบวนการทำงาน:",
+                label_features: "จุดเด่นบริการ:"
+            }
+        };
+
+        const catalogData = [
+            // Category A
+            {
+                id: 'A1', cat: 'A', icon: 'zap', color: 'blue',
+                title: { en: 'Nature Risk Intelligence Sprint', th: 'Nature Risk Intelligence Sprint' },
+                desc: { en: 'Rapid screening service (2-3 weeks) to identify ecosystem Red Flags using secondary data and satellite imagery.', th: 'บริการประเมินความเสี่ยงเบื้องต้น (Rapid Screening) เพื่อระบุ Red Flags ทางระบบนิเวศ โดยใช้ข้อมูลทุติยภูมิและ Satellite Data' },
+                method: { en: 'Spatial analysis using IBAT/GBIF overlays combined with regulatory review.', th: 'วิเคราะห์ข้อมูลเชิงพื้นที่ (GIS) ซ้อนทับกับฐานข้อมูลสากล (IBAT, GBIF) และตรวจสอบข้อกฎหมาย' },
+                features: { 
+                    en: ['Early Warning System', 'Cost-Effective Screening', 'No Field Visit Required'], 
+                    th: ['แจ้งเตือนความเสี่ยงล่วงหน้า', 'ประหยัดงบประมาณ', 'ไม่ต้องลงพื้นที่จริง'] 
+                },
+                deliverables: { en: 'Risk Report, Sensitivity Map, Executive Brief', th: 'รายงานความเสี่ยง, แผนที่ความอ่อนไหว, สรุปผู้บริหาร' },
+                duration: { en: '2-3 Weeks', th: '2-3 สัปดาห์' },
+                ideal: { en: 'Pre-feasibility, Site Selection', th: 'การศึกษาความเป็นไปได้, การเลือกพื้นที่ตั้งโครงการ' }
+            },
+            {
+                id: 'A2', cat: 'A', icon: 'microscope', color: 'blue',
+                title: { en: 'Biodiversity Baseline Survey', th: 'Biodiversity Baseline Survey' },
+                desc: { en: 'Full expert-led field survey (Taxonomists) to create species inventory and habitat maps.', th: 'การสำรวจภาคสนามเต็มรูปแบบโดยผู้เชี่ยวชาญเฉพาะทาง (Taxonomists) เพื่อจัดทำบัญชีรายชื่อสิ่งมีชีวิตและแผนที่ถิ่นอาศัย' },
+                method: { en: 'Field sampling by specialists (Flora & Fauna) covering seasonal variations.', th: 'ลงพื้นที่เก็บตัวอย่างโดยผู้เชี่ยวชาญ (พืช, นก, สัตว์เลี้ยงลูกด้วยนม) ครอบคลุมความหลากหลายตามฤดูกาล' },
+                features: { 
+                    en: ['Mahidol Univ. Expert Network', 'Standardized Protocols', 'Species Inventory'], 
+                    th: ['เครือข่ายผู้เชี่ยวชาญ ม.มหิดล', 'มาตรฐานการสุ่มตัวอย่างสากล', 'บัญชีรายชื่อสิ่งมีชีวิตครบถ้วน'] 
+                },
+                deliverables: { en: 'Full Species Inventory, Habitat Map, Photo Log', th: 'บัญชีรายชื่อสิ่งมีชีวิต, แผนที่ถิ่นอาศัย, รายงานฉบับสมบูรณ์' },
+                duration: { en: '2-3 Months (Seasonal)', th: '2-3 เดือน (ตามฤดูกาล)' },
+                ideal: { en: 'EIA, Permitting, Zero Baseline', th: 'EIA, การขออนุญาต, การเก็บข้อมูลตั้งต้น' }
+            },
+            {
+                id: 'A3', cat: 'A', icon: 'bar-chart-2', color: 'blue',
+                title: { en: 'Impact & Risk Prioritization', th: 'Impact & Risk Prioritization' },
+                desc: { en: 'Analysis of project activities vs. nature impacts to prioritize management actions (Materiality Assessment).', th: 'วิเคราะห์ความสัมพันธ์ระหว่างกิจกรรมของโครงการกับผลกระทบทางธรรมชาติ เพื่อจัดลำดับความสำคัญในการจัดการ (Materiality Assessment)' },
+                method: { en: 'Impact pathway analysis and stakeholder materiality workshops.', th: 'วิเคราะห์เส้นทางผลกระทบ (Impact Pathway) และจัดลำดับความสำคัญร่วมกับผู้เกี่ยวข้อง' },
+                features: { 
+                    en: ['Data-Driven Decisions', 'Budget Optimization', 'Stakeholder Alignment'], 
+                    th: ['ตัดสินใจบนฐานข้อมูล', 'จัดสรรงบประมาณคุ้มค่า', 'สร้างความเข้าใจตรงกัน'] 
+                },
+                deliverables: { en: 'Materiality Matrix, Risk Register', th: 'ตารางลำดับความสำคัญ, ทะเบียนความเสี่ยง' },
+                duration: { en: '2-4 Weeks', th: '2-4 สัปดาห์' },
+                ideal: { en: 'Strategic Planning, Budgeting', th: 'การวางแผนกลยุทธ์, การจัดสรรงบประมาณ' }
+            },
+            // Category B
+            {
+                id: 'B1', cat: 'B', icon: 'file-text', color: 'emerald',
+                title: { en: 'Biodiversity Management Plan (BMP)', th: 'Biodiversity Management Plan (BMP)' },
+                desc: { en: 'Master plan for biodiversity management following Mitigation Hierarchy (Avoid, Minimize, Restore, Offset).', th: 'จัดทำแผนแม่บทการจัดการความหลากหลายทางชีวภาพ ตามหลัก Mitigation Hierarchy (Avoid, Minimize, Restore, Offset)' },
+                method: { en: 'Developing specific action plans and SOPs for on-site implementation.', th: 'ยกร่างแผนปฏิบัติการและคู่มือมาตรฐาน (SOPs) สำหรับเจ้าหน้าที่หน้างาน' },
+                features: { 
+                    en: ['Actionable Hierarchy', 'Worker Training Modules', 'Audit-Ready Docs'], 
+                    th: ['ลำดับขั้นการจัดการที่ทำได้จริง', 'โมดูลอบรมพนักงาน', 'เอกสารพร้อมรับการตรวจสอบ'] 
+                },
+                deliverables: { en: 'BMP Manual, SOPs, Worker Protocols', th: 'คู่มือ BMP, ขั้นตอนการปฏิบัติงาน (SOPs)' },
+                duration: { en: '4-6 Weeks', th: '4-6 สัปดาห์' },
+                ideal: { en: 'Construction Phase, Compliance', th: 'ระยะก่อสร้าง, การปฏิบัติตามกฎหมาย' }
+            },
+            {
+                id: 'B2', cat: 'B', icon: 'sprout', color: 'emerald',
+                title: { en: 'Eco-Design & Reforestation Masterplan', th: 'Eco-Design & Reforestation Masterplan' },
+                desc: { en: 'Landscape design for ecosystem restoration, selecting native species and planting plans for sustainable ecosystems.', th: 'ออกแบบภูมิทัศน์เพื่อการฟื้นฟูระบบนิเวศ คัดเลือกพรรณไม้ท้องถิ่น และวางแผนการปลูกเพื่อให้เกิดระบบนิเวศที่ยั่งยืน' },
+                method: { en: 'Site-species matching and ecological structural design.', th: 'คัดเลือกพรรณไม้ให้เหมาะกับพื้นที่ (Site-Matching) และออกแบบโครงสร้างป่าเลียนแบบธรรมชาติ' },
+                features: { 
+                    en: ['Native Species Focus', 'High Survival Rate Design', 'Visual 3D Concepts'], 
+                    th: ['เน้นพืชท้องถิ่น', 'ออกแบบให้อัตราการรอดสูง', 'ภาพจำลอง 3D สวยงาม'] 
+                },
+                deliverables: { en: 'Planting Plan, 3D Concept, Species List', th: 'แบบแปลนปลูก, ภาพจำลอง 3D, บัญชีพรรณไม้' },
+                duration: { en: '4-8 Weeks', th: '4-8 สัปดาห์' },
+                ideal: { en: 'CSR Projects, Green Areas', th: 'โครงการ CSR, พื้นที่สีเขียว' }
+            },
+            {
+                id: 'B3', cat: 'B', icon: 'target', color: 'emerald',
+                title: { en: 'Corporate Nature Strategy (TNFD)', th: 'Corporate Nature Strategy (TNFD)' },
+                desc: { en: 'Consultancy on corporate nature strategy to prepare for TNFD disclosure (LEAP Approach).', th: 'ที่ปรึกษาการจัดทำกลยุทธ์องค์กรด้านธรรมชาติ เพื่อเตรียมพร้อมสำหรับการเปิดเผยข้อมูลตามกรอบ TNFD (LEAP Approach)' },
+                method: { en: 'LEAP Approach (Locate, Evaluate, Assess, Prepare) workshops.', th: 'ดำเนินงานตามกรอบ LEAP (Locate, Evaluate, Assess, Prepare) ผ่านการประชุมเชิงปฏิบัติการ' },
+                features: { 
+                    en: ['Global Standard Alignment', 'Investor-Ready Reporting', 'Competitive Edge'], 
+                    th: ['สอดคล้องมาตรฐานโลก', 'รายงานตอบโจทย์นักลงทุน', 'สร้างความได้เปรียบทางธุรกิจ'] 
+                },
+                deliverables: { en: 'Strategy Deck, Roadmap, Gap Analysis', th: 'กลยุทธ์องค์กร, Roadmap, Gap Analysis' },
+                duration: { en: '2-3 Months', th: '2-3 เดือน' },
+                ideal: { en: 'Listed Companies, ESG Teams', th: 'บริษัทจดทะเบียน, ทีม ESG' }
+            },
+            // Category C
+            {
+                id: 'C1', cat: 'C', icon: 'activity', color: 'amber',
+                title: { en: 'Biodiversity Monitoring Retainer', th: 'Biodiversity Monitoring Retainer' },
+                desc: { en: 'Annual biodiversity status monitoring to track changes and evaluate mitigation effectiveness.', th: 'บริการติดตามตรวจสอบสถานภาพความหลากหลายทางชีวภาพรายปี เพื่อเฝ้าระวังการเปลี่ยนแปลงและประเมินประสิทธิภาพของมาตรการ' },
+                method: { en: 'Systematic seasonal field visits and indicator tracking.', th: 'ลงพื้นที่ติดตามผลตามรอบฤดูกาล และเก็บข้อมูลตัวชี้วัดอย่างเป็นระบบ' },
+                features: { 
+                    en: ['Long-term Trends', 'Adaptive Management', 'Alert System'], 
+                    th: ['เห็นแนวโน้มระยะยาว', 'ปรับแผนได้ทันท่วงที', 'ระบบแจ้งเตือนความผิดปกติ'] 
+                },
+                deliverables: { en: 'Annual Monitoring Report, Trend Analysis', th: 'รายงานติดตามผลรายปี, วิเคราะห์แนวโน้ม' },
+                duration: { en: 'Annual Contract', th: 'สัญญารายปี' },
+                ideal: { en: 'Operational Phase, Offset Sites', th: 'ระยะดำเนินงาน, พื้นที่ชดเชย' }
+            },
+            {
+                id: 'C2', cat: 'C', icon: 'award', color: 'amber',
+                title: { en: 'Outcome & Impact Verification', th: 'Outcome & Impact Verification' },
+                desc: { en: 'Empirical verification of results (e.g., species return) for sustainability reporting and corporate communications.', th: 'การพิสูจน์ผลสัมฤทธิ์เชิงประจักษ์ (เช่น การกลับมาของสัตว์ป่า) เพื่อใช้ในการรายงานความยั่งยืนและการสื่อสารองค์กร' },
+                method: { en: 'Bio-acoustics and camera trapping for evidence collection.', th: 'ใช้เทคโนโลยี Bio-acoustics และ Camera Trap เพื่อเก็บหลักฐานเชิงประจักษ์' },
+                features: { 
+                    en: ['Tangible Evidence', 'Storytelling Content', 'Greenwashing Proof'], 
+                    th: ['หลักฐานจับต้องได้', 'เนื้อหาสำหรับสื่อสาร', 'ป้องกันข้อครหา Greenwashing'] 
+                },
+                deliverables: { en: 'Verification Report, Impact Story, Photo Evidence', th: 'รายงานรับรองผล, เรื่องราวความสำเร็จ, หลักฐานภาพถ่าย' },
+                duration: { en: '4-6 Weeks', th: '4-6 สัปดาห์' },
+                ideal: { en: 'Sustainability Report, Awards', th: 'รายงานความยั่งยืน, การประกวดรางวัล' }
+            },
+             // ADDED: C3
+            {
+                id: 'C3', cat: 'C', icon: 'leaf', color: 'amber',
+                title: { en: 'Carbon Credit Readiness Pack', th: 'Carbon Credit Readiness Pack' },
+                desc: { en: 'Feasibility screening and MRV design to determine if your green area is ready for carbon credit registration.', th: 'ตรวจเช็คความพร้อมและประเมินความคุ้มค่าก่อนทำ Carbon Credit ช่วยวางแผนระบบตรวจวัดให้ได้มาตรฐาน ลดความเสี่ยงในการลงทุน' },
+                method: { en: 'Feasibility analysis, MRV planning, and leakage risk assessment.', th: 'วิเคราะห์ความเป็นไปได้ วางแผนระบบ MRV และประเมินความเสี่ยง Leakage' },
+                features: { 
+                    en: ['Investment Feasibility', 'Risk Mitigation', 'Standard Compliance'], 
+                    th: ['ประเมินจุดคุ้มทุน', 'ลดความเสี่ยงโครงการ', 'สอดคล้องมาตรฐาน T-VER'] 
+                },
+                deliverables: { en: 'Feasibility Report, MRV Concept, Risk Register', th: 'รายงานความเป็นไปได้, แนวคิดระบบ MRV, ทะเบียนความเสี่ยง' },
+                duration: { en: '4-8 Weeks', th: '4-8 สัปดาห์' },
+                ideal: { en: 'Forest Projects, Community Forests', th: 'โครงการป่าไม้, ป่าชุมชน' }
+            },
+             // ADDED: C4
+            {
+                id: 'C4', cat: 'C', icon: 'tree-pine', color: 'amber',
+                title: { en: 'Area-based Carbon Stock Assessment', th: 'Area-based Carbon Stock Assessment (ประเมินคาร์บอนในพื้นที่สีเขียว)' },
+                desc: { en: 'Estimating carbon storage in any green area—from factory parks to private land—providing verified data for your sustainability goals.', th: 'บริการประเมินปริมาณการกักเก็บคาร์บอนในพื้นที่สีเขียวทุกรูปแบบ ไม่ว่าจะเป็นสวนป่าในโรงงาน ที่ดินเอกชน หรือป่าชุมชน เพื่อให้ได้ตัวเลขที่น่าเชื่อถือไปใช้ต่อ' },
+                method: { en: 'Carbon stock estimation using standard plots and allometric equations.', th: 'วางแปลงตัวอย่างมาตรฐานและคำนวณมวลชีวภาพด้วยสมการ Allometric' },
+                features: { 
+                    en: ['Verified Carbon Data', 'Corporate Communication', 'Baseline Setting'], 
+                    th: ['ตัวเลขคาร์บอนที่อ้างอิงได้', 'ใช้สื่อสารองค์กร', 'เป็นข้อมูลฐาน (Baseline)'] 
+                },
+                deliverables: { en: 'CO₂ Estimate Report, Data Pack, Methodology Summary', th: 'รายงานประเมินคาร์บอน, ชุดข้อมูลคำนวณ, สรุปวิธีการ' },
+                duration: { en: '3-6 Weeks', th: '3-6 สัปดาห์' },
+                ideal: { en: 'Corporate Parks, Private Land, CSR', th: 'พื้นที่สีเขียวโรงงาน, ที่ดินเอกชน, โครงการ CSR' }
+            },
+            // Category D
+            {
+                id: 'D1', cat: 'D', icon: 'database', color: 'purple',
+                title: { en: 'Biodiversity Database & Dashboard', th: 'Biodiversity Database & Dashboard' },
+                desc: { en: 'Development of standardized biodiversity data systems (Darwin Core) with executive dashboards.', th: 'พัฒนาระบบจัดเก็บข้อมูลความหลากหลายทางชีวภาพที่ได้มาตรฐานสากล (Darwin Core) พร้อม Dashboard แสดงผลสำหรับผู้บริหาร' },
+                method: { en: 'Data digitization and visualization using BI tools.', th: 'แปลงข้อมูลเป็นดิจิทัลและสร้างภาพจำลองข้อมูลด้วย BI Tools' },
+                features: { 
+                    en: ['Darwin Core Standard', 'Centralized Access', 'Real-time Insights'], 
+                    th: ['มาตรฐาน Darwin Core', 'เข้าถึงข้อมูลจากจุดเดียว', 'ข้อมูลประกอบการตัดสินใจทันที'] 
+                },
+                deliverables: { en: 'Database Architecture, Web Dashboard', th: 'โครงสร้างฐานข้อมูล, แดชบอร์ดออนไลน์' },
+                duration: { en: '2-4 Months', th: '2-4 เดือน' },
+                ideal: { en: 'Multi-site Operations, Long-term Data', th: 'องค์กรที่มีหลายพื้นที่ปฏิบัติงาน' }
+            },
+            // Category E
+            // ADDED: E1
+            {
+                id: 'E1', cat: 'E', icon: 'book-open', color: 'pink',
+                title: { en: 'Environmental Education Program Design', th: 'Environmental Education Program Design' },
+                desc: { en: 'Designing impactful learning curriculums with measurable outcomes for schools or youth camps.', th: 'รับออกแบบหลักสูตรค่ายสิ่งแวดล้อมที่ "สนุกและได้ความรู้จริง" พร้อมเครื่องมือวัดผลการเรียนรู้ เพื่อให้กิจกรรมของคุณสร้างประโยชน์สูงสุด' },
+                method: { en: 'Active learning curriculum design and facilitator training.', th: 'ออกแบบกระบวนการเรียนรู้แบบ Active Learning และอบรมวิทยากร' },
+                features: { 
+                    en: ['Engaging Activities', 'Learning Outcome Measurement', 'Scalable Models'], 
+                    th: ['กิจกรรมสนุกและมีสาระ', 'วัดผลการเรียนรู้ได้', 'โมเดลที่ขยายผลต่อได้'] 
+                },
+                deliverables: { en: 'Curriculum, Facilitator Guide, Learning Metrics', th: 'คู่มือหลักสูตร, คู่มือวิทยากร, แบบประเมินผล' },
+                duration: { en: '2-6 Weeks', th: '2-6 สัปดาห์' },
+                ideal: { en: 'Schools, Youth Camps, CSR', th: 'โรงเรียน, ค่ายเยาวชน, CSR' }
+            },
+             // ADDED: E2
+            {
+                id: 'E2', cat: 'E', icon: 'heart-handshake', color: 'pink',
+                title: { en: 'Corporate CSR Biodiversity Programs', th: 'Corporate CSR Biodiversity Programs' },
+                desc: { en: 'Creating meaningful CSR activities (e.g., citizen science) that engage employees and deliver real environmental benefits.', th: 'สร้างสรรค์กิจกรรม CSR แนวใหม่ที่พนักงานได้ลงมือทำจริงและเกิดประโยชน์กับธรรมชาติจริงๆ เช่น กิจกรรมนักวิทย์พลเมือง หรือสร้างบ้านให้สัตว์ป่า' },
+                method: { en: 'Co-designing activities that match corporate values and local needs.', th: 'ออกแบบกิจกรรมร่วมกันให้ตรงกับค่านิยมองค์กรและความต้องการของพื้นที่' },
+                features: { 
+                    en: ['Employee Engagement', 'Real Impact', 'Team Building'], 
+                    th: ['พนักงานมีส่วนร่วม', 'เกิดประโยชน์จริง', 'สร้างความสามัคคี'] 
+                },
+                deliverables: { en: 'Activity Plan, Logistics Support, Impact Report', th: 'แผนกิจกรรม, ทีมสนับสนุนหน้างาน, รายงานผล' },
+                duration: { en: '2-4 Weeks + Event', th: '2-4 สัปดาห์เตรียมงาน + วันงาน' },
+                ideal: { en: 'Volunteer Days, Team Building', th: 'วันจิตอาสา, กิจกรรมสัมพันธ์' }
+            },
+            {
+                id: 'E3', cat: 'E', icon: 'users', color: 'pink',
+                title: { en: 'Community Engagement', th: 'Community Engagement' },
+                desc: { en: 'Building engagement with local communities to create understanding, reduce conflict, and earn Social License to Operate.', th: 'กระบวนการสร้างการมีส่วนร่วมกับชุมชนรอบพื้นที่โครงการ เพื่อสร้างความเข้าใจ ลดความขัดแย้ง และสร้าง Social License to Operate' },
+                method: { en: 'Participatory workshops and citizen science programs.', th: 'จัดเวทีรับฟังความคิดเห็นและกิจกรรมวิทยาศาสตร์พลเมือง (Citizen Science)' },
+                features: { 
+                    en: ['Social License', 'Conflict Reduction', 'Shared Value'], 
+                    th: ['สร้างการยอมรับจากสังคม', 'ลดความขัดแย้ง', 'สร้างคุณค่าร่วมกัน'] 
+                },
+                deliverables: { en: 'Engagement Plan, Workshop Facilitation', th: 'แผนการมีส่วนร่วม, การจัดประชุมเชิงปฏิบัติการ' },
+                duration: { en: '3-6 Months', th: '3-6 เดือน' },
+                ideal: { en: 'Sensitive Areas, CSR', th: 'พื้นที่อ่อนไหว, งาน CSR' }
+            },
+            {
+                id: 'E4', cat: 'E', icon: 'sun', color: 'pink',
+                title: { en: 'Signature Biodiversity Hub', th: 'Signature Biodiversity Hub' },
+                desc: { en: 'Design and operation of Nature Learning Centers to serve as sustainability landmarks.', th: 'ออกแบบและดำเนินงานศูนย์เรียนรู้ธรรมชาติ (Nature Learning Center) เพื่อเป็น Landmark ด้านความยั่งยืนของโครงการ' },
+                method: { en: 'Curriculum development and exhibition design.', th: 'พัฒนาหลักสูตรเรียนรู้และออกแบบนิทรรศการธรรมชาติ' },
+                features: { 
+                    en: ['Branding Landmark', 'Educational Impact', 'Visitor Experience'], 
+                    th: ['สร้างแลนด์มาร์ค', 'ผลลัพธ์ด้านการศึกษา', 'ประสบการณ์ผู้เยี่ยมชม'] 
+                },
+                deliverables: { en: 'Concept Design, Operations Manual', th: 'แนวคิดการออกแบบ, คู่มือการบริหารศูนย์' },
+                duration: { en: 'Project Based', th: 'ตามโครงการ' },
+                ideal: { en: 'Real Estate, Industrial Parks', th: 'โครงการอสังหาฯ, นิคมอุตสาหกรรม' }
+            }
+        ];
+
+        let currentLang = 'th';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.getElementById('btn-th').classList.remove('lang-active', 'text-slate-400');
+            document.getElementById('btn-en').classList.remove('lang-active', 'text-slate-400');
+            
+            document.getElementById(`btn-${lang}`).classList.add('lang-active');
+            document.getElementById(`btn-${lang === 'th' ? 'en' : 'th'}`).classList.add('text-slate-400');
+
+            if (lang === 'th') {
+                document.body.classList.remove('lang-en');
+                document.body.classList.add('lang-th');
+            } else {
+                document.body.classList.remove('lang-th');
+                document.body.classList.add('lang-en');
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            renderCatalog();
+        }
+
+        function renderCatalog() {
+            const colorMap = {
+                blue: { bg: 'bg-blue-50', text: 'text-blue-600', icon: 'text-blue-300' },
+                emerald: { bg: 'bg-emerald-50', text: 'text-emerald-600', icon: 'text-emerald-300' },
+                amber: { bg: 'bg-amber-50', text: 'text-amber-600', icon: 'text-amber-300' },
+                purple: { bg: 'bg-purple-50', text: 'text-purple-600', icon: 'text-purple-300' },
+                pink: { bg: 'bg-pink-50', text: 'text-pink-600', icon: 'text-pink-300' },
+            };
+
+            const categories = ['A', 'B', 'C', 'D', 'E'];
+            
+            categories.forEach(cat => {
+                const grid = document.getElementById(`grid-${cat}`);
+                if(!grid) return;
+                
+                const filtered = catalogData.filter(s => s.cat === cat);
+                grid.innerHTML = filtered.map(s => {
+                    const c = colorMap[s.color];
+                    
+                    // Features list generator
+                    const featuresList = s.features[currentLang].map(f => `<li>${f}</li>`).join('');
+
+                    return `
+                    <div class="service-card bg-white p-6 rounded-sm border border-slate-200 shadow-sm group h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold ${c.text} ${c.bg} px-2 py-1 uppercase tracking-wider rounded-sm">${s.id}</span>
+                            <i data-lucide="${s.icon}" class="w-5 h-5 text-slate-300 group-hover:${c.text} transition"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-800 mb-2 group-hover:${c.text} transition">${s.title[currentLang]}</h3>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">${s.desc[currentLang]}</p>
+                        
+                        <!-- Methodology & Features -->
+                        <div class="mb-4">
+                            <p class="text-xs text-slate-500 mb-2"><strong class="text-slate-700">${translations[currentLang].label_method}</strong> ${s.method[currentLang]}</p>
+                            <div class="bg-gray-50 p-3 rounded-sm">
+                                <strong class="text-xs text-slate-700 block mb-1">${translations[currentLang].label_features}</strong>
+                                <ul class="feature-list text-xs text-slate-600 space-y-1 pl-4">
+                                    ${featuresList}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 text-xs text-slate-500 space-y-2">
+                            <p><strong class="text-slate-700 block mb-1">${translations[currentLang].label_deliv}</strong> ${s.deliverables[currentLang]}</p>
+                            <div class="flex flex-wrap gap-4 pt-2">
+                                <span><strong class="text-slate-700">${translations[currentLang].label_dur}</strong> ${s.duration[currentLang]}</span>
+                                <span><strong class="text-slate-700">${translations[currentLang].label_ideal}</strong> ${s.ideal[currentLang]}</span>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+            });
+            
+            lucide.createIcons();
+        }
+
+        const sections = document.querySelectorAll('section[id^="cat-"]');
+        const navLinks = document.querySelectorAll('.sidebar-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 250)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('th');
+        });
+    </script>
+</body>
+</html>

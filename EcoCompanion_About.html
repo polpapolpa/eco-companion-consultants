@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Eco Companion Consultants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&family=Inter:wght@400;600&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        num: ['Inter', 'sans-serif'],
+                        thai: ['"Noto Sans Thai"', 'sans-serif'], 
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F392B',
+                            darker: '#061C15',
+                            light: '#E6F0EB',
+                            gold: '#C5A065',
+                            sand: '#F5F5F0',
+                            slate: '#334155',
+                            accent: '#059669'
+                        }
+                    },
+                    backgroundImage: {
+                        'about-hero': "linear-gradient(to right, rgba(6, 28, 21, 0.9), rgba(15, 57, 43, 0.7)), url('https://images.unsplash.com/photo-1464822759023-d62667f35824?auto=format&fit=crop&w=1920&q=80')",
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 20px rgba(197, 160, 101, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F9FAFB; transition: font-family 0.2s ease; }
+        body.lang-th { font-family: 'Noto Sans Thai', sans-serif; }
+        body.lang-th .font-serif, body.lang-th h1, body.lang-th h2 { font-family: 'Noto Sans Thai', sans-serif !important; }
+        .lang-active { font-weight: 700; color: #C5A065; border-bottom: 2px solid #C5A065; }
+
+        /* CSS for Infographic Connectors */
+        .step-connector { position: absolute; top: 3rem; left: 50%; width: 100%; height: 3px; background: #E5E7EB; z-index: 0; }
+        .step-arrow { position: absolute; top: 50%; right: -1rem; transform: translateY(-50%); color: #9CA3AF; z-index: 10; }
+        @media (max-width: 768px) { .step-connector, .step-arrow { display: none; } }
+    </style>
+</head>
+<body class="text-slate-700 antialiased lang-th">
+
+    <nav class="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-slate-400 group-hover:text-brand-dark transition"></i>
+                    <span class="text-sm font-bold text-slate-600 group-hover:text-brand-dark transition" data-i18n="back_home">Back to Home</span>
+                </a>
+                
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="logo.png" alt="Eco Companion" class="h-16 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="hidden flex-col">
+                        <span class="font-serif font-bold text-lg text-brand-dark tracking-wide leading-none uppercase">Eco Companion</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3 text-xs font-medium border-r border-slate-200 pr-6">
+                        <button onclick="changeLanguage('th')" id="btn-th" class="px-1 hover:text-brand-gold transition lang-active">TH</button>
+                        <span class="text-slate-300">/</span>
+                        <button onclick="changeLanguage('en')" id="btn-en" class="px-1 hover:text-brand-gold transition">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative py-32 bg-about-hero bg-cover bg-center text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="text-brand-gold text-sm font-bold uppercase tracking-[0.2em] mb-6 block animate-fade-in-up" data-i18n="hero_subtitle">About Us</span>
+            <h1 class="font-serif text-5xl md:text-6xl font-bold mb-8 leading-tight animate-fade-in-up delay-100" data-i18n="hero_title">From Complexity to Clarity: <br/>Your Nature-Positive Companion.</h1>
+            <p class="text-brand-light/90 max-w-3xl mx-auto text-xl font-light leading-relaxed animate-fade-in-up delay-200" data-i18n="hero_desc">
+                เราเชื่อมโยงวิทยาศาสตร์ที่ซับซ้อน เข้ากับเป้าหมายทางธุรกิจ เพื่อสร้างคุณค่าที่ยั่งยืนและวัดผลได้จริง
+            </p>
+        </div>
+    </header>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-brand-gold text-xs font-bold uppercase tracking-wider block mb-4" data-i18n="origin_label">Our Origin</span>
+                    <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6 leading-snug" data-i18n="origin_title">Why We Exist</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8" data-i18n="origin_desc1">
+                        ความหลากหลายทางชีวภาพมักถูกมองเป็นเรื่องซับซ้อน ข้อมูลกระจัดกระจาย และเป็น "ภาระ" ทางธุรกิจ Eco Companion เกิดขึ้นมาเพื่อเชื่อมช่องว่างนี้ เราเชื่อว่าเมื่อวิทยาศาสตร์ที่ถูกต้องมาเจอกับกลยุทธ์ที่ใช่ ธรรมชาติจะกลายเป็นสินทรัพย์ที่ทรงคุณค่าที่สุด
+                    </p>
+                    
+                    <div class="bg-brand-sand p-8 rounded-lg border-l-4 border-brand-gold mb-8">
+                        <h3 class="font-bold text-brand-dark text-xl mb-4 flex items-center"><i data-lucide="heart-handshake" class="w-6 h-6 mr-3 text-brand-gold"></i> The "Companion" Way</h3>
+                        <p class="text-slate-700 italic" data-i18n="philosophy_desc">
+                            "เราไม่ใช่แค่ที่ปรึกษาที่ส่งรายงานแล้วจากไป แต่คือเพื่อนร่วมทางที่พร้อมเคียงข้าง แปลงเรื่องยากให้เป็นเรื่องง่าย และมองหาโอกาสใหม่ๆ ให้คุณเสมอ"
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4 mt-8">
+                         <div class="bg-brand-light/30 p-6 rounded-lg text-center hover:-translate-y-1 transition">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-brand-dark mx-auto mb-4"></i>
+                            <h4 class="font-bold text-brand-dark mb-2" data-i18n="val1_title">Trusted</h4>
+                            <p class="text-sm text-slate-600" data-i18n="val1_desc">ความจริงบนพื้นฐานข้อมูล (Data-driven)</p>
+                        </div>
+                        <div class="bg-brand-light/30 p-6 rounded-lg text-center hover:-translate-y-1 transition">
+                            <i data-lucide="message-circle" class="w-10 h-10 text-brand-dark mx-auto mb-4"></i>
+                            <h4 class="font-bold text-brand-dark mb-2" data-i18n="val2_title">Accessible</h4>
+                            <p class="text-sm text-slate-600" data-i18n="val2_desc">สื่อสารเรื่องยากให้เข้าใจง่าย</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-brand-light/30 p-6 rounded-lg text-center hover:-translate-y-1 transition">
+                            <i data-lucide="telescope" class="w-10 h-10 text-brand-dark mx-auto mb-4"></i>
+                            <h4 class="font-bold text-brand-dark mb-2" data-i18n="val3_title">Proactive</h4>
+                            <p class="text-sm text-slate-600" data-i18n="val3_desc">มองการณ์ไกล จัดการความเสี่ยงล่วงหน้า</p>
+                        </div>
+                        <div class="h-full min-h-[200px] rounded-lg overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1552799446-159baee8618f?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Teamwork in nature">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-y border-gray-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 relative z-10">
+                <span class="text-brand-gold font-bold tracking-widest uppercase text-sm" data-i18n="process_label">Our Work Process</span>
+                <h2 class="text-4xl font-serif font-bold text-brand-dark mt-2" data-i18n="process_title">The Path to Nature-Positive Value</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto" data-i18n="process_desc">กระบวนการทำงานที่เป็นระบบของเรา เปลี่ยนความซับซ้อนทางธรรมชาติ ให้เป็นคุณค่าทางธุรกิจที่ยั่งยืนใน 4 ขั้นตอน</p>
+            </div>
+
+            <div class="relative">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <div class="relative text-center group md:pr-4">
+                        <div class="hidden md:block step-connector"></div>
+                        <div class="hidden md:block step-arrow"><i data-lucide="chevron-right" class="w-6 h-6"></i></div>
+                        <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-dark text-brand-dark rounded-full flex items-center justify-center text-3xl shadow-lg relative z-10 group-hover:scale-110 group-hover:bg-brand-dark group-hover:text-white transition-all duration-300">
+                            <i data-lucide="search-check" class="w-10 h-10"></i>
+                        </div>
+                        <div class="mt-6 bg-white p-6 rounded-lg shadow-sm border-t-4 border-brand-dark hover:shadow-md transition-shadow relative overflow-hidden">
+                            <span class="text-5xl font-serif font-bold text-gray-100 absolute top-20 right-4 -z-10">01</span>
+                            <h3 class="text-xl font-bold text-brand-dark mb-1" data-i18n="step1_title">1. Assess & Baseline</h3>
+                            <p class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-3" data-i18n="step1_sub">สำรวจและตั้งค่าเริ่มต้น</p>
+                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="step1_desc">ระบุความเสี่ยงและเก็บข้อมูลวิทยาศาสตร์ภาคสนาม เพื่อสร้างฐานข้อมูลที่แม่นยำ</p>
+                        </div>
+                    </div>
+                    <div class="relative text-center group md:px-2">
+                        <div class="hidden md:block step-connector" style="left: 50%; width: 100%;"></div>
+                        <div class="hidden md:block step-arrow" style="right: -1rem;"><i data-lucide="chevron-right" class="w-6 h-6"></i></div>
+                        <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-accent text-brand-accent rounded-full flex items-center justify-center text-3xl shadow-lg relative z-10 group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+                            <i data-lucide="map" class="w-10 h-10"></i>
+                        </div>
+                        <div class="mt-6 bg-white p-6 rounded-lg shadow-sm border-t-4 border-brand-accent hover:shadow-md transition-shadow relative overflow-hidden">
+                             <span class="text-5xl font-serif font-bold text-gray-100 absolute top-20 right-4 -z-10">02</span>
+                            <h3 class="text-xl font-bold text-brand-dark mb-1" data-i18n="step2_title">2. Plan & Design</h3>
+                            <p class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-3" data-i18n="step2_sub">วางแผนและออกแบบ</p>
+                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="step2_desc">เปลี่ยนข้อมูลเป็นกลยุทธ์องค์กร (TNFD) และออกแบบพิมพ์เขียวเพื่อการฟื้นฟูระบบนิเวศ</p>
+                        </div>
+                    </div>
+                    <div class="relative text-center group md:px-2">
+                         <div class="hidden md:block step-connector" style="left: 50%; width: 100%;"></div>
+                        <div class="hidden md:block step-arrow" style="right: -1rem;"><i data-lucide="chevron-right" class="w-6 h-6"></i></div>
+                        <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-accent text-brand-accent rounded-full flex items-center justify-center text-3xl shadow-lg relative z-10 group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+                            <i data-lucide="sprout" class="w-10 h-10"></i>
+                        </div>
+                        <div class="mt-6 bg-white p-6 rounded-lg shadow-sm border-t-4 border-brand-accent hover:shadow-md transition-shadow relative overflow-hidden">
+                             <span class="text-5xl font-serif font-bold text-gray-100 absolute top-20 right-4 -z-10">03</span>
+                            <h3 class="text-xl font-bold text-brand-dark mb-1" data-i18n="step3_title">3. Act & Monitor</h3>
+                            <p class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-3" data-i18n="step3_sub">ลงมือทำและติดตามผล</p>
+                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="step3_desc">ดำเนินการเคียงข้างหน้างาน สร้างการมีส่วนร่วม และติดตามผลด้วยตัวชี้วัดทางวิทยาศาสตร์</p>
+                        </div>
+                    </div>
+                    <div class="relative text-center group md:pl-4">
+                        <div class="w-20 h-20 mx-auto bg-brand-gold text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-brand-gold/30 relative z-10 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 ring-4 ring-white ring-offset-2 ring-offset-brand-gold">
+                            <i data-lucide="award" class="w-10 h-10"></i>
+                        </div>
+                        <div class="mt-6 bg-brand-dark p-6 rounded-lg shadow-xl border-t-4 border-brand-gold transform scale-105 hover:scale-110 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-gold/20 to-transparent opacity-50"></div>
+                             <span class="text-5xl font-serif font-bold text-brand-gold/20 absolute top-20 right-4 -z-10">04</span>
+                            <h3 class="text-xl font-bold text-white mb-1 relative z-10" data-i18n="step4_title">4. Realize Value</h3>
+                            <p class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-3 relative z-10" data-i18n="step4_sub">สร้างมูลค่าที่ยั่งยืน</p>
+                            <p class="text-sm text-brand-light/90 leading-relaxed relative z-10" data-i18n="step4_desc">เปลี่ยนผลลัพธ์เป็นสินทรัพย์ทางธุรกิจ: Carbon Credits, รายงานความยั่งยืน, และชื่อเสียงองค์กร</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="text-center mt-16">
+                <p class="font-serif text-xl text-brand-dark italic" data-i18n="process_quote">"We are with you at every step, from initial assessment to realizing sustainable value."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider block mb-4" data-i18n="standards_label">Our Foundation</span>
+            <h2 class="font-serif text-4xl font-bold text-brand-dark mb-12" data-i18n="standards_title">Science-Based, Business-Aligned Standards</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+                <div class="p-8 bg-brand-sand rounded-lg border border-brand-dark/5">
+                    <i data-lucide="clipboard-check" class="w-12 h-12 text-brand-dark mx-auto mb-6"></i>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3" data-i18n="std1_title">Rigorous QA/QC Protocols</h3>
+                    <p class="text-slate-600" data-i18n="std1_desc">ควบคุมคุณภาพการเก็บข้อมูลภาคสนามอย่างเข้มงวด เพื่อให้ได้ข้อมูลที่ถูกต้องและแม่นยำที่สุด</p>
+                </div>
+                <div class="p-8 bg-brand-sand rounded-lg border border-brand-dark/5">
+                    <i data-lucide="globe-2" class="w-12 h-12 text-brand-dark mx-auto mb-6"></i>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3" data-i18n="std2_title">Global Framework Alignment</h3>
+                    <p class="text-slate-600" data-i18n="std2_desc">กระบวนการทำงานสอดคล้องกับมาตรฐานสากล เช่น TNFD, GRI, และ IFC Performance Standard 6</p>
+                </div>
+                <div class="p-8 bg-brand-sand rounded-lg border border-brand-dark/5 relative overflow-hidden">
+                    <i data-lucide="graduation-cap" class="w-32 h-32 text-brand-dark/5 absolute -bottom-8 -right-8 pointer-events-none"></i>
+                    <i data-lucide="users-2" class="w-12 h-12 text-brand-dark mx-auto mb-6 relative z-10"></i>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3 relative z-10" data-i18n="std3_title">Academic & Expert Network</h3>
+                    <p class="text-slate-600 relative z-10" data-i18n="std3_desc">
+                        ร่วมมือกับสถาบันการศึกษาชั้นนำ เช่น <strong>มหาวิทยาลัยมหิดล (Mahidol University)</strong> เพื่อรับรองความถูกต้องทางวิชาการ
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-brand-dark rounded-2xl p-12 md:p-16 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+                <div class="relative z-10">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-6" data-i18n="cta_title">Ready to start your nature-positive journey?</h2>
+                    <p class="text-brand-light/80 text-lg mb-10 max-w-2xl mx-auto" data-i18n="cta_desc">ให้เราเป็นเพื่อนร่วมทาง ช่วยคุณเปลี่ยนความท้าทายทางธรรมชาติให้เป็นโอกาสที่ยั่งยืน</p>
+                    <a href="index.html#contact" class="inline-block bg-brand-gold text-brand-dark px-8 py-4 rounded-sm font-bold text-lg hover:bg-white transition duration-300 shadow-gold-glow" data-i18n="cta_btn">Book a Free Consultation</a>
+                </div>
+            </div>
+         </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white/40 py-8 text-center text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+            &copy; 2026 Eco Companion Consultants Co., Ltd. All rights reserved. | <a href="index.html" class="hover:text-white" data-i18n="back_home">Back to Home</a>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const translations = {
+            en: {
+                back_home: "Back to Home",
+                hero_subtitle: "About Us",
+                hero_title: "From Complexity to Clarity: <br/>Your Nature-Positive Companion.",
+                hero_desc: "We bridge complex science with business goals to create sustainable, measurable value.",
+                origin_label: "Our Origin",
+                origin_title: "Why We Exist",
+                origin_desc1: "Biodiversity is often seen as complex, data-scarce, and a business 'burden'. Eco Companion was born to bridge this gap. We believe that when rigorous science meets the right strategy, nature becomes your most valuable asset.",
+                philosophy_desc: "\"We are not just consultants who deliver reports and leave. We are companions ready to walk beside you, simplifying the complex and constantly looking for new opportunities.\"",
+                val1_title: "Trusted", val1_desc: "Truth based on data (Data-driven).",
+                val2_title: "Accessible", val2_desc: "Simplifying complexity clearly.",
+                val3_title: "Proactive", val3_desc: "Forward-thinking risk management.",
+                process_label: "Our Work Process",
+                process_title: "The Path to Nature-Positive Value",
+                process_desc: "Our systematic process transforms nature's complexity into sustainable business value in 4 steps.",
+                step1_title: "1. Assess & Baseline", step1_sub: "Identify & Establish", step1_desc: "Identify red flags and collect field science data to create accurate baselines.",
+                step2_title: "2. Plan & Design", step2_sub: "Strategize & Blueprint", step2_desc: "Convert data into corporate strategy (TNFD) and design blueprints for ecosystem restoration.",
+                step3_title: "3. Act & Monitor", step3_sub: "Implement & Track", step3_desc: "Work closely on-site, build engagement, and track results with scientific indicators.",
+                step4_title: "4. Realize Value", step4_sub: "Sustainable Assets", step4_desc: "Transform results into business assets: Carbon Credits, Sustainability Reports, and Reputation.",
+                process_quote: "\"We are with you at every step, from initial assessment to realizing sustainable value.\"",
+                standards_label: "Our Foundation",
+                standards_title: "Science-Based, Business-Aligned Standards",
+                std1_title: "Rigorous QA/QC Protocols", std1_desc: "Strict quality control of field data collection for the highest accuracy.",
+                std2_title: "Global Framework Alignment", std2_desc: "Aligned with international standards like TNFD, GRI, and IFC Performance Standard 6.",
+                std3_title: "Academic & Expert Network", std3_desc: "Collaborating with leading academic institutions like <strong>Mahidol University</strong> to ensure academic rigor.",
+                cta_title: "Ready to start your nature-positive journey?",
+                cta_desc: "Let us be your companion, helping you turn nature challenges into sustainable opportunities.",
+                cta_btn: "Book a Free Consultation"
+            },
+            th: {
+                back_home: "กลับสู่หน้าหลัก",
+                hero_subtitle: "เกี่ยวกับเรา",
+                hero_title: "จากความซับซ้อน สู่ความชัดเจน: <br/>เพื่อนคู่คิดสู่ความยั่งยืนทางธรรมชาติ",
+                hero_desc: "เราเชื่อมโยงวิทยาศาสตร์ที่ซับซ้อน เข้ากับเป้าหมายทางธุรกิจ เพื่อสร้างคุณค่าที่ยั่งยืนและวัดผลได้จริง",
+                origin_label: "จุดเริ่มต้นของเรา",
+                origin_title: "ทำไมเราถึงเกิดขึ้นมา",
+                origin_desc1: "ความหลากหลายทางชีวภาพมักถูกมองเป็นเรื่องซับซ้อน ข้อมูลกระจัดกระจาย และเป็น 'ภาระ' ทางธุรกิจ Eco Companion เกิดขึ้นมาเพื่อเชื่อมช่องว่างนี้ เราเชื่อว่าเมื่อวิทยาศาสตร์ที่ถูกต้องมาเจอกับกลยุทธ์ที่ใช่ ธรรมชาติจะกลายเป็นสินทรัพย์ที่ทรงคุณค่าที่สุด",
+                philosophy_desc: "\"เราไม่ใช่แค่ที่ปรึกษาที่ส่งรายงานแล้วจากไป แต่คือเพื่อนร่วมทางที่พร้อมเคียงข้าง แปลงเรื่องยากให้เป็นเรื่องง่าย และมองหาโอกาสใหม่ๆ ให้คุณเสมอ\"",
+                val1_title: "น่าเชื่อถือ (Trusted)", val1_desc: "ความจริงบนพื้นฐานข้อมูล (Data-driven)",
+                val2_title: "เข้าถึงง่าย (Accessible)", val2_desc: "สื่อสารเรื่องยากให้เข้าใจง่าย",
+                val3_title: "มองการณ์ไกล (Proactive)", val3_desc: "จัดการความเสี่ยงล่วงหน้า",
+                process_label: "กระบวนการทำงานของเรา",
+                process_title: "เส้นทางสู่คุณค่าที่ยั่งยืน",
+                process_desc: "กระบวนการทำงานที่เป็นระบบของเรา เปลี่ยนความซับซ้อนทางธรรมชาติ ให้เป็นคุณค่าทางธุรกิจที่ยั่งยืนใน 4 ขั้นตอน",
+                step1_title: "1. Assess & Baseline", step1_sub: "สำรวจและตั้งค่าเริ่มต้น", step1_desc: "ระบุความเสี่ยงและเก็บข้อมูลวิทยาศาสตร์ภาคสนาม เพื่อสร้างฐานข้อมูลที่แม่นยำ",
+                step2_title: "2. Plan & Design", step2_sub: "วางแผนและออกแบบ", step2_desc: "เปลี่ยนข้อมูลเป็นกลยุทธ์องค์กร (TNFD) และออกแบบพิมพ์เขียวเพื่อการฟื้นฟูระบบนิเวศ",
+                step3_title: "3. Act & Monitor", step3_sub: "ลงมือทำและติดตามผล", step3_desc: "ดำเนินการเคียงข้างหน้างาน สร้างการมีส่วนร่วม และติดตามผลด้วยตัวชี้วัดทางวิทยาศาสตร์",
+                step4_title: "4. Realize Value", step4_sub: "สร้างมูลค่าที่ยั่งยืน", step4_desc: "เปลี่ยนผลลัพธ์เป็นสินทรัพย์ทางธุรกิจ: Carbon Credits, รายงานความยั่งยืน, และชื่อเสียงองค์กร",
+                process_quote: "\"เราอยู่เคียงข้างคุณในทุกขั้นตอน ตั้งแต่การประเมินเริ่มต้น จนถึงวันที่คุณเก็บเกี่ยวความสำเร็จที่ยั่งยืน\"",
+                standards_label: "รากฐานของเรา",
+                standards_title: "มาตรฐานวิทยาศาสตร์ ที่ตอบโจทย์ธุรกิจ",
+                std1_title: "โปรโตคอล QA/QC ที่เข้มงวด", std1_desc: "ควบคุมคุณภาพการเก็บข้อมูลภาคสนามอย่างเข้มงวด เพื่อให้ได้ข้อมูลที่ถูกต้องและแม่นยำที่สุด",
+                std2_title: "สอดคล้องกับกรอบสากล", std2_desc: "กระบวนการทำงานสอดคล้องกับมาตรฐานสากล เช่น TNFD, GRI, และ IFC Performance Standard 6",
+                std3_title: "เครือข่ายวิชาการและผู้เชี่ยวชาญ", std3_desc: "ร่วมมือกับสถาบันการศึกษาชั้นนำ เช่น <strong>มหาวิทยาลัยมหิดล (Mahidol University)</strong> เพื่อรับรองความถูกต้องทางวิชาการ",
+                cta_title: "พร้อมเริ่มต้นเส้นทาง Nature-Positive กับเราหรือยัง?",
+                cta_desc: "ให้เราเป็นเพื่อนร่วมทาง ช่วยคุณเปลี่ยนความท้าทายทางธรรมชาติให้เป็นโอกาสที่ยั่งยืน",
+                cta_btn: "นัดปรึกษาเบื้องต้นฟรี"
+            }
+        };
+
+        let currentLang = 'th';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('btn-th').classList.remove('lang-active', 'text-slate-400');
+            document.getElementById('btn-en').classList.remove('lang-active', 'text-slate-400');
+            document.getElementById(`btn-${lang}`).classList.add('lang-active');
+            document.getElementById(`btn-${lang === 'th' ? 'en' : 'th'}`).classList.add('text-slate-400');
+
+            if (lang === 'th') {
+                document.body.classList.remove('lang-en');
+                document.body.classList.add('lang-th');
+            } else {
+                document.body.classList.remove('lang-th');
+                document.body.classList.add('lang-en');
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('th');
+        });
+    </script>
+</body>
+</html>
