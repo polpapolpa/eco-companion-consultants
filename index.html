@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Fonts: IBM Plex Sans Thai & Noto Serif Thai -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <script>
@@ -27,8 +26,6 @@
                             light: '#E6F0EB',
                             gold: '#C5A065',
                             sand: '#F5F5F0',
-                            slate: '#334155',
-                            sage: '#8DA399',
                             accent: '#059669'
                         }
                     },
@@ -40,16 +37,8 @@
         }
     </script>
     <style>
-        body.lang-th { 
-            line-height: 1.8;
-            letter-spacing: 0.01em;
-        }
-        body.lang-th h1, body.lang-th h2, body.lang-th h3, body.lang-th .font-serif { 
-            font-family: 'Noto Serif Thai', serif !important;
-            line-height: 1.4;
-            letter-spacing: 0;
-        }
-        body { background-color: #F5F5F0; }
+        body.lang-th { line-height: 1.8; letter-spacing: 0.01em; }
+        body.lang-th h1, body.lang-th h2, body.lang-th h3, body.lang-th .font-serif { font-family: 'Noto Serif Thai', serif !important; line-height: 1.4; }
         .nav-scrolled { background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px -5px rgba(0,0,0,0.1); height: 80px !important; }
         .nav-scrolled .nav-text { color: #0F392B !important; }
         .lang-active { font-weight: 700; color: #C5A065; position: relative; }
@@ -59,53 +48,52 @@
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .marquee { display: flex; width: 200%; animation: scroll 30s linear infinite; }
         
-        .step-connector { position: absolute; top: 2.5rem; left: 50%; width: 100%; height: 2px; background: #E5E7EB; z-index: 0; }
-        @media (max-width: 768px) { .step-connector { display: none; } }
+        .journey-line::before {
+            content: ''; position: absolute; top: 1.75rem; left: 50%; width: 100%; height: 2px;
+            background-image: linear-gradient(to right, #E5E7EB 50%, transparent 50%);
+            background-size: 12px 100%; z-index: 0;
+        }
+        @media (max-width: 1024px) { .journey-line::before { display: none; } }
     </style>
 </head>
-<body class="text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th">
+<body class="bg-brand-sand text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-transparent" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="flex flex-col">
-                        <span class="font-serif font-bold text-xl tracking-wide leading-none uppercase nav-text text-white transition-colors duration-300">Eco Companion</span>
-                        <span class="text-[10px] text-brand-gold font-bold tracking-[0.1em] uppercase mt-1">Consultants</span>
-                    </div>
-                </div>
-                
-                <div class="hidden lg:flex space-x-10 items-center">
-                    <a href="#about" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_about">About</a>
-                    <a href="#segments" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_clients">Clients</a>
-                    <a href="#services" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_services">Solutions</a>
-                    <a href="#insights" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_insights">Insights</a>
-                    <div class="flex items-center gap-3 text-xs font-medium border-l border-white/20 pl-6">
-                        <button onclick="changeLanguage('th')" id="btn-th" class="nav-text text-white hover:text-brand-gold transition lang-active">TH</button>
-                        <span class="text-white/30">/</span>
-                        <button onclick="changeLanguage('en')" id="btn-en" class="nav-text text-white hover:text-brand-gold transition">EN</button>
-                    </div>
-                    <a href="#contact" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-sm text-sm font-bold hover:bg-white transition duration-300 shadow-lg flex items-center gap-2">
-                        <span data-i18n="nav_book">Book Consultation</span>
-                        <i data-lucide="calendar" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <div class="lg:hidden"><button id="mobile-menu-btn" class="nav-text text-white p-2"><i data-lucide="menu" class="w-6 h-6"></i></button></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            <div class="flex flex-col cursor-pointer" onclick="window.scrollTo(0,0)">
+                <span class="font-serif font-bold text-xl uppercase nav-text text-white">Eco Companion</span>
+                <span class="text-[10px] text-brand-gold font-bold tracking-widest uppercase">Consultants</span>
             </div>
+            
+            <div class="hidden lg:flex space-x-10 items-center">
+                <a href="#about" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition" data-i18n="nav_about">About</a>
+                <a href="#expertise" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition" data-i18n="nav_expertise">Success Stories</a>
+                <a href="#services" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition" data-i18n="nav_services">Solutions</a>
+                <div class="flex items-center gap-3 text-xs border-l border-white/20 pl-6">
+                    <button onclick="changeLanguage('th')" id="btn-th" class="nav-text text-white lang-active">TH</button>
+                    <button onclick="changeLanguage('en')" id="btn-en" class="nav-text text-white">EN</button>
+                </div>
+                <a href="#contact" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-sm text-sm font-bold hover:bg-white transition flex items-center gap-2 shadow-lg">
+                    <span data-i18n="nav_book">Consult Now</span>
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <div class="lg:hidden"><button id="mobile-menu-btn" class="nav-text text-white"><i data-lucide="menu" class="w-6 h-6"></i></button></div>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark transform translate-x-full transition-transform duration-300 lg:hidden">
-        <div class="p-6 flex justify-between items-center border-b border-white/10"><span class="text-white font-serif font-bold">Eco Companion</span><button id="close-menu-btn" class="text-white"><i data-lucide="x" class="w-6 h-6"></i></button></div>
-        <div class="p-8 flex flex-col gap-6 text-2xl font-serif text-white">
-            <a href="#about" onclick="document.getElementById('close-menu-btn').click()">About</a>
-            <a href="#segments" onclick="document.getElementById('close-menu-btn').click()">Clients</a>
+        <div class="p-6 flex justify-between items-center border-b border-white/10">
+            <span class="text-white font-serif font-bold">Eco Companion</span>
+            <button id="close-menu-btn" class="text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        <div class="p-8 flex flex-col gap-8 text-2xl font-serif text-white text-center">
+            <a href="#about" onclick="document.getElementById('close-menu-btn').click()">About Us</a>
+            <a href="#expertise" onclick="document.getElementById('close-menu-btn').click()">Expertise</a>
             <a href="#services" onclick="document.getElementById('close-menu-btn').click()">Solutions</a>
-            <a href="#insights" onclick="document.getElementById('close-menu-btn').click()">Insights</a>
-            <a href="#contact" onclick="document.getElementById('close-menu-btn').click()" class="text-brand-gold pt-4 border-t border-white/10">Book Consultation</a>
+            <a href="#contact" onclick="document.getElementById('close-menu-btn').click()" class="text-brand-gold">Contact</a>
         </div>
     </div>
 
@@ -115,13 +103,13 @@
             <div class="max-w-4xl">
                 <div class="inline-flex items-center gap-3 mb-8 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl">
                     <span class="w-2 h-2 bg-brand-gold rounded-full animate-pulse"></span>
-                    <span class="text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase font-sans">Connecting Science with Strategy</span>
+                    <span class="text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase font-sans">Strategic Nature Companion</span>
                 </div>
                 <h1 class="font-serif text-5xl lg:text-7xl font-bold text-white leading-tight mb-8" data-i18n="hero_title">Turn Nature Risks into <br/><span class="text-brand-gold italic">Strategic Assets.</span></h1>
-                <p class="text-xl text-gray-200 mb-12 max-w-2xl font-light leading-relaxed" data-i18n="hero_desc">ที่ปรึกษาด้านความหลากหลายทางชีวภาพ และสิ่งแวดล้อม เราผสานวิทยาศาสตร์ กับการมีส่วนร่วม พัฒนากลยุทธ์ทางธุรกิจ เพื่อเปลี่ยน "ภาระ" ให้เป็น "ความยั่งยืน" ที่วัดผลได้จริง</p>
+                <p class="text-xl text-gray-200 mb-12 max-w-2xl font-light leading-relaxed" data-i18n="hero_desc">ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ เราผสานวิทยาศาสตร์เข้ากับกลยุทธ์ทางธุรกิจ เพื่อเปลี่ยน "ภาระ" ให้เป็น "ความยั่งยืน" ที่วัดผลได้จริง</p>
                 <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="#services" class="bg-brand-gold text-brand-dark px-10 py-5 rounded-sm font-bold text-lg hover:bg-white transition duration-300 shadow-xl text-center" data-i18n="btn_explore">Explore Services</a>
-                    <a href="#about" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-5 rounded-sm font-bold text-lg hover:bg-white hover:text-brand-dark transition duration-300 text-center">Our Philosophy</a>
+                    <a href="#expertise" class="bg-brand-gold text-brand-dark px-10 py-5 rounded-sm font-bold text-lg hover:bg-white transition shadow-xl text-center" data-i18n="btn_explore">See Impact</a>
+                    <a href="#services" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-5 rounded-sm font-bold text-lg hover:bg-white hover:text-brand-dark transition text-center">Our Solutions</a>
                 </div>
             </div>
         </div>
@@ -147,7 +135,7 @@
                 <div class="fade-in-section">
                     <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Our Origin & Philosophy</span>
                     <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6" data-i18n="about_title">Science-Based. <br/><span class="italic text-brand-gold">Business-Aligned.</span></h2>
-                    <p class="text-slate-600 text-2xl font-light leading-relaxed mb-8" data-i18n="about_desc">
+                    <p class="text-slate-600 text-xl font-light leading-relaxed mb-8" data-i18n="about_desc">
                         เราไม่ใช่แค่นักวิชาการ แต่คือ "Companion" ที่เข้าใจบริบทธุรกิจ เราเชื่อว่าความหลากหลายทางชีวภาพไม่ควรเป็นภาระ แต่คือสินทรัพย์ที่ทรงคุณค่าที่สุดเมื่อมีการจัดการที่ถูกต้อง
                     </p>
                     <div class="bg-white p-6 rounded-sm border-l-4 border-brand-gold shadow-sm italic text-slate-700 mb-8">
@@ -190,81 +178,134 @@
                 </div>
                 <div class="bg-white p-10 rounded-sm shadow-sm flex flex-col justify-center items-center text-center border border-slate-100 hover:border-brand-gold transition duration-300">
                     <div class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="mountain-snow" class="w-8 h-8 text-brand-dark"></i>
+                        <i data-lucide="briefcase" class="w-8 h-8 text-brand-dark"></i>
                     </div>
                     <span class="font-num text-5xl font-bold text-brand-dark">50+</span>
-                    <span class="text-base font-bold text-slate-400 mt-2 uppercase tracking-widest leading-relaxed" data-i18n="stat_projects">Habitats Sustainably Protected</span>
+                    <span class="text-xs font-bold text-slate-400 mt-2 uppercase tracking-widest" data-i18n="stat_projects">Projects Delivered</span>
                 </div>
                 <div class="bg-white p-10 rounded-sm shadow-sm flex flex-col justify-center items-center text-center border border-slate-100 hover:border-brand-gold transition duration-300">
-                    <div class="w-16 h-16 bg-brand-sand rounded-full flex items-center justify-center mb-4">
-                        <i data-lucide="users" class="w-8 h-8 text-brand-dark"></i>
+                    <div class="w-12 h-12 bg-brand-sand rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="database" class="w-6 h-6 text-brand-dark"></i>
                     </div>
                     <span class="font-num text-5xl font-bold text-brand-dark">15k+</span>
-                    <span class="text-base font-bold text-slate-400 mt-2 uppercase tracking-widest leading-relaxed" data-i18n="stat_records">Lives & Communities Benefited</span>
+                    <span class="text-xs font-bold text-slate-400 mt-2 uppercase tracking-widest">Taxa Records</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW: Customer Segments (Who We Empower) -->
-    <section id="segments" class="py-24 bg-white border-t border-slate-100">
+    <!-- Industry Expertise Section (8 Sectors - Reorganized) -->
+    <section id="expertise" class="py-32 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-section">
-                <span class="text-brand-gold text-lg font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="segment_label">Who We Empower</span>
-                <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6" data-i18n="segment_title">Partnering for Strategic Value</h2>
-                <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto" data-i18n="segment_desc">เราส่งมอบโซลูชันที่ออกแบบเฉพาะเพื่อตอบโจทย์ทางธุรกิจที่แตกต่างกันในแต่ละอุตสาหกรรม</p>
+            <div class="text-center mb-20 fade-in-section">
+                <span class="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4 block" data-i18n="expertise_label">Industry Expertise</span>
+                <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6">Solving Real Sector Challenges</h2>
+                <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto">โซลูชันที่ออกแบบเฉพาะเพื่อตอบโจทย์ทางธุรกิจในทุกระดับอุตสาหกรรม</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Segment 1: Real Estate -->
-                <div class="group p-0 rounded-sm bg-gray-50 hover:bg-white hover:shadow-xl transition duration-500 border border-transparent hover:border-brand-gold relative overflow-hidden pb-8">
-                    <div class="w-full h-48 overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition duration-500 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <!-- 1. Energy -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Energy</div>
                     </div>
-                    <div class="px-6">
-                        <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="seg1_title">Real Estate &<br/>Hospitality</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-4" data-i18n="seg1_desc">สร้างจุดขาย Eco-Living และเพิ่มมูลค่าโครงการด้วยพื้นที่สีเขียวที่ใช้งานได้จริง (Functional Green Space)</p>
-                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest">Value: Eco-Premium & Well-being</span>
-                    </div>
-                </div>
-
-                <!-- Segment 2: Listed Companies -->
-                <div class="group p-0 rounded-sm bg-gray-50 hover:bg-white hover:shadow-xl transition duration-500 border border-transparent hover:border-brand-gold relative overflow-hidden pb-8">
-                    <div class="w-full h-48 overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition duration-500 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    </div>
-                    <div class="px-6">
-                        <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="seg2_title">Corporate &<br/>Listed Companies</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-4" data-i18n="seg2_desc">ยกระดับคะแนน ESG และเตรียมความพร้อมสำหรับ TNFD เพื่อสร้างความเชื่อมั่นให้นักลงทุน</p>
-                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest">Value: ESG Ratings & Reputation</span>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Renewable Energy</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">ลดเวลารอใบอนุญาตด้วยข้อมูลที่ครบถ้วน จัดการความเสี่ยง Bird Collision</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Reduced Wait Time: <br/>18 → 11 Months</p>
                     </div>
                 </div>
-
-                <!-- Segment 3: Energy & Infra -->
-                <div class="group p-0 rounded-sm bg-gray-50 hover:bg-white hover:shadow-xl transition duration-500 border border-transparent hover:border-brand-gold relative overflow-hidden pb-8">
-                    <div class="w-full h-48 overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition duration-500 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <!-- 2. Real Estate & Hospitality -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Property</div>
                     </div>
-                    <div class="px-6">
-                        <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="seg3_title">Infrastructure &<br/>Energy</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-4" data-i18n="seg3_desc">บริหารจัดการความเสี่ยงทางธรรมชาติ ลดความขัดแย้งชุมชน และสร้างการยอมรับในพื้นที่ (Social License)</p>
-                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest">Value: Risk Mitigation & Trust</span>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Real Estate & Hospitality</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">สร้างจุดขาย Eco-Living / Green Stay และเพิ่มมูลค่าด้วยพื้นที่สีเขียวที่ใช้งานได้จริง</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Green Premium +15% <br/>Guest Satisfaction Up</p>
                     </div>
                 </div>
-
-                <!-- Segment 4: Agriculture & Food (Changed) -->
-                <div class="group p-0 rounded-sm bg-gray-50 hover:bg-white hover:shadow-xl transition duration-500 border border-transparent hover:border-brand-gold relative overflow-hidden pb-8">
-                    <div class="w-full h-48 overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition duration-500 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <!-- 3. Manufacturing & Supply Chain (Merged) -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Industrial & Logistics</div>
                     </div>
-                    <div class="px-6">
-                        <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="seg4_title">Agriculture &<br/>Food</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-4" data-i18n="seg4_desc">ยกระดับห่วงโซ่อุปทานสู่เกษตรฟื้นฟู (Regenerative Agriculture) และการจัดหาวัตถุดิบที่ยั่งยืน</p>
-                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest">Value: Resilience & Supply Chain</span>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Manufacturing & Supply Chain</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">บริหารพื้นที่กันชน (Buffer Zone) และความเสี่ยงทางธรรมชาติในห่วงโซ่อุปทาน</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Zero Complaints <br/>Resilient Supply Chain</p>
+                    </div>
+                </div>
+                <!-- 4. Agriculture & Food (New) -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Agri-Food</div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Agriculture & Food</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">ยกระดับมาตรฐานสินค้าเกษตร (EUDR Compliant) และฟื้นฟูระบบนิเวศในแปลงผลิต</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">EUDR Compliant <br/>Yield +20% (Pollinators)</p>
+                    </div>
+                </div>
+                <!-- 5. CSR -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1591389703635-e15a07b842d7?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">CSR</div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">CSR & Conservation</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">พิสูจน์ผลกระทบที่แท้จริงของการปลูกป่าและการอนุรักษ์ ด้วยข้อมูลที่วัดผลได้</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Species Richness +47% <br/>Measurable Impact</p>
+                    </div>
+                </div>
+                <!-- 6. SME -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">SME</div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">SME & Startups</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">เริ่มต้นสร้างแบรนด์รักษ์โลกด้วยโซลูชันที่ปรับขนาดได้และงบประมาณที่จับต้องได้</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Strategic Value:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Brand Differentiation <br/>Green Starter Kit</p>
+                    </div>
+                </div>
+                <!-- 7. IT -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Tech</div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">IT & Tech Innovation</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">เปลี่ยนข้อมูลธรรมชาติให้เป็นดิจิทัล (Digitized Data) เพื่อต่อยอด AI และนวัตกรรม</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Strategic Value:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">High-Quality Bio-Data <br/>Digital Assets</p>
+                    </div>
+                </div>
+                <!-- 8. Education -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Education</div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Education & Institutions</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">ยกระดับพื้นที่สถาบันให้เป็นแหล่งเรียนรู้ธรรมชาติมาตรฐานสากล (Knowledge Hub)</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Strategic Value:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Future Generation <br/>Learning Center</p>
                     </div>
                 </div>
             </div>
@@ -275,7 +316,7 @@
     <section class="py-32 bg-gray-50 border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 fade-in-section">
-                <span class="text-brand-gold text-lg font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="process_label">Our Work Process</span>
+                <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="process_label">Our Work Process</span>
                 <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6" data-i18n="process_title">The Path to Nature-Positive Value</h2>
                 <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto" data-i18n="process_desc">กระบวนการทำงานที่เป็นระบบ เปลี่ยนความซับซ้อนทางธรรมชาติ ให้เป็นคุณค่าทางธุรกิจที่ยั่งยืนใน 4 ขั้นตอน</p>
             </div>
@@ -283,7 +324,7 @@
             <div class="relative grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Step 1 -->
                 <div class="relative text-center group">
-                    <div class="step-connector"></div>
+                    <div class="journey-line"></div>
                     <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-dark text-brand-dark rounded-full flex items-center justify-center shadow-lg relative z-10 group-hover:bg-brand-dark group-hover:text-white transition">
                         <i data-lucide="search-check" class="w-10 h-10"></i>
                     </div>
@@ -295,7 +336,7 @@
                 </div>
                 <!-- Step 2 -->
                 <div class="relative text-center group">
-                    <div class="step-connector"></div>
+                    <div class="journey-line"></div>
                     <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-accent text-brand-accent rounded-full flex items-center justify-center shadow-lg relative z-10 group-hover:bg-brand-accent group-hover:text-white transition">
                         <i data-lucide="map" class="w-10 h-10"></i>
                     </div>
@@ -307,7 +348,7 @@
                 </div>
                 <!-- Step 3 -->
                 <div class="relative text-center group">
-                    <div class="step-connector"></div>
+                    <div class="journey-line"></div>
                     <div class="w-20 h-20 mx-auto bg-white border-4 border-brand-accent text-brand-accent rounded-full flex items-center justify-center shadow-lg relative z-10 group-hover:bg-brand-accent group-hover:text-white transition">
                         <i data-lucide="sprout" class="w-10 h-10"></i>
                     </div>
@@ -347,7 +388,7 @@
                             <button onclick="filterServices('A')" class="cat-btn w-full text-left px-5 py-3 rounded-sm text-sm font-bold transition-all text-slate-500 hover:bg-brand-sand" data-cat="A">A) Assess (Risk)</button>
                             <button onclick="filterServices('B')" class="cat-btn w-full text-left px-5 py-3 rounded-sm text-sm font-bold transition-all text-slate-500 hover:bg-brand-sand" data-cat="B">B) Plan (Strategy)</button>
                             <button onclick="filterServices('C')" class="cat-btn w-full text-left px-5 py-3 rounded-sm text-sm font-bold transition-all text-slate-500 hover:bg-brand-sand" data-cat="C">C) Monitor (MRV)</button>
-                            <button onclick="filterServices('D')" class="cat-btn w-full text-left px-5 py-3 rounded-sm text-sm font-bold transition-all text-slate-500 hover:bg-brand-sand" data-cat="D">D) Digitalize (Data)</button>
+                            <button onclick="filterServices('D')" class="cat-btn w-full text-left px-5 py-3 rounded-sm text-sm font-bold transition-all text-slate-500 hover:bg-brand-sand" data-cat="D">D) Digitize (Data)</button>
                             <button onclick="filterServices('E')" class="cat-btn w-full text-left px-5 py-3 rounded-sm text-sm font-bold transition-all text-slate-500 hover:bg-brand-sand" data-cat="E">E) Engage (Community)</button>
                         </div>
                         <a href="EcoCompanion_Service_Catalog.html" class="flex items-center gap-3 text-brand-dark font-bold hover:text-brand-gold transition group">
@@ -363,33 +404,27 @@
     <!-- Foundation / Standards -->
     <section class="py-32 bg-brand-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-brand-gold text-lg font-bold uppercase tracking-wider block mb-4" data-i18n="standards_label">Our Foundation</span>
+            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider block mb-4" data-i18n="standards_label">Our Foundation</span>
             <h2 class="font-serif text-4xl font-bold text-brand-dark mb-16" data-i18n="standards_title">Science-Based, Business-Aligned Standards</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="p-10 bg-white rounded-sm border border-slate-100 shadow-sm">
                     <i data-lucide="clipboard-check" class="w-12 h-12 text-brand-dark mx-auto mb-6"></i>
                     <h3 class="text-xl font-bold text-brand-dark mb-3" data-i18n="std1_title">Rigorous QA/QC Protocols</h3>
-                    <p class="text-slate-500 text-sm" data-i18n="std1_desc">ควบคุมคุณภาพการเก็บข้อมูลภาคสนามอย่างเข้มงวด เพื่อความแม่นยำสูงสุด</p>
+                    <p class="text-slate-500 text-sm">ควบคุมคุณภาพการเก็บข้อมูลภาคสนามอย่างเข้มงวด เพื่อความแม่นยำสูงสุด</p>
                 </div>
                 <div class="p-10 bg-white rounded-sm border border-slate-100 shadow-sm">
                     <i data-lucide="globe-2" class="w-12 h-12 text-brand-dark mx-auto mb-6"></i>
                     <h3 class="text-xl font-bold text-brand-dark mb-3" data-i18n="std2_title">Global Frameworks</h3>
-                    <p class="text-slate-500 text-sm" data-i18n="std2_desc">สอดคล้องกับมาตรฐานสากล เช่น TNFD, GRI, และ IFC PS6</p>
+                    <p class="text-slate-500 text-sm">สอดคล้องกับมาตรฐานสากล เช่น TNFD, GRI, และ IFC PS6</p>
                 </div>
-                <!-- Updated Network Card -->
                 <div class="p-10 bg-white rounded-sm border border-slate-100 shadow-sm relative overflow-hidden">
-                    <div class="absolute -bottom-4 -right-4 opacity-5"><i data-lucide="network" class="w-24 h-24"></i></div>
+                    <div class="absolute -bottom-4 -right-4 opacity-5"><i data-lucide="graduation-cap" class="w-24 h-24"></i></div>
                     <i data-lucide="users-2" class="w-12 h-12 text-brand-dark mx-auto mb-6"></i>
-                    <!-- Changed Title Key -->
-                    <h3 class="text-xl font-bold text-brand-dark mb-4" data-i18n="std3_title">Collaborative Network</h3>
-                    <!-- Added data-i18n for dynamic list content -->
-                    <div class="text-slate-500 text-sm text-left space-y-2" data-i18n="std3_desc">
-                        <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Department of Biology, Mahidol University</span></div>
-                        <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Conservation Biology, Mahidol Kanchanaburi</span></div>
-                        <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Rajapruek Institute Foundation</span></div>
-                        <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Baimai Group</span></div>
-                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3" data-i18n="std3_title">Academic Network</h3>
+                    <p class="text-slate-500 text-sm">
+                        ร่วมมือกับผู้เชี่ยวชาญจาก <strong>มหาวิทยาลัยมหิดล</strong> เพื่อรับรองความถูกต้องทางวิชาการ
+                    </p>
                 </div>
             </div>
         </div>
@@ -399,7 +434,7 @@
     <section id="insights" class="py-32 bg-brand-darker text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="fade-in-section"><span class="text-brand-gold text-lg font-bold uppercase tracking-widest block mb-4" data-i18n="knowledge_hub">Knowledge Hub</span><h2 class="font-serif text-5xl font-bold" data-i18n="latest_insights">Latest Insights</h2></div>
+                <div class="fade-in-section"><span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="knowledge_hub">Knowledge Hub</span><h2 class="font-serif text-5xl font-bold" data-i18n="latest_insights">Latest Insights</h2></div>
                 <a href="EcoCompanion_Blog.html" class="bg-white/10 hover:bg-white hover:text-brand-dark px-8 py-4 rounded-sm text-sm font-bold transition border border-white/20 flex items-center gap-2"><span data-i18n="view_all">Read All Articles</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -481,22 +516,15 @@
         // --- DATA & LOGIC ---
         const translations = {
             en: {
-                nav_about: "About", nav_clients: "Clients", nav_services: "Solutions", nav_insights: "Insights", nav_book: "Book Consultation",
+                nav_about: "About", nav_expertise: "Success Stories", nav_services: "Solutions", nav_insights: "Insights", nav_book: "Book Consultation",
                 hero_title: "Turn Nature Risks into <br/><span class='text-brand-gold italic'>Strategic Assets.</span>",
                 hero_desc: "Specialized biodiversity consultancy combining science with business strategy to turn 'burdens' into measurable 'sustainability'.",
-                btn_explore: "Explore Services", trusted_label: "Trusted by Leading Organizations",
+                btn_explore: "See Impact", trusted_label: "Trusted by Leading Organizations",
                 about_title: "Science-Based. <br/><span class='italic text-brand-gold'>Business-Aligned.</span>",
                 about_desc: "We are not just academics, but your 'Companion' who understands business context. We work with expert networks to ensure data accuracy.",
                 value1_title: "De-Risking Your <br/>Project Cycle", value1_desc: "We identify ecosystem red flags early to prevent legal delays and community conflicts.",
                 qa_desc: "Field sampling standards aligned with global research frameworks.",
                 partner_title: "Expert Network", partner_desc: "Collaborating with specialists from Thailand's top universities.",
-                
-                segment_label: "Who We Empower", segment_title: "Partnering for Strategic Value", segment_desc: "We deliver tailored biodiversity solutions that address specific business challenges across key sectors.",
-                seg1_title: "Real Estate &<br/>Hospitality", seg1_desc: "Create 'Eco-Living' selling points and enhance project value with functional green spaces.",
-                seg2_title: "Corporate &<br/>Listed Companies", seg2_desc: "Elevate ESG scores and prepare for TNFD to build investor confidence.",
-                seg3_title: "Infrastructure &<br/>Energy", seg3_desc: "Manage nature risks, reduce community conflicts, and secure social license to operate.",
-                seg4_title: "Agriculture &<br/>Food", seg4_desc: "Transitioning to regenerative agriculture and sustainable sourcing.",
-
                 services_header: "Our Services", services_desc: "Covering the entire project lifecycle, from risk assessment to restoration and engagement.",
                 view_catalog: "View Full Catalog", filter_cat: "Filter by goal",
                 knowledge_hub: "Knowledge Hub", latest_insights: "Latest Insights", view_all: "Read All Articles",
@@ -506,37 +534,18 @@
                 process_label: "Our Work Process", process_title: "The Path to Nature-Positive Value", process_desc: "Our systematic process transforms nature's complexity into sustainable business value in 4 steps.",
                 step1_title: "1. Assess & Baseline", step2_title: "2. Plan & Design", step3_title: "3. Act & Monitor", step4_title: "4. Realize Value",
                 standards_label: "Our Foundation", standards_title: "Science-Based, Business-Aligned Standards",
-                std1_title: "Rigorous QA/QC Protocols", 
-                std1_desc: "Strict field sampling quality control for maximum accuracy.",
-                std2_title: "Global Frameworks", 
-                std2_desc: "Aligned with international standards like TNFD, GRI, and IFC PS6.",
-                std3_title: "Collaborative Network",
-                std3_desc: `
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Dept. of Biology, Mahidol University</span></div>
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Conservation Biology, Mahidol Kanchanaburi</span></div>
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Rajapruek Institute Foundation</span></div>
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>Baimai Group</span></div>
-                `,
-                stat_projects: "Habitats Sustainably<br/>Protected",
-                stat_records: "Lives & Communities<br/>Benefited"
+                std1_title: "Rigorous QA/QC Protocols", std2_title: "Global Frameworks", std3_title: "Academic Network",
+                stat_projects: "Projects Delivered",
+                expertise_label: "Industry Expertise"
             },
             th: {
-                nav_about: "เกี่ยวกับเรา", nav_clients: "ลูกค้าของเรา", nav_services: "บริการ", nav_insights: "บทความ", nav_book: "นัดปรึกษาฟรี",
+                nav_about: "เกี่ยวกับเรา", nav_expertise: "ผลงานของเรา", nav_services: "บริการ", nav_insights: "บทความ", nav_book: "นัดปรึกษาฟรี",
                 hero_title: "เปลี่ยนความเสี่ยงธรรมชาติ <br/><span class='text-brand-gold italic'>ให้เป็นกลยุทธ์ที่ยั่งยืน</span>",
-                hero_desc: "ที่ปรึกษาด้านความหลากหลายทางชีวภาพ และสิ่งแวดล้อม เราผสานวิทยาศาสตร์ กับการมีส่วนร่วม พัฒนากลยุทธ์ทางธุรกิจ เพื่อเปลี่ยน \"ภาระ\" ให้เป็น \"ความยั่งยืน\" ที่วัดผลได้จริง",
-                btn_explore: "ดูบริการของเรา", trusted_label: "ได้รับความไว้วางใจจากองค์กรชั้นนำ",
-                about_title: "ใช้วิทยาศาสตร์ ตอบโจทย์ธุรกิจ <br/><span class='italic text-brand-gold'>อย่างยั่งยืน</span>",
-                about_desc: "เราไม่ใช่แค่นักวิชาการ แต่คือ 'Companion - เพื่อน'",
+                hero_desc: "ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ เราผสานวิทยาศาสตร์เข้ากับกลยุทธ์ทางธุรกิจ เพื่อเปลี่ยน 'ภาระ' ให้เป็น 'ความยั่งยืน' ที่วัดผลได้จริง",
+                btn_explore: "ดูผลลัพธ์", trusted_label: "ได้รับความไว้วางใจจากองค์กรชั้นนำ",
+                about_title: "หลักวิชาการแน่น <br/><span class='italic text-brand-gold'>ตอบโจทย์ธุรกิจจริง</span>",
+                about_desc: "เราไม่ใช่แค่นักวิชาการ แต่คือ 'Companion' ที่เข้าใจบริบทธุรกิจ เราทำงานร่วมกับเครือข่ายผู้เชี่ยวชาญเพื่อให้ได้ข้อมูลที่แม่นยำที่สุด",
                 value1_title: "ลดความเสี่ยง <br/>ในทุกระยะโครงการ", value1_desc: "เราช่วยค้นหา Red flags ทางระบบนิเวศตั้งแต่ระยะเริ่มต้น เพื่อป้องกันปัญหาความล่าช้าทางกฎหมายและความขัดแย้งกับชุมชน",
-                qa_desc: "มาตรฐานการเก็บตัวอย่างภาคสนามเทียบเท่าสากล",
-                partner_title: "เครือข่ายผู้เชี่ยวชาญ", partner_desc: "ทำงานร่วมกับผู้เชี่ยวชาญเฉพาะทางจากมหาวิทยาลัยชั้นนำ",
-                
-                segment_label: "กลุ่มลูกค้าของเรา", segment_title: "พันธมิตรเชิงกลยุทธ์", segment_desc: "เราส่งมอบโซลูชันที่ออกแบบเฉพาะเพื่อตอบโจทย์ทางธุรกิจที่แตกต่างกันในแต่ละอุตสาหกรรม",
-                seg1_title: "อสังหาริมทรัพย์ &<br/>โรงแรม", seg1_desc: "สร้างจุดขาย Eco-Living และเพิ่มมูลค่าโครงการด้วยพื้นที่สีเขียวที่ใช้งานได้จริง (Functional Green Space)",
-                seg2_title: "บริษัทจดทะเบียน &<br/>องค์กรขนาดใหญ่", seg2_desc: "ยกระดับคะแนน ESG และเตรียมความพร้อมสำหรับ TNFD เพื่อสร้างความเชื่อมั่นให้นักลงทุน",
-                seg3_title: "โครงสร้างพื้นฐาน &<br/>พลังงาน", seg3_desc: "บริหารจัดการความเสี่ยงทางธรรมชาติ ลดความขัดแย้งชุมชน และสร้างการยอมรับในพื้นที่ (Social License)",
-                seg4_title: "เกษตรและอาหาร", seg4_desc: "ยกระดับห่วงโซ่อุปทานสู่เกษตรฟื้นฟู (Regenerative Agriculture) และการจัดหาวัตถุดิบที่ยั่งยืน",
-
                 services_header: "บริการของเรา", services_desc: "ครอบคลุมทุกระยะโครงการ ตั้งแต่การประเมินความเสี่ยง ไปจนถึงการฟื้นฟูและการมีส่วนร่วม",
                 view_catalog: "ดูรายละเอียดบริการทั้งหมด", filter_cat: "เลือกตามหมวดหมู่",
                 knowledge_hub: "คลังความรู้", latest_insights: "บทความล่าสุด", view_all: "ดูบทความทั้งหมด",
@@ -546,25 +555,15 @@
                 process_label: "กระบวนการทำงานของเรา", process_title: "เส้นทางสู่คุณค่าที่ยั่งยืน", process_desc: "กระบวนการทำงานที่เป็นระบบของเรา เปลี่ยนความซับซ้อนทางธรรมชาติ ให้เป็นคุณค่าทางธุรกิจที่ยั่งยืนใน 4 ขั้นตอน",
                 step1_title: "1. Assess & Baseline", step2_title: "2. Plan & Design", step3_title: "3. Act & Monitor", step4_title: "4. Realize Value",
                 standards_label: "รากฐานของเรา", standards_title: "มาตรฐานวิทยาศาสตร์ ที่ตอบโจทย์ธุรกิจ",
-                std1_title: "โปรโตคอล QA/QC ที่เข้มงวด", 
-                std1_desc: "ควบคุมคุณภาพการเก็บข้อมูลภาคสนามอย่างเข้มงวด เพื่อความแม่นยำสูงสุด",
-                std2_title: "สอดคล้องกับกรอบสากล", 
-                std2_desc: "สอดคล้องกับมาตรฐานสากล เช่น TNFD, GRI, และ IFC PS6",
-                std3_title: "เครือข่ายพันธมิตร",
-                std3_desc: `
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>ภาควิชาชีววิทยา คณะวิทย์ฯ ม.มหิดล</span></div>
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>สาขาชีววิทยาเชิงอนุรักษ์ (ม.มหิดล กาญจนบุรี)</span></div>
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>มูลนิธิสถาบันราชพฤกษ์</span></div>
-                    <div class="flex items-start gap-2"><span class="text-brand-gold mt-1">•</span><span>กลุ่มใบไม้</span></div>
-                `,
-                stat_projects: "แหล่งที่อยู่อาศัย<br/>ที่ได้รับการปกป้อง อย่างยั่งยืน",
-                stat_records: "สิ่งมีชีวิต และชุมชน<br/>ที่ได้ประโยชน์"
+                std1_title: "โปรโตคอล QA/QC ที่เข้มงวด", std2_title: "สอดคล้องกับกรอบสากล", std3_title: "เครือข่ายวิชาการและผู้เชี่ยวชาญ",
+                stat_projects: "โครงการที่สำเร็จ",
+                expertise_label: "ความเชี่ยวชาญรายอุตสาหกรรม"
             }
         };
 
         const services = [
             { id: 'A1', cat: 'A', name: {en: 'Nature Risk Sprint', th: 'Nature Risk Sprint'}, desc: {en: 'Fast-track risk assessment (2 weeks) to identify red flags.', th: 'ประเมินความเสี่ยงเร่งด่วน (2 สัปดาห์) เพื่อระบุ Red Flags'} },
-            { id: 'A2', cat: 'A', name: {en: 'Biodiversity Baseline', th: 'Biodiversity Baseline'}, desc: {en: 'Expert-led field surveys for baseline data & compliance.', th: 'สำรวจภาคสนามเพื่อจัดทำฐานข้อมูลและมาตรฐานสากล'} },
+            { id: 'A2', cat: 'A', name: {en: 'Biodiversity Baseline', th: 'Biodiversity Baseline'}, desc: {en: 'Expert-led field surveys for international standards.', th: 'สำรวจภาคสนามโดยผู้เชี่ยวชาญตามมาตรฐานสากล'} },
             { id: 'B1', cat: 'B', name: {en: 'Management Plan (BMP)', th: 'Management Plan (BMP)'}, desc: {en: 'Actionable mitigation hierarchy and operational manuals.', th: 'แผนจัดการความหลากหลายทางชีวภาพและคู่มือปฏิบัติงาน'} },
             { id: 'B2', cat: 'B', name: {en: 'Eco-Design Masterplan', th: 'Eco-Design Masterplan'}, desc: {en: 'Landscape design for functional ecosystem restoration.', th: 'ออกแบบภูมิทัศน์เพื่อฟื้นฟูระบบนิเวศให้สมบูรณ์'} },
             { id: 'B3', cat: 'B', name: {en: 'TNFD Strategy', th: 'TNFD Strategy'}, desc: {en: 'Corporate readiness for nature-related disclosures.', th: 'เตรียมความพร้อมองค์กรสำหรับการเปิดเผยข้อมูลตามกรอบ TNFD'} },
