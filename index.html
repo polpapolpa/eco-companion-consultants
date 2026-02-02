@@ -46,7 +46,7 @@
         .fade-in-section { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in-section.visible { opacity: 1; transform: translateY(0); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .marquee { display: flex; width: 200%; animation: scroll 30s linear infinite; }
+        .marquee { display: flex; width: 200%; animation: scroll 60s linear infinite; } /* Slower for readability */
         
         .journey-line::before {
             content: ''; position: absolute; top: 1.75rem; left: 50%; width: 100%; height: 2px;
@@ -85,10 +85,7 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark transform translate-x-full transition-transform duration-300 lg:hidden">
-        <div class="p-6 flex justify-between items-center border-b border-white/10">
-            <span class="text-white font-serif font-bold">Eco Companion</span>
-            <button id="close-menu-btn" class="text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
-        </div>
+        <div class="p-6 flex justify-between items-center border-b border-white/10"><span class="text-white font-serif font-bold">Eco Companion</span><button id="close-menu-btn" class="text-white"><i data-lucide="x" class="w-6 h-6"></i></button></div>
         <div class="p-8 flex flex-col gap-8 text-2xl font-serif text-white text-center">
             <a href="#about" onclick="document.getElementById('close-menu-btn').click()">About Us</a>
             <a href="#expertise" onclick="document.getElementById('close-menu-btn').click()">Expertise</a>
@@ -117,13 +114,36 @@
 
     <!-- Trusted By -->
     <section class="py-12 bg-white border-b border-slate-100 overflow-hidden text-center">
-        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-6" data-i18n="trusted_label">Trusted by Leading Organizations</p>
+        <!-- Increased Font Size -->
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-slate-400 mb-6" data-i18n="trusted_label">Trusted by Leading Organizations & Partners</p>
         <div class="marquee">
-            <div class="flex items-center gap-20 px-10 grayscale opacity-40">
-                <span class="text-2xl font-serif font-bold text-brand-dark">AP THAILAND</span><span class="text-2xl font-serif font-bold text-brand-dark">BCPG</span><span class="text-2xl font-serif font-bold text-brand-dark">MAHIDOL UNIVERSITY</span><span class="text-2xl font-serif font-bold text-brand-dark">PTT GROUP</span><span class="text-2xl font-serif font-bold text-brand-dark">SCG</span><span class="text-2xl font-serif font-bold text-brand-dark">THAI BEV</span>
+            <!-- First Set -->
+            <div class="flex items-center gap-16 px-10 grayscale opacity-60 shrink-0">
+                <span class="text-xl font-serif font-bold text-brand-dark">AP THAILAND</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">BCPG</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">BANPU</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">CPF</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">GREEN SPOT</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">RAJAPRUEK FOUNDATION</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">MAHIDOL SCIENCE</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">MAHIDOL KANCHANABURI</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">BAIMAI GROUP</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">CLOVER POWER</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">FORRU</span>
             </div>
-            <div class="flex items-center gap-20 px-10 grayscale opacity-40">
-                <span class="text-2xl font-serif font-bold text-brand-dark">AP THAILAND</span><span class="text-2xl font-serif font-bold text-brand-dark">BCPG</span><span class="text-2xl font-serif font-bold text-brand-dark">MAHIDOL UNIVERSITY</span><span class="text-2xl font-serif font-bold text-brand-dark">PTT GROUP</span><span class="text-2xl font-serif font-bold text-brand-dark">SCG</span><span class="text-2xl font-serif font-bold text-brand-dark">THAI BEV</span>
+            <!-- Duplicate Set -->
+            <div class="flex items-center gap-16 px-10 grayscale opacity-60 shrink-0">
+                <span class="text-xl font-serif font-bold text-brand-dark">AP THAILAND</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">BCPG</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">BANPU</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">CPF</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">GREEN SPOT</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">RAJAPRUEK FOUNDATION</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">MAHIDOL SCIENCE</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">MAHIDOL KANCHANABURI</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">BAIMAI GROUP</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">CLOVER POWER</span>
+                <span class="text-xl font-serif font-bold text-brand-dark">FORRU</span>
             </div>
         </div>
     </section>
@@ -133,7 +153,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
                 <div class="fade-in-section">
-                    <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Our Origin & Philosophy</span>
+                    <!-- Increased Font Size: xs -> base -->
+                    <span class="text-brand-gold text-base font-bold uppercase tracking-[0.2em] mb-4 block">Our Origin & Philosophy</span>
                     <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6" data-i18n="about_title">Science-Based. <br/><span class="italic text-brand-gold">Business-Aligned.</span></h2>
                     <p class="text-slate-600 text-xl font-light leading-relaxed mb-8" data-i18n="about_desc">
                         เราไม่ใช่แค่นักวิชาการ แต่คือ "Companion" ที่เข้าใจบริบทธุรกิจ เราเชื่อว่าความหลากหลายทางชีวภาพไม่ควรเป็นภาระ แต่คือสินทรัพย์ที่ทรงคุณค่าที่สุดเมื่อมีการจัดการที่ถูกต้อง
@@ -171,7 +192,8 @@
                 <div class="md:col-span-2 bg-brand-dark text-white p-12 rounded-sm relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
                     <img src="https://images.unsplash.com/photo-1596788066342-941178c88720?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
                     <div class="relative z-10">
-                        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Strategic Advantage</span>
+                        <!-- Increased Font Size: xs -> base -->
+                        <span class="text-brand-gold text-base font-bold uppercase tracking-widest">Strategic Advantage</span>
                         <h3 class="font-serif text-4xl mt-4 leading-tight" data-i18n="value1_title">De-Risking Your <br/>Project Cycle</h3>
                         <p class="text-brand-light/80 text-lg leading-relaxed mt-8" data-i18n="value1_desc">เราช่วยค้นหา Red flags ทางระบบนิเวศตั้งแต่ระยะเริ่มต้น เพื่อป้องกันปัญหาความล่าช้าทางกฎหมายและความขัดแย้งกับชุมชน</p>
                     </div>
@@ -194,79 +216,80 @@
         </div>
     </section>
 
-    <!-- Industry Expertise Section (8 Sectors - Reorganized) -->
+    <!-- Industry Expertise Section (Real Case Studies) -->
     <section id="expertise" class="py-32 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 fade-in-section">
-                <span class="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4 block" data-i18n="expertise_label">Industry Expertise</span>
-                <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6">Solving Real Sector Challenges</h2>
-                <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto">โซลูชันที่ออกแบบเฉพาะเพื่อตอบโจทย์ทางธุรกิจในทุกระดับอุตสาหกรรม</p>
+                <!-- Increased Font Size: xs -> base -->
+                <span class="text-brand-gold text-base font-bold uppercase tracking-widest mb-4 block" data-i18n="expertise_label">Industry Success Stories</span>
+                <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6">Proven Impact Across Sectors</h2>
+                <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto">ตัวอย่างความสำเร็จจากโครงการจริงที่เราได้ร่วมสร้างคุณค่าให้กับพันธมิตร</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- 1. Energy -->
+                <!-- 1. Energy (BCPG) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Energy</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Renewable Energy</h4>
-                    <p class="text-sm text-slate-500 mb-4 h-12">ลดเวลารอใบอนุญาตด้วยข้อมูลที่ครบถ้วน จัดการความเสี่ยง Bird Collision</p>
+                    <p class="text-sm text-slate-500 mb-4 h-12 line-clamp-3"><strong>Case: BCPG (Ligor Wind)</strong><br>ประเมินความเสี่ยง Bird & Bat Collision เพื่อมาตรฐานสากล</p>
                     <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
-                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
-                         <p class="text-sm font-bold text-brand-dark italic">Reduced Wait Time: <br/>18 → 11 Months</p>
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Risk Mitigation & <br>Global Compliance</p>
                     </div>
                 </div>
-                <!-- 2. Real Estate & Hospitality -->
+                <!-- 2. Real Estate (AP) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Property</div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Real Estate & Hospitality</h4>
-                    <p class="text-sm text-slate-500 mb-4 h-12">สร้างจุดขาย Eco-Living / Green Stay และเพิ่มมูลค่าด้วยพื้นที่สีเขียวที่ใช้งานได้จริง</p>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Real Estate</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12 line-clamp-3"><strong>Case: AP (Thailand)</strong><br>จัดทำ Biodiversity Action Plan (BAP) และประเมินคาร์บอนพื้นที่สีเขียว</p>
                     <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
-                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
-                         <p class="text-sm font-bold text-brand-dark italic">Green Premium +15% <br/>Guest Satisfaction Up</p>
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Sustainable Living <br/>Brand Value</p>
                     </div>
                 </div>
-                <!-- 3. Manufacturing & Supply Chain (Merged) -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Industrial & Logistics</div>
-                    </div>
-                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Manufacturing & Supply Chain</h4>
-                    <p class="text-sm text-slate-500 mb-4 h-12">บริหารพื้นที่กันชน (Buffer Zone) และความเสี่ยงทางธรรมชาติในห่วงโซ่อุปทาน</p>
-                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
-                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
-                         <p class="text-sm font-bold text-brand-dark italic">Zero Complaints <br/>Resilient Supply Chain</p>
-                    </div>
-                </div>
-                <!-- 4. Agriculture & Food (New) -->
+                <!-- 3. Agri-Food/Conservation (Green Spot) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Agri-Food</div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Agriculture & Food</h4>
-                    <p class="text-sm text-slate-500 mb-4 h-12">ยกระดับมาตรฐานสินค้าเกษตร (EUDR Compliant) และฟื้นฟูระบบนิเวศในแปลงผลิต</p>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Agri-Food & Conservation</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12 line-clamp-3"><strong>Case: Green Spot</strong><br>ฟื้นฟูพื้นที่ชุ่มน้ำทุ่งรังสิต (Wetland Restoration) สร้างระบบนิเวศใหม่</p>
                     <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
-                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
-                         <p class="text-sm font-bold text-brand-dark italic">EUDR Compliant <br/>Yield +20% (Pollinators)</p>
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Ecosystem Recovery <br/>& Water Retention</p>
                     </div>
                 </div>
-                <!-- 5. CSR -->
+                <!-- 4. CSR (Banpu) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1591389703635-e15a07b842d7?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">CSR</div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-brand-dark">CSR & Conservation</h4>
-                    <p class="text-sm text-slate-500 mb-4 h-12">พิสูจน์ผลกระทบที่แท้จริงของการปลูกป่าและการอนุรักษ์ ด้วยข้อมูลที่วัดผลได้</p>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">CSR & Education</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12 line-clamp-3"><strong>Case: Banpu (Power Green)</strong><br>ออกแบบค่ายวิทยาศาสตร์สิ่งแวดล้อมสำหรับเยาวชน</p>
                     <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
-                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact Highlight:</span>
-                         <p class="text-sm font-bold text-brand-dark italic">Species Richness +47% <br/>Measurable Impact</p>
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Impact:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Youth Empowerment <br/>& Community Trust</p>
+                    </div>
+                </div>
+                <!-- 5. Logistics -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Logistics</div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-brand-dark">Logistics & Supply Chain</h4>
+                    <p class="text-sm text-slate-500 mb-4 h-12">ประเมินความเสี่ยงทางธรรมชาติในห่วงโซ่อุปทานและพื้นที่ศูนย์กระจายสินค้า</p>
+                    <div class="bg-brand-sand p-4 border-l-2 border-brand-accent">
+                         <span class="text-[10px] font-bold text-brand-accent uppercase block mb-1">Strategic Value:</span>
+                         <p class="text-sm font-bold text-brand-dark italic">Green Supply Chain <br/>Resilience</p>
                     </div>
                 </div>
                 <!-- 6. SME -->
@@ -316,7 +339,8 @@
     <section class="py-32 bg-gray-50 border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 fade-in-section">
-                <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="process_label">Our Work Process</span>
+                <!-- Increased Font Size: xs -> base -->
+                <span class="text-brand-gold text-base font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="process_label">Our Work Process</span>
                 <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6" data-i18n="process_title">The Path to Nature-Positive Value</h2>
                 <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto" data-i18n="process_desc">กระบวนการทำงานที่เป็นระบบ เปลี่ยนความซับซ้อนทางธรรมชาติ ให้เป็นคุณค่าทางธุรกิจที่ยั่งยืนใน 4 ขั้นตอน</p>
             </div>
@@ -379,7 +403,8 @@
             <div class="grid lg:grid-cols-4 gap-16">
                 <div class="lg:col-span-1">
                     <div class="sticky top-32">
-                        <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Solutions</span>
+                        <!-- Increased Font Size: xs -> base -->
+                        <span class="text-brand-gold text-base font-bold uppercase tracking-[0.2em] mb-4 block">Solutions</span>
                         <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6" data-i18n="services_header">Our Services</h2>
                         <p class="text-slate-500 text-lg font-light mb-10 leading-relaxed" data-i18n="services_desc">ครอบคลุมทุกระยะโครงการ ตั้งแต่การประเมินความเสี่ยง ไปจนถึงการฟื้นฟูและการมีส่วนร่วม</p>
                         <div class="space-y-2 mb-10">
@@ -404,7 +429,8 @@
     <!-- Foundation / Standards -->
     <section class="py-32 bg-brand-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider block mb-4" data-i18n="standards_label">Our Foundation</span>
+            <!-- Increased Font Size: xs -> base -->
+            <span class="text-brand-gold text-base font-bold uppercase tracking-wider block mb-4" data-i18n="standards_label">Our Foundation</span>
             <h2 class="font-serif text-4xl font-bold text-brand-dark mb-16" data-i18n="standards_title">Science-Based, Business-Aligned Standards</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -434,7 +460,8 @@
     <section id="insights" class="py-32 bg-brand-darker text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="fade-in-section"><span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="knowledge_hub">Knowledge Hub</span><h2 class="font-serif text-5xl font-bold" data-i18n="latest_insights">Latest Insights</h2></div>
+                <!-- Increased Font Size: xs -> base -->
+                <div class="fade-in-section"><span class="text-brand-gold text-base font-bold uppercase tracking-widest block mb-4" data-i18n="knowledge_hub">Knowledge Hub</span><h2 class="font-serif text-5xl font-bold" data-i18n="latest_insights">Latest Insights</h2></div>
                 <a href="EcoCompanion_Blog.html" class="bg-white/10 hover:bg-white hover:text-brand-dark px-8 py-4 rounded-sm text-sm font-bold transition border border-white/20 flex items-center gap-2"><span data-i18n="view_all">Read All Articles</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -542,7 +569,7 @@
                 nav_about: "เกี่ยวกับเรา", nav_expertise: "ผลงานของเรา", nav_services: "บริการ", nav_insights: "บทความ", nav_book: "นัดปรึกษาฟรี",
                 hero_title: "เปลี่ยนความเสี่ยงธรรมชาติ <br/><span class='text-brand-gold italic'>ให้เป็นกลยุทธ์ที่ยั่งยืน</span>",
                 hero_desc: "ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ เราผสานวิทยาศาสตร์เข้ากับกลยุทธ์ทางธุรกิจ เพื่อเปลี่ยน 'ภาระ' ให้เป็น 'ความยั่งยืน' ที่วัดผลได้จริง",
-                btn_explore: "ดูผลลัพธ์", trusted_label: "ได้รับความไว้วางใจจากองค์กรชั้นนำ",
+                btn_explore: "ดูผลลัพธ์", trusted_label: "ได้รับความไว้วางใจจากองค์กรชั้นนำและพันธมิตร",
                 about_title: "หลักวิชาการแน่น <br/><span class='italic text-brand-gold'>ตอบโจทย์ธุรกิจจริง</span>",
                 about_desc: "เราไม่ใช่แค่นักวิชาการ แต่คือ 'Companion' ที่เข้าใจบริบทธุรกิจ เราทำงานร่วมกับเครือข่ายผู้เชี่ยวชาญเพื่อให้ได้ข้อมูลที่แม่นยำที่สุด",
                 value1_title: "ลดความเสี่ยง <br/>ในทุกระยะโครงการ", value1_desc: "เราช่วยค้นหา Red flags ทางระบบนิเวศตั้งแต่ระยะเริ่มต้น เพื่อป้องกันปัญหาความล่าช้าทางกฎหมายและความขัดแย้งกับชุมชน",
@@ -618,4 +645,3 @@
     </script>
 </body>
 </html>
-
