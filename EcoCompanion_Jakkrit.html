@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Jakkrit - Co-Founder | Eco Companion Consultants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts: IBM Plex Sans Thai & Noto Serif Thai -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans Thai"', 'Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        thaiSerif: ['"Noto Serif Thai"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F392B',
+                            darker: '#061C15',
+                            light: '#E6F0EB',
+                            gold: '#C5A065',
+                            sand: '#F5F5F0',
+                            slate: '#334155',
+                            accent: '#059669'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body.lang-th { line-height: 1.8; letter-spacing: 0.01em; }
+        body.lang-th h1, body.lang-th h2, body.lang-th h3, body.lang-th .font-serif { 
+            font-family: 'Noto Serif Thai', serif !important; line-height: 1.4; 
+        }
+        body { background-color: #F5F5F0; }
+        .nav-scrolled { background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px -5px rgba(0,0,0,0.1); height: 80px !important; }
+        .nav-scrolled .nav-text { color: #0F392B !important; }
+        .lang-active { font-weight: 700; color: #C5A065; position: relative; }
+        .lang-active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: #C5A065; }
+        .fade-in-section { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th">
+
+    <!-- Navigation (Links point back to index.html) -->
+    <nav class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-transparent" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-xl tracking-wide leading-none uppercase nav-text text-white transition-colors duration-300">Eco Companion</span>
+                        <span class="text-[10px] text-brand-gold font-bold tracking-[0.1em] uppercase mt-1">Consultants</span>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex space-x-10 items-center">
+                    <a href="index.html#about" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_about">About</a>
+                    <a href="index.html#segments" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_clients">Clients</a>
+                    <a href="index.html#services" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300" data-i18n="nav_services">Solutions</a>
+                    <div class="flex items-center gap-3 text-xs font-medium border-l border-white/20 pl-6">
+                        <button onclick="changeLanguage('th')" id="btn-th" class="nav-text text-white hover:text-brand-gold transition lang-active">TH</button>
+                        <span class="text-white/30">/</span>
+                        <button onclick="changeLanguage('en')" id="btn-en" class="nav-text text-white hover:text-brand-gold transition">EN</button>
+                    </div>
+                    <a href="index.html#contact" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-sm text-sm font-bold hover:bg-white transition duration-300 shadow-lg flex items-center gap-2">
+                        <span data-i18n="nav_contact">Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Profile Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-dark overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Profile Image -->
+                <div class="lg:col-span-5 fade-in-section">
+                    <div class="relative w-full aspect-[4/5] max-w-md mx-auto lg:mx-0">
+                        <div class="absolute inset-0 border-2 border-brand-gold translate-x-4 translate-y-4 rounded-sm"></div>
+                        <img src="https://scontent.fbkk2-7.fna.fbcdn.net/v/t39.30808-6/497021177_9868285356564475_4077451688702835313_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=9UKoc1KTazYQ7kNvwEvfh6E&_nc_oc=Adkmg7cmR5uDeoN2q7pP28rJfaWhicYeBORUKRmOpo-3HUeYXnuzOvVVYkSmlHpiHyc&_nc_zt=23&_nc_ht=scontent.fbkk2-7.fna&_nc_gid=Fipsfgjyo9_hgNWXH9zN0Q&oh=00_AfurosuYR7s0QU2EbgmmzAR3t22E2-yhis-yaKoj9IuPiw&oe=699DB0B2" alt="Jakkrit Kachanun" class="absolute inset-0 w-full h-full object-cover rounded-sm grayscale hover:grayscale-0 transition duration-700 shadow-2xl">
+                    </div>
+                </div>
+                
+                <!-- Profile Intro -->
+                <div class="lg:col-span-7 fade-in-section text-white">
+                    <span class="text-brand-gold text-sm font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="role_title">Co-Founder & Environmental Consultant</span>
+                    <h1 class="font-serif text-5xl lg:text-7xl font-bold mb-6" data-i18n="founder_name">Jakkrit Kachanun</h1>
+                    
+                    <div class="h-1 w-20 bg-brand-gold mb-8"></div>
+                    
+                    <h2 class="text-xl lg:text-2xl font-light text-brand-light/90 mb-8 leading-relaxed italic" data-i18n="founder_quote">
+                        "Empowering sustainability through environmental education and biodiversity conservation to create a lasting impact for communities and businesses."
+                    </h2>
+                    
+                    <p class="text-white/80 text-lg leading-relaxed mb-10" data-i18n="founder_intro">
+                        An environmental consultant, educator, and sustainability advocate with over a decade of experience in biodiversity assessment, environmental education, and sustainable development. Passionate about inspiring young minds through innovative approaches to science and environmental stewardship.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="tel:0929805236" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300" title="0929805236">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:Kachanun.j@gmail.com" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300" title="Kachanun.j@gmail.com">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://line.me/ti/p/2N8Rfm-ff2" target="_blank" class="px-5 h-12 rounded-full border border-white/20 flex items-center justify-center gap-2 hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span class="text-sm font-bold tracking-wider">LINE Chat</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Biography & Summary -->
+    <section class="py-24 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <span class="text-brand-gold text-sm font-bold uppercase tracking-[0.2em] mb-4 block text-center" data-i18n="bio_label">Professional Summary</span>
+            <h2 class="font-serif text-4xl font-bold text-brand-dark mb-10 text-center" data-i18n="bio_title">Bridging Science, Education & Sustainability</h2>
+            
+            <div class="prose prose-lg prose-slate mx-auto text-slate-600 font-light leading-relaxed">
+                <p data-i18n="bio_p1">
+                    With a robust background spanning over 10 years, Jakkrit has established himself as a forward-thinking environmental consultant and educator. His demonstrated expertise lies in designing experiential learning programs, fostering community engagement, and strategically integrating sustainability into both corporate and educational systems.
+                </p>
+                <p class="mt-6" data-i18n="bio_p2">
+                    He has executed comprehensive biodiversity assessments for private sector projects, ensuring compliance with global sustainability standards. By leading cross-functional teams, he develops CSR initiatives that generate measurable impacts for communities and businesses alike. His innovative approach also extends to designing urban learning spaces that seamlessly blend education, sustainability, and biodiversity preservation.
+                </p>
+                <div class="mt-10 p-8 bg-brand-sand border-l-4 border-brand-gold rounded-r-sm">
+                    <h4 class="font-bold text-brand-dark mb-2" data-i18n="vision_title">Our Mission</h4>
+                    <p class="text-sm italic" data-i18n="vision_desc">"To translate complex ecological concepts into actionable strategies, cultivating a society that values and actively participates in environmental conservation."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas of Expertise -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-brand-gold text-sm font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="expertise_label">Core Competencies</span>
+                <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6" data-i18n="expertise_title">Specialized Capabilities</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-section">
+                <!-- Exp 1 -->
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-brand-gold hover:shadow-xl transition duration-300">
+                    <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="leaf" class="w-6 h-6 text-brand-dark"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="exp1_title">Biodiversity & Ecosystem</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="exp1_desc">Executing biodiversity assessments for private sector projects to ensure compliance with global sustainability standards.</p>
+                </div>
+                <!-- Exp 2 -->
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-brand-gold hover:shadow-xl transition duration-300">
+                    <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="book-open" class="w-6 h-6 text-brand-dark"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="exp2_title">Environmental Education</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="exp2_desc">Program development for schools and institutions, designing experiential learning that inspires young minds.</p>
+                </div>
+                <!-- Exp 3 -->
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-brand-gold hover:shadow-xl transition duration-300">
+                    <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="building-2" class="w-6 h-6 text-brand-dark"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-3" data-i18n="exp3_title">Corporate Sustainability</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="exp3_desc">Carbon sequestration strategies and community engagement to generate measurable impacts for businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Timeline -->
+    <section class="py-24 bg-white border-y border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <span class="text-brand-gold text-sm font-bold uppercase tracking-[0.2em] mb-4 block text-center" data-i18n="exp_label">Career Track</span>
+            <h2 class="font-serif text-4xl font-bold text-brand-dark mb-16 text-center" data-i18n="exp_title">Professional Experience</h2>
+            
+            <div class="relative border-l-2 border-slate-100 ml-4 md:ml-0 md:pl-0">
+                <!-- Timeline Item -->
+                <div class="mb-12 relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[50%] -translate-x-1/2 w-4 h-4 rounded-full bg-brand-gold ring-4 ring-white z-10"></div>
+                    <div class="md:hidden absolute left-[-9px] w-4 h-4 rounded-full bg-brand-gold ring-4 ring-white z-10"></div>
+                    
+                    <div class="md:grid md:grid-cols-2 md:gap-12 w-full">
+                        <div class="md:text-right mb-2 md:mb-0">
+                            <h4 class="font-bold text-brand-dark text-lg" data-i18n="work1_role">Founder</h4>
+                            <p class="text-brand-gold text-sm font-bold mt-1">Eco Companion Consultants Co., Ltd.</p>
+                            <p class="text-slate-400 text-xs tracking-wider uppercase mt-1">2016 – Present</p>
+                        </div>
+                        <div class="text-slate-600 text-sm font-light leading-relaxed">
+                            <ul class="list-disc list-outside ml-4 space-y-2" data-i18n="work1_desc">
+                                <li>Founded an environmental consulting firm delivering biodiversity assessments and carbon sequestration analysis.</li>
+                                <li>Partnered with corporations and communities to implement impactful CSR programs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item -->
+                <div class="mb-12 relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[50%] -translate-x-1/2 w-4 h-4 rounded-full bg-brand-dark ring-4 ring-white z-10"></div>
+                    <div class="md:hidden absolute left-[-9px] w-4 h-4 rounded-full bg-brand-dark ring-4 ring-white z-10"></div>
+                    
+                    <div class="md:grid md:grid-cols-2 md:gap-12 w-full">
+                        <div class="md:text-right mb-2 md:mb-0">
+                            <h4 class="font-bold text-brand-dark text-lg" data-i18n="work2_role">Sustainability Advisor</h4>
+                            <p class="text-brand-gold text-sm font-bold mt-1">AP Thailand & UNIQLO (Thailand)</p>
+                            <p class="text-slate-400 text-xs tracking-wider uppercase mt-1">2021 – Present</p>
+                        </div>
+                        <div class="text-slate-600 text-sm font-light leading-relaxed">
+                            <ul class="list-disc list-outside ml-4 space-y-2" data-i18n="work2_desc">
+                                <li>Provided strategic guidance on biodiversity conservation and sustainable urban spaces for AP Thailand.</li>
+                                <li>Spearheaded the "Dust-Free Classroom" initiative in 18 schools and developed educational modules for UNIQLO.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item -->
+                <div class="mb-12 relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[50%] -translate-x-1/2 w-4 h-4 rounded-full bg-brand-dark ring-4 ring-white z-10"></div>
+                    <div class="md:hidden absolute left-[-9px] w-4 h-4 rounded-full bg-brand-dark ring-4 ring-white z-10"></div>
+                    
+                    <div class="md:grid md:grid-cols-2 md:gap-12 w-full">
+                        <div class="md:text-right mb-2 md:mb-0">
+                            <h4 class="font-bold text-brand-dark text-lg" data-i18n="work3_role">Educator & Environmental Advisor</h4>
+                            <p class="text-brand-gold text-sm font-bold mt-1">Pathom Dham / Rajapruek Institute / Green Spot</p>
+                            <p class="text-slate-400 text-xs tracking-wider uppercase mt-1">2020 – Present</p>
+                        </div>
+                        <div class="text-slate-600 text-sm font-light leading-relaxed">
+                            <ul class="list-disc list-outside ml-4 space-y-2" data-i18n="work3_desc">
+                                <li>Taught science through hands-on learning and organized nature-based camps.</li>
+                                <li>Led community-driven environmental projects and designed sustainability activities for industrial sites.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item -->
+                <div class="mb-12 relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[50%] -translate-x-1/2 w-4 h-4 rounded-full bg-brand-dark ring-4 ring-white z-10"></div>
+                    <div class="md:hidden absolute left-[-9px] w-4 h-4 rounded-full bg-brand-dark ring-4 ring-white z-10"></div>
+                    
+                    <div class="md:grid md:grid-cols-2 md:gap-12 w-full">
+                        <div class="md:text-right mb-2 md:mb-0">
+                            <h4 class="font-bold text-brand-dark text-lg" data-i18n="work4_role">Owner & Co-Founder</h4>
+                            <p class="text-brand-gold text-sm font-bold mt-1">Pangola Farm & Naturefeels</p>
+                            <p class="text-slate-400 text-xs tracking-wider uppercase mt-1">2015 – Present</p>
+                        </div>
+                        <div class="text-slate-600 text-sm font-light leading-relaxed">
+                            <ul class="list-disc list-outside ml-4 space-y-2" data-i18n="work4_desc">
+                                <li>Established an urban farm providing nature-based educational experiences.</li>
+                                <li>Developed a platform for environmental literacy through interactive workshops targeting families.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Central Line Fix for Desktop -->
+                <div class="hidden md:block absolute left-[50%] top-0 bottom-0 w-0.5 bg-slate-100 -translate-x-1/2 z-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Engagements -->
+    <section class="py-24 bg-brand-sand">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 fade-in-section">
+                <!-- Education -->
+                <div>
+                    <h3 class="font-serif text-3xl font-bold text-brand-dark mb-8 flex items-center gap-3">
+                        <i data-lucide="graduation-cap" class="text-brand-gold w-8 h-8"></i>
+                        <span data-i18n="edu_title">Education</span>
+                    </h3>
+                    <div class="relative border-l border-brand-gold/30 pl-6 space-y-8 ml-4">
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-brand-gold"></span>
+                            <h4 class="font-bold text-brand-dark text-lg" data-i18n="edu1_degree">Master of Science in Environmental Management Technology</h4>
+                            <p class="text-brand-gold text-sm font-bold my-1" data-i18n="edu1_uni">Faculty of Environment, Mahidol University</p>
+                            <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">2014 – 2017</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-brand-gold"></span>
+                            <h4 class="font-bold text-brand-dark text-lg" data-i18n="edu2_degree">Bachelor of Science in Conservation Biology</h4>
+                            <p class="text-brand-gold text-sm font-bold my-1" data-i18n="edu2_uni">Kanchanaburi Campus, Mahidol University</p>
+                            <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">2009 – 2012</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Speaking & Engagements -->
+                <div>
+                    <h3 class="font-serif text-3xl font-bold text-brand-dark mb-8 flex items-center gap-3">
+                        <i data-lucide="mic" class="text-brand-gold w-8 h-8"></i>
+                        <span data-i18n="speak_title">Speaking Engagements</span>
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 bg-white p-5 rounded-sm shadow-sm border border-slate-100">
+                            <i data-lucide="presentation" class="text-brand-accent w-5 h-5 mt-0.5 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark text-sm" data-i18n="speak1_title">"Biodiversity in Urban Spaces"</p>
+                                <p class="text-xs text-slate-500 mt-1" data-i18n="speak1_event">AP Thailand Sustainability Forum (2022)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 bg-white p-5 rounded-sm shadow-sm border border-slate-100">
+                            <i data-lucide="presentation" class="text-brand-accent w-5 h-5 mt-0.5 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark text-sm" data-i18n="speak2_title">"Dust-Free Classrooms for a Sustainable Future"</p>
+                                <p class="text-xs text-slate-500 mt-1" data-i18n="speak2_event">UNIQLO Schools Project (2021)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 bg-white p-5 rounded-sm shadow-sm border border-slate-100">
+                            <i data-lucide="presentation" class="text-brand-accent w-5 h-5 mt-0.5 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark text-sm" data-i18n="speak3_title">"Experiential Learning in Science Education"</p>
+                                <p class="text-xs text-slate-500 mt-1" data-i18n="speak3_event">Pathom Dham Learning Center (2020)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 bg-white p-5 rounded-sm shadow-sm border border-slate-100">
+                            <i data-lucide="presentation" class="text-brand-accent w-5 h-5 mt-0.5 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-brand-dark text-sm" data-i18n="speak4_title">"Carbon Sequestration and Corporate Responsibility"</p>
+                                <p class="text-xs text-slate-500 mt-1" data-i18n="speak4_event">Eco Companion Consultants Seminar (2019)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker py-20 text-white/50 border-t border-white/5 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <span class="font-serif font-bold text-2xl text-white uppercase">Eco Companion</span><br/>
+            <span class="text-xs text-brand-gold font-bold tracking-widest mt-2">CONSULTANTS</span>
+            <div class="mt-10 text-[10px] uppercase tracking-widest">&copy; 2026 Eco Companion Consultants Co., Ltd. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { 
+            window.scrollY > 50 ? navbar.classList.add('nav-scrolled') : navbar.classList.remove('nav-scrolled'); 
+        });
+
+        const observer = new IntersectionObserver((entries) => { 
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); 
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+
+        // Translation Data mapped from the CV
+        const translations = {
+            en: {
+                nav_about: "About", nav_clients: "Clients", nav_services: "Solutions", nav_contact: "Contact Us",
+                role_title: "Co-Founder & Environmental Consultant",
+                founder_name: "Jakkrit Kachanun (AOF)",
+                founder_quote: "\"Empowering sustainability through environmental education and biodiversity conservation to create a lasting impact for communities and businesses.\"",
+                founder_intro: "An environmental consultant, educator, and sustainability advocate with over a decade of experience in biodiversity assessment, environmental education, and sustainable development. Passionate about inspiring young minds through innovative approaches to science and environmental stewardship.",
+                
+                bio_label: "Professional Summary",
+                bio_title: "Bridging Science, Education & Sustainability",
+                bio_p1: "With a robust background spanning over 10 years, Jakkrit has established himself as a forward-thinking environmental consultant and educator. His demonstrated expertise lies in designing experiential learning programs, fostering community engagement, and strategically integrating sustainability into both corporate and educational systems.",
+                bio_p2: "He has executed comprehensive biodiversity assessments for private sector projects, ensuring compliance with global sustainability standards. By leading cross-functional teams, he develops CSR initiatives that generate measurable impacts for communities and businesses alike. His innovative approach also extends to designing urban learning spaces that seamlessly blend education, sustainability, and biodiversity preservation.",
+                vision_title: "Our Mission",
+                vision_desc: "\"To translate complex ecological concepts into actionable strategies, cultivating a society that values and actively participates in environmental conservation.\"",
+                
+                expertise_label: "Core Competencies",
+                expertise_title: "Specialized Capabilities",
+                exp1_title: "Biodiversity & Ecosystem",
+                exp1_desc: "Executing biodiversity assessments for private sector projects to ensure compliance with global sustainability standards.",
+                exp2_title: "Environmental Education",
+                exp2_desc: "Program development for schools and institutions, designing experiential learning that inspires young minds.",
+                exp3_title: "Corporate Sustainability",
+                exp3_desc: "Carbon sequestration strategies and community engagement to generate measurable impacts for businesses.",
+                
+                exp_label: "Career Track",
+                exp_title: "Professional Experience",
+                work1_role: "Founder",
+                work1_desc: "<li>Founded an environmental consulting firm delivering biodiversity assessments and carbon sequestration analysis.</li><li>Partnered with corporations and communities to implement impactful CSR programs.</li>",
+                work2_role: "Sustainability Advisor",
+                work2_desc: "<li>Provided strategic guidance on biodiversity conservation and sustainable urban spaces for AP Thailand.</li><li>Spearheaded the \"Dust-Free Classroom\" initiative in 18 schools and developed educational modules for UNIQLO.</li>",
+                work3_role: "Educator & Environmental Advisor",
+                work3_desc: "<li>Taught science through hands-on learning and organized nature-based camps.</li><li>Led community-driven environmental projects and designed sustainability activities for industrial sites.</li>",
+                work4_role: "Owner & Co-Founder",
+                work4_desc: "<li>Established an urban farm providing nature-based educational experiences.</li><li>Developed a platform for environmental literacy through interactive workshops targeting families.</li>",
+
+                edu_title: "Education",
+                edu1_degree: "Master of Science in Environmental Management Technology",
+                edu1_uni: "Faculty of Environment, Mahidol University",
+                edu2_degree: "Bachelor of Science in Conservation Biology",
+                edu2_uni: "Kanchanaburi Campus, Mahidol University",
+                
+                speak_title: "Speaking Engagements",
+                speak1_title: "\"Biodiversity in Urban Spaces\"", speak1_event: "AP Thailand Sustainability Forum (2022)",
+                speak2_title: "\"Dust-Free Classrooms for a Sustainable Future\"", speak2_event: "UNIQLO Schools Project (2021)",
+                speak3_title: "\"Experiential Learning in Science Education\"", speak3_event: "Pathom Dham Learning Center (2020)",
+                speak4_title: "\"Carbon Sequestration and Corporate Responsibility\"", speak4_event: "Eco Companion Consultants Seminar (2019)"
+            },
+            th: {
+                nav_about: "เกี่ยวกับเรา", nav_clients: "ลูกค้า", nav_services: "บริการ", nav_contact: "ติดต่อเรา",
+                role_title: "ผู้ร่วมก่อตั้งและที่ปรึกษาด้านสิ่งแวดล้อม",
+                founder_name: "จักรกฤช คะชานันต์ (ออฟ)",
+                founder_quote: "\"การผสานการศึกษาด้านสิ่งแวดล้อมและการอนุรักษ์ความหลากหลายทางชีวภาพ คือกุญแจสำคัญในการสร้างความยั่งยืนให้กับชุมชนและภาคธุรกิจ\"",
+                founder_intro: "ที่ปรึกษาด้านสิ่งแวดล้อม นักการศึกษา และผู้ผลักดันด้านความยั่งยืน ด้วยประสบการณ์กว่า 10 ปีในการประเมินความหลากหลายทางชีวภาพ การจัดกระบวนการเรียนรู้ และการพัฒนาที่ยั่งยืน มุ่งมั่นที่จะสร้างแรงบันดาลใจและผสานแนวคิดความยั่งยืนเข้าสู่องค์กรและสังคม",
+                
+                bio_label: "บทสรุปประวัติการทำงาน",
+                bio_title: "เชื่อมโยงวิทยาศาสตร์ การศึกษา และความยั่งยืน",
+                bio_p1: "ด้วยประสบการณ์กว่า 10 ปี คุณจักรกฤชมีความเชี่ยวชาญในการออกแบบโปรแกรมการเรียนรู้ผ่านประสบการณ์จริง (Experiential Learning) การสร้างการมีส่วนร่วมของชุมชน และการบูรณาการความยั่งยืนเข้าสู่ระบบขององค์กรและสถาบันการศึกษาต่างๆ",
+                bio_p2: "เป็นผู้นำในการประเมินความหลากหลายทางชีวภาพสำหรับโครงการภาคเอกชน เพื่อให้สอดคล้องกับมาตรฐานความยั่งยืนระดับโลก รวมถึงการทำงานร่วมกับทีมงานหลากหลายภาคส่วนเพื่อพัฒนาโครงการ CSR ที่สร้างผลลัพธ์ที่เป็นรูปธรรม นอกจากนี้ยังเชี่ยวชาญในการออกแบบพื้นที่การเรียนรู้ในเมืองที่ผสมผสานการศึกษาและความเป็นมิตรต่อสิ่งแวดล้อม",
+                vision_title: "พันธกิจของเรา",
+                vision_desc: "\"เรามุ่งมั่นแปลภาษาและแนวคิดทางนิเวศวิทยาที่ซับซ้อนให้กลายเป็นกลยุทธ์ที่ลงมือทำได้จริง เพื่อสร้างสังคมที่ตระหนักและมีส่วนร่วมในการอนุรักษ์สิ่งแวดล้อม\"",
+                
+                expertise_label: "ความเชี่ยวชาญหลัก",
+                expertise_title: "ความสามารถเฉพาะทาง",
+                exp1_title: "การประเมินความหลากหลายทางชีวภาพ",
+                exp1_desc: "การประเมินความหลากหลายทางชีวภาพสำหรับโครงการภาคเอกชน เพื่อสร้างมาตรฐานความยั่งยืนที่สอดคล้องกับระดับสากล",
+                exp2_title: "การศึกษาสิ่งแวดล้อม",
+                exp2_desc: "การพัฒนาโปรแกรมสำหรับโรงเรียนและสถาบัน ออกแบบการเรียนรู้จากประสบการณ์เพื่อสร้างแรงบันดาลใจให้เยาวชน",
+                exp3_title: "ความยั่งยืนองค์กร",
+                exp3_desc: "กลยุทธ์การกักเก็บคาร์บอนและการมีส่วนร่วมของชุมชน เพื่อสร้างผลกระทบเชิงบวกที่วัดผลได้สำหรับธุรกิจ",
+                
+                exp_label: "เส้นทางอาชีพ",
+                exp_title: "ประสบการณ์การทำงาน",
+                work1_role: "ผู้ก่อตั้ง",
+                work1_desc: "<li>ก่อตั้งบริษัทที่ปรึกษาด้านสิ่งแวดล้อม ให้บริการประเมินความหลากหลายทางชีวภาพและการวิเคราะห์การกักเก็บคาร์บอน</li><li>ร่วมมือกับองค์กรและชุมชนเพื่อดำเนินโครงการ CSR ที่สร้างผลลัพธ์เชิงบวกได้อย่างชัดเจน</li>",
+                work2_role: "ที่ปรึกษาด้านความยั่งยืน",
+                work2_desc: "<li>ให้คำปรึกษาเชิงกลยุทธ์ด้านการอนุรักษ์ความหลากหลายทางชีวภาพและพื้นที่สีเขียวในเมืองสำหรับ AP Thailand</li><li>เป็นผู้นำโครงการ \"ห้องเรียนปลอดฝุ่น\" (Dust-Free Classroom) ใน 18 โรงเรียนร่วมกับ UNIQLO</li>",
+                work3_role: "นักการศึกษาและที่ปรึกษาด้านสิ่งแวดล้อมชุมชน",
+                work3_desc: "<li>สอนวิทยาศาสตร์ผ่านการลงมือปฏิบัติจริงและจัดค่ายธรรมชาติสำหรับปฐมธรรม</li><li>นำโครงการสิ่งแวดล้อมระดับชุมชน และออกแบบกิจกรรมความยั่งยืนสำหรับพื้นที่อุตสาหกรรม (Green Spot)</li>",
+                work4_role: "เจ้าของและผู้ร่วมก่อตั้ง",
+                work4_desc: "<li>ก่อตั้งฟาร์มเกษตรในเมือง (Pangola Farm) เพื่อเป็นแหล่งเรียนรู้ธรรมชาติ</li><li>พัฒนาแพลตฟอร์ม Naturefeels จัดกิจกรรมให้ความรู้ด้านสิ่งแวดล้อมสำหรับครอบครัวและเด็กๆ</li>",
+
+                edu_title: "การศึกษา",
+                edu1_degree: "วิทยาศาสตรมหาบัณฑิต สาขาเทคโนโลยีการจัดการสิ่งแวดล้อม",
+                edu1_uni: "คณะสิ่งแวดล้อมและทรัพยากรศาสตร์ มหาวิทยาลัยมหิดล",
+                edu2_degree: "วิทยาศาสตรบัณฑิต สาขาชีววิทยาเชิงอนุรักษ์",
+                edu2_uni: "มหาวิทยาลัยมหิดล วิทยาเขตกาญจนบุรี",
+                
+                speak_title: "ประสบการณ์บรรยาย / วิทยากร",
+                speak1_title: "\"ความหลากหลายทางชีวภาพในพื้นที่เมือง\"", speak1_event: "AP Thailand Sustainability Forum (2022)",
+                speak2_title: "\"ห้องเรียนปลอดฝุ่น เพื่ออนาคตที่ยั่งยืน\"", speak2_event: "UNIQLO Schools Project (2021)",
+                speak3_title: "\"การเรียนรู้ผ่านประสบการณ์ในการศึกษาวิทยาศาสตร์\"", speak3_event: "ศูนย์การเรียนรู้ปฐมธรรม (2020)",
+                speak4_title: "\"การกักเก็บคาร์บอนและความรับผิดชอบขององค์กร\"", speak4_event: "Eco Companion Consultants Seminar (2019)"
+            }
+        };
+
+        let currentLang = 'th';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('btn-th').classList.toggle('lang-active', lang === 'th');
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { 
+            changeLanguage('th'); 
+        });
+    </script>
+</body>
+</html>
