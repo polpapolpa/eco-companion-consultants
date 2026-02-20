@@ -46,9 +46,12 @@
         .lang-active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: #C5A065; }
         .fade-in-section { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Modal Styles */
+        .modal-active { display: flex !important; }
     </style>
 </head>
-<body class="text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th">
+<body class="text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th relative">
 
     <!-- Navigation (Links point back to index.html) -->
     <nav class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-transparent" id="navbar">
@@ -102,10 +105,23 @@
                         "Empowering sustainability through environmental education and biodiversity conservation to create a lasting impact for communities and businesses."
                     </h2>
                     
-                    <p class="text-white/80 text-lg leading-relaxed mb-10" data-i18n="founder_intro">
+                    <p class="text-white/80 text-lg leading-relaxed mb-8" data-i18n="founder_intro">
                         An environmental consultant, educator, and sustainability advocate with over a decade of experience in biodiversity assessment, environmental education, and sustainable development. Passionate about inspiring young minds through innovative approaches to science and environmental stewardship.
                     </p>
                     
+                    <!-- Digital Business Card Actions (New Addition) -->
+                    <div class="flex flex-wrap gap-4 items-center mb-8 border-b border-white/10 pb-8">
+                        <button onclick="downloadVCard()" class="bg-brand-gold text-brand-dark px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition duration-300 shadow-lg flex items-center gap-2">
+                            <i data-lucide="user-plus" class="w-4 h-4"></i>
+                            <span data-i18n="btn_save_contact">Save Contact</span>
+                        </button>
+                        <button onclick="openQRModal()" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-white/20 transition duration-300 flex items-center gap-2">
+                            <i data-lucide="qr-code" class="w-4 h-4"></i>
+                            <span data-i18n="btn_show_qr">Show QR Code</span>
+                        </button>
+                    </div>
+
+                    <!-- Social Links -->
                     <div class="flex flex-wrap gap-4 items-center">
                         <a href="tel:0929805236" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300" title="0929805236">
                             <i data-lucide="phone" class="w-5 h-5"></i>
@@ -113,7 +129,6 @@
                         <a href="mailto:Kachanun.j@gmail.com" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300" title="Kachanun.j@gmail.com">
                             <i data-lucide="mail" class="w-5 h-5"></i>
                         </a>
-                        <!-- Added Facebook Page Link -->
                         <a href="https://www.facebook.com/Followmetrip2021" target="_blank" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300" title="Pangola Farm Facebook Page">
                             <i data-lucide="facebook" class="w-5 h-5"></i>
                         </a>
@@ -261,7 +276,6 @@
                         <div class="md:text-right mb-2 md:mb-0">
                             <h4 class="font-bold text-brand-dark text-lg" data-i18n="work4_role">Owner & Co-Founder</h4>
                             <p class="text-brand-gold text-sm font-bold mt-1">
-                                <!-- Made Pangola Farm clickable with an external link icon -->
                                 <a href="https://www.facebook.com/Followmetrip2021" target="_blank" class="hover:text-brand-accent transition duration-300 inline-flex items-center gap-1" title="Visit Pangola Farm Page">Pangola Farm <i data-lucide="external-link" class="w-3 h-3"></i></a> & Naturefeels
                             </p>
                             <p class="text-slate-400 text-xs tracking-wider uppercase mt-1">2015 – Present</p>
@@ -357,6 +371,27 @@
         </div>
     </footer>
 
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="fixed inset-0 z-[100] bg-brand-darker/90 backdrop-blur-sm hidden justify-center items-center px-4 transition-opacity">
+        <div class="bg-white rounded-sm p-8 max-w-sm w-full relative shadow-2xl text-center">
+            <button onclick="closeQRModal()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-dark transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="font-serif font-bold text-2xl text-brand-dark mb-2" data-i18n="qr_title">Scan to Connect</h3>
+            <p class="text-slate-500 text-sm mb-6" data-i18n="qr_desc">สแกนเพื่อเข้าดูโปรไฟล์นี้บนมือถือของคุณ</p>
+            
+            <div class="bg-brand-sand p-4 rounded-sm inline-block mb-6 border border-slate-100">
+                <!-- Using an API to generate the QR code based on the current page URL -->
+                <img id="qr-image" src="" alt="QR Code" class="w-48 h-48">
+            </div>
+            
+            <button onclick="downloadVCard()" class="w-full bg-brand-dark text-white py-3 rounded-full font-bold text-sm hover:bg-brand-gold hover:text-brand-dark transition duration-300 flex justify-center items-center gap-2">
+                <i data-lucide="user-plus" class="w-4 h-4"></i>
+                <span data-i18n="btn_save_contact">Save Contact</span>
+            </button>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
 
@@ -370,6 +405,51 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
 
+        // Digital Business Card Actions
+        function downloadVCard() {
+            // This URL will be embedded in the vCard
+            const currentUrl = window.location.href;
+            
+            const vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:Jakkrit Kachanun\nN:Kachanun;Jakkrit;;;\nORG:Eco Companion Consultants Co., Ltd.\nTITLE:Founder & Environmental Consultant\nTEL;TYPE=WORK,VOICE:0929805236\nEMAIL;TYPE=WORK:Kachanun.j@gmail.com\nURL:${currentUrl}\nEND:VCARD`;
+            
+            const blob = new Blob([vcard], { type: "text/vcard" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Jakkrit_Kachanun.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function openQRModal() {
+            const modal = document.getElementById('qr-modal');
+            const qrImage = document.getElementById('qr-image');
+            
+            // Get current URL to generate QR code (Fallback to root if local)
+            let currentUrl = window.location.href;
+            if(currentUrl.includes("file://")) {
+                currentUrl = "https://ecocompanion.github.io/founder_profile.html"; // Default placeholder if tested locally
+            }
+            
+            // Call an open-source API to generate the QR image dynamically
+            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}&color=0F392B`;
+            
+            modal.classList.add('modal-active');
+        }
+
+        function closeQRModal() {
+            const modal = document.getElementById('qr-modal');
+            modal.classList.remove('modal-active');
+        }
+
+        // Close modal when clicking outside the box
+        document.getElementById('qr-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQRModal();
+            }
+        });
+
         // Translation Data mapped from the CV
         const translations = {
             en: {
@@ -379,6 +459,11 @@
                 founder_quote: "\"Empowering sustainability through environmental education and biodiversity conservation to create a lasting impact for communities and businesses.\"",
                 founder_intro: "An environmental consultant, educator, and sustainability advocate with over a decade of experience in biodiversity assessment, environmental education, and sustainable development. Passionate about inspiring young minds through innovative approaches to science and environmental stewardship.",
                 
+                btn_save_contact: "Save Contact",
+                btn_show_qr: "Show QR Code",
+                qr_title: "Scan to Connect",
+                qr_desc: "Scan this QR code to view this profile on your mobile device.",
+
                 bio_label: "Professional Summary",
                 bio_title: "Bridging Science, Education & Sustainability",
                 bio_p1: "With a robust background spanning over 10 years, Jakkrit has established himself as a forward-thinking environmental consultant and educator. His demonstrated expertise lies in designing experiential learning programs, fostering community engagement, and strategically integrating sustainability into both corporate and educational systems.",
@@ -425,6 +510,11 @@
                 founder_quote: "\"การผสานการศึกษาด้านสิ่งแวดล้อมและการอนุรักษ์ความหลากหลายทางชีวภาพ คือกุญแจสำคัญในการสร้างความยั่งยืนให้กับชุมชนและภาคธุรกิจ\"",
                 founder_intro: "ที่ปรึกษาด้านสิ่งแวดล้อม นักการศึกษา และผู้ผลักดันด้านความยั่งยืน ด้วยประสบการณ์กว่า 10 ปีในการประเมินความหลากหลายทางชีวภาพ การจัดกระบวนการเรียนรู้ และการพัฒนาที่ยั่งยืน มุ่งมั่นที่จะสร้างแรงบันดาลใจและผสานแนวคิดความยั่งยืนเข้าสู่องค์กรและสังคม",
                 
+                btn_save_contact: "บันทึกรายชื่อ (Save Contact)",
+                btn_show_qr: "แสดง QR Code",
+                qr_title: "สแกนเพื่อเชื่อมต่อ",
+                qr_desc: "สแกน QR Code นี้เพื่อเปิดดูโปรไฟล์บนมือถือของคุณ",
+
                 bio_label: "บทสรุปประวัติการทำงาน",
                 bio_title: "เชื่อมโยงวิทยาศาสตร์ การศึกษา และความยั่งยืน",
                 bio_p1: "ด้วยประสบการณ์กว่า 10 ปี คุณจักรกฤชมีความเชี่ยวชาญในการออกแบบโปรแกรมการเรียนรู้ผ่านประสบการณ์จริง (Experiential Learning) การสร้างการมีส่วนร่วมของชุมชน และการบูรณาการความยั่งยืนเข้าสู่ระบบขององค์กรและสถาบันการศึกษาต่างๆ",
