@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Eco Companion Consultants | "ที่ปรึกษาด้านความหลากหลายทางชีวภาพ(Biodiversity)"</title>
+    <title>Eco Companion Consultants | ที่ปรึกษาด้านความหลากหลายทางชีวภาพ & TNFD</title>
     <meta name="description" content="ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ (Biodiversity) และสิ่งแวดล้อม บริการสำรวจข้อมูลฐาน (Baseline), จัดทำรายงาน TNFD, ประเมินการกักเก็บคาร์บอนพื้นที่สีเขียว และกลยุทธ์ Nature Positive สำหรับองค์กรชั้นนำ">
     <meta name="keywords" content="ที่ปรึกษาความหลากหลายทางชีวภาพ, Biodiversity Consultancy Thailand, TNFD Disclosure Thailand, ประเมินความเสี่ยงด้านธรรมชาติ, บริการสำรวจ EIA, IFC PS6 Consultant, Carbon Credit, กลยุทธ์ Nature Positive, ESG Environment">
     <meta name="author" content="Eco Companion Consultants">
@@ -93,9 +93,14 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-transparent" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-            <div class="flex flex-col cursor-pointer" onclick="window.scrollTo(0,0)">
-                <span class="font-serif font-bold text-xl uppercase nav-text text-white">Eco Companion</span>
-                <span class="text-[10px] text-brand-gold font-bold tracking-widest uppercase">Consultants</span>
+            
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <img src="favicon.png" alt="Eco Companion Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain rounded-sm">
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-xl uppercase nav-text text-white">Eco Companion</span>
+                    <span class="text-[10px] text-brand-gold font-bold tracking-widest uppercase">Consultants</span>
+                </div>
             </div>
             
             <div class="hidden lg:flex space-x-10 items-center">
@@ -117,7 +122,13 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark transform translate-x-full transition-transform duration-300 lg:hidden">
-        <div class="p-6 flex justify-between items-center border-b border-white/10"><span class="text-white font-serif font-bold">Eco Companion</span><button id="close-menu-btn" class="text-white"><i data-lucide="x" class="w-6 h-6"></i></button></div>
+        <div class="p-6 flex justify-between items-center border-b border-white/10">
+            <div class="flex items-center gap-2">
+                <img src="favicon.png" alt="Eco Companion Logo" class="w-6 h-6 object-contain">
+                <span class="text-white font-serif font-bold">Eco Companion</span>
+            </div>
+            <button id="close-menu-btn" class="text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
         <div class="p-8 flex flex-col gap-8 text-2xl font-serif text-white text-center">
             <a href="#about" onclick="document.getElementById('close-menu-btn').click()">About Us</a>
             <a href="#expertise" onclick="document.getElementById('close-menu-btn').click()">Expertise</a>
@@ -328,7 +339,8 @@
                 <!-- 1. Energy (BCPG) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://scontent.fbkk31-2.fna.fbcdn.net/v/t39.30808-6/492259929_122152438496548177_477211219558043568_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=N4mTBF7NITkQ7kNvwGWlgxl&_nc_oc=AdkVUx7S5l7DzWSiwYcYJS5OWHNCCL-ahZxPaF1v2vHz7mQ4BQdooYzFuodSaqPljHs&_nc_zt=23&_nc_ht=scontent.fbkk31-2.fna&_nc_gid=T1BoN3yDdh2bZqOYLv6b1Q&_nc_ss=8&oh=00_AfxrtZNR-4Y2P-QnFBrBTVAI4mU9lzG0s0kyAw_7OuhWEA&oe=69AC9851?w=600&q=80" alt="ที่ปรึกษาประเมินความเสี่ยงด้านธรรมชาติสำหรับโรงไฟฟ้าพลังงานลม BCPG" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <!-- Updated Image URL for Energy -->
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80" alt="ที่ปรึกษาประเมินความเสี่ยงด้านธรรมชาติสำหรับโรงไฟฟ้าพลังงานลม BCPG" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Energy</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Renewable Energy</h4>
@@ -341,7 +353,8 @@
                 <!-- 2. Real Estate (AP) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="การจัดทำ Biodiversity Action Plan สำหรับโครงการอสังหาริมทรัพย์ AP Thailand" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <!-- Updated Image URL for Real Estate -->
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="การจัดทำ Biodiversity Action Plan สำหรับโครงการอสังหาริมทรัพย์ AP Thailand" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Property</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Real Estate</h4>
@@ -354,7 +367,8 @@
                 <!-- 3. Agri-Food/Conservation (Green Spot) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1496095216394-985678329796?w=600&q=80" alt="การฟื้นฟูพื้นที่ชุ่มน้ำทุ่งรังสิต Wetland Restoration โดย Green Spot" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <!-- Updated Image URL for Agri-Food/Conservation -->
+                        <img src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?w=600&q=80" alt="การฟื้นฟูพื้นที่ชุ่มน้ำทุ่งรังสิต Wetland Restoration โดย Green Spot" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Agri-Food</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Agri-Food & Conservation</h4>
@@ -367,7 +381,8 @@
                 <!-- 4. CSR (Banpu) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80" alt="ค่ายวิทยาศาสตร์สิ่งแวดล้อมและกิจกรรม CSR นักวิทย์พลเมือง โดย Banpu" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <!-- Updated Image URL for CSR -->
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80" alt="ค่ายวิทยาศาสตร์สิ่งแวดล้อมและกิจกรรม CSR นักวิทย์พลเมือง โดย Banpu" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">CSR</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">CSR & Education</h4>
@@ -815,5 +830,3 @@
     </script>
 </body>
 </html>
-
-
