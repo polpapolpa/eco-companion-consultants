@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Companion Consultants | Strategic Nature Partner</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Eco Companion Consultants | ที่ปรึกษาด้านความหลากหลายทางชีวภาพ & TNFD</title>
+    <meta name="description" content="ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ (Biodiversity) และสิ่งแวดล้อม บริการสำรวจข้อมูลฐาน (Baseline), จัดทำรายงาน TNFD, ประเมินการกักเก็บคาร์บอนพื้นที่สีเขียว และกลยุทธ์ Nature Positive สำหรับองค์กรชั้นนำ">
+    <meta name="keywords" content="ที่ปรึกษาความหลากหลายทางชีวภาพ, Biodiversity Consultancy Thailand, TNFD Disclosure Thailand, ประเมินความเสี่ยงด้านธรรมชาติ, บริการสำรวจ EIA, IFC PS6 Consultant, Carbon Credit, กลยุทธ์ Nature Positive, ESG Environment">
+    <meta name="author" content="Eco Companion Consultants">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Eco Companion Consultants | Strategic Nature Partner">
+    <meta property="og:description" content="เปลี่ยนความเสี่ยงทางธรรมชาติ ให้เป็นสินทรัพย์ที่ยั่งยืน ด้วยวิทยาศาสตร์และข้อมูล บริการที่ปรึกษาด้าน Biodiversity และ TNFD">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
@@ -46,7 +61,7 @@
         .fade-in-section { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in-section.visible { opacity: 1; transform: translateY(0); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .marquee { display: flex; width: 200%; animation: scroll 60s linear infinite; } /* Slower for readability */
+        .marquee { display: flex; width: 200%; animation: scroll 60s linear infinite; }
         
         .journey-line::before {
             content: ''; position: absolute; top: 1.75rem; left: 50%; width: 100%; height: 2px;
@@ -54,7 +69,24 @@
             background-size: 12px 100%; z-index: 0;
         }
         @media (max-width: 1024px) { .journey-line::before { display: none; } }
+
+        /* FAQ Details/Summary styling */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
+
+    <!-- Schema.org JSON-LD for AI Search & Local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Eco Companion Consultants",
+      "description": "ที่ปรึกษาด้านความหลากหลายทางชีวภาพ (Biodiversity) และกลยุทธ์องค์กรเพื่อรับมือ TNFD และมาตรฐานสิ่งแวดล้อมสากล",
+      "url": "https://www.eco-companion-consultants.com",
+      "areaServed": "Thailand",
+      "knowsAbout": ["Biodiversity", "TNFD", "ESG", "Carbon Storage", "Nature Positive", "Environmental Consulting"]
+    }
+    </script>
 </head>
 <body class="bg-brand-sand text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th">
 
@@ -114,7 +146,6 @@
 
     <!-- Trusted By -->
     <section class="py-12 bg-white border-b border-slate-100 overflow-hidden text-center">
-        <!-- Increased Font Size -->
         <p class="text-sm font-bold uppercase tracking-[0.3em] text-slate-400 mb-6" data-i18n="trusted_label">Trusted by Leading Organizations & Partners</p>
         <div class="marquee">
             <!-- First Set -->
@@ -223,7 +254,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
                 <div class="fade-in-section">
-                    <!-- Increased Font Size: xs -> base -->
                     <span class="text-brand-gold text-base font-bold uppercase tracking-[0.2em] mb-4 block">Our Origin & Philosophy</span>
                     <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6" data-i18n="about_title">Science-Based. <br/><span class="italic text-brand-gold">Business-Aligned.</span></h2>
                     <p class="text-slate-600 text-xl font-light leading-relaxed mb-8" data-i18n="about_desc">
@@ -260,9 +290,8 @@
             <!-- Stats & Network -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="md:col-span-2 bg-brand-dark text-white p-12 rounded-sm relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1596788066342-941178c88720?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1596788066342-941178c88720?auto=format&fit=crop&w=800&q=80" alt="ทีมผู้เชี่ยวชาญ Eco Companion ลงพื้นที่สำรวจทางชีววิทยา" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
                     <div class="relative z-10">
-                        <!-- Increased Font Size: xs -> base -->
                         <span class="text-brand-gold text-base font-bold uppercase tracking-widest">Strategic Advantage</span>
                         <h3 class="font-serif text-4xl mt-4 leading-tight" data-i18n="value1_title">De-Risking Your <br/>Project Cycle</h3>
                         <p class="text-brand-light/80 text-lg leading-relaxed mt-8" data-i18n="value1_desc">เราช่วยค้นหา Red flags ทางระบบนิเวศตั้งแต่ระยะเริ่มต้น เพื่อป้องกันปัญหาความล่าช้าทางกฎหมายและความขัดแย้งกับชุมชน</p>
@@ -290,7 +319,6 @@
     <section id="expertise" class="py-32 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 fade-in-section">
-                <!-- Increased Font Size: xs -> base -->
                 <span class="text-brand-gold text-base font-bold uppercase tracking-widest mb-4 block" data-i18n="expertise_label">Industry Success Stories</span>
                 <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6">Proven Impact Across Sectors</h2>
                 <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto">ตัวอย่างความสำเร็จจากโครงการจริงที่เราได้ร่วมสร้างคุณค่าให้กับพันธมิตร</p>
@@ -300,7 +328,7 @@
                 <!-- 1. Energy (BCPG) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1536196091297-5334355467d2?w=600&q=80" alt="ที่ปรึกษาประเมินความเสี่ยงด้านธรรมชาติสำหรับโรงไฟฟ้าพลังงานลม BCPG" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Energy</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Renewable Energy</h4>
@@ -313,7 +341,7 @@
                 <!-- 2. Real Estate (AP) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="การจัดทำ Biodiversity Action Plan สำหรับโครงการอสังหาริมทรัพย์ AP Thailand" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Property</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Real Estate</h4>
@@ -326,7 +354,7 @@
                 <!-- 3. Agri-Food/Conservation (Green Spot) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1496095216394-985678329796?w=600&q=80" alt="การฟื้นฟูพื้นที่ชุ่มน้ำทุ่งรังสิต Wetland Restoration โดย Green Spot" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Agri-Food</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Agri-Food & Conservation</h4>
@@ -339,7 +367,7 @@
                 <!-- 4. CSR (Banpu) -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1591389703635-e15a07b842d7?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80" alt="ค่ายวิทยาศาสตร์สิ่งแวดล้อมและกิจกรรม CSR นักวิทย์พลเมือง โดย Banpu" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">CSR</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">CSR & Education</h4>
@@ -352,7 +380,7 @@
                 <!-- 5. Logistics -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="การประเมินความเสี่ยงทางธรรมชาติในห่วงโซ่อุปทาน Logistics" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Logistics</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Logistics & Supply Chain</h4>
@@ -365,7 +393,7 @@
                 <!-- 6. SME -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="โซลูชันด้านความยั่งยืนสำหรับธุรกิจ SME และ Startups" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">SME</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">SME & Startups</h4>
@@ -378,7 +406,7 @@
                 <!-- 7. IT -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="ระบบฐานข้อมูลความหลากหลายทางชีวภาพ Digital Bio-Database" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Tech</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">IT & Tech Innovation</h4>
@@ -391,7 +419,7 @@
                 <!-- 8. Education -->
                 <div class="group cursor-pointer">
                     <div class="aspect-square bg-slate-100 rounded-sm overflow-hidden mb-6 relative">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="การออกแบบศูนย์เรียนรู้ธรรมชาติสำหรับสถาบันการศึกษา" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-dark">Education</div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-brand-dark">Education & Institutions</h4>
@@ -409,7 +437,6 @@
     <section class="py-32 bg-gray-50 border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 fade-in-section">
-                <!-- Increased Font Size: xs -> base -->
                 <span class="text-brand-gold text-base font-bold uppercase tracking-[0.2em] mb-4 block" data-i18n="process_label">Our Work Process</span>
                 <h2 class="font-serif text-5xl font-bold text-brand-dark mb-6" data-i18n="process_title">The Path to Nature-Positive Value</h2>
                 <p class="text-slate-500 text-lg font-light max-w-2xl mx-auto" data-i18n="process_desc">กระบวนการทำงานที่เป็นระบบ เปลี่ยนความซับซ้อนทางธรรมชาติ ให้เป็นคุณค่าทางธุรกิจที่ยั่งยืนใน 4 ขั้นตอน</p>
@@ -473,7 +500,6 @@
             <div class="grid lg:grid-cols-4 gap-16">
                 <div class="lg:col-span-1">
                     <div class="sticky top-32">
-                        <!-- Increased Font Size: xs -> base -->
                         <span class="text-brand-gold text-base font-bold uppercase tracking-[0.2em] mb-4 block">Solutions</span>
                         <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6" data-i18n="services_header">Our Services</h2>
                         <p class="text-slate-500 text-lg font-light mb-10 leading-relaxed" data-i18n="services_desc">ครอบคลุมทุกระยะโครงการ ตั้งแต่การประเมินความเสี่ยง ไปจนถึงการฟื้นฟูและการมีส่วนร่วม</p>
@@ -499,7 +525,6 @@
     <!-- Foundation / Standards -->
     <section class="py-32 bg-brand-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <!-- Increased Font Size: xs -> base -->
             <span class="text-brand-gold text-base font-bold uppercase tracking-wider block mb-4" data-i18n="standards_label">Our Foundation</span>
             <h2 class="font-serif text-4xl font-bold text-brand-dark mb-16" data-i18n="standards_title">Science-Based, Business-Aligned Standards</h2>
             
@@ -526,27 +551,78 @@
         </div>
     </section>
 
+    <!-- FAQ Section for AI Search Optimization (GEO) -->
+    <section class="py-32 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-brand-gold text-base font-bold uppercase tracking-widest mb-4 block">FAQ & Knowledge</span>
+                <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6">คำถามที่พบบ่อย (FAQ)</h2>
+                <p class="text-slate-500 text-lg font-light">ข้อมูลเบื้องต้นเกี่ยวกับความหลากหลายทางชีวภาพและบริการของเรา</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="group border border-slate-200 rounded-sm bg-brand-sand/30 open:bg-white transition-colors duration-300">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-brand-dark hover:text-brand-gold transition-colors">
+                        <span>ความหลากหลายทางชีวภาพ (Biodiversity) สำคัญกับภาคธุรกิจอย่างไร?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-slate-600 text-sm font-light leading-relaxed border-t border-slate-100 mt-2">
+                        ในปัจจุบัน ธุรกิจทั่วโลกพึ่งพาทรัพยากรธรรมชาติและระบบนิเวศโดยตรง หากความหลากหลายทางชีวภาพสูญเสียไป จะส่งผลกระทบต่อห่วงโซ่อุปทาน (Supply Chain) นอกจากนี้ นักลงทุนและผู้บริโภคเริ่มให้ความสำคัญกับธุรกิจที่มีแนวทาง Nature Positive ทำให้การจัดการ Biodiversity กลายเป็น "ความได้เปรียบทางการแข่งขัน" ไม่ใช่แค่การทำ CSR อีกต่อไป
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="group border border-slate-200 rounded-sm bg-brand-sand/30 open:bg-white transition-colors duration-300">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-brand-dark hover:text-brand-gold transition-colors">
+                        <span>TNFD คืออะไร และองค์กรในไทยต้องเตรียมตัวอย่างไร?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-slate-600 text-sm font-light leading-relaxed border-t border-slate-100 mt-2">
+                        TNFD (Taskforce on Nature-related Financial Disclosures) คือกรอบการรายงานทางการเงินที่เกี่ยวกับความเสี่ยงและโอกาสทางธรรมชาติ องค์กรในไทยควรเริ่มต้นด้วยการประเมิน LEAP Approach (Locate, Evaluate, Assess, Prepare) ซึ่ง Eco Companion มีบริการให้คำปรึกษาตั้งแต่การสกรีนความเสี่ยงเบื้องต้น (Nature Risk Sprint) ไปจนถึงการสำรวจข้อมูลฐาน (Baseline) เพื่อเตรียมจัดทำรายงานตามกรอบ TNFD
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group border border-slate-200 rounded-sm bg-brand-sand/30 open:bg-white transition-colors duration-300">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-brand-dark hover:text-brand-gold transition-colors">
+                        <span>Eco Companion มีความเชี่ยวชาญด้านใดบ้าง แตกต่างจากที่อื่นอย่างไร?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-slate-600 text-sm font-light leading-relaxed border-t border-slate-100 mt-2">
+                        เราคือที่ปรึกษาเฉพาะทางที่ผสาน <strong>"วิทยาศาสตร์"</strong>, <strong>"กลยุทธ์ธุรกิจ"</strong> และ <strong>"เทคโนโลยี (Nature Tech)"</strong> เข้าด้วยกัน เราโดดเด่นด้วยการลงพื้นที่เก็บข้อมูลจริงตามมาตรฐานสากล (Evidence-first) ควบคุมคุณภาพโดยเครือข่ายวิชาการจากมหาวิทยาลัยมหิดล และยกระดับการจัดการด้วยการนำข้อมูลธรรมชาติมาเปลี่ยนเป็น <strong>ดิจิทัล (Digitized Data)</strong> เช่น ระบบฐานข้อมูล (Bio-Database) และ Dashboard ช่วยให้องค์กรติดตามผลลัพธ์ได้อย่างแม่นยำ ตรวจสอบย้อนกลับได้ และนำไปต่อยอดเป็นมูลค่าทางธุรกิจได้อย่างแท้จริง
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- Insights -->
     <section id="insights" class="py-32 bg-brand-darker text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <!-- Increased Font Size: xs -> base -->
                 <div class="fade-in-section"><span class="text-brand-gold text-base font-bold uppercase tracking-widest block mb-4" data-i18n="knowledge_hub">Knowledge Hub</span><h2 class="font-serif text-5xl font-bold" data-i18n="latest_insights">Latest Insights</h2></div>
                 <a href="EcoCompanion_Blog.html" class="bg-white/10 hover:bg-white hover:text-brand-dark px-8 py-4 rounded-sm text-sm font-bold transition border border-white/20 flex items-center gap-2"><span data-i18n="view_all">Read All Articles</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <a href="EcoCompanion_Blog.html" class="group block">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 relative rounded-sm"><img src="https://media.readthecloud.co/wp-content/uploads/2024/11/18141446/sustainability-ap-thai-22.webp" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"><div class="absolute top-5 left-5 bg-brand-gold text-brand-dark px-3 py-1 text-[10px] font-bold uppercase tracking-wider">Featured Case</div></div>
+                    <div class="aspect-[16/10] overflow-hidden mb-6 relative rounded-sm"><img src="https://media.readthecloud.co/wp-content/uploads/2024/11/18141446/sustainability-ap-thai-22.webp" alt="โครงการพื้นที่สีเขียวในเมือง Pocket Forest" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"><div class="absolute top-5 left-5 bg-brand-gold text-brand-dark px-3 py-1 text-[10px] font-bold uppercase tracking-wider">Featured Case</div></div>
                     <h3 class="font-serif text-2xl font-bold mb-4 group-hover:text-brand-gold transition" data-i18n="featured_title">Pocket Forest by AP: Urban Biodiversity</h3>
                     <p class="text-white/60 text-sm leading-relaxed" data-i18n="featured_desc">Transforming urban green spaces into functional micro-habitats.</p>
                 </a>
                 <a href="EcoCompanion_Blog.html" class="group block">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 relative rounded-sm bg-slate-800"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700"></div>
+                    <div class="aspect-[16/10] overflow-hidden mb-6 relative rounded-sm bg-slate-800"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="รายงานคู่มือ TNFD สำหรับองค์กรไทย" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700"></div>
                     <h3 class="font-serif text-2xl font-bold mb-4 group-hover:text-brand-gold transition">Navigating TNFD Starter Guide</h3>
                     <p class="text-white/60 text-sm leading-relaxed">สรุปขั้นตอนการเตรียมความพร้อมสำหรับการเปิดเผยข้อมูลธรรมชาติ...</p>
                 </a>
                 <a href="EcoCompanion_Blog.html" class="group block">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 relative rounded-sm bg-slate-800"><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700"></div>
+                    <div class="aspect-[16/10] overflow-hidden mb-6 relative rounded-sm bg-slate-800"><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="แนวคิด Nature Positive สำหรับธุรกิจ" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700"></div>
                     <h3 class="font-serif text-2xl font-bold mb-4 group-hover:text-brand-gold transition">Nature Positive vs Net Zero</h3>
                     <p class="text-white/60 text-sm leading-relaxed">ทำไมเป้าหมายด้านคาร์บอนอย่างเดียวไม่เพียงพออีกต่อไป...</p>
                 </a>
