@@ -60,41 +60,35 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* สไตล์สำหรับ Navbar เมื่อเลื่อนหน้าจอลงมา (Scrolled) */
+        /* สไตล์สำหรับ Navbar เมื่อเลื่อนหน้าจอลงมา (Scrolled) - เปลี่ยนเป็นโทนเข้มและบางลง */
         .nav-scrolled { 
-            background-color: rgba(255, 255, 255, 0.85) !important; /* ปรับให้โปร่งใสมากขึ้น (85%) */
-            background-image: none !important; /* ปิด gradient สีดำ */
-            backdrop-filter: blur(16px); /* เบลอให้สวยงามแบบกระจก (Glassmorphism) */
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important; /* ลดเงาดำหนาๆ เปลี่ยนเป็นเงาบางๆ สว่างๆ */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* เพิ่มขอบล่างสว่างๆ ให้ดูคลีนขึ้น */
-            height: 80px !important; 
+            background-color: rgba(15, 57, 43, 0.95) !important; /* ใช้สีเขียวเข้ม (Brand Dark) โปร่งแสง */
+            background-image: none !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3) !important; /* เงาให้ดูมีมิติลอยขึ้น */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* ขอบล่างจางๆ */
+            height: 70px !important; /* ลดความสูงให้เพรียวบาง ไม่รู้สึกอึดอัด */
         }
         
-        /* เปลี่ยนสีตัวหนังสือและไอคอนใน Navbar เป็นสีเข้มเมื่อพื้นหลังเป็นสีขาว */
+        /* ย่อขนาดโลโก้ลงเล็กน้อยให้สมดุลกับความสูงที่ลดลง */
+        .nav-scrolled img {
+            height: 36px !important;
+            width: auto !important;
+        }
+
+        /* คงตัวหนังสือให้เป็นสีขาวเหมือนเดิม ให้ความรู้สึกต่อเนื่องจากหน้าแรก */
         .nav-scrolled .nav-text,
         .nav-scrolled button#mobile-menu-btn i { 
-            color: #0F392B !important; 
+            color: #ffffff !important; 
         }
         
-        /* สไตล์ Hover สำหรับเมนูเมื่อ Scrolled */
         .nav-scrolled .nav-text:hover { 
             color: #C5A065 !important; 
         }
         
-        /* สไตล์สำหรับเมนูที่ถูกเลือก (Active) เมื่อ Scrolled */
         .nav-scrolled .nav-text.lang-active { 
             color: #C5A065 !important; 
-        }
-        
-        /* ปรับสีเส้นแบ่ง (Border) ระหว่างเมนูภาษาเมื่อ Scrolled */
-        .nav-scrolled .border-white\/20 {
-            border-color: rgba(15, 57, 43, 0.2) !important; 
-        }
-
-        /* ลบเงาดำของข้อความ/โลโก้ออกให้หมดเวลาเลื่อนลงมา เพื่อความสะอาดตาและไม่มืด */
-        .nav-scrolled .drop-shadow-md { 
-            filter: none !important; 
         }
 
         .lang-active { font-weight: 700; color: #C5A065; position: relative; }
@@ -132,16 +126,14 @@
 <body class="bg-brand-sand text-slate-700 antialiased selection:bg-brand-dark selection:text-brand-gold lang-th">
 
     <!-- Navigation -->
-    <!-- เปลี่ยนจาก black/50 เป็น black/30 ให้เงาไล่ระดับด้านบนดูสว่างและเป็นธรรมชาติขึ้น ไม่มืดเกินไป -->
-    <nav class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-gradient-to-b from-black/30 to-transparent" id="navbar">
+    <nav class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-gradient-to-b from-black/50 to-transparent" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center relative z-10">
             
             <!-- Logo & Brand Name -->
             <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                <!-- ลบ rounded-sm ออกจากรูปโลโก้ เผื่อรูปเป็นพื้นใส -->
-                <img src="favicon.png" alt="Eco Companion Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain">
+                <!-- เพิ่ม transition เพื่อให้ตอนย่อขนาดมีความสมูท -->
+                <img src="favicon.png" alt="Eco Companion Logo" class="h-10 md:h-12 w-auto max-w-[250px] object-contain transition-all duration-300">
                 <div class="flex flex-col">
-                    <!-- เพิ่ม drop-shadow-md ให้ตัวหนังสือดูเด่นขึ้นเมื่ออยู่บนพื้นหลังรูปภาพ -->
                     <span class="font-serif font-bold text-xl uppercase nav-text text-white drop-shadow-md">Eco Companion</span>
                     <span class="text-[10px] text-brand-gold font-bold tracking-widest uppercase drop-shadow-md">Consultants</span>
                 </div>
