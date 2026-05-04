@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eco Companion Consultants — Company Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1B3B2F;
+    --forest-deep: #0E2218;
+    --canopy: #2A5E42;
+    --leaf: #3A7D56;
+    --moss: #4E9968;
+    --gold: #B69D4E;
+    --gold-light: #CABA72;
+    --gold-pale: #E8DFC0;
+    --cream: #FAF8F3;
+    --warm: #F4F1E8;
+    --text: #1C1C18;
+    --text-mid: #505048;
+    --text-light: #8A8A7E;
+    --rule: rgba(27,59,47,0.10);
+    --alert: #A85C32;
+    --alert-bg: #FDF6F0;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  @page { size: A4; margin: 0; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Sans Thai', sans-serif;
+    background: #DDD9D0;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 60px rgba(0,0,0,0.18);
+  }
+
+  .gold-top { height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold)); }
+
+  /* ─── HEADER ─── */
+  .header {
+    padding: 18px 32px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .brand { display: flex; align-items: center; gap: 10px; }
+
+  .brand-icon {
+    width: 38px; height: 38px;
+    background: var(--forest);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  .brand-icon img { width: 28px; height: 28px; border-radius: 3px; }
+
+  .brand h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--forest); line-height: 1.1;
+  }
+
+  .brand .sub {
+    font-size: 7.5px; text-transform: uppercase;
+    letter-spacing: 2.5px; color: var(--gold);
+    font-weight: 600; margin-top: 1px;
+  }
+
+  .header-right { text-align: right; padding-top: 2px; }
+
+  .header-right .th-name {
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 10px; color: var(--text-mid); font-weight: 500;
+  }
+
+  .header-right .type {
+    font-size: 7px; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-top: 1px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--forest-deep), var(--forest) 50%, var(--canopy));
+    padding: 16px 32px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; right: -20px; top: -20px;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(182,157,78,0.08), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: #fff; font-weight: 600;
+    line-height: 1.3; margin-bottom: 4px;
+  }
+
+  .hero h2 em { color: var(--gold-light); font-style: normal; }
+
+  .hero p {
+    font-size: 9.5px; color: rgba(255,255,255,0.75);
+    line-height: 1.55; max-width: 92%;
+  }
+
+  /* ─── MOU + TRUST BAR ─── */
+  .mou-bar {
+    padding: 8px 32px;
+    background: var(--warm);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mou-badge {
+    display: flex; align-items: center; gap: 7px;
+  }
+
+  .mou-icon {
+    width: 26px; height: 26px;
+    background: linear-gradient(135deg, #6B2C8F, #8B3CAF);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .mou-icon svg { width: 14px; height: 14px; }
+
+  .mou-text .label {
+    font-size: 7px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-light); font-weight: 600;
+  }
+
+  .mou-text .value {
+    font-size: 9px; font-weight: 600; color: var(--forest);
+  }
+
+  .mou-text .value-th {
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 8px; color: var(--text-mid);
+  }
+
+  .trust-logos {
+    display: flex; gap: 10px; align-items: center;
+  }
+
+  .trust-logos span {
+    font-size: 7.5px; font-weight: 600;
+    color: var(--text-mid); letter-spacing: 0.3px; opacity: 0.6;
+  }
+
+  .trust-label-sm {
+    font-size: 6.5px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-light);
+    font-weight: 600; margin-right: 4px;
+  }
+
+  /* ─── REGULATORY URGENCY ─── */
+  .urgency {
+    margin: 10px 32px 0;
+    background: var(--alert-bg);
+    border: 1px solid rgba(168,92,50,0.2);
+    border-radius: 6px;
+    padding: 9px 12px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .urgency-icon {
+    width: 20px; height: 20px;
+    background: var(--alert);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .urgency-icon svg { width: 11px; height: 11px; }
+
+  .urgency-title {
+    font-size: 9px; font-weight: 700;
+    color: var(--alert); margin-bottom: 3px;
+  }
+
+  .urgency-timeline {
+    display: flex; gap: 16px;
+  }
+
+  .tl-item {
+    display: flex; align-items: flex-start; gap: 5px;
+  }
+
+  .tl-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  .tl-dot.now { background: var(--alert); }
+  .tl-dot.soon { background: var(--gold); }
+  .tl-dot.next { background: var(--canopy); }
+
+  .tl-year {
+    font-size: 8px; font-weight: 700;
+    color: var(--text); line-height: 1;
+  }
+
+  .tl-desc {
+    font-size: 7.5px; color: var(--text-mid);
+    line-height: 1.3;
+  }
+
+  /* ─── MAIN 2-COL ─── */
+  .main {
+    display: grid;
+    grid-template-columns: 52% 48%;
+  }
+
+  .col-l { padding: 12px 16px 12px 32px; border-right: 1px solid var(--rule); }
+  .col-r { padding: 12px 32px 12px 16px; }
+
+  .stitle {
+    font-size: 7.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--gold); margin-bottom: 6px;
+    padding-bottom: 3px; border-bottom: 1px solid var(--gold-pale);
+  }
+
+  /* ─── PAIN POINTS → SOLUTIONS ─── */
+  .pain-row {
+    display: flex; gap: 6px;
+    margin-bottom: 5px; align-items: flex-start;
+  }
+
+  .pain-q {
+    font-size: 8.5px; font-weight: 600;
+    color: var(--alert); flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pain-text {
+    font-size: 8.5px; color: var(--text-mid);
+    line-height: 1.4;
+  }
+
+  .pain-text strong { color: var(--forest); font-weight: 600; }
+
+  .arrow-down {
+    text-align: center;
+    color: var(--canopy);
+    font-size: 10px;
+    margin: 3px 0;
+    font-weight: 300;
+  }
+
+  /* ─── 3 PILLARS ─── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px; margin-bottom: 10px;
+  }
+
+  .pillar {
+    background: var(--warm);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 8px 7px 7px;
+    text-align: center; position: relative;
+  }
+
+  .pillar::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 24px; height: 2px;
+    background: var(--canopy); border-radius: 0 0 2px 2px;
+  }
+
+  .pillar .p-icon {
+    width: 18px; height: 18px; margin: 0 auto 3px;
+    background: var(--forest); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .pillar .p-icon svg { width: 10px; height: 10px; }
+
+  .pillar h4 {
+    font-size: 8px; font-weight: 700;
+    color: var(--forest); line-height: 1.2; margin-bottom: 2px;
+  }
+
+  .pillar p {
+    font-size: 7.5px; color: var(--text-mid); line-height: 1.35;
+  }
+
+  /* ─── SERVICE GRID ─── */
+  .svc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 8px; margin-bottom: 10px;
+  }
+
+  .svc-cat {
+    font-size: 7px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    color: var(--canopy); margin-top: 3px; margin-bottom: 1px;
+    grid-column: 1 / -1;
+  }
+
+  .svc-item {
+    display: flex; align-items: flex-start; gap: 5px;
+    padding: 2.5px 0; font-size: 8.5px; line-height: 1.3; color: var(--text);
+  }
+
+  .svc-item .blt {
+    width: 3px; height: 3px;
+    background: var(--canopy); border-radius: 50%;
+    flex-shrink: 0; margin-top: 3.5px;
+  }
+
+  /* ─── PROCESS FLOW ─── */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px; margin-bottom: 10px;
+  }
+
+  .step { text-align: center; position: relative; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--forest); line-height: 1;
+  }
+
+  .step-title {
+    font-size: 7px; font-weight: 700;
+    color: var(--canopy); margin: 1px 0;
+  }
+
+  .step-desc {
+    font-size: 7px; color: var(--text-mid); line-height: 1.25;
+  }
+
+  .step:not(:last-child)::after {
+    content: '›'; position: absolute;
+    right: -5px; top: 4px;
+    font-size: 12px; color: var(--gold); font-weight: 300;
+  }
+
+  /* ─── RIGHT COLUMN ─── */
+
+  /* Stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px; margin-bottom: 10px;
+  }
+
+  .stat {
+    background: linear-gradient(135deg, var(--forest-deep), var(--canopy));
+    border-radius: 5px; padding: 8px 6px; text-align: center;
+  }
+
+  .stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: #fff; line-height: 1;
+  }
+
+  .stat .num sup { font-size: 10px; color: var(--gold-light); }
+
+  .stat .label {
+    font-size: 7px; color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.6px;
+    margin-top: 2px; line-height: 1.25;
+  }
+
+  /* Cases */
+  .cases { margin-bottom: 10px; }
+
+  .case-item {
+    display: flex; gap: 7px; padding: 4px 0;
+    border-bottom: 1px solid rgba(27,59,47,0.06);
+    align-items: flex-start;
+  }
+
+  .case-item:last-child { border-bottom: none; }
+
+  .case-tag {
+    font-size: 6.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    background: rgba(58,125,86,0.1);
+    color: var(--canopy); padding: 1.5px 4px;
+    border-radius: 2px; white-space: nowrap; margin-top: 1.5px;
+  }
+
+  .case-text .client {
+    font-size: 9px; font-weight: 600; color: var(--forest);
+  }
+
+  .case-text .desc {
+    font-size: 8px; color: var(--text-mid); line-height: 1.3;
+  }
+
+  /* Why Us */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px; margin-bottom: 10px;
+  }
+
+  .why-item {
+    background: var(--warm);
+    border: 1px solid var(--rule);
+    border-radius: 4px; padding: 6px 7px;
+  }
+
+  .why-item h5 {
+    font-size: 8px; font-weight: 700;
+    color: var(--forest); margin-bottom: 1px;
+  }
+
+  .why-item p {
+    font-size: 7.5px; color: var(--text-mid); line-height: 1.3;
+  }
+
+  /* Deliverables */
+  .deliv-box {
+    background: var(--warm);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 7px 9px;
+  }
+
+  .deliv-title {
+    font-size: 7px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--gold); margin-bottom: 4px;
+  }
+
+  .deliv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 8px;
+  }
+
+  .deliv-item {
+    font-size: 8px; color: var(--text);
+    display: flex; align-items: center; gap: 4px;
+    padding: 1.5px 0;
+  }
+
+  .deliv-item .chk {
+    color: var(--canopy); font-size: 9px; font-weight: 700;
+  }
+
+  /* Badges */
+  .badges {
+    display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px;
+  }
+
+  .badge {
+    font-size: 7px; font-weight: 600;
+    padding: 2px 6px; border-radius: 2px; letter-spacing: 0.2px;
+  }
+
+  .badge.g {
+    background: rgba(42,94,66,0.08); color: var(--canopy);
+    border: 1px solid rgba(42,94,66,0.12);
+  }
+
+  .badge.y {
+    background: rgba(182,157,78,0.08); color: #8A7340;
+    border: 1px solid rgba(182,157,78,0.15);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: var(--forest-deep);
+    padding: 10px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+
+  .footer-contacts { display: flex; gap: 16px; }
+
+  .fc { display: flex; align-items: center; gap: 4px; }
+  .fc svg { width: 9px; height: 9px; flex-shrink: 0; }
+  .fc .fl { font-size: 6px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.8px; }
+  .fc .fv { font-size: 8px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+  .footer-end { text-align: right; }
+  .footer-end .copy { font-size: 6.5px; color: rgba(255,255,255,0.3); }
+  .footer-end .url { font-size: 7.5px; color: var(--gold-light); font-weight: 500; }
+
+  @media print {
+    body { background: none; }
+    .page { margin: 0; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="gold-top"></div>
+
+  <!-- ─── HEADER ─── -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">
+        <img src="https://www.eco-companion-consultants.com/favicon.png" alt="EC" onerror="this.parentElement.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#fff&quot; stroke-width=&quot;1.8&quot;><path d=&quot;M12 3c-1.5 3-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-2.5-6-4-9z&quot;/><path d=&quot;M12 21v-3&quot;/></svg>'">
+      </div>
+      <div>
+        <h1>Eco Companion</h1>
+        <div class="sub">Strategic Nature Partner</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="th-name">บริษัท อีโค คอมพาเนียน คอนซัลแทนท์ส จำกัด</div>
+      <div class="type">Company Profile 2026</div>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <div class="hero">
+    <h2>Turn Nature Risks into <em>Strategic Assets.</em></h2>
+    <p>ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ ผสานวิทยาศาสตร์ กลยุทธ์ธุรกิจ และเทคโนโลยี เพื่อช่วยองค์กรจดทะเบียนจัดการความเสี่ยงด้านธรรมชาติ เปิดเผยข้อมูลตามมาตรฐานสากล และสร้างมูลค่าจากทุนธรรมชาติอย่างยั่งยืน</p>
+  </div>
+
+  <!-- ─── MOU + TRUST ─── -->
+  <div class="mou-bar">
+    <div class="mou-badge">
+      <div class="mou-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div class="mou-text">
+        <div class="label">MOU Academic Partner</div>
+        <div class="value">Faculty of Science, Mahidol University</div>
+        <div class="value-th">คณะวิทยาศาสตร์ มหาวิทยาลัยมหิดล</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center;">
+      <span class="trust-label-sm">Clients</span>
+      <div class="trust-logos">
+        <span>AP</span><span>BCPG</span><span>BANPU</span><span>CPF</span><span>GREEN SPOT</span><span>CLOVER POWER</span><span>BAIMAI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── REGULATORY URGENCY ─── -->
+  <div class="urgency">
+    <div class="urgency-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+    </div>
+    <div style="flex:1;">
+      <div class="urgency-title">ทำไมต้องเตรียมพร้อมเรื่อง Nature ตั้งแต่วันนี้? / Why Nature Readiness Matters Now</div>
+      <div class="urgency-timeline">
+        <div class="tl-item">
+          <span class="tl-dot now"></span>
+          <div>
+            <div class="tl-year">2026 — NOW</div>
+            <div class="tl-desc">ก.ล.ต. บังคับ SET50 รายงาน ISSB<br>(IFRS S1/S2) เริ่มปีนี้</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot soon"></span>
+          <div>
+            <div class="tl-year">Oct 2026</div>
+            <div class="tl-desc">ISSB ออกร่าง Nature Disclosure<br>อิงกรอบ TNFD</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot next"></span>
+          <div>
+            <div class="tl-year">2027–28</div>
+            <div class="tl-desc">Nature Disclosure คาดบังคับ<br>ขยายครอบคลุม SET100+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MAIN ─── -->
+  <div class="main">
+
+    <!-- LEFT -->
+    <div class="col-l">
+
+      <!-- Pain Points -->
+      <div style="margin-bottom:10px;">
+        <div class="stitle">ปัญหาที่องค์กรจดทะเบียนกำลังเผชิญ</div>
+        <div class="pain-row">
+          <span class="pain-q">▸</span>
+          <div class="pain-text"><strong>56-1 One Report / SD Report</strong> ต้องเปิดเผยข้อมูล Nature แต่ไม่มี Baseline Data</div>
+        </div>
+        <div class="pain-row">
+          <span class="pain-q">▸</span>
+          <div class="pain-text"><strong>THSI / SET ESG Ratings</strong> คะแนน Biodiversity ต่ำ เพราะขาดข้อมูลเชิงวิทยาศาสตร์</div>
+        </div>
+        <div class="pain-row">
+          <span class="pain-q">▸</span>
+          <div class="pain-text"><strong>นักลงทุนสถาบัน</strong> เริ่มถามเรื่อง Nature Risk & Dependencies ตาม TNFD</div>
+        </div>
+        <div class="pain-row">
+          <span class="pain-q">▸</span>
+          <div class="pain-text"><strong>โครงการใหม่</strong> ต้องทำ Biodiversity Due Diligence ก่อนอนุมัติสินเชื่อสีเขียว</div>
+        </div>
+        <div class="arrow-down">▾ เราช่วยได้ ▾</div>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="stitle">Core Expertise / ความเชี่ยวชาญ 3 เสาหลัก</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3c-1.5 3-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-2.5-6-4-9z"/></svg></div>
+          <h4>Biodiversity<br>& TNFD</h4>
+          <p>สำรวจ ประเมิน วางแผน BAP ตามมาตรฐานสากล</p>
+        </div>
+        <div class="pillar">
+          <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h4>Carbon<br>& Climate</h4>
+          <p>Carbon Stock, Credit Readiness, NbS</p>
+        </div>
+        <div class="pillar">
+          <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4>Nature Tech<br>& Data</h4>
+          <p>Digital Bio-Database, Dashboard, MRV</p>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="stitle">Solutions for SET Companies / บริการสำหรับองค์กรจดทะเบียน</div>
+      <div class="svc-grid">
+        <div class="svc-cat">A) Assess — ประเมินความเสี่ยงด้านธรรมชาติ</div>
+        <div class="svc-item"><span class="blt"></span>TNFD LEAP Screening & Assessment</div>
+        <div class="svc-item"><span class="blt"></span>Biodiversity Baseline Survey</div>
+        <div class="svc-item"><span class="blt"></span>Bird & Bat Collision Risk Assessment</div>
+        <div class="svc-item"><span class="blt"></span>Area-based Carbon Stock Estimation</div>
+
+        <div class="svc-cat">B) Plan & Report — วางกลยุทธ์และจัดทำรายงาน</div>
+        <div class="svc-item"><span class="blt"></span>Biodiversity Action Plan (BAP)</div>
+        <div class="svc-item"><span class="blt"></span>ESG/SD Report — Nature Section</div>
+        <div class="svc-item"><span class="blt"></span>56-1 One Report Biodiversity Disclosure</div>
+        <div class="svc-item"><span class="blt"></span>Carbon Credit Roadmap & NbS Design</div>
+
+        <div class="svc-cat">C) Monitor & Digitize — ติดตามผลและดิจิทัล</div>
+        <div class="svc-item"><span class="blt"></span>Digital Bio-Database & Monitoring Dashboard</div>
+        <div class="svc-item"><span class="blt"></span>MRV & Traceability Systems</div>
+      </div>
+
+      <!-- Process -->
+      <div class="stitle">Work Process / ขั้นตอนการทำงาน</div>
+      <div class="process">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Assess</div>
+          <div class="step-desc">สำรวจภาคสนาม<br>ตั้ง Baseline</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">Plan</div>
+          <div class="step-desc">ออกแบบกลยุทธ์<br>วางแผน BAP</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">Act</div>
+          <div class="step-desc">ดำเนินการจริง<br>ติดตามผล KPI</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">Report</div>
+          <div class="step-desc">จัดทำรายงาน<br>56-1 / SD / TNFD</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col-r">
+
+      <!-- Stats -->
+      <div class="stitle">Track Record / ผลงาน</div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="num">50<sup>+</sup></div>
+          <div class="label">Projects<br>Delivered</div>
+        </div>
+        <div class="stat">
+          <div class="num">15k<sup>+</sup></div>
+          <div class="label">Taxa<br>Records</div>
+        </div>
+        <div class="stat">
+          <div class="num">8<sup>+</sup></div>
+          <div class="label">Industry<br>Sectors</div>
+        </div>
+      </div>
+
+      <!-- Cases -->
+      <div class="stitle">Success Stories / ผลงานกับบริษัทจดทะเบียน</div>
+      <div class="cases">
+        <div class="case-item">
+          <span class="case-tag">Energy</span>
+          <div class="case-text">
+            <div class="client">BCPG — Ligor Wind</div>
+            <div class="desc">Bird & Bat Collision Assessment ตามมาตรฐานสากล</div>
+          </div>
+        </div>
+        <div class="case-item">
+          <span class="case-tag">Property</span>
+          <div class="case-text">
+            <div class="client">AP (Thailand)</div>
+            <div class="desc">BAP + Carbon Stock Assessment สำหรับพื้นที่สีเขียว</div>
+          </div>
+        </div>
+        <div class="case-item">
+          <span class="case-tag">Agri-Food</span>
+          <div class="case-text">
+            <div class="client">Green Spot</div>
+            <div class="desc">Wetland Restoration ทุ่งรังสิต + Bio-Database</div>
+          </div>
+        </div>
+        <div class="case-item">
+          <span class="case-tag">CSR</span>
+          <div class="case-text">
+            <div class="client">Banpu — Power Green Camp</div>
+            <div class="desc">ออกแบบค่ายวิทยาศาสตร์สิ่งแวดล้อมสำหรับเยาวชน</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Us -->
+      <div class="stitle">Why Eco Companion / ทำไมต้องเรา</div>
+      <div class="why-grid">
+        <div class="why-item">
+          <h5>🔬 Evidence-First</h5>
+          <p>ลงพื้นที่เก็บข้อมูลจริง QA/QC เข้มงวด ไม่ใช่แค่ Desk Study</p>
+        </div>
+        <div class="why-item">
+          <h5>🎓 MOU มหิดล</h5>
+          <p>ร่วมมือคณะวิทยาศาสตร์ มหิดล รับรองความถูกต้องทางวิชาการ</p>
+        </div>
+        <div class="why-item">
+          <h5>💡 Science + Business</h5>
+          <p>เข้าใจภาษาธุรกิจ แปลงวิทยาศาสตร์เป็น Action ที่รายงานได้</p>
+        </div>
+        <div class="why-item">
+          <h5>📊 Nature Tech</h5>
+          <p>Digital Bio-Database ติดตามผลแม่นยำ ตรวจสอบย้อนกลับได้</p>
+        </div>
+      </div>
+
+      <!-- Deliverables -->
+      <div class="deliv-box">
+        <div class="deliv-title">Key Deliverables / ผลลัพธ์ที่ได้รับ</div>
+        <div class="deliv-grid">
+          <div class="deliv-item"><span class="chk">✓</span> 56-1 One Report — Nature Section</div>
+          <div class="deliv-item"><span class="chk">✓</span> TNFD LEAP Assessment Report</div>
+          <div class="deliv-item"><span class="chk">✓</span> Biodiversity Action Plan (BAP)</div>
+          <div class="deliv-item"><span class="chk">✓</span> Carbon Stock / Credit Roadmap</div>
+          <div class="deliv-item"><span class="chk">✓</span> Digital Bio-Database & Dashboard</div>
+          <div class="deliv-item"><span class="chk">✓</span> THSI / ESG Rating Support</div>
+        </div>
+      </div>
+
+      <!-- Standards -->
+      <div class="badges">
+        <span class="badge g">TNFD LEAP</span>
+        <span class="badge g">IFRS S1/S2</span>
+        <span class="badge g">IFC PS6</span>
+        <span class="badge g">GRI 304</span>
+        <span class="badge y">SET ESG</span>
+        <span class="badge y">56-1 One Report</span>
+        <span class="badge y">TGO T-VER</span>
+        <span class="badge g">GBF</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <div class="footer">
+    <div class="footer-contacts">
+      <div class="fc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div>
+          <div class="fl">Email</div>
+          <div class="fv">consultants.ecc@gmail.com</div>
+        </div>
+      </div>
+      <div class="fc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <div class="fl">Tel</div>
+          <div class="fv">+66 96-159-4541</div>
+        </div>
+      </div>
+      <div class="fc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div>
+          <div class="fl">Web</div>
+          <div class="fv">eco-companion-consultants.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-end">
+      <div class="url">Bangkok, Thailand</div>
+      <div class="copy">© 2026 Eco Companion Consultants Co., Ltd.</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
