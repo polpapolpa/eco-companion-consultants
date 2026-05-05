@@ -428,22 +428,24 @@ body {
         <line x1="160" y1="28" x2="160" y2="2" stroke="#81C784" stroke-width="3" stroke-linecap="round"/>
         <line x1="160" y1="28" x2="137" y2="44" stroke="#81C784" stroke-width="3" stroke-linecap="round"/>
         <line x1="160" y1="28" x2="183" y2="44" stroke="#81C784" stroke-width="3" stroke-linecap="round"/>
-        <!-- search radius -->
-        <ellipse cx="160" cy="102" rx="120" ry="18" fill="none" stroke="#66BB6A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
-        <ellipse cx="160" cy="102" rx="80" ry="12" fill="none" stroke="#66BB6A" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
-        <!-- zigzag -->
-        <polyline points="80,94 95,110 110,94 125,110 140,94 155,110 170,94 185,110 200,94 215,110 230,94 240,110" fill="none" stroke="#FF7043" stroke-width="1.5" opacity="0.7"/>
+        <!-- square search plot 114x114 -->
+        <rect x="90" y="60" width="140" height="48" fill="none" stroke="#66BB6A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6" rx="2"/>
+        <!-- zigzag inside plot -->
+        <polyline points="100,68 100,100 112,100 112,68 124,68 124,100 136,100 136,68 148,68 148,100 160,100 160,68 172,68 172,100 184,100 184,68 196,68 196,100 208,100 208,68 220,68 220,100" fill="none" stroke="#FF7043" stroke-width="1" opacity="0.5"/>
         <!-- labels -->
-        <text x="280" y="99" fill="#6B9E70" font-size="9" font-family="JetBrains Mono" text-anchor="middle">172 ม.</text>
-        <text x="160" y="130" fill="#3D6B44" font-size="8" font-family="IBM Plex Sans Thai" text-anchor="middle">Search Plot</text>
-        <line x1="160" y1="102" x2="278" y2="102" stroke="#6B9E70" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
+        <text x="160" y="56" fill="#66BB6A" font-size="8" font-family="JetBrains Mono" text-anchor="middle">114 × 114 ม.</text>
+        <text x="160" y="130" fill="#3D6B44" font-size="8" font-family="IBM Plex Sans Thai" text-anchor="middle">Search Plot (สี่เหลี่ยม)</text>
       </svg>
     </div>
     <div class="param-grid">
-      <div class="param"><div class="param-label">รัศมีค้นหา</div><div class="param-val">172 ม.</div><div class="param-note">จากฐาน WTG</div></div>
+      <div class="param"><div class="param-label">Search Plot</div><div class="param-val">114×114</div><div class="param-note">เมตร (สี่เหลี่ยม)</div></div>
       <div class="param"><div class="param-label">Transect</div><div class="param-val">6 ม.</div><div class="param-note">ระยะห่างระหว่างเส้น</div></div>
       <div class="param"><div class="param-label">Scan width</div><div class="param-val">3 ม.</div><div class="param-note">ซ้าย-ขวาจากเส้นเดิน</div></div>
       <div class="param"><div class="param-label">จำนวน Transect</div><div class="param-val">18</div><div class="param-note">เส้นต่อ WTG</div></div>
+      <div class="param"><div class="param-label">ความยาว Transect</div><div class="param-val">108 ม.</div><div class="param-note">ต่อเส้น</div></div>
+      <div class="param"><div class="param-label">ความเร็วเดิน</div><div class="param-val">1.5 ม./วิ</div><div class="param-note">~45-60 ม./นาที</div></div>
+      <div class="param"><div class="param-label">Search Interval</div><div class="param-val">6 วัน</div><div class="param-note">7 วัน -1 วันหยุด</div></div>
+      <div class="param"><div class="param-label">ทีมค้นหา</div><div class="param-val">2 คน</div><div class="param-note">1 ทีม × 2 คน</div></div>
     </div>
   </div>
 
@@ -474,9 +476,9 @@ body {
     </div>
     <table class="dtable">
       <tr><th class="green-bg">ประเภท</th><th class="green-bg">พื้นที่</th><th class="green-bg">ความถี่</th></tr>
-      <tr><td><strong>Standard</strong></td><td>รอบ WTG (172 ม.)</td><td>สัปดาห์ละ 1 ครั้ง</td></tr>
+      <tr><td><strong>Standard (WTG)</strong></td><td>114×114 ม. รอบ WTG</td><td>ทุก 6 วัน</td></tr>
       <tr><td><strong>Road & Pad</strong></td><td>ถนน + ลานฐาน</td><td>วันละ 1 ครั้ง</td></tr>
-      <tr><td><strong>OHTL</strong></td><td>ใต้สายส่ง ±25 ม.</td><td>เดือนละ 1 ครั้ง</td></tr>
+      <tr><td><strong>OHTL (สายส่ง)</strong></td><td>88 ม. (44 ม. แต่ละด้าน)<br><span style="font-size:11px;color:var(--text-d);">12 segments × 1-2.5 กม.</span></td><td>ทุก 14 วัน</td></tr>
     </table>
   </div>
 
@@ -486,38 +488,50 @@ body {
       <div class="section-num green">4</div>
       <div class="section-title">ขั้นตอนเดินค้นหา</div>
     </div>
-    <!-- SVG: Zigzag transect pattern -->
+    <!-- SVG: Zigzag transect pattern (114×114 square) -->
     <div style="text-align:center; margin-bottom:12px;">
-      <svg viewBox="0 0 280 80" style="width:100%;max-width:280px;" xmlns="http://www.w3.org/2000/svg">
-        <!-- plot outline -->
-        <rect x="10" y="5" width="260" height="65" rx="4" fill="rgba(76,175,80,0.04)" stroke="rgba(76,175,80,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+      <svg viewBox="0 0 300 100" style="width:100%;max-width:300px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- square plot outline 114x114 -->
+        <rect x="20" y="5" width="220" height="70" rx="3" fill="rgba(76,175,80,0.04)" stroke="rgba(76,175,80,0.2)" stroke-width="1.5"/>
+        <text x="130" y="0" fill="#66BB6A" font-size="7" text-anchor="middle" font-family="JetBrains Mono">114 ม.</text>
+        <!-- 108m transect label on side -->
+        <text x="12" y="42" fill="#66BB6A" font-size="6" text-anchor="middle" font-family="JetBrains Mono" transform="rotate(-90,12,42)">108 ม.</text>
         <!-- transect lines -->
-        <line x1="30" y1="12" x2="30" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="60" y1="12" x2="60" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="90" y1="12" x2="90" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="120" y1="12" x2="120" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="150" y1="12" x2="150" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="180" y1="12" x2="180" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="210" y1="12" x2="210" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
-        <line x1="240" y1="12" x2="240" y2="63" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+        <line x1="35" y1="10" x2="35" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="55" y1="10" x2="55" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="75" y1="10" x2="75" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="95" y1="10" x2="95" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="115" y1="10" x2="115" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="135" y1="10" x2="135" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="155" y1="10" x2="155" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="175" y1="10" x2="175" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="195" y1="10" x2="195" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
+        <line x1="215" y1="10" x2="215" y2="70" stroke="#4CAF50" stroke-width="0.8" opacity="0.25"/>
         <!-- walker path -->
-        <polyline points="30,15 30,60 60,60 60,15 90,15 90,60 120,60 120,15 150,15 150,60" fill="none" stroke="#FF7043" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+        <polyline points="35,12 35,68 55,68 55,12 75,12 75,68 95,68 95,12 115,12 115,68 135,68 135,12 155,12 155,68" fill="none" stroke="#FF7043" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
         <!-- walker dot -->
-        <circle cx="150" cy="60" r="4" fill="#FF7043"/>
-        <circle cx="150" cy="60" r="7" fill="none" stroke="#FF7043" stroke-width="1" opacity="0.3"/>
-        <!-- labels -->
-        <text x="45" y="75" fill="#3D6B44" font-size="7" text-anchor="middle" font-family="JetBrains Mono">6m</text>
-        <line x1="30" y1="72" x2="60" y2="72" stroke="#3D6B44" stroke-width="0.5"/>
+        <circle cx="155" cy="68" r="4" fill="#FF7043"/>
+        <circle cx="155" cy="68" r="7" fill="none" stroke="#FF7043" stroke-width="1" opacity="0.3"/>
+        <!-- 6m spacing label -->
+        <line x1="35" y1="82" x2="55" y2="82" stroke="#3D6B44" stroke-width="0.8"/>
+        <line x1="35" y1="79" x2="35" y2="85" stroke="#3D6B44" stroke-width="0.5"/>
+        <line x1="55" y1="79" x2="55" y2="85" stroke="#3D6B44" stroke-width="0.5"/>
+        <text x="45" y="92" fill="#3D6B44" font-size="7" text-anchor="middle" font-family="JetBrains Mono">6m</text>
         <!-- scan width arrows -->
-        <line x1="30" y1="38" x2="18" y2="38" stroke="#66BB6A" stroke-width="0.5" marker-end="none"/>
-        <line x1="30" y1="38" x2="42" y2="38" stroke="#66BB6A" stroke-width="0.5"/>
-        <text x="36" y="35" fill="#66BB6A" font-size="5" font-family="JetBrains Mono">3m</text>
-        <!-- direction arrow -->
-        <text x="168" y="62" fill="#FF7043" font-size="8">→</text>
+        <text x="45" y="48" fill="#66BB6A" font-size="5" font-family="JetBrains Mono" text-anchor="middle">←3m→</text>
+        <!-- direction -->
+        <text x="170" y="70" fill="#FF7043" font-size="9">→</text>
+        <!-- turbine icon center -->
+        <rect x="248" y="15" width="3" height="40" fill="#6B9E70" rx="1"/>
+        <circle cx="249.5" cy="14" r="3" fill="#4CAF50"/>
+        <line x1="249.5" y1="14" x2="249.5" y2="5" stroke="#81C784" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="249.5" y1="14" x2="242" y2="22" stroke="#81C784" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="249.5" y1="14" x2="257" y2="22" stroke="#81C784" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="249" y="65" fill="#3D6B44" font-size="6" text-anchor="middle">WTG</text>
       </svg>
     </div>
-    <div class="step"><div class="step-num green">1</div><div class="step-text">เปิด GPS บันทึก track → เริ่มเดินจากขอบ plot ด้านหนึ่ง ห่างจากขอบ 3 ม.</div></div>
-    <div class="step"><div class="step-num green">2</div><div class="step-text">เดินตรงตลอดเส้น scan สายตาซ้าย-ขวาข้างละ 3 ม. — อย่าเดินเร็ว</div></div>
+    <div class="step"><div class="step-num green">1</div><div class="step-text">เปิด GPS บันทึก track → เริ่มเดินจากขอบ plot (114×114 ม.) ห่างจากขอบ 3 ม.</div></div>
+    <div class="step"><div class="step-num green">2</div><div class="step-text">เดินตรง 108 ม. ตลอดเส้น scan สายตาซ้าย-ขวาข้างละ 3 ม. — ความเร็ว ~1.5 ม./วินาที</div></div>
     <div class="step"><div class="step-num green">3</div><div class="step-text">สิ้นสุดเส้น → ขยับไปข้าง 6 ม. → เดินกลับทิศตรงข้าม (zigzag)</div></div>
     <div class="step"><div class="step-num green">4</div><div class="step-text">ทำซ้ำจนครบ 18 เส้น — <strong>ถ้าพบซาก หยุดทันที!</strong> ดูแท็บ "เจอซาก"</div></div>
     <div class="step"><div class="step-num green">5</div><div class="step-text">เดินครบ → ตรวจ GPS track → กรอก Report → upload ภายใน 24 ชม.</div></div>
