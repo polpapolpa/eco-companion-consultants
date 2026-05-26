@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ต้นจิกทะเลทรงปลูก ๒๕๕๒ — Eco Companion Consultants</title>
+<meta name="description" content="หน้าเว็บข้อมูลต้นจิกทะเลพระราชทาน ที่สมเด็จพระกนิษฐาธิราชเจ้า กรมสมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี ทรงปลูกไว้เมื่อ ๔ สิงหาคม ๒๕๕๒ ณ จังหวัดสมุทรสาคร">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F1E4;
+    --bg-soft:#FBF8F0;
+    --bg-deep:#EFE7D1;
+    --ink:#2A2620;
+    --ink-soft:#5A5044;
+    --rule:#C9B98A;
+    --gold:#B8902C;
+    --gold-light:#D4B764;
+    --gold-deep:#8E6C1B;
+    --forest:#1F3326;
+    --forest-mid:#2F5240;
+    --moss:#5C7A5F;
+    --leaf:#3D6147;
+    --cream:#F0E6CC;
+    /* royal purple — สีม่วงพระเทพฯ */
+    --purple:#5C2C7E;
+    --purple-deep:#3F1B5A;
+    --purple-light:#8A6BA8;
+    --purple-mist:#E8DFF0;
+    --shadow:0 20px 60px -20px rgba(31,51,38,0.15);
+    --shadow-deep:0 30px 80px -30px rgba(31,51,38,0.25);
+    --shadow-royal:0 30px 80px -30px rgba(92,44,126,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Sarabun','Bai Jamjuree',serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    overflow-x:hidden;
+    font-weight:400;
+  }
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:.35;
+    background-image:
+      radial-gradient(circle at 25% 30%, rgba(184,144,44,0.04) 0, transparent 50%),
+      radial-gradient(circle at 75% 70%, rgba(92,44,126,0.04) 0, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .container{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+
+  /* ============ NAVBAR ============ */
+  .nav{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;padding:18px 0;
+    background:rgba(246,241,228,0.85);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;transition:border-color .4s,padding .4s;
+  }
+  .nav.scrolled{border-bottom-color:var(--rule);padding:12px 0}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center}
+  .nav-brand{
+    font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--forest);
+    display:flex;align-items:center;gap:10px;
+  }
+  .nav-brand::before{
+    content:'';display:inline-block;width:8px;height:8px;
+    background:linear-gradient(135deg,var(--gold),var(--purple));
+    transform:rotate(45deg);
+  }
+  .nav-links{display:flex;gap:32px;font-size:13px;letter-spacing:.05em;font-weight:500}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;transition:color .3s;position:relative}
+  .nav-links a:hover{color:var(--purple)}
+  .nav-links a::after{
+    content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+    background:linear-gradient(90deg,var(--gold),var(--purple));transition:width .4s;
+  }
+  .nav-links a:hover::after{width:100%}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100vh;padding:140px 0 80px;
+    display:flex;align-items:center;position:relative;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 15%, rgba(92,44,126,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(212,183,100,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 80% at 50% 100%, rgba(31,51,38,0.08) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .corner-deco{
+    position:absolute;width:280px;height:280px;opacity:.5;pointer-events:none;
+    animation:gentleSway 8s ease-in-out infinite;
+  }
+  .corner-deco.tl{top:80px;left:-40px}
+  .corner-deco.br{bottom:40px;right:-40px;transform:rotate(180deg);animation-delay:-4s;--rot:180deg}
+  @keyframes gentleSway{
+    0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}
+    50%{transform:translateY(-8px) rotate(var(--rot,0deg))}
+  }
+  .hero-inner{text-align:center;max-width:880px;margin:0 auto;position:relative}
+  .eyebrow{
+    font-family:'Cinzel',serif;font-size:11px;letter-spacing:.4em;
+    color:var(--purple);text-transform:uppercase;margin-bottom:24px;
+    opacity:0;animation:fadeUp .9s .2s forwards;
+  }
+  .eyebrow::before,.eyebrow::after{
+    content:'';display:inline-block;width:40px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));
+    vertical-align:middle;margin:0 16px;
+  }
+  .eyebrow::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .hero h1{
+    font-family:'Bai Jamjuree',serif;font-weight:300;
+    font-size:clamp(36px,5.5vw,68px);line-height:1.15;letter-spacing:-.01em;
+    color:var(--forest);margin-bottom:28px;
+    opacity:0;animation:fadeUp 1s .4s forwards;
+  }
+  .hero h1 .gold-mark{
+    color:var(--gold-deep);font-weight:400;font-style:italic;
+    font-family:'Cormorant Garamond','Bai Jamjuree',serif;
+  }
+  .hero h1 .purple-mark{
+    color:var(--purple);font-weight:400;font-style:italic;
+    font-family:'Cormorant Garamond','Bai Jamjuree',serif;
+  }
+  .hero-sub{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(18px,2vw,22px);color:var(--ink-soft);margin-bottom:48px;
+    opacity:0;animation:fadeUp 1s .6s forwards;
+  }
+  .scroll-hint{
+    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+    font-family:'Cinzel',serif;font-size:10px;letter-spacing:.35em;
+    color:var(--purple);
+    opacity:0;animation:fadeUp 1s 1.4s forwards,floatY 2.5s 2s infinite ease-in-out;
+  }
+  .scroll-hint::after{
+    content:'';display:block;width:1px;height:32px;
+    background:linear-gradient(to bottom,var(--purple),transparent);
+    margin:12px auto 0;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+  /* ============ ROYAL PLAQUE ============ */
+  .royal-plaque{
+    max-width:760px;margin:0 auto;
+    position:relative;
+    background:
+      linear-gradient(135deg,#FBF7FA 0%,#F5EFE3 50%,#EDE3EE 100%);
+    box-shadow:
+      var(--shadow-royal),
+      0 0 0 1px rgba(184,144,44,0.4),
+      inset 0 0 0 6px var(--bg-soft),
+      inset 0 0 0 7px rgba(184,144,44,0.5);
+    padding:48px;
+    opacity:0;animation:fadeUp 1.2s .8s forwards;
+    transition:transform .8s cubic-bezier(.2,.8,.2,1),box-shadow .8s;
+  }
+  .royal-plaque:hover{
+    transform:translateY(-6px);
+    box-shadow:
+      0 40px 100px -30px rgba(92,44,126,0.30),
+      0 0 0 1px rgba(184,144,44,0.5),
+      inset 0 0 0 6px var(--bg-soft),
+      inset 0 0 0 7px rgba(184,144,44,0.5);
+  }
+  /* gold corner ornaments */
+  .plaque-corner{
+    position:absolute;width:50px;height:50px;pointer-events:none;
+  }
+  .plaque-corner.tl{top:14px;left:14px}
+  .plaque-corner.tr{top:14px;right:14px;transform:scaleX(-1)}
+  .plaque-corner.bl{bottom:14px;left:14px;transform:scaleY(-1)}
+  .plaque-corner.br{bottom:14px;right:14px;transform:scale(-1,-1)}
+
+  .plaque-content{
+    display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;
+    position:relative;
+  }
+  @media(max-width:600px){
+    .royal-plaque{padding:32px 24px}
+    .plaque-content{grid-template-columns:1fr;text-align:center;gap:20px}
+  }
+
+  .monogram-frame{
+    position:relative;
+    width:140px;flex-shrink:0;
+    filter:drop-shadow(0 4px 12px rgba(92,44,126,0.18));
+  }
+  @media(max-width:600px){.monogram-frame{width:110px;margin:0 auto}}
+  .monogram-frame img{width:100%;height:auto;display:block}
+
+  .plaque-text{position:relative}
+  .plaque-divider{
+    display:flex;align-items:center;gap:8px;margin:14px 0;
+  }
+  .plaque-divider::before,.plaque-divider::after{
+    content:'';flex:1;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--purple) 50%,var(--gold) 70%,transparent);
+  }
+  .plaque-divider span{
+    color:var(--gold);font-size:9px;letter-spacing:.4em;
+  }
+  .plaque-h1{
+    font-family:'Bai Jamjuree',serif;font-weight:500;
+    font-size:clamp(20px,2.4vw,26px);
+    color:var(--purple-deep);
+    line-height:1.3;
+    text-align:center;
+    letter-spacing:.01em;
+  }
+  .plaque-h2{
+    font-family:'Bai Jamjuree',serif;font-weight:400;
+    font-size:clamp(15px,1.6vw,17px);
+    color:var(--purple);
+    line-height:1.4;
+    text-align:center;
+    margin-top:4px;
+  }
+  .plaque-body{
+    font-family:'Bai Jamjuree',serif;font-weight:400;
+    font-size:clamp(14px,1.5vw,16px);
+    color:var(--ink);
+    line-height:1.6;
+    text-align:center;
+  }
+  .plaque-body.date{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--gold-deep);font-size:clamp(15px,1.6vw,18px);
+    margin-top:2px;
+  }
+
+  /* ============ ORNAMENT DIVIDER ============ */
+  .ornament{
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto;max-width:200px;padding:48px 0;
+  }
+  .ornament-line{flex:1;height:1px;background:var(--rule)}
+  .ornament-diamond{
+    width:10px;height:10px;
+    background:linear-gradient(135deg,var(--gold) 50%,var(--purple) 50%);
+    transform:rotate(45deg);margin:0 12px;flex-shrink:0;
+  }
+
+  /* ============ SECTION HEAD ============ */
+  .section{padding:100px 0;position:relative}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 72px}
+  .section-eyebrow{
+    font-family:'Cinzel',serif;font-size:11px;letter-spacing:.4em;
+    color:var(--gold-deep);text-transform:uppercase;margin-bottom:20px;
+  }
+  .section-eyebrow.royal{color:var(--purple)}
+  .section-title{
+    font-family:'Bai Jamjuree',serif;font-weight:300;
+    font-size:clamp(30px,4vw,46px);line-height:1.2;
+    color:var(--forest);margin-bottom:20px;letter-spacing:-.01em;
+  }
+  .section-title em{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--gold-deep);font-weight:400;
+  }
+  .section-title em.royal{color:var(--purple)}
+  .section-desc{
+    font-size:17px;color:var(--ink-soft);
+    font-family:'Sarabun',serif;font-weight:300;
+  }
+
+  /* ============ TREE DIMENSIONS ============ */
+  .dim-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+  @media(max-width:860px){.dim-grid{grid-template-columns:1fr;gap:48px}}
+
+  .dim-visual{
+    position:relative;height:560px;
+    display:flex;align-items:flex-end;justify-content:center;
+    background:
+      radial-gradient(ellipse 60% 30% at 50% 95%,rgba(92,122,95,0.12) 0%,transparent 70%),
+      linear-gradient(180deg,rgba(232,223,240,0.25) 0%,transparent 40%,rgba(212,183,100,0.06) 100%);
+    border-radius:4px;overflow:hidden;
+  }
+  .tree-svg{width:100%;height:100%;max-width:420px}
+  .tree-svg .canopy-group{transform-origin:190px 200px;animation:canopySway 7s ease-in-out infinite}
+  @keyframes canopySway{
+    0%,100%{transform:rotate(-0.6deg)}
+    50%{transform:rotate(0.6deg)}
+  }
+
+  .dim-cards{display:flex;flex-direction:column;gap:24px}
+  .dim-card{
+    padding:32px;background:var(--bg-soft);
+    border-left:2px solid var(--gold);
+    box-shadow:var(--shadow);position:relative;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .5s;
+  }
+  .dim-card:hover{transform:translateX(6px);box-shadow:var(--shadow-deep);border-left-color:var(--purple)}
+  .dim-card .label{
+    font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;
+    color:var(--gold-deep);text-transform:uppercase;margin-bottom:10px;
+    transition:color .4s;
+  }
+  .dim-card:hover .label{color:var(--purple)}
+  .dim-card .value{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:48px;line-height:1.05;color:var(--forest);
+    font-variant-numeric:lining-nums tabular-nums;
+    font-feature-settings:"lnum" 1, "tnum" 1;
+  }
+  .dim-card .value .unit{
+    font-family:'Sarabun',serif;font-weight:300;
+    font-size:16px;color:var(--ink-soft);margin-left:6px;
+  }
+  .dim-card .desc{font-size:14px;color:var(--ink-soft);margin-top:8px;font-family:'Sarabun',serif}
+
+  /* ============ CO2 SECTION ============ */
+  .co2-section{
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 50%,var(--bg) 100%);
+    position:relative;
+  }
+  .co2-section::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%,rgba(92,122,95,0.08) 0,transparent 40%),
+      radial-gradient(circle at 80% 70%,rgba(184,144,44,0.06) 0,transparent 40%),
+      radial-gradient(circle at 50% 50%,rgba(92,44,126,0.04) 0,transparent 50%);
+    pointer-events:none;
+  }
+  .co2-hero-number{text-align:center;margin-bottom:80px;position:relative}
+  .co2-hero-number .number-wrap{display:inline-flex;align-items:baseline;gap:16px;position:relative}
+  .co2-hero-number .number-wrap::before,
+  .co2-hero-number .number-wrap::after{
+    content:'';position:absolute;width:60px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));top:50%;
+  }
+  .co2-hero-number .number-wrap::before{left:-80px}
+  .co2-hero-number .number-wrap::after{right:-80px;background:linear-gradient(90deg,var(--gold),transparent)}
+  .co2-number{
+    font-family:'Cinzel','Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(76px,13vw,168px);line-height:1.05;color:var(--forest);
+    background:linear-gradient(180deg,var(--forest) 0%,var(--leaf) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    font-variant-numeric:lining-nums tabular-nums;
+    font-feature-settings:"lnum" 1, "tnum" 1;
+    letter-spacing:.02em;
+    padding-bottom:.04em;
+  }
+  .co2-unit{
+    font-family:'Cinzel',serif;font-size:18px;letter-spacing:.25em;
+    color:var(--gold-deep);font-weight:500;
+  }
+  .co2-caption{margin-top:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink-soft)}
+
+  .compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto}
+  @media(max-width:780px){.compare-grid{grid-template-columns:1fr;gap:24px}}
+
+  .compare-card{
+    padding:40px 28px;background:var(--bg-soft);
+    border:1px solid var(--rule);text-align:center;position:relative;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .5s;
+  }
+  .compare-card::before{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:0;height:2px;
+    background:linear-gradient(90deg,var(--gold),var(--purple));transition:width .5s;
+  }
+  .compare-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .compare-card:hover::before{width:60%}
+  .compare-icon{width:56px;height:56px;margin:0 auto 20px;color:var(--gold-deep)}
+  .compare-card:hover .compare-icon{color:var(--purple)}
+  .compare-card .compare-icon{transition:color .5s}
+  .compare-card .big{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:42px;color:var(--forest);line-height:1.05;margin-bottom:8px;
+    font-variant-numeric:lining-nums tabular-nums;
+    font-feature-settings:"lnum" 1, "tnum" 1;
+  }
+  .compare-card .small{font-size:14px;color:var(--ink-soft);font-family:'Sarabun',serif}
+
+  .breakdown{
+    margin-top:80px;padding:48px;background:var(--bg-soft);
+    border:1px solid var(--rule);box-shadow:var(--shadow);
+  }
+  .breakdown h3{font-family:'Bai Jamjuree',serif;font-weight:500;font-size:20px;color:var(--forest);margin-bottom:8px}
+  .breakdown .sub{font-size:14px;color:var(--ink-soft);margin-bottom:32px;font-style:italic;font-family:'Cormorant Garamond',serif}
+  .breakdown-rows{display:flex;flex-direction:column;gap:18px}
+  .breakdown-row{
+    display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;
+    padding:12px 0;border-bottom:1px dashed var(--rule);
+  }
+  .breakdown-row:last-child{border-bottom:none;font-weight:600}
+  .breakdown-row.total{margin-top:8px;padding-top:20px;border-top:1.5px solid var(--gold);border-bottom:none}
+  .breakdown-row .name{font-size:15px;color:var(--ink)}
+  .breakdown-row .name small{color:var(--ink-soft);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;margin-left:8px}
+  .breakdown-row .bar{height:6px;background:var(--bg-deep);border-radius:3px;overflow:hidden;position:relative}
+  .breakdown-row .bar::after{
+    content:'';position:absolute;left:0;top:0;bottom:0;
+    background:linear-gradient(90deg,var(--moss),var(--gold-light));
+    width:var(--w,0%);transition:width 1.5s cubic-bezier(.2,.8,.2,1);
+  }
+  .breakdown-row.total .bar::after{background:linear-gradient(90deg,var(--purple),var(--gold))}
+  .breakdown-row .val{
+    font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;color:var(--forest);
+    font-variant-numeric:tabular-nums;min-width:90px;text-align:right;
+  }
+  .breakdown-row.total .val{font-size:22px;color:var(--purple-deep)}
+
+  /* ============ EDUCATION ============ */
+  .edu-section{
+    background:var(--bg-soft);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  }
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  @media(max-width:860px){.edu-grid{grid-template-columns:1fr;gap:48px}}
+
+  .edu-sign-frame{
+    position:relative;background:linear-gradient(135deg,#FDF9EE 0%,#F4EBD0 100%);
+    padding:20px;border:1px solid var(--rule);box-shadow:var(--shadow-deep);
+  }
+  .edu-sign-frame img{width:100%;height:auto;display:block}
+  .edu-sign-frame::before,.edu-sign-frame::after{
+    content:'';position:absolute;width:20px;height:20px;
+    border:1.5px solid var(--gold);
+  }
+  .edu-sign-frame::before{top:4px;left:4px;border-right:none;border-bottom:none}
+  .edu-sign-frame::after{bottom:4px;right:4px;border-left:none;border-top:none}
+
+  .edu-content h2{font-family:'Bai Jamjuree',serif;font-weight:300;font-size:42px;color:var(--forest);margin-bottom:8px;line-height:1.15}
+  .edu-latin{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--gold-deep);margin-bottom:32px}
+  .taxonomy{display:grid;grid-template-columns:auto 1fr;gap:14px 24px;margin-bottom:32px;font-size:15px}
+  .taxonomy dt{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.25em;color:var(--gold-deep);text-transform:uppercase;padding-top:4px}
+  .taxonomy dd{color:var(--ink);font-weight:500}
+  .taxonomy dd em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
+  .edu-content p{font-size:15.5px;color:var(--ink);line-height:1.85;margin-bottom:18px;font-family:'Sarabun',serif}
+  .edu-content p:first-of-type::first-letter{
+    font-family:'Cormorant Garamond',serif;font-size:60px;float:left;line-height:.85;
+    color:var(--gold-deep);margin:6px 10px 0 0;font-weight:500;
+  }
+
+  /* ============ PROJECT (อพ.สธ.) — Royal Section ============ */
+  .project-section{
+    text-align:center;padding:120px 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 50% 50%,rgba(92,44,126,0.06) 0%,transparent 70%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%);
+    position:relative;overflow:hidden;
+  }
+  .project-section::before{
+    content:'';position:absolute;width:600px;height:600px;border:1px solid var(--purple-light);border-radius:50%;
+    top:50%;left:50%;transform:translate(-50%,-50%);opacity:.25;pointer-events:none;
+  }
+  .project-section::after{
+    content:'';position:absolute;width:900px;height:900px;border:1px solid var(--rule);border-radius:50%;
+    top:50%;left:50%;transform:translate(-50%,-50%);opacity:.2;pointer-events:none;
+  }
+  .project-inner{max-width:760px;margin:0 auto;position:relative}
+  .project-seal{
+    width:96px;height:96px;margin:0 auto 32px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#FBF7FA,#F0E8FA);
+    border:1px solid var(--purple-light);border-radius:50%;
+    box-shadow:0 0 0 8px rgba(92,44,126,0.06),0 4px 20px rgba(92,44,126,0.15);
+  }
+  .project-seal img{width:60%;height:auto}
+  .project-section h2{
+    font-family:'Bai Jamjuree',serif;font-weight:300;
+    font-size:clamp(28px,3.8vw,42px);color:var(--forest);
+    line-height:1.3;margin-bottom:24px;
+  }
+  .project-section p{font-size:16px;color:var(--ink-soft);line-height:1.9;font-family:'Sarabun',serif}
+  .project-meta{
+    margin-top:48px;display:inline-flex;gap:48px;flex-wrap:wrap;justify-content:center;
+    padding:24px 40px;background:var(--bg-soft);
+    border:1px solid var(--purple-light);
+    box-shadow:0 8px 32px -8px rgba(92,44,126,0.12);
+  }
+  .project-meta .item{text-align:center}
+  .project-meta .item .k{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.25em;color:var(--purple);text-transform:uppercase;margin-bottom:6px}
+  .project-meta .item .v{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--forest);font-weight:500}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--forest);color:var(--cream);padding:64px 0 32px;position:relative;z-index:2}
+  .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  @media(max-width:780px){.footer-inner{grid-template-columns:1fr;gap:32px}}
+  .footer-brand{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;letter-spacing:.05em;margin-bottom:12px;color:#FBF8F0}
+  .footer-brand .accent{color:var(--gold-light);font-style:italic}
+  .footer-tagline{font-size:14px;color:#C9B98A;line-height:1.7;max-width:380px;font-family:'Sarabun',serif;font-weight:300}
+  .footer-col h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;font-weight:500}
+  .footer-col p,.footer-col a{font-size:13px;color:#C9B98A;line-height:1.9;text-decoration:none;display:block;font-family:'Sarabun',serif}
+  .footer-col a:hover{color:var(--gold-light)}
+  .footer-bottom{
+    border-top:1px solid rgba(201,185,138,0.2);padding-top:24px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    font-size:12px;color:#9C8C5E;letter-spacing:.05em;
+  }
+  .footer-bottom .credit{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px}
+
+  /* ============ REVEAL ============ */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  .reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+  .reveal-stagger.in > *{opacity:1;transform:translateY(0)}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.1s}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.25s}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.4s}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.55s}
+
+  /* ============ LEAVES ============ */
+  .leaves{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+  .leaf-fall{position:absolute;top:-40px;opacity:0;animation:fall linear infinite}
+  @keyframes fall{
+    0%{transform:translateY(-40px) rotate(0deg);opacity:0}
+    10%{opacity:.4}
+    90%{opacity:.4}
+    100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+  }
+
+  ::selection{background:var(--purple-mist);color:var(--purple-deep)}
+
+  @media(max-width:600px){
+    .hero{padding:120px 0 60px;min-height:auto}
+    .corner-deco{width:160px;height:160px;opacity:.3}
+    .co2-hero-number .number-wrap::before,.co2-hero-number .number-wrap::after{display:none}
+    .breakdown{padding:28px}
+    .breakdown-row{grid-template-columns:1fr auto;gap:8px}
+    .breakdown-row .bar{display:none}
+  }
+
+  /* ============ CEREMONY (Royal Planting Photo) ============ */
+  .ceremony-section{
+    padding:100px 0;
+    background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 50%,var(--bg) 100%);
+    position:relative;
+  }
+  .ceremony-section::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 50%,rgba(92,44,126,0.05) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 30% at 20% 30%,rgba(184,144,44,0.04) 0%,transparent 60%);
+  }
+  .ceremony-frame{max-width:920px;margin:0 auto;position:relative;z-index:2}
+  .photo-frame{
+    position:relative;padding:20px;
+    background:linear-gradient(135deg,#FBF7FA 0%,#F5EFE3 50%,#EDE3EE 100%);
+    box-shadow:
+      var(--shadow-royal),
+      0 0 0 1px rgba(184,144,44,0.4),
+      inset 0 0 0 6px var(--bg-soft),
+      inset 0 0 0 7px rgba(184,144,44,0.5);
+    transition:transform .8s cubic-bezier(.2,.8,.2,1),box-shadow .8s;
+  }
+  .photo-frame:hover{
+    transform:translateY(-4px);
+    box-shadow:
+      0 40px 100px -30px rgba(92,44,126,0.30),
+      0 0 0 1px rgba(184,144,44,0.5),
+      inset 0 0 0 6px var(--bg-soft),
+      inset 0 0 0 7px rgba(184,144,44,0.5);
+  }
+  .photo-frame .photo-inner{
+    position:relative;border:1px solid rgba(92,44,126,0.25);background:#fff;
+  }
+  .photo-frame img{width:100%;height:auto;display:block;filter:contrast(1.0) saturate(1.0)}
+  .photo-corner{position:absolute;width:54px;height:54px;pointer-events:none;z-index:3}
+  .photo-corner.tl{top:14px;left:14px}
+  .photo-corner.tr{top:14px;right:14px;transform:scaleX(-1)}
+  .photo-corner.bl{bottom:14px;left:14px;transform:scaleY(-1)}
+  .photo-corner.br{bottom:14px;right:14px;transform:scale(-1,-1)}
+  .photo-caption{margin-top:36px;text-align:center}
+  .caption-date{
+    display:inline-block;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(20px,2.2vw,26px);color:var(--purple-deep);letter-spacing:.01em;
+  }
+  .caption-date::before,.caption-date::after{
+    content:'';display:inline-block;width:36px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--purple));
+    vertical-align:middle;margin:0 16px;
+  }
+  .caption-date::after{background:linear-gradient(90deg,var(--purple),transparent)}
+  .caption-meta{
+    margin-top:10px;font-family:'Sarabun',sans-serif;
+    font-size:14px;color:var(--ink-soft);letter-spacing:.01em;
+  }
+  .ceremony-narrative{
+    max-width:680px;margin:48px auto 0;text-align:center;
+    font-size:16.5px;line-height:1.95;color:var(--ink);font-family:'Sarabun',sans-serif;
+    font-weight:300;
+  }
+  .ceremony-narrative p{margin-bottom:16px}
+  .ceremony-narrative em{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--purple-deep);font-size:1.05em;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <div class="nav-brand">Eco Companion</div>
+    <div class="nav-links">
+      <a href="#ceremony">วันที่ทรงปลูก</a>
+      <a href="#tree">ต้นไม้ทรงปลูก</a>
+      <a href="#carbon">การกักเก็บคาร์บอน</a>
+      <a href="#species">พรรณไม้</a>
+      <a href="#project">โครงการ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="leaves" id="leaves"></div>
+
+  <!-- corner botanicals -->
+  <svg class="corner-deco tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 100 Q60 40, 140 60 Q120 100, 80 110 Q60 100, 40 130 Q30 120, 20 100Z" stroke="#B8902C" stroke-width="0.8" opacity="0.5"/>
+    <ellipse cx="55" cy="75" rx="18" ry="8" stroke="#5C2C7E" stroke-width="0.8" fill="none" transform="rotate(-30 55 75)" opacity="0.4"/>
+    <ellipse cx="90" cy="65" rx="22" ry="10" stroke="#5C7A5F" stroke-width="0.8" fill="none" transform="rotate(-15 90 65)" opacity="0.5"/>
+    <ellipse cx="125" cy="70" rx="20" ry="9" stroke="#5C7A5F" stroke-width="0.8" fill="none" transform="rotate(10 125 70)" opacity="0.5"/>
+    <circle cx="100" cy="100" r="3" fill="#B8902C" opacity="0.5"/>
+  </svg>
+  <svg class="corner-deco br" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 100 Q60 40, 140 60 Q120 100, 80 110 Q60 100, 40 130 Q30 120, 20 100Z" stroke="#B8902C" stroke-width="0.8" opacity="0.5"/>
+    <ellipse cx="55" cy="75" rx="18" ry="8" stroke="#5C2C7E" stroke-width="0.8" fill="none" transform="rotate(-30 55 75)" opacity="0.4"/>
+    <ellipse cx="90" cy="65" rx="22" ry="10" stroke="#5C7A5F" stroke-width="0.8" fill="none" transform="rotate(-15 90 65)" opacity="0.5"/>
+    <ellipse cx="125" cy="70" rx="20" ry="9" stroke="#5C7A5F" stroke-width="0.8" fill="none" transform="rotate(10 125 70)" opacity="0.5"/>
+    <circle cx="100" cy="100" r="3" fill="#B8902C" opacity="0.5"/>
+  </svg>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="eyebrow">Royal Botanical Memorial · ๒๕๕๒</div>
+      <h1>
+        ต้น<span class="gold-mark">จิกทะเล</span>ทรงปลูก<br>
+        <span class="purple-mark">ใต้ร่มพระบารมี</span>
+      </h1>
+      <p class="hero-sub">
+        ณ บริเวณพื้นที่โฉนดที่ดินเลขที่ ๘๔๔๕๗ ตำบลโคกขาม อำเภอเมืองสมุทรสาคร<br>
+        ภายใต้โครงการอนุรักษ์พันธุกรรมพืชอันเนื่องมาจากพระราชดำริ
+      </p>
+
+      <!-- ============ ROYAL PLAQUE — CUSTOM DESIGN ============ -->
+      <div class="royal-plaque">
+        <!-- gold corner ornaments -->
+        <svg class="plaque-corner tl" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <svg class="plaque-corner tr" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <svg class="plaque-corner bl" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <svg class="plaque-corner br" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+
+        <div class="plaque-content">
+          <div class="monogram-frame">
+            <img src="monogram.svg" alt="พระนามาภิไธยย่อ ส.ธ.">
+          </div>
+          <div class="plaque-text">
+            <div class="plaque-divider"><span>❦</span></div>
+            <div class="plaque-h1">สมเด็จพระกนิษฐาธิราชเจ้า</div>
+            <div class="plaque-h2">กรมสมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี</div>
+            <div class="plaque-divider"><span>◇ ◆ ◇</span></div>
+            <div class="plaque-body">ทรงปลูกต้นจิกทะเลต้นนี้พระราชทานไว้</div>
+            <div class="plaque-body date">เมื่อวันที่ ๔ สิงหาคม พุทธศักราช ๒๕๕๒</div>
+            <div class="plaque-divider"><span>❦</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- ornament -->
+<div class="ornament">
+  <div class="ornament-line"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-line"></div>
+</div>
+
+
+<!-- ============ CEREMONY (Royal Planting Photo) ============ -->
+<section class="section ceremony-section" id="ceremony">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow royal">The Royal Planting · ๔ สิงหาคม ๒๕๕๒</div>
+      <h2 class="section-title">บันทึก<em class="royal">แห่งวันสำคัญ</em></h2>
+      <p class="section-desc">ภาพประวัติศาสตร์ในวันที่สมเด็จพระกนิษฐาธิราชเจ้า กรมสมเด็จพระเทพรัตนราชสุดา ฯ<br>สยามบรมราชกุมารี ทรงปลูกต้นจิกทะเลพระราชทานไว้</p>
+    </div>
+
+    <div class="ceremony-frame reveal">
+      <div class="photo-frame">
+        <svg class="photo-corner tl" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <svg class="photo-corner tr" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <svg class="photo-corner bl" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <svg class="photo-corner br" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 22 Q 2 2, 22 2" stroke="#B8902C" stroke-width="1.5" fill="none"/>
+          <path d="M 6 22 Q 6 6, 22 6" stroke="#D4B764" stroke-width="0.8" fill="none"/>
+          <path d="M 8 18 Q 14 14, 18 8" stroke="#B8902C" stroke-width="0.6" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#5C2C7E"/>
+          <path d="M 14 10 Q 18 12, 18 16 Q 14 18, 10 16 Q 10 12, 14 10 Z" fill="#B8902C" opacity="0.5"/>
+          <path d="M 22 2 L 26 2 M 2 22 L 2 26" stroke="#B8902C" stroke-width="0.6"/>
+        </svg>
+        <div class="photo-inner">
+          <img src="royal-planting.jpg" alt="สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี ขณะทรงปลูกต้นจิกทะเลพระราชทาน ๔ สิงหาคม ๒๕๕๒">
+        </div>
+      </div>
+      <div class="photo-caption">
+        <div class="caption-date">เมื่อวันที่ ๔ สิงหาคม พุทธศักราช ๒๕๕๒</div>
+        <div class="caption-meta">ณ ตำบลโคกขาม อำเภอเมืองสมุทรสาคร · จังหวัดสมุทรสาคร</div>
+      </div>
+      <div class="ceremony-narrative">
+        <p>ในวันสำคัญแห่งนั้น ต้นจิกทะเลต้นเล็ก ๆ ได้รับการปลูกด้วย<em>พระหัตถ์</em> เป็นมงคลแก่ผืนแผ่นดิน</p>
+        <p>สิบเจ็ดปีให้หลัง ต้นไม้ต้นเดียวกันได้เติบโตเป็นไม้ยืนต้นทรงคุณค่า ยืนหยัดเป็นเครื่องหมายแห่ง<em>การอนุรักษ์</em> และพระมหากรุณาธิคุณที่ทรงมีต่อพันธุกรรมพืชชายฝั่งของชาติ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ornament -->
+<div class="ornament">
+  <div class="ornament-line"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-line"></div>
+</div>
+
+<!-- ============ TREE DIMENSIONS ============ -->
+<section class="section" id="tree">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">The Living Memorial</div>
+      <h2 class="section-title">ต้นไม้ทรงคุณค่า<br><em>หนึ่งชีวิตที่เติบโตงดงาม</em></h2>
+      <p class="section-desc">นับตั้งแต่วันที่ทรงปลูกเมื่อ ๔ สิงหาคม พุทธศักราช ๒๕๕๒ ต้นจิกทะเลต้นนี้ได้ยืนต้น<br>เป็นสัญลักษณ์แห่งการอนุรักษ์พันธุกรรมพืชชายฝั่ง</p>
+    </div>
+
+    <div class="dim-grid">
+      <!-- ============ REALISTIC TREE SVG ============ -->
+      <div class="dim-visual reveal">
+        <svg class="tree-svg" viewBox="0 0 380 580" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+
+          <defs>
+            <linearGradient id="trunkG" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2A1F12"/>
+              <stop offset="30%" stop-color="#5C4128"/>
+              <stop offset="60%" stop-color="#7A5D3F"/>
+              <stop offset="100%" stop-color="#3D2E1C"/>
+            </linearGradient>
+            <linearGradient id="branchG" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3D2E1C"/>
+              <stop offset="50%" stop-color="#6B4F32"/>
+              <stop offset="100%" stop-color="#3D2E1C"/>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="1.2"/>
+            </filter>
+
+            <!-- Obovate leaf -->
+            <symbol id="leaf" viewBox="-14 -28 28 56" overflow="visible">
+              <path d="M 0 26 C -9 22, -13 14, -13 4 C -13 -8, -8 -20, 0 -26 C 8 -20, 13 -8, 13 4 C 13 14, 9 22, 0 26 Z"
+                    fill="currentColor" stroke="#1A2F22" stroke-width="0.4" stroke-linejoin="round"/>
+              <line x1="0" y1="-24" x2="0" y2="24" stroke="#0F1F15" stroke-width="0.5" opacity="0.6"/>
+              <path d="M 0 -16 Q 5 -13, 9 -10" stroke="#0F1F15" stroke-width="0.3" fill="none" opacity="0.4"/>
+              <path d="M 0 -16 Q -5 -13, -9 -10" stroke="#0F1F15" stroke-width="0.3" fill="none" opacity="0.4"/>
+              <path d="M 0 -6 Q 5 -3, 10 0" stroke="#0F1F15" stroke-width="0.3" fill="none" opacity="0.4"/>
+              <path d="M 0 -6 Q -5 -3, -10 0" stroke="#0F1F15" stroke-width="0.3" fill="none" opacity="0.4"/>
+              <path d="M 0 6 Q 5 10, 8 14" stroke="#0F1F15" stroke-width="0.3" fill="none" opacity="0.4"/>
+              <path d="M 0 6 Q -5 10, -8 14" stroke="#0F1F15" stroke-width="0.3" fill="none" opacity="0.4"/>
+              <path d="M -3 -18 C -7 -12, -9 -4, -7 6" stroke="#FFFFFF" stroke-width="0.6" fill="none" opacity="0.15"/>
+            </symbol>
+
+            <!-- Bud (pre-bloom flower) -->
+            <symbol id="bud" viewBox="-6 -8 12 16" overflow="visible">
+              <ellipse cx="0" cy="-2" rx="3.5" ry="5" fill="#F5C0CC" stroke="#C46A82" stroke-width="0.4"/>
+              <path d="M 0 -7 L 0 -3" stroke="#5C7A5F" stroke-width="0.8"/>
+              <ellipse cx="0" cy="2" rx="2" ry="2.5" fill="#5C7A5F"/>
+            </symbol>
+            <!-- Barringtonia fruit — based on educational sign reference -->
+            <!-- Rounded heart/teardrop shape with 4 subtle lobes, speckled texture -->
+            <symbol id="fruit" viewBox="-15 -23 30 40" overflow="visible">
+              <!-- woody stem (short, brown) -->
+              <path d="M 0 -21 L 0 -16" stroke="#5C4128" stroke-width="2.5" stroke-linecap="round"/>
+              <ellipse cx="0" cy="-17" rx="1.8" ry="0.8" fill="#5C4128"/>
+              <!-- 4-lobed calyx (small crown at top) -->
+              <path d="M -6 -16 Q -5 -14, -3 -14 Q -1 -16, 0 -14 Q 1 -16, 3 -14 Q 5 -14, 6 -16"
+                    fill="none" stroke="#3D5C2A" stroke-width="0.8"/>
+              <path d="M -5 -16 L -4.5 -14" stroke="#3D5C2A" stroke-width="0.5"/>
+              <path d="M -1.5 -16 L -1.5 -14" stroke="#3D5C2A" stroke-width="0.5"/>
+              <path d="M 1.5 -16 L 1.5 -14" stroke="#3D5C2A" stroke-width="0.5"/>
+              <path d="M 5 -16 L 4.5 -14" stroke="#3D5C2A" stroke-width="0.5"/>
+              <!-- main body — rounded heart shape with subtle 4-lobe outline -->
+              <path d="M 0 -14
+                       Q 6 -13, 10 -10
+                       Q 13 -5, 13 1
+                       Q 12 9, 8 13
+                       Q 4 16, 0 16
+                       Q -4 16, -8 13
+                       Q -12 9, -13 1
+                       Q -13 -5, -10 -10
+                       Q -6 -13, 0 -14 Z"
+                    fill="#A8C078" stroke="#5C7A35" stroke-width="0.7"/>
+              <!-- 4 vertical ridges showing 4-lobe structure -->
+              <path d="M -8 -10 Q -10 -2, -7 12" stroke="#5C7A35" stroke-width="0.5" fill="none" opacity="0.55"/>
+              <path d="M 0 -13 Q 0 0, 0 15" stroke="#5C7A35" stroke-width="0.6" fill="none" opacity="0.45"/>
+              <path d="M 8 -10 Q 10 -2, 7 12" stroke="#5C7A35" stroke-width="0.5" fill="none" opacity="0.55"/>
+              <!-- highlight on upper-left (lighter green for 3D) -->
+              <path d="M -7 -8 Q -10 -2, -8 5" stroke="#C4D58A" stroke-width="1.6" fill="none" opacity="0.55"/>
+              <path d="M -5 -6 Q -7 0, -5 4" stroke="#D4E59A" stroke-width="0.8" fill="none" opacity="0.45"/>
+              <!-- subtle shadow on right -->
+              <path d="M 9 -5 Q 11 1, 9 7" stroke="#3D5C2A" stroke-width="0.6" fill="none" opacity="0.3"/>
+              <!-- speckled texture (darker green spots) -->
+              <ellipse cx="-4" cy="-2" rx="1.0" ry="0.5" fill="#5C7A35" opacity="0.6" transform="rotate(20 -4 -2)"/>
+              <ellipse cx="3" cy="3" rx="0.9" ry="0.4" fill="#5C7A35" opacity="0.6"/>
+              <ellipse cx="-3" cy="6" rx="0.7" ry="0.4" fill="#5C7A35" opacity="0.6"/>
+              <ellipse cx="5" cy="-4" rx="0.6" ry="0.3" fill="#5C7A35" opacity="0.6"/>
+              <circle cx="-6" cy="2" r="0.45" fill="#7A9442" opacity="0.7"/>
+              <circle cx="2" cy="-5" r="0.35" fill="#7A9442" opacity="0.7"/>
+              <circle cx="6" cy="6" r="0.4" fill="#5C7A35" opacity="0.6"/>
+              <circle cx="-1" cy="10" r="0.4" fill="#5C7A35" opacity="0.6"/>
+              <!-- bottom recess -->
+              <ellipse cx="0" cy="15" rx="1.2" ry="0.6" fill="#3D5C2A" opacity="0.5"/>
+            </symbol>
+          </defs>
+
+          <!-- ground line -->
+          <line x1="20" y1="540" x2="360" y2="540" stroke="#C9B98A" stroke-width="0.8" stroke-dasharray="2,4"/>
+
+          <!-- height measurement -->
+          <g class="measure-h">
+            <line x1="345" y1="80" x2="345" y2="540" stroke="#5C2C7E" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.5"/>
+            <line x1="338" y1="80" x2="352" y2="80" stroke="#5C2C7E" stroke-width="0.7"/>
+            <line x1="338" y1="540" x2="352" y2="540" stroke="#5C2C7E" stroke-width="0.7"/>
+            <rect x="354" y="294" width="32" height="32" rx="2" fill="#FBF8F0" stroke="#5C2C7E" stroke-width="0.5"/>
+            <text x="370" y="310" font-family="Cinzel, serif" font-size="12" letter-spacing="1" fill="#5C2C7E" text-anchor="middle" font-weight="500">4.8</text>
+            <text x="370" y="322" font-family="Sarabun, sans-serif" font-size="8" fill="#5C2C7E" text-anchor="middle">m</text>
+          </g>
+
+          <!-- DBH measurement -->
+          <g class="measure-d">
+            <line x1="173" y1="500" x2="207" y2="500" stroke="#B8902C" stroke-width="0.7"/>
+            <line x1="173" y1="496" x2="173" y2="504" stroke="#B8902C" stroke-width="0.7"/>
+            <line x1="207" y1="496" x2="207" y2="504" stroke="#B8902C" stroke-width="0.7"/>
+            <line x1="148" y1="500" x2="173" y2="500" stroke="#B8902C" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.6"/>
+            <text x="105" y="495" font-family="Cinzel, serif" font-size="11" letter-spacing="1" fill="#8E6C1B" font-weight="500">15 cm</text>
+            <text x="105" y="507" font-family="Sarabun, sans-serif" font-size="8" fill="#8E6C1B">DBH</text>
+          </g>
+
+          <!-- Short trunk -->
+          <path d="M 178 540 C 178 525, 175 510, 176 495 C 177 480, 174 465, 178 450 L 200 450 C 204 465, 201 480, 204 495 C 207 510, 203 525, 203 540 Z"
+                fill="#1A1208" opacity="0.4" filter="url(#softShadow)"/>
+          <path d="M 175 540 C 175 525, 172 510, 174 495 C 175 480, 171 465, 178 450 L 200 450 C 207 465, 203 480, 206 495 C 207 510, 203 525, 203 540 Z"
+                fill="url(#trunkG)"/>
+          <g stroke="#2A1F12" stroke-width="0.6" fill="none" opacity="0.55">
+            <path d="M 180 535 Q 182 510, 181 485 Q 180 465, 182 455"/>
+            <path d="M 186 535 Q 188 510, 187 485 Q 186 465, 188 455"/>
+            <path d="M 194 535 Q 196 510, 195 485 Q 194 465, 196 455"/>
+            <path d="M 200 535 Q 202 510, 201 485 Q 200 465, 202 455"/>
+          </g>
+          <g fill="#2A1F12" opacity="0.5">
+            <ellipse cx="182" cy="510" rx="2.5" ry="1.5"/>
+            <ellipse cx="195" cy="478" rx="2" ry="1.2" transform="rotate(15 195 478)"/>
+            <ellipse cx="188" cy="465" rx="1.8" ry="1.1"/>
+          </g>
+
+          <!-- Branches -->
+          <g stroke="url(#branchG)" stroke-linecap="round" fill="none" opacity="0.85">
+            <path d="M 183 450 Q 180 410, 175 360 Q 172 320, 170 280" stroke-width="6.5"/>
+            <path d="M 188 450 Q 195 415, 220 380 Q 240 350, 260 330" stroke-width="5.5"/>
+            <path d="M 180 450 Q 165 415, 140 380 Q 120 350, 100 330" stroke-width="5.5"/>
+            <path d="M 185 445 Q 200 400, 240 360 Q 270 330, 295 320" stroke-width="4"/>
+            <path d="M 180 445 Q 165 400, 130 360 Q 100 330, 75 320" stroke-width="4"/>
+          </g>
+
+          <g class="canopy-group">
+            <use href="#leaf" x="174.0" y="18.9" width="30.5" height="61.0" transform="rotate(18.7 189.3 79.8)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="175.3" y="32.7" width="23.6" height="47.3" transform="rotate(338.5 187.1 80.0)" style="color:#162A18"/>
+            <use href="#leaf" x="178.0" y="31.3" width="25.2" height="50.4" transform="rotate(62.7 190.6 81.7)" style="color:#162A18"/>
+            <use href="#leaf" x="172.3" y="30.3" width="25.5" height="51.0" transform="rotate(296.7 185.0 81.3)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="172.5" y="26.8" width="28.4" height="56.8" transform="rotate(247.0 186.7 83.6)" style="color:#1F3422"/>
+            <use href="#leaf" x="173.0" y="17.7" width="32.9" height="65.8" transform="rotate(116.5 189.5 83.5)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="170.3" y="15.4" width="34.7" height="69.4" transform="rotate(197.9 187.6 84.8)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="174.4" y="26.7" width="29.6" height="59.3" transform="rotate(162.9 189.2 86.0)" style="color:#243B2A"/>
+            <use href="#leaf" x="143.1" y="45.6" width="26.0" height="52.0" transform="rotate(359.1 156.2 97.6)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="143.4" y="51.2" width="22.9" height="45.7" transform="rotate(336.1 154.8 96.9)" style="color:#162A18"/>
+            <use href="#leaf" x="143.6" y="40.8" width="28.8" height="57.6" transform="rotate(49.1 158.0 98.4)" style="color:#162A18"/>
+            <use href="#leaf" x="141.3" y="46.1" width="26.5" height="53.0" transform="rotate(297.0 154.6 99.1)" style="color:#243B2A"/>
+            <use href="#leaf" x="144.0" y="39.5" width="30.0" height="60.1" transform="rotate(82.2 159.0 99.6)" style="color:#1F3422"/>
+            <use href="#leaf" x="141.2" y="48.9" width="25.6" height="51.3" transform="rotate(264.9 154.0 100.2)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="143.9" y="43.6" width="28.6" height="57.2" transform="rotate(110.9 158.2 100.7)" style="color:#243B2A"/>
+            <use href="#leaf" x="139.0" y="38.7" width="31.6" height="63.1" transform="rotate(217.9 154.8 101.8)" style="color:#162A18"/>
+            <use href="#leaf" x="143.0" y="45.1" width="28.0" height="55.9" transform="rotate(142.2 157.0 101.0)" style="color:#162A18"/>
+            <use href="#leaf" x="140.3" y="39.1" width="32.1" height="64.2" transform="rotate(178.1 156.3 103.3)" style="color:#243B2A"/>
+            <use href="#leaf" x="216.3" y="39.7" width="27.9" height="55.7" transform="rotate(12.3 230.2 95.4)" style="color:#243B2A"/>
+            <use href="#leaf" x="217.8" y="53.5" width="21.8" height="43.7" transform="rotate(342.2 228.8 97.1)" style="color:#162A18"/>
+            <use href="#leaf" x="218.4" y="47.0" width="25.2" height="50.5" transform="rotate(44.0 231.0 97.5)" style="color:#243B2A"/>
+            <use href="#leaf" x="215.8" y="47.9" width="25.3" height="50.6" transform="rotate(303.5 228.5 98.5)" style="color:#1F3422"/>
+            <use href="#leaf" x="218.4" y="50.0" width="24.4" height="48.7" transform="rotate(71.0 230.6 98.7)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="213.3" y="38.9" width="30.1" height="60.1" transform="rotate(277.6 228.3 99.0)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="214.9" y="47.4" width="26.1" height="52.2" transform="rotate(250.0 227.9 99.7)" style="color:#1A2F1B"/>
+            <use href="#leaf" x="217.2" y="45.7" width="27.0" height="54.0" transform="rotate(115.8 230.7 99.8)" style="color:#243B2A"/>
+            <use href="#leaf" x="211.0" y="38.2" width="32.3" height="64.5" transform="rotate(213.0 227.1 102.7)" style="color:#243B2A"/>
+            <use href="#leaf" x="216.9" y="46.2" width="27.6" height="55.3" transform="rotate(151.1 230.7 101.5)" style="color:#243B2A"/>
+            <use href="#leaf" x="212.5" y="34.8" width="34.1" height="68.2" transform="rotate(177.5 229.6 103.0)" style="color:#1F3422"/>
+            <use href="#leaf" x="96.8" y="85.4" width="19.0" height="37.9" transform="rotate(4.9 106.3 123.3)" style="color:#2A4A35"/>
+            <use href="#leaf" x="95.2" y="83.9" width="20.3" height="40.6" transform="rotate(325.1 105.3 124.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="96.6" y="79.4" width="22.4" height="44.8" transform="rotate(51.7 107.9 124.2)" style="color:#1F3326"/>
+            <use href="#leaf" x="93.5" y="84.1" width="20.3" height="40.6" transform="rotate(290.9 103.6 124.7)" style="color:#243B2E"/>
+            <use href="#leaf" x="96.4" y="74.1" width="25.4" height="50.8" transform="rotate(77.1 109.1 124.9)" style="color:#2A4A35"/>
+            <use href="#leaf" x="90.7" y="78.1" width="24.5" height="49.1" transform="rotate(243.5 103.0 127.2)" style="color:#243B2E"/>
+            <use href="#leaf" x="96.0" y="81.6" width="22.4" height="44.9" transform="rotate(128.8 107.2 126.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="90.1" y="71.6" width="28.4" height="56.8" transform="rotate(211.4 104.3 128.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="95.5" y="81.5" width="23.2" height="46.4" transform="rotate(157.1 107.1 127.9)" style="color:#2A4530"/>
+            <use href="#leaf" x="259.9" y="82.7" width="20.4" height="40.9" transform="rotate(356.2 270.1 123.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="261.1" y="86.9" width="19.4" height="38.8" transform="rotate(28.3 270.8 125.7)" style="color:#2A4530"/>
+            <use href="#leaf" x="257.6" y="82.4" width="21.0" height="42.0" transform="rotate(315.7 268.1 124.4)" style="color:#243B2E"/>
+            <use href="#leaf" x="259.3" y="76.1" width="25.0" height="50.1" transform="rotate(70.3 271.8 126.2)" style="color:#2A4530"/>
+            <use href="#leaf" x="257.0" y="78.3" width="24.1" height="48.2" transform="rotate(276.5 269.0 126.5)" style="color:#243B2E"/>
+            <use href="#leaf" x="258.7" y="67.6" width="30.2" height="60.4" transform="rotate(109.9 273.8 127.9)" style="color:#2A4530"/>
+            <use href="#leaf" x="253.3" y="69.2" width="29.7" height="59.3" transform="rotate(230.4 268.1 128.5)" style="color:#1F3326"/>
+            <use href="#leaf" x="257.3" y="72.7" width="27.5" height="55.0" transform="rotate(143.6 271.1 127.7)" style="color:#2A4530"/>
+            <use href="#leaf" x="254.2" y="66.0" width="31.7" height="63.4" transform="rotate(185.7 270.0 129.5)" style="color:#1F3326"/>
+            <use href="#leaf" x="59.2" y="114.2" width="22.8" height="45.5" transform="rotate(13.2 70.6 159.7)" style="color:#2A4A35"/>
+            <use href="#leaf" x="58.1" y="116.9" width="22.3" height="44.6" transform="rotate(342.8 69.3 161.4)" style="color:#2A4530"/>
+            <use href="#leaf" x="57.2" y="108.1" width="27.2" height="54.3" transform="rotate(55.0 70.8 162.4)" style="color:#2A4A35"/>
+            <use href="#leaf" x="53.9" y="111.0" width="25.0" height="50.0" transform="rotate(301.7 66.4 161.0)" style="color:#243B2E"/>
+            <use href="#leaf" x="59.8" y="108.5" width="27.2" height="54.5" transform="rotate(88.0 73.4 162.9)" style="color:#243B2E"/>
+            <use href="#leaf" x="51.4" y="104.2" width="29.8" height="59.7" transform="rotate(257.0 66.3 163.9)" style="color:#1F3326"/>
+            <use href="#leaf" x="53.3" y="105.1" width="29.6" height="59.3" transform="rotate(231.9 68.1 164.4)" style="color:#243B2E"/>
+            <use href="#leaf" x="57.9" y="107.3" width="28.9" height="57.9" transform="rotate(128.9 72.4 165.2)" style="color:#1F3326"/>
+            <use href="#leaf" x="56.8" y="110.8" width="26.9" height="53.8" transform="rotate(161.1 70.3 164.6)" style="color:#243B2E"/>
+            <use href="#leaf" x="53.3" y="101.9" width="31.8" height="63.6" transform="rotate(194.8 69.1 165.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="301.5" y="124.2" width="19.0" height="37.9" transform="rotate(11.4 310.9 162.1)" style="color:#243B2E"/>
+            <use href="#leaf" x="299.9" y="124.2" width="19.5" height="38.9" transform="rotate(339.8 309.6 163.2)" style="color:#2A4530"/>
+            <use href="#leaf" x="301.2" y="118.5" width="22.2" height="44.4" transform="rotate(41.8 312.3 163.0)" style="color:#2A4530"/>
+            <use href="#leaf" x="298.1" y="120.0" width="22.3" height="44.5" transform="rotate(297.9 309.2 164.6)" style="color:#1F3326"/>
+            <use href="#leaf" x="301.0" y="118.1" width="23.3" height="46.6" transform="rotate(78.1 312.7 164.6)" style="color:#1F3326"/>
+            <use href="#leaf" x="296.2" y="121.7" width="21.5" height="42.9" transform="rotate(278.6 307.0 164.6)" style="color:#2A4A35"/>
+            <use href="#leaf" x="299.9" y="119.9" width="22.9" height="45.7" transform="rotate(114.3 311.3 165.6)" style="color:#1F3326"/>
+            <use href="#leaf" x="296.1" y="114.6" width="25.7" height="51.3" transform="rotate(238.8 308.9 166.0)" style="color:#2A4530"/>
+            <use href="#leaf" x="298.2" y="113.4" width="26.8" height="53.7" transform="rotate(145.1 311.6 167.1)" style="color:#1F3326"/>
+            <use href="#leaf" x="295.9" y="113.5" width="26.8" height="53.6" transform="rotate(209.2 309.3 167.0)" style="color:#2A4A35"/>
+            <use href="#leaf" x="297.2" y="113.9" width="26.9" height="53.8" transform="rotate(172.2 310.7 167.7)" style="color:#243B2E"/>
+            <use href="#leaf" x="37.9" y="176.3" width="18.9" height="37.8" transform="rotate(350.8 47.3 214.1)" style="color:#1F3326"/>
+            <use href="#leaf" x="36.9" y="169.2" width="23.4" height="46.7" transform="rotate(26.3 48.6 215.9)" style="color:#243B2E"/>
+            <use href="#leaf" x="36.4" y="175.8" width="19.9" height="39.8" transform="rotate(319.5 46.4 215.6)" style="color:#1F3326"/>
+            <use href="#leaf" x="38.1" y="173.6" width="21.7" height="43.3" transform="rotate(65.5 49.0 216.9)" style="color:#2A4530"/>
+            <use href="#leaf" x="34.2" y="171.9" width="22.6" height="45.1" transform="rotate(277.2 45.5 217.1)" style="color:#1F3326"/>
+            <use href="#leaf" x="38.1" y="169.7" width="24.1" height="48.2" transform="rotate(103.9 50.1 217.9)" style="color:#2A4A35"/>
+            <use href="#leaf" x="35.4" y="175.3" width="21.4" height="42.8" transform="rotate(248.1 46.1 218.1)" style="color:#2A4530"/>
+            <use href="#leaf" x="37.9" y="173.3" width="23.5" height="47.1" transform="rotate(148.1 49.7 220.4)" style="color:#1F3326"/>
+            <use href="#leaf" x="33.9" y="167.3" width="25.9" height="51.9" transform="rotate(207.7 46.9 219.2)" style="color:#2A4530"/>
+            <use href="#leaf" x="33.0" y="159.7" width="30.0" height="59.9" transform="rotate(175.7 48.0 219.6)" style="color:#243B2E"/>
+            <use href="#leaf" x="326.4" y="168.6" width="21.5" height="43.0" transform="rotate(5.2 337.1 211.5)" style="color:#1F3326"/>
+            <use href="#leaf" x="325.4" y="168.9" width="21.1" height="42.2" transform="rotate(322.3 335.9 211.1)" style="color:#2A4530"/>
+            <use href="#leaf" x="328.6" y="173.2" width="19.2" height="38.4" transform="rotate(51.2 338.2 211.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="324.0" y="172.8" width="19.7" height="39.4" transform="rotate(276.0 333.9 212.2)" style="color:#1F3326"/>
+            <use href="#leaf" x="328.9" y="170.9" width="20.7" height="41.4" transform="rotate(85.3 339.3 212.4)" style="color:#2A4A35"/>
+            <use href="#leaf" x="326.5" y="166.6" width="23.3" height="46.7" transform="rotate(123.1 338.1 213.3)" style="color:#1F3326"/>
+            <use href="#leaf" x="321.5" y="163.5" width="25.5" height="51.0" transform="rotate(235.8 334.2 214.4)" style="color:#2A4530"/>
+            <use href="#leaf" x="323.9" y="163.8" width="25.1" height="50.2" transform="rotate(203.4 336.4 213.9)" style="color:#2A4A35"/>
+            <use href="#leaf" x="326.2" y="169.6" width="22.0" height="43.9" transform="rotate(171.6 337.1 213.5)" style="color:#243B2E"/>
+            <use href="#leaf" x="179.9" y="79.3" width="24.3" height="48.6" transform="rotate(11.9 192.1 127.8)" style="color:#243B2E"/>
+            <use href="#leaf" x="175.5" y="66.2" width="30.9" height="61.7" transform="rotate(345.9 191.0 127.9)" style="color:#243B2E"/>
+            <use href="#leaf" x="177.8" y="63.3" width="32.2" height="64.4" transform="rotate(41.2 193.9 127.6)" style="color:#2A4A35"/>
+            <use href="#leaf" x="174.3" y="74.6" width="27.0" height="53.9" transform="rotate(294.6 187.7 128.5)" style="color:#1F3326"/>
+            <use href="#leaf" x="175.9" y="61.5" width="34.3" height="68.5" transform="rotate(79.8 193.1 130.0)" style="color:#2A4530"/>
+            <use href="#leaf" x="173.9" y="72.1" width="29.2" height="58.4" transform="rotate(265.2 188.5 130.5)" style="color:#1F3326"/>
+            <use href="#leaf" x="180.1" y="73.9" width="29.2" height="58.5" transform="rotate(123.3 194.7 132.3)" style="color:#243B2E"/>
+            <use href="#leaf" x="173.9" y="66.1" width="32.8" height="65.5" transform="rotate(224.7 190.2 131.6)" style="color:#1F3326"/>
+            <use href="#leaf" x="176.6" y="67.5" width="32.6" height="65.2" transform="rotate(151.7 192.9 132.8)" style="color:#2A4530"/>
+            <use href="#leaf" x="174.1" y="68.1" width="32.6" height="65.2" transform="rotate(201.7 190.4 133.3)" style="color:#2A4530"/>
+            <use href="#leaf" x="126.1" y="96.4" width="24.5" height="49.1" transform="rotate(350.4 138.4 145.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="129.9" y="102.9" width="21.7" height="43.4" transform="rotate(34.7 140.7 146.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="122.3" y="92.3" width="27.4" height="54.7" transform="rotate(301.3 136.0 147.0)" style="color:#2A4A35"/>
+            <use href="#leaf" x="130.4" y="99.5" width="24.3" height="48.6" transform="rotate(79.8 142.6 148.1)" style="color:#1F3326"/>
+            <use href="#leaf" x="121.5" y="92.5" width="28.5" height="56.9" transform="rotate(258.0 135.8 149.5)" style="color:#1F3326"/>
+            <use href="#leaf" x="124.6" y="83.8" width="33.4" height="66.7" transform="rotate(126.4 141.3 150.5)" style="color:#243B2E"/>
+            <use href="#leaf" x="124.4" y="97.7" width="26.6" height="53.3" transform="rotate(208.7 137.7 151.0)" style="color:#1F3326"/>
+            <use href="#leaf" x="123.3" y="85.4" width="32.3" height="64.5" transform="rotate(158.7 139.4 149.9)" style="color:#1F3326"/>
+            <use href="#leaf" x="226.2" y="89.9" width="27.9" height="55.7" transform="rotate(18.3 240.2 145.6)" style="color:#243B2E"/>
+            <use href="#leaf" x="225.0" y="95.6" width="24.5" height="49.1" transform="rotate(319.9 237.2 144.7)" style="color:#1F3326"/>
+            <use href="#leaf" x="229.7" y="90.4" width="27.5" height="54.9" transform="rotate(61.5 243.4 145.3)" style="color:#2A4A35"/>
+            <use href="#leaf" x="223.1" y="93.6" width="26.5" height="52.9" transform="rotate(285.7 236.3 146.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="229.9" y="92.6" width="27.6" height="55.2" transform="rotate(95.1 243.7 147.8)" style="color:#1F3326"/>
+            <use href="#leaf" x="223.9" y="89.7" width="29.3" height="58.6" transform="rotate(229.0 238.6 148.3)" style="color:#1F3326"/>
+            <use href="#leaf" x="227.2" y="94.0" width="28.1" height="56.2" transform="rotate(149.4 241.2 150.2)" style="color:#243B2E"/>
+            <use href="#leaf" x="221.8" y="81.6" width="34.5" height="69.1" transform="rotate(189.5 239.0 150.7)" style="color:#243B2E"/>
+            <use href="#leaf" x="167.5" y="118.8" width="23.7" height="47.4" transform="rotate(355.9 179.4 166.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="166.6" y="119.7" width="24.4" height="48.9" transform="rotate(323.6 178.8 168.6)" style="color:#3D6147"/>
+            <use href="#leaf" x="167.1" y="113.5" width="27.5" height="55.1" transform="rotate(45.7 180.9 168.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="161.0" y="109.8" width="29.7" height="59.3" transform="rotate(280.3 175.8 169.1)" style="color:#2A4A35"/>
+            <use href="#leaf" x="166.2" y="109.8" width="29.9" height="59.7" transform="rotate(80.4 181.2 169.5)" style="color:#345A3F"/>
+            <use href="#leaf" x="162.1" y="116.0" width="27.7" height="55.3" transform="rotate(247.7 175.9 171.3)" style="color:#3D6147"/>
+            <use href="#leaf" x="168.6" y="115.9" width="27.8" height="55.6" transform="rotate(120.6 182.5 171.5)" style="color:#345A3F"/>
+            <use href="#leaf" x="168.2" y="122.4" width="25.4" height="50.8" transform="rotate(159.0 180.9 173.2)" style="color:#3D6147"/>
+            <use href="#leaf" x="165.0" y="116.1" width="28.1" height="56.1" transform="rotate(195.1 179.0 172.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="85.1" y="126.8" width="27.2" height="54.4" transform="rotate(11.5 98.7 181.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="84.4" y="128.3" width="26.7" height="53.4" transform="rotate(328.3 97.7 181.7)" style="color:#2A4A35"/>
+            <use href="#leaf" x="87.7" y="131.6" width="24.8" height="49.7" transform="rotate(51.0 100.1 181.3)" style="color:#1F3326"/>
+            <use href="#leaf" x="80.3" y="121.4" width="30.3" height="60.5" transform="rotate(284.9 95.4 181.9)" style="color:#243B2E"/>
+            <use href="#leaf" x="87.7" y="130.4" width="26.3" height="52.6" transform="rotate(97.2 100.8 183.0)" style="color:#1F3326"/>
+            <use href="#leaf" x="80.9" y="126.9" width="28.8" height="57.7" transform="rotate(239.3 95.3 184.6)" style="color:#1F3326"/>
+            <use href="#leaf" x="83.3" y="120.0" width="31.8" height="63.7" transform="rotate(140.8 99.2 183.7)" style="color:#243B2E"/>
+            <use href="#leaf" x="82.6" y="122.2" width="31.2" height="62.4" transform="rotate(185.3 98.2 184.6)" style="color:#243B2E"/>
+            <use href="#leaf" x="270.9" y="145.3" width="19.9" height="39.8" transform="rotate(9.0 280.9 185.1)" style="color:#243B2E"/>
+            <use href="#leaf" x="269.4" y="144.2" width="20.6" height="41.3" transform="rotate(338.4 279.7 185.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="271.0" y="145.7" width="20.5" height="40.9" transform="rotate(40.3 281.3 186.6)" style="color:#2A4530"/>
+            <use href="#leaf" x="268.0" y="146.0" width="20.1" height="40.2" transform="rotate(298.3 278.1 186.3)" style="color:#2A4A35"/>
+            <use href="#leaf" x="271.7" y="146.2" width="20.5" height="41.1" transform="rotate(81.0 282.0 187.3)" style="color:#2A4A35"/>
+            <use href="#leaf" x="266.7" y="138.9" width="24.3" height="48.6" transform="rotate(270.5 278.9 187.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="271.9" y="142.3" width="23.1" height="46.2" transform="rotate(106.4 283.4 188.4)" style="color:#2A4530"/>
+            <use href="#leaf" x="265.1" y="132.5" width="28.0" height="56.0" transform="rotate(235.6 279.1 188.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="268.8" y="138.7" width="24.9" height="49.7" transform="rotate(138.4 281.2 188.4)" style="color:#2A4530"/>
+            <use href="#leaf" x="266.2" y="138.3" width="26.3" height="52.5" transform="rotate(199.6 279.3 190.8)" style="color:#2A4A35"/>
+            <use href="#leaf" x="266.8" y="133.1" width="28.4" height="56.8" transform="rotate(167.5 281.0 189.9)" style="color:#243B2E"/>
+            <use href="#leaf" x="115.2" y="139.3" width="27.6" height="55.2" transform="rotate(356.2 129.0 194.5)" style="color:#3D6147"/>
+            <use href="#leaf" x="114.5" y="149.2" width="23.6" height="47.3" transform="rotate(308.7 126.3 196.5)" style="color:#345A3F"/>
+            <use href="#leaf" x="117.9" y="140.6" width="28.1" height="56.3" transform="rotate(53.8 132.0 196.9)" style="color:#345A3F"/>
+            <use href="#leaf" x="117.7" y="146.2" width="26.4" height="52.8" transform="rotate(94.2 130.9 199.0)" style="color:#345A3F"/>
+            <use href="#leaf" x="111.4" y="145.7" width="26.8" height="53.6" transform="rotate(264.8 124.8 199.3)" style="color:#345A3F"/>
+            <use href="#leaf" x="113.5" y="143.3" width="28.4" height="56.8" transform="rotate(233.9 127.7 200.1)" style="color:#345A3F"/>
+            <use href="#leaf" x="114.3" y="130.5" width="35.5" height="71.1" transform="rotate(134.5 132.0 201.5)" style="color:#345A3F"/>
+            <use href="#leaf" x="110.7" y="125.5" width="37.9" height="75.8" transform="rotate(172.2 129.7 201.4)" style="color:#345A3F"/>
+            <use href="#leaf" x="238.5" y="152.2" width="22.0" height="44.1" transform="rotate(17.0 249.5 196.3)" style="color:#345A3F"/>
+            <use href="#leaf" x="235.8" y="148.5" width="24.1" height="48.2" transform="rotate(328.1 247.9 196.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="239.8" y="148.7" width="24.1" height="48.3" transform="rotate(65.1 251.9 197.0)" style="color:#345A3F"/>
+            <use href="#leaf" x="233.9" y="145.1" width="26.2" height="52.5" transform="rotate(292.0 247.0 197.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="239.1" y="144.4" width="27.6" height="55.2" transform="rotate(106.4 252.9 199.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="230.7" y="142.2" width="29.4" height="58.8" transform="rotate(233.4 245.4 200.9)" style="color:#345A3F"/>
+            <use href="#leaf" x="235.1" y="139.8" width="30.8" height="61.6" transform="rotate(151.9 250.5 201.5)" style="color:#345A3F"/>
+            <use href="#leaf" x="230.9" y="132.4" width="34.8" height="69.7" transform="rotate(188.3 248.3 202.1)" style="color:#2A4A35"/>
+            <use href="#leaf" x="45.1" y="191.5" width="22.0" height="44.1" transform="rotate(337.2 56.2 235.6)" style="color:#2A4530"/>
+            <use href="#leaf" x="48.3" y="195.6" width="20.3" height="40.7" transform="rotate(29.6 58.4 236.3)" style="color:#1F3326"/>
+            <use href="#leaf" x="45.3" y="194.4" width="21.3" height="42.5" transform="rotate(316.7 56.0 236.9)" style="color:#2A4A35"/>
+            <use href="#leaf" x="45.4" y="182.8" width="27.2" height="54.3" transform="rotate(53.5 58.9 237.1)" style="color:#1F3326"/>
+            <use href="#leaf" x="40.3" y="183.8" width="26.9" height="53.9" transform="rotate(280.1 53.8 237.7)" style="color:#1F3326"/>
+            <use href="#leaf" x="48.0" y="188.5" width="25.0" height="50.1" transform="rotate(94.3 60.5 238.6)" style="color:#2A4530"/>
+            <use href="#leaf" x="42.3" y="190.3" width="24.9" height="49.7" transform="rotate(235.8 54.7 240.1)" style="color:#2A4A35"/>
+            <use href="#leaf" x="43.9" y="178.0" width="31.1" height="62.1" transform="rotate(131.4 59.4 240.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="44.6" y="190.6" width="24.4" height="48.8" transform="rotate(208.5 56.8 239.3)" style="color:#243B2E"/>
+            <use href="#leaf" x="41.9" y="176.1" width="32.6" height="65.1" transform="rotate(163.8 58.1 241.2)" style="color:#243B2E"/>
+            <use href="#leaf" x="312.5" y="195.3" width="20.8" height="41.5" transform="rotate(353.3 322.9 236.8)" style="color:#1F3326"/>
+            <use href="#leaf" x="313.7" y="197.8" width="20.2" height="40.4" transform="rotate(21.4 323.8 238.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="311.6" y="198.1" width="19.7" height="39.3" transform="rotate(320.0 321.4 237.5)" style="color:#2A4530"/>
+            <use href="#leaf" x="314.8" y="198.3" width="20.3" height="40.7" transform="rotate(70.1 325.0 238.9)" style="color:#2A4A35"/>
+            <use href="#leaf" x="309.0" y="189.0" width="25.0" height="50.0" transform="rotate(289.0 321.5 239.0)" style="color:#1F3326"/>
+            <use href="#leaf" x="312.7" y="193.0" width="23.4" height="46.8" transform="rotate(100.4 324.4 239.8)" style="color:#1F3326"/>
+            <use href="#leaf" x="307.2" y="187.4" width="26.5" height="53.0" transform="rotate(254.5 320.5 240.4)" style="color:#2A4530"/>
+            <use href="#leaf" x="311.7" y="187.1" width="27.2" height="54.4" transform="rotate(132.9 325.3 241.5)" style="color:#243B2E"/>
+            <use href="#leaf" x="311.7" y="196.8" width="21.8" height="43.6" transform="rotate(218.0 322.6 240.4)" style="color:#1F3326"/>
+            <use href="#leaf" x="311.8" y="193.2" width="24.2" height="48.3" transform="rotate(161.2 323.9 241.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="309.0" y="185.4" width="28.1" height="56.1" transform="rotate(185.1 323.0 241.6)" style="color:#2A4A35"/>
+            <use href="#leaf" x="179.3" y="161.6" width="24.8" height="49.6" transform="rotate(13.8 191.7 211.2)" style="color:#345A3F"/>
+            <use href="#leaf" x="175.1" y="152.3" width="29.8" height="59.5" transform="rotate(333.2 190.0 211.8)" style="color:#345A3F"/>
+            <use href="#leaf" x="180.6" y="167.4" width="22.8" height="45.6" transform="rotate(43.8 192.0 213.0)" style="color:#3D6147"/>
+            <use href="#leaf" x="176.5" y="161.6" width="25.8" height="51.5" transform="rotate(294.8 189.3 213.2)" style="color:#345A3F"/>
+            <use href="#leaf" x="181.1" y="163.5" width="25.0" height="50.0" transform="rotate(78.3 193.6 213.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="174.1" y="160.8" width="26.9" height="53.7" transform="rotate(262.0 187.5 214.5)" style="color:#345A3F"/>
+            <use href="#leaf" x="178.9" y="160.8" width="26.9" height="53.7" transform="rotate(116.1 192.3 214.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="174.9" y="157.1" width="29.1" height="58.1" transform="rotate(233.0 189.4 215.2)" style="color:#3D6147"/>
+            <use href="#leaf" x="177.6" y="159.7" width="29.2" height="58.4" transform="rotate(164.6 192.2 218.2)" style="color:#345A3F"/>
+            <use href="#leaf" x="173.4" y="148.8" width="34.2" height="68.3" transform="rotate(190.8 190.5 217.1)" style="color:#2A4A35"/>
+            <use href="#leaf" x="144.8" y="190.5" width="22.4" height="44.8" transform="rotate(347.0 156.0 235.4)" style="color:#345A3F"/>
+            <use href="#leaf" x="143.4" y="181.0" width="27.9" height="55.7" transform="rotate(45.4 157.4 236.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="142.9" y="190.8" width="22.3" height="44.6" transform="rotate(311.6 154.0 235.4)" style="color:#3D6147"/>
+            <use href="#leaf" x="146.5" y="182.4" width="27.5" height="55.0" transform="rotate(87.2 160.3 237.4)" style="color:#3D6147"/>
+            <use href="#leaf" x="138.3" y="181.1" width="28.6" height="57.2" transform="rotate(259.6 152.6 238.3)" style="color:#3D6147"/>
+            <use href="#leaf" x="142.8" y="172.7" width="33.6" height="67.1" transform="rotate(126.4 159.5 239.8)" style="color:#3D6147"/>
+            <use href="#leaf" x="140.0" y="184.1" width="28.2" height="56.5" transform="rotate(218.6 154.1 240.6)" style="color:#2A4A35"/>
+            <use href="#leaf" x="143.0" y="183.4" width="28.1" height="56.2" transform="rotate(163.9 157.1 239.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="210.2" y="191.7" width="22.6" height="45.3" transform="rotate(351.2 221.6 237.0)" style="color:#2A4A35"/>
+            <use href="#leaf" x="211.3" y="189.9" width="23.2" height="46.4" transform="rotate(22.3 222.9 236.3)" style="color:#345A3F"/>
+            <use href="#leaf" x="210.0" y="193.5" width="22.2" height="44.3" transform="rotate(322.4 221.0 237.8)" style="color:#3D6147"/>
+            <use href="#leaf" x="210.8" y="181.8" width="27.4" height="54.8" transform="rotate(49.9 224.5 236.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="207.6" y="186.9" width="25.8" height="51.7" transform="rotate(279.8 220.5 238.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="208.8" y="177.2" width="30.8" height="61.6" transform="rotate(89.1 224.2 238.8)" style="color:#345A3F"/>
+            <use href="#leaf" x="205.7" y="182.3" width="28.6" height="57.2" transform="rotate(248.5 220.0 239.6)" style="color:#2A4A35"/>
+            <use href="#leaf" x="207.6" y="176.0" width="32.2" height="64.4" transform="rotate(130.6 223.7 240.4)" style="color:#345A3F"/>
+            <use href="#leaf" x="205.8" y="183.8" width="28.8" height="57.5" transform="rotate(214.8 220.1 241.3)" style="color:#345A3F"/>
+            <use href="#leaf" x="206.3" y="175.4" width="32.7" height="65.5" transform="rotate(157.7 222.7 240.9)" style="color:#345A3F"/>
+            <use href="#leaf" x="205.9" y="178.1" width="31.8" height="63.6" transform="rotate(180.8 221.8 241.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="84.8" y="207.4" width="23.0" height="46.0" transform="rotate(6.1 96.3 253.4)" style="color:#345A3F"/>
+            <use href="#leaf" x="84.2" y="197.2" width="27.5" height="55.0" transform="rotate(34.2 98.0 252.2)" style="color:#2A4A35"/>
+            <use href="#leaf" x="83.9" y="208.6" width="22.5" height="45.1" transform="rotate(324.2 95.1 253.6)" style="color:#345A3F"/>
+            <use href="#leaf" x="78.6" y="199.0" width="27.6" height="55.2" transform="rotate(281.0 92.4 254.2)" style="color:#345A3F"/>
+            <use href="#leaf" x="85.6" y="197.9" width="28.4" height="56.8" transform="rotate(85.2 99.8 254.6)" style="color:#3D6147"/>
+            <use href="#leaf" x="84.3" y="198.2" width="28.9" height="57.8" transform="rotate(112.0 98.8 256.0)" style="color:#3D6147"/>
+            <use href="#leaf" x="78.8" y="200.8" width="28.3" height="56.7" transform="rotate(230.9 93.0 257.4)" style="color:#345A3F"/>
+            <use href="#leaf" x="78.6" y="188.0" width="34.0" height="68.0" transform="rotate(204.4 95.6 256.0)" style="color:#3D6147"/>
+            <use href="#leaf" x="82.7" y="200.7" width="28.1" height="56.2" transform="rotate(161.1 96.7 256.9)" style="color:#345A3F"/>
+            <use href="#leaf" x="269.7" y="206.6" width="23.5" height="46.9" transform="rotate(353.1 281.4 253.5)" style="color:#2A4A35"/>
+            <use href="#leaf" x="272.5" y="205.0" width="23.4" height="46.7" transform="rotate(41.0 284.2 251.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="268.2" y="207.2" width="22.9" height="45.9" transform="rotate(308.6 279.6 253.1)" style="color:#345A3F"/>
+            <use href="#leaf" x="264.3" y="198.5" width="28.2" height="56.5" transform="rotate(264.1 278.4 255.0)" style="color:#2A4A35"/>
+            <use href="#leaf" x="271.0" y="203.4" width="25.8" height="51.7" transform="rotate(99.6 283.9 255.1)" style="color:#345A3F"/>
+            <use href="#leaf" x="267.4" y="208.6" width="24.0" height="48.1" transform="rotate(226.3 279.5 256.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="270.0" y="202.7" width="27.3" height="54.7" transform="rotate(142.0 283.7 257.4)" style="color:#2A4A35"/>
+            <use href="#leaf" x="269.1" y="206.4" width="25.3" height="50.6" transform="rotate(174.9 281.8 256.9)" style="color:#345A3F"/>
+            <use href="#leaf" x="176.6" y="206.7" width="28.5" height="57.1" transform="rotate(339.6 190.9 263.7)" style="color:#456B50"/>
+            <use href="#leaf" x="181.4" y="216.6" width="23.4" height="46.8" transform="rotate(23.3 193.1 263.5)" style="color:#4F7758"/>
+            <use href="#leaf" x="181.3" y="217.9" width="23.7" height="47.3" transform="rotate(49.8 193.2 265.2)" style="color:#4F7758"/>
+            <use href="#leaf" x="176.4" y="210.1" width="27.5" height="55.0" transform="rotate(305.5 190.1 265.1)" style="color:#5C8A66"/>
+            <use href="#leaf" x="177.4" y="213.9" width="26.2" height="52.4" transform="rotate(270.9 190.5 266.3)" style="color:#3D6147"/>
+            <use href="#leaf" x="182.8" y="214.6" width="26.1" height="52.2" transform="rotate(96.8 195.9 266.8)" style="color:#4F7758"/>
+            <use href="#leaf" x="178.4" y="204.5" width="31.7" height="63.4" transform="rotate(123.1 194.2 267.9)" style="color:#4F7758"/>
+            <use href="#leaf" x="172.7" y="206.3" width="31.3" height="62.6" transform="rotate(233.7 188.3 268.9)" style="color:#4F7758"/>
+            <use href="#leaf" x="173.4" y="198.6" width="35.2" height="70.5" transform="rotate(197.5 191.0 269.1)" style="color:#4F7758"/>
+            <use href="#leaf" x="176.1" y="204.5" width="32.2" height="64.4" transform="rotate(173.8 192.1 268.9)" style="color:#3D6147"/>
+            <use href="#leaf" x="117.0" y="239.7" width="21.8" height="43.7" transform="rotate(358.1 127.9 283.4)" style="color:#5C8A66"/>
+            <use href="#leaf" x="118.7" y="242.3" width="20.5" height="40.9" transform="rotate(28.5 129.0 283.2)" style="color:#5C8A66"/>
+            <use href="#leaf" x="113.8" y="233.4" width="24.8" height="49.6" transform="rotate(319.5 126.2 283.0)" style="color:#5C8A66"/>
+            <use href="#leaf" x="119.9" y="240.9" width="21.4" height="42.7" transform="rotate(61.2 130.6 283.6)" style="color:#3D6147"/>
+            <use href="#leaf" x="112.9" y="229.0" width="27.8" height="55.7" transform="rotate(289.9 126.8 284.7)" style="color:#4F7758"/>
+            <use href="#leaf" x="116.2" y="230.8" width="27.4" height="54.8" transform="rotate(103.0 129.9 285.5)" style="color:#456B50"/>
+            <use href="#leaf" x="111.4" y="232.9" width="26.6" height="53.3" transform="rotate(252.3 124.7 286.1)" style="color:#4F7758"/>
+            <use href="#leaf" x="116.5" y="235.3" width="25.6" height="51.2" transform="rotate(136.4 129.3 286.5)" style="color:#4F7758"/>
+            <use href="#leaf" x="114.0" y="236.5" width="25.3" height="50.6" transform="rotate(213.5 126.6 287.1)" style="color:#456B50"/>
+            <use href="#leaf" x="114.9" y="234.8" width="26.4" height="52.8" transform="rotate(176.0 128.1 287.6)" style="color:#456B50"/>
+            <use href="#leaf" x="237.3" y="243.8" width="21.1" height="42.2" transform="rotate(16.5 247.9 286.0)" style="color:#4F7758"/>
+            <use href="#leaf" x="234.3" y="239.3" width="23.0" height="46.0" transform="rotate(321.0 245.8 285.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="238.1" y="234.8" width="25.3" height="50.6" transform="rotate(58.3 250.8 285.4)" style="color:#5C8A66"/>
+            <use href="#leaf" x="233.5" y="242.0" width="22.4" height="44.8" transform="rotate(283.1 244.7 286.8)" style="color:#5C8A66"/>
+            <use href="#leaf" x="234.1" y="230.1" width="28.8" height="57.6" transform="rotate(104.9 248.4 287.7)" style="color:#5C8A66"/>
+            <use href="#leaf" x="231.9" y="229.2" width="29.5" height="58.9" transform="rotate(231.6 246.6 288.1)" style="color:#3D6147"/>
+            <use href="#leaf" x="236.9" y="239.8" width="24.9" height="49.8" transform="rotate(138.9 249.4 289.6)" style="color:#3D6147"/>
+            <use href="#leaf" x="234.6" y="240.0" width="25.1" height="50.2" transform="rotate(187.1 247.1 290.3)" style="color:#4F7758"/>
+            <use href="#leaf" x="67.9" y="248.9" width="18.7" height="37.4" transform="rotate(2.5 77.2 286.3)" style="color:#345A3F"/>
+            <use href="#leaf" x="66.3" y="246.0" width="19.6" height="39.2" transform="rotate(344.0 76.1 285.2)" style="color:#345A3F"/>
+            <use href="#leaf" x="68.5" y="248.6" width="19.5" height="39.0" transform="rotate(48.2 78.2 287.6)" style="color:#3D6147"/>
+            <use href="#leaf" x="65.2" y="248.9" width="19.2" height="38.4" transform="rotate(297.9 74.8 287.4)" style="color:#2A4A35"/>
+            <use href="#leaf" x="67.3" y="241.3" width="23.3" height="46.6" transform="rotate(69.8 79.0 287.9)" style="color:#345A3F"/>
+            <use href="#leaf" x="65.7" y="248.0" width="20.3" height="40.6" transform="rotate(268.7 75.8 288.6)" style="color:#2A4A35"/>
+            <use href="#leaf" x="66.4" y="237.3" width="26.2" height="52.4" transform="rotate(114.8 79.5 289.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="65.2" y="244.5" width="22.3" height="44.7" transform="rotate(232.6 76.3 289.2)" style="color:#345A3F"/>
+            <use href="#leaf" x="67.7" y="246.5" width="22.0" height="43.9" transform="rotate(140.0 78.6 290.4)" style="color:#2A4A35"/>
+            <use href="#leaf" x="62.8" y="236.9" width="26.7" height="53.4" transform="rotate(210.9 76.1 290.3)" style="color:#345A3F"/>
+            <use href="#leaf" x="64.0" y="237.5" width="27.0" height="53.9" transform="rotate(172.1 77.5 291.4)" style="color:#3D6147"/>
+            <use href="#leaf" x="297.6" y="249.4" width="18.1" height="36.1" transform="rotate(338.6 306.6 285.5)" style="color:#3D6147"/>
+            <use href="#leaf" x="296.4" y="240.8" width="22.8" height="45.6" transform="rotate(25.1 307.8 286.4)" style="color:#3D6147"/>
+            <use href="#leaf" x="298.5" y="241.9" width="22.1" height="44.2" transform="rotate(58.4 309.5 286.1)" style="color:#3D6147"/>
+            <use href="#leaf" x="293.0" y="239.2" width="23.3" height="46.6" transform="rotate(299.4 304.7 285.9)" style="color:#3D6147"/>
+            <use href="#leaf" x="293.7" y="243.2" width="22.0" height="44.0" transform="rotate(275.3 304.7 287.1)" style="color:#2A4A35"/>
+            <use href="#leaf" x="296.8" y="241.0" width="23.2" height="46.4" transform="rotate(91.8 308.4 287.4)" style="color:#345A3F"/>
+            <use href="#leaf" x="290.9" y="235.0" width="27.0" height="54.0" transform="rotate(241.5 304.4 289.0)" style="color:#2A4A35"/>
+            <use href="#leaf" x="295.7" y="237.7" width="25.2" height="50.4" transform="rotate(126.1 308.3 288.1)" style="color:#2A4A35"/>
+            <use href="#leaf" x="295.4" y="242.0" width="23.4" height="46.9" transform="rotate(191.0 307.1 288.8)" style="color:#2A4A35"/>
+            <use href="#leaf" x="293.9" y="234.0" width="27.8" height="55.7" transform="rotate(169.6 307.8 289.7)" style="color:#345A3F"/>
+            <use href="#leaf" x="153.5" y="270.6" width="21.7" height="43.4" transform="rotate(346.3 164.3 314.1)" style="color:#5C8A66"/>
+            <use href="#leaf" x="152.5" y="258.8" width="28.1" height="56.2" transform="rotate(19.9 166.5 315.1)" style="color:#5C8A66"/>
+            <use href="#leaf" x="149.2" y="261.9" width="27.7" height="55.4" transform="rotate(293.2 163.0 317.3)" style="color:#4F7758"/>
+            <use href="#leaf" x="155.5" y="261.0" width="28.0" height="56.0" transform="rotate(73.4 169.5 317.1)" style="color:#456B50"/>
+            <use href="#leaf" x="148.5" y="260.9" width="29.2" height="58.3" transform="rotate(249.4 163.1 319.2)" style="color:#3D6147"/>
+            <use href="#leaf" x="151.0" y="254.9" width="32.1" height="64.1" transform="rotate(113.1 167.1 319.0)" style="color:#5C8A66"/>
+            <use href="#leaf" x="146.3" y="252.1" width="34.6" height="69.1" transform="rotate(211.8 163.6 321.2)" style="color:#4F7758"/>
+            <use href="#leaf" x="149.8" y="252.9" width="34.6" height="69.2" transform="rotate(156.1 167.1 322.2)" style="color:#5C8A66"/>
+            <use href="#leaf" x="203.6" y="273.7" width="21.7" height="43.4" transform="rotate(4.1 214.5 317.1)" style="color:#456B50"/>
+            <use href="#leaf" x="202.4" y="275.3" width="22.0" height="44.0" transform="rotate(332.0 213.4 319.3)" style="color:#4F7758"/>
+            <use href="#leaf" x="203.0" y="265.1" width="26.5" height="53.1" transform="rotate(36.8 216.2 318.2)" style="color:#456B50"/>
+            <use href="#leaf" x="199.8" y="273.8" width="22.8" height="45.7" transform="rotate(295.5 211.2 319.4)" style="color:#5C8A66"/>
+            <use href="#leaf" x="204.2" y="264.3" width="28.0" height="55.9" transform="rotate(80.6 218.2 320.2)" style="color:#4F7758"/>
+            <use href="#leaf" x="199.9" y="271.9" width="24.8" height="49.5" transform="rotate(254.1 212.3 321.4)" style="color:#5C8A66"/>
+            <use href="#leaf" x="203.6" y="271.3" width="25.1" height="50.2" transform="rotate(106.9 216.2 321.5)" style="color:#3D6147"/>
+            <use href="#leaf" x="198.3" y="262.4" width="29.7" height="59.4" transform="rotate(228.4 213.2 321.8)" style="color:#3D6147"/>
+            <use href="#leaf" x="202.7" y="270.1" width="26.6" height="53.3" transform="rotate(143.0 216.1 323.3)" style="color:#456B50"/>
+            <use href="#leaf" x="199.3" y="265.8" width="28.8" height="57.6" transform="rotate(191.6 213.7 323.4)" style="color:#456B50"/>
+            <use href="#leaf" x="98.0" y="271.6" width="23.6" height="47.2" transform="rotate(358.2 109.7 318.8)" style="color:#456B50"/>
+            <use href="#leaf" x="99.9" y="274.0" width="22.6" height="45.2" transform="rotate(28.0 111.2 319.2)" style="color:#4F7758"/>
+            <use href="#leaf" x="96.3" y="273.5" width="22.7" height="45.3" transform="rotate(323.6 107.7 318.8)" style="color:#5C8A66"/>
+            <use href="#leaf" x="99.0" y="266.7" width="26.6" height="53.2" transform="rotate(53.5 112.3 320.0)" style="color:#456B50"/>
+            <use href="#leaf" x="94.6" y="267.6" width="27.0" height="53.9" transform="rotate(278.5 108.1 321.5)" style="color:#3D6147"/>
+            <use href="#leaf" x="99.5" y="268.2" width="26.9" height="53.8" transform="rotate(95.2 112.9 322.1)" style="color:#4F7758"/>
+            <use href="#leaf" x="93.8" y="267.6" width="27.3" height="54.7" transform="rotate(257.4 107.4 322.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="99.9" y="276.1" width="23.6" height="47.2" transform="rotate(129.1 111.7 323.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="93.7" y="260.7" width="30.9" height="61.8" transform="rotate(220.7 109.2 322.5)" style="color:#5C8A66"/>
+            <use href="#leaf" x="95.2" y="261.2" width="31.6" height="63.2" transform="rotate(156.2 111.0 324.5)" style="color:#4F7758"/>
+            <use href="#leaf" x="96.3" y="271.8" width="26.8" height="53.6" transform="rotate(181.9 109.7 325.4)" style="color:#5C8A66"/>
+            <use href="#leaf" x="268.9" y="280.1" width="18.6" height="37.1" transform="rotate(9.9 278.1 317.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="265.1" y="271.1" width="22.9" height="45.9" transform="rotate(332.7 276.5 316.9)" style="color:#4F7758"/>
+            <use href="#leaf" x="267.9" y="268.9" width="24.7" height="49.4" transform="rotate(65.9 280.3 318.2)" style="color:#4F7758"/>
+            <use href="#leaf" x="264.6" y="271.5" width="23.6" height="47.3" transform="rotate(292.2 276.4 318.8)" style="color:#3D6147"/>
+            <use href="#leaf" x="265.4" y="264.6" width="27.5" height="55.1" transform="rotate(104.5 279.1 319.7)" style="color:#456B50"/>
+            <use href="#leaf" x="261.1" y="261.0" width="29.7" height="59.4" transform="rotate(239.1 276.0 320.4)" style="color:#456B50"/>
+            <use href="#leaf" x="264.5" y="264.8" width="27.8" height="55.6" transform="rotate(149.1 278.4 320.4)" style="color:#456B50"/>
+            <use href="#leaf" x="262.7" y="264.4" width="28.6" height="57.3" transform="rotate(197.5 277.1 321.6)" style="color:#4F7758"/>
+            <use href="#leaf" x="174.7" y="303.7" width="23.4" height="46.9" transform="rotate(5.5 186.4 350.6)" style="color:#5C8A66"/>
+            <use href="#leaf" x="171.1" y="296.5" width="27.5" height="55.0" transform="rotate(331.0 184.8 351.5)" style="color:#4F7758"/>
+            <use href="#leaf" x="174.9" y="297.5" width="27.1" height="54.1" transform="rotate(46.7 188.4 351.7)" style="color:#4F7758"/>
+            <use href="#leaf" x="171.2" y="302.6" width="25.3" height="50.6" transform="rotate(283.9 183.9 353.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="175.9" y="302.8" width="25.6" height="51.2" transform="rotate(95.8 188.7 354.1)" style="color:#3D6147"/>
+            <use href="#leaf" x="167.8" y="291.3" width="31.6" height="63.3" transform="rotate(252.7 183.6 354.6)" style="color:#456B50"/>
+            <use href="#leaf" x="173.3" y="295.6" width="30.2" height="60.4" transform="rotate(133.2 188.4 356.0)" style="color:#456B50"/>
+            <use href="#leaf" x="169.4" y="292.4" width="31.6" height="63.2" transform="rotate(207.4 185.2 355.6)" style="color:#456B50"/>
+            <use href="#leaf" x="169.7" y="289.2" width="33.1" height="66.1" transform="rotate(173.3 186.3 355.4)" style="color:#5C8A66"/>
+            <use href="#leaf" x="126.2" y="322.6" width="20.0" height="39.9" transform="rotate(346.0 136.2 362.5)" style="color:#5C8A66"/>
+            <use href="#leaf" x="128.2" y="320.1" width="20.5" height="41.1" transform="rotate(35.0 138.4 361.1)" style="color:#4F7758"/>
+            <use href="#leaf" x="121.5" y="313.5" width="24.6" height="49.1" transform="rotate(292.8 133.7 362.6)" style="color:#5C8A66"/>
+            <use href="#leaf" x="127.0" y="321.3" width="21.1" height="42.2" transform="rotate(75.3 137.5 363.6)" style="color:#3D6147"/>
+            <use href="#leaf" x="118.8" y="307.6" width="28.5" height="57.1" transform="rotate(255.9 133.0 364.7)" style="color:#4F7758"/>
+            <use href="#leaf" x="126.1" y="317.0" width="23.8" height="47.7" transform="rotate(120.7 138.0 364.7)" style="color:#456B50"/>
+            <use href="#leaf" x="121.4" y="308.5" width="28.6" height="57.3" transform="rotate(203.0 135.7 365.8)" style="color:#3D6147"/>
+            <use href="#leaf" x="122.8" y="309.1" width="28.1" height="56.2" transform="rotate(169.1 136.8 365.3)" style="color:#456B50"/>
+            <use href="#leaf" x="225.0" y="312.2" width="24.0" height="48.0" transform="rotate(353.8 237.1 360.2)" style="color:#5C8A66"/>
+            <use href="#leaf" x="225.3" y="307.6" width="26.7" height="53.5" transform="rotate(37.2 238.7 361.0)" style="color:#3D6147"/>
+            <use href="#leaf" x="224.4" y="319.7" width="20.4" height="40.8" transform="rotate(310.1 234.6 360.5)" style="color:#4F7758"/>
+            <use href="#leaf" x="226.1" y="309.5" width="26.5" height="53.0" transform="rotate(78.9 239.4 362.4)" style="color:#3D6147"/>
+            <use href="#leaf" x="222.3" y="314.9" width="23.9" height="47.9" transform="rotate(271.3 234.2 362.8)" style="color:#456B50"/>
+            <use href="#leaf" x="223.8" y="301.5" width="31.7" height="63.3" transform="rotate(131.3 239.6 364.8)" style="color:#4F7758"/>
+            <use href="#leaf" x="220.8" y="306.1" width="29.7" height="59.4" transform="rotate(211.4 235.7 365.5)" style="color:#4F7758"/>
+            <use href="#leaf" x="222.9" y="306.2" width="28.9" height="57.9" transform="rotate(179.7 237.3 364.1)" style="color:#456B50"/>
+            <use href="#leaf" x="153.8" y="351.3" width="24.2" height="48.4" transform="rotate(356.0 165.9 399.7)" style="color:#5C8A66"/>
+            <use href="#leaf" x="155.0" y="353.7" width="23.2" height="46.5" transform="rotate(37.2 166.6 400.1)" style="color:#65967A"/>
+            <use href="#leaf" x="153.3" y="356.9" width="20.9" height="41.8" transform="rotate(315.0 163.7 398.7)" style="color:#65967A"/>
+            <use href="#leaf" x="156.0" y="357.0" width="21.8" height="43.7" transform="rotate(73.1 167.0 400.6)" style="color:#5C8A66"/>
+            <use href="#leaf" x="151.4" y="355.4" width="22.4" height="44.9" transform="rotate(280.6 162.7 400.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="156.7" y="352.5" width="24.6" height="49.2" transform="rotate(104.5 169.1 401.8)" style="color:#7AA886"/>
+            <use href="#leaf" x="150.9" y="352.6" width="25.2" height="50.5" transform="rotate(228.7 163.5 403.1)" style="color:#7AA886"/>
+            <use href="#leaf" x="153.9" y="349.3" width="26.8" height="53.6" transform="rotate(144.7 167.3 402.8)" style="color:#65967A"/>
+            <use href="#leaf" x="154.0" y="355.9" width="23.3" height="46.6" transform="rotate(189.6 165.7 402.6)" style="color:#65967A"/>
+            <use href="#leaf" x="201.1" y="361.1" width="19.3" height="38.7" transform="rotate(341.1 210.8 399.7)" style="color:#7AA886"/>
+            <use href="#leaf" x="203.3" y="357.9" width="19.9" height="39.7" transform="rotate(33.9 213.2 397.7)" style="color:#7AA886"/>
+            <use href="#leaf" x="198.1" y="355.3" width="21.9" height="43.9" transform="rotate(306.4 209.0 399.2)" style="color:#65967A"/>
+            <use href="#leaf" x="201.1" y="346.4" width="26.8" height="53.6" transform="rotate(76.9 214.5 400.0)" style="color:#65967A"/>
+            <use href="#leaf" x="195.9" y="351.5" width="24.8" height="49.6" transform="rotate(263.6 208.3 401.1)" style="color:#5C8A66"/>
+            <use href="#leaf" x="200.9" y="349.4" width="26.7" height="53.4" transform="rotate(122.8 214.3 402.8)" style="color:#5C8A66"/>
+            <use href="#leaf" x="195.5" y="349.0" width="27.3" height="54.7" transform="rotate(214.3 209.2 403.7)" style="color:#5C8A66"/>
+            <use href="#leaf" x="196.2" y="341.6" width="30.7" height="61.5" transform="rotate(169.4 211.6 403.0)" style="color:#5C8A66"/>
+            <use href="#leaf" x="104.4" y="346.3" width="24.0" height="48.1" transform="rotate(344.3 116.5 394.4)" style="color:#3D6147"/>
+            <use href="#leaf" x="106.7" y="352.5" width="20.9" height="41.8" transform="rotate(16.3 117.2 394.4)" style="color:#4F7758"/>
+            <use href="#leaf" x="103.9" y="350.7" width="21.6" height="43.2" transform="rotate(308.0 114.7 393.9)" style="color:#3D6147"/>
+            <use href="#leaf" x="106.1" y="346.5" width="24.2" height="48.4" transform="rotate(64.9 118.2 394.9)" style="color:#456B50"/>
+            <use href="#leaf" x="102.9" y="345.0" width="25.4" height="50.8" transform="rotate(259.7 115.6 395.8)" style="color:#456B50"/>
+            <use href="#leaf" x="105.3" y="343.0" width="26.6" height="53.2" transform="rotate(108.4 118.6 396.2)" style="color:#456B50"/>
+            <use href="#leaf" x="105.1" y="352.0" width="22.1" height="44.2" transform="rotate(224.9 116.1 396.2)" style="color:#3D6147"/>
+            <use href="#leaf" x="103.9" y="342.1" width="27.2" height="54.4" transform="rotate(145.1 117.5 396.5)" style="color:#5C8A66"/>
+            <use href="#leaf" x="104.4" y="349.6" width="24.7" height="49.5" transform="rotate(180.5 116.8 399.0)" style="color:#3D6147"/>
+            <use href="#leaf" x="252.8" y="349.4" width="21.6" height="43.2" transform="rotate(345.0 263.6 392.7)" style="color:#4F7758"/>
+            <use href="#leaf" x="253.5" y="349.1" width="21.8" height="43.5" transform="rotate(22.5 264.4 392.7)" style="color:#5C8A66"/>
+            <use href="#leaf" x="254.3" y="345.2" width="23.3" height="46.6" transform="rotate(45.4 266.0 391.8)" style="color:#4F7758"/>
+            <use href="#leaf" x="250.1" y="347.3" width="22.3" height="44.6" transform="rotate(306.1 261.2 391.9)" style="color:#5C8A66"/>
+            <use href="#leaf" x="252.4" y="343.8" width="24.9" height="49.9" transform="rotate(76.6 264.9 393.6)" style="color:#4F7758"/>
+            <use href="#leaf" x="250.2" y="343.9" width="24.9" height="49.9" transform="rotate(272.9 262.7 393.8)" style="color:#456B50"/>
+            <use href="#leaf" x="256.1" y="354.6" width="20.3" height="40.6" transform="rotate(119.2 266.3 395.2)" style="color:#456B50"/>
+            <use href="#leaf" x="249.4" y="340.9" width="26.8" height="53.6" transform="rotate(239.8 262.8 394.5)" style="color:#3D6147"/>
+            <use href="#leaf" x="252.5" y="353.3" width="20.9" height="41.9" transform="rotate(216.3 262.9 395.2)" style="color:#4F7758"/>
+            <use href="#leaf" x="252.7" y="346.9" width="24.2" height="48.4" transform="rotate(147.3 264.8 395.3)" style="color:#456B50"/>
+            <use href="#leaf" x="251.1" y="344.7" width="25.9" height="51.8" transform="rotate(176.2 264.1 396.5)" style="color:#456B50"/>
+            <use href="#leaf" x="176.2" y="381.1" width="24.3" height="48.5" transform="rotate(13.9 188.4 429.6)" style="color:#7AA886"/>
+            <use href="#leaf" x="175.6" y="383.6" width="23.7" height="47.4" transform="rotate(345.1 187.4 431.0)" style="color:#5C8A66"/>
+            <use href="#leaf" x="176.6" y="392.1" width="19.0" height="38.0" transform="rotate(320.4 186.1 430.1)" style="color:#65967A"/>
+            <use href="#leaf" x="179.2" y="389.4" width="20.6" height="41.1" transform="rotate(48.2 189.5 430.5)" style="color:#5C8A66"/>
+            <use href="#leaf" x="173.1" y="384.1" width="23.7" height="47.4" transform="rotate(282.2 184.9 431.5)" style="color:#5C8A66"/>
+            <use href="#leaf" x="176.5" y="381.0" width="25.4" height="50.8" transform="rotate(78.7 189.2 431.8)" style="color:#65967A"/>
+            <use href="#leaf" x="170.3" y="374.8" width="29.1" height="58.2" transform="rotate(252.5 184.9 433.0)" style="color:#65967A"/>
+            <use href="#leaf" x="175.4" y="376.8" width="28.1" height="56.2" transform="rotate(118.0 189.5 433.0)" style="color:#5C8A66"/>
+            <use href="#leaf" x="176.3" y="381.2" width="26.9" height="53.8" transform="rotate(145.1 189.8 435.0)" style="color:#5C8A66"/>
+            <use href="#leaf" x="171.8" y="375.2" width="29.6" height="59.2" transform="rotate(207.7 186.6 434.3)" style="color:#5C8A66"/>
+            <use href="#leaf" x="175.7" y="386.3" width="24.0" height="48.1" transform="rotate(179.9 187.7 434.4)" style="color:#65967A"/>
+            <!-- flower at (170,200) — based on educational sign reference -->
+            <g transform="translate(170,200)">
+              <g opacity="0.7">
+                <ellipse cx="2.4" cy="2.4" rx="1.9" ry="1.1" fill="#7A9C5C" transform="rotate(45 2.4 2.4)"/>
+                <ellipse cx="-2.4" cy="2.4" rx="1.9" ry="1.1" fill="#7A9C5C" transform="rotate(135 -2.4 2.4)"/>
+                <ellipse cx="-2.4" cy="-2.4" rx="1.9" ry="1.1" fill="#7A9C5C" transform="rotate(225 -2.4 -2.4)"/>
+                <ellipse cx="2.4" cy="-2.4" rx="1.9" ry="1.1" fill="#7A9C5C" transform="rotate(315 2.4 -2.4)"/>
+              </g>
+              <path d="M 0 0 Q -2.9 -4.3 -1.9 -8.5 Q 0 -9.4 1.9 -8.5 Q 2.9 -4.3 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(90)"/>
+              <path d="M 0 0 Q -2.9 -4.3 -1.9 -8.5 Q 0 -9.4 1.9 -8.5 Q 2.9 -4.3 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(180)"/>
+              <path d="M 0 0 Q -2.9 -4.3 -1.9 -8.5 Q 0 -9.4 1.9 -8.5 Q 2.9 -4.3 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(270)"/>
+              <path d="M 0 0 Q -2.9 -4.3 -1.9 -8.5 Q 0 -9.4 1.9 -8.5 Q 2.9 -4.3 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(360)"/>
+              <g stroke-linecap="round">
+                <path d="M 1.42 -0.01 Q 7.35 0.44, 13.64 -0.10" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.38 0.34 Q 6.83 2.20, 12.72 3.15" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.34 0.49 Q 6.92 2.98, 12.96 4.74" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.27 0.65 Q 6.41 3.68, 11.90 6.09" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.07 0.94 Q 6.45 5.92, 11.27 9.86" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.98 1.03 Q 4.58 5.47, 8.42 8.80" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.79 1.18 Q 4.41 7.21, 8.37 12.53" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.45 1.35 Q 2.11 6.21, 3.34 10.15" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.14 1.42 Q 0.60 9.24, 1.55 15.87" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.04 1.42 Q -0.36 7.99, -0.34 13.95" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.17 1.41 Q -0.55 6.27, -1.26 10.46" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.49 1.34 Q -2.24 5.96, -3.74 10.12" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.65 1.27 Q -3.27 6.33, -5.40 10.52" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.83 1.16 Q -4.39 6.34, -7.64 10.63" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.08 0.93 Q -6.41 5.80, -11.59 9.91" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.24 0.71 Q -6.46 4.25, -12.23 7.01" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.34 0.49 Q -7.31 3.22, -13.37 4.87" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.40 0.26 Q -6.81 1.48, -11.84 2.17" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.42 -0.11 Q -8.50 -0.17, -16.07 -1.28" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.39 -0.32 Q -7.90 -1.53, -14.11 -3.29" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.35 -0.45 Q -6.11 -1.49, -11.16 -3.69" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.26 -0.67 Q -5.60 -2.31, -9.57 -5.10" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.05 -0.96 Q -4.99 -4.34, -9.40 -8.59" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.85 -1.14 Q -4.27 -5.39, -7.58 -10.13" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.62 -1.28 Q -3.91 -6.93, -6.65 -13.76" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.59 -1.30 Q -2.88 -5.46, -4.84 -10.59" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.15 -1.42 Q -0.94 -6.70, -1.43 -13.05" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.11 -1.42 Q 0.60 -6.73, 0.98 -12.68" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.15 -1.42 Q 0.62 -7.20, 1.49 -13.96" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.55 -1.32 Q 2.31 -5.90, 4.60 -11.07" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.63 -1.28 Q 3.08 -5.64, 5.45 -11.08" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.99 -1.02 Q 5.72 -5.49, 10.31 -10.58" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.03 -0.98 Q 5.07 -4.29, 8.60 -8.16" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.19 -0.79 Q 4.79 -3.08, 8.98 -5.98" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.36 -0.42 Q 6.12 -1.69, 10.95 -3.40" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.41 -0.23 Q 6.92 -0.84, 12.82 -2.14" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <circle cx="13.64" cy="-0.10" r="1.33" fill="#D7567C"/>
+                <circle cx="13.64" cy="-0.10" r="0.52" fill="#FFE8EA"/>
+                <circle cx="12.72" cy="3.15" r="1.33" fill="#D7567C"/>
+                <circle cx="12.72" cy="3.15" r="0.52" fill="#FFE8EA"/>
+                <circle cx="12.96" cy="4.74" r="1.33" fill="#D7567C"/>
+                <circle cx="12.96" cy="4.74" r="0.52" fill="#FFE8EA"/>
+                <circle cx="11.90" cy="6.09" r="1.33" fill="#D7567C"/>
+                <circle cx="11.90" cy="6.09" r="0.52" fill="#FFE8EA"/>
+                <circle cx="11.27" cy="9.86" r="1.33" fill="#D7567C"/>
+                <circle cx="11.27" cy="9.86" r="0.52" fill="#FFE8EA"/>
+                <circle cx="8.42" cy="8.80" r="1.33" fill="#D7567C"/>
+                <circle cx="8.42" cy="8.80" r="0.52" fill="#FFE8EA"/>
+                <circle cx="8.37" cy="12.53" r="1.33" fill="#D7567C"/>
+                <circle cx="8.37" cy="12.53" r="0.52" fill="#FFE8EA"/>
+                <circle cx="3.34" cy="10.15" r="1.33" fill="#D7567C"/>
+                <circle cx="3.34" cy="10.15" r="0.52" fill="#FFE8EA"/>
+                <circle cx="1.55" cy="15.87" r="1.33" fill="#D7567C"/>
+                <circle cx="1.55" cy="15.87" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-0.34" cy="13.95" r="1.33" fill="#D7567C"/>
+                <circle cx="-0.34" cy="13.95" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-1.26" cy="10.46" r="1.33" fill="#D7567C"/>
+                <circle cx="-1.26" cy="10.46" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-3.74" cy="10.12" r="1.33" fill="#D7567C"/>
+                <circle cx="-3.74" cy="10.12" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-5.40" cy="10.52" r="1.33" fill="#D7567C"/>
+                <circle cx="-5.40" cy="10.52" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-7.64" cy="10.63" r="1.33" fill="#D7567C"/>
+                <circle cx="-7.64" cy="10.63" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-11.59" cy="9.91" r="1.33" fill="#D7567C"/>
+                <circle cx="-11.59" cy="9.91" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-12.23" cy="7.01" r="1.33" fill="#D7567C"/>
+                <circle cx="-12.23" cy="7.01" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-13.37" cy="4.87" r="1.33" fill="#D7567C"/>
+                <circle cx="-13.37" cy="4.87" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-11.84" cy="2.17" r="1.33" fill="#D7567C"/>
+                <circle cx="-11.84" cy="2.17" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-16.07" cy="-1.28" r="1.33" fill="#D7567C"/>
+                <circle cx="-16.07" cy="-1.28" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-14.11" cy="-3.29" r="1.33" fill="#D7567C"/>
+                <circle cx="-14.11" cy="-3.29" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-11.16" cy="-3.69" r="1.33" fill="#D7567C"/>
+                <circle cx="-11.16" cy="-3.69" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-9.57" cy="-5.10" r="1.33" fill="#D7567C"/>
+                <circle cx="-9.57" cy="-5.10" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-9.40" cy="-8.59" r="1.33" fill="#D7567C"/>
+                <circle cx="-9.40" cy="-8.59" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-7.58" cy="-10.13" r="1.33" fill="#D7567C"/>
+                <circle cx="-7.58" cy="-10.13" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-6.65" cy="-13.76" r="1.33" fill="#D7567C"/>
+                <circle cx="-6.65" cy="-13.76" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-4.84" cy="-10.59" r="1.33" fill="#D7567C"/>
+                <circle cx="-4.84" cy="-10.59" r="0.52" fill="#FFE8EA"/>
+                <circle cx="-1.43" cy="-13.05" r="1.33" fill="#D7567C"/>
+                <circle cx="-1.43" cy="-13.05" r="0.52" fill="#FFE8EA"/>
+                <circle cx="0.98" cy="-12.68" r="1.33" fill="#D7567C"/>
+                <circle cx="0.98" cy="-12.68" r="0.52" fill="#FFE8EA"/>
+                <circle cx="1.49" cy="-13.96" r="1.33" fill="#D7567C"/>
+                <circle cx="1.49" cy="-13.96" r="0.52" fill="#FFE8EA"/>
+                <circle cx="4.60" cy="-11.07" r="1.33" fill="#D7567C"/>
+                <circle cx="4.60" cy="-11.07" r="0.52" fill="#FFE8EA"/>
+                <circle cx="5.45" cy="-11.08" r="1.33" fill="#D7567C"/>
+                <circle cx="5.45" cy="-11.08" r="0.52" fill="#FFE8EA"/>
+                <circle cx="10.31" cy="-10.58" r="1.33" fill="#D7567C"/>
+                <circle cx="10.31" cy="-10.58" r="0.52" fill="#FFE8EA"/>
+                <circle cx="8.60" cy="-8.16" r="1.33" fill="#D7567C"/>
+                <circle cx="8.60" cy="-8.16" r="0.52" fill="#FFE8EA"/>
+                <circle cx="8.98" cy="-5.98" r="1.33" fill="#D7567C"/>
+                <circle cx="8.98" cy="-5.98" r="0.52" fill="#FFE8EA"/>
+                <circle cx="10.95" cy="-3.40" r="1.33" fill="#D7567C"/>
+                <circle cx="10.95" cy="-3.40" r="0.52" fill="#FFE8EA"/>
+                <circle cx="12.82" cy="-2.14" r="1.33" fill="#D7567C"/>
+                <circle cx="12.82" cy="-2.14" r="0.52" fill="#FFE8EA"/>
+              </g>
+              <circle cx="0" cy="0" r="2.28" fill="#9C3B5A"/>
+              <circle cx="0" cy="0" r="1.23" fill="#C04E72"/>
+              <circle cx="-0.38" cy="-0.38" r="0.47" fill="#F5C0CC"/>
+            </g>
+            <!-- flower at (235,285) — based on educational sign reference -->
+            <g transform="translate(235,285)">
+              <g opacity="0.7">
+                <ellipse cx="2.1" cy="2.1" rx="1.7" ry="1.0" fill="#7A9C5C" transform="rotate(45 2.1 2.1)"/>
+                <ellipse cx="-2.1" cy="2.1" rx="1.7" ry="1.0" fill="#7A9C5C" transform="rotate(135 -2.1 2.1)"/>
+                <ellipse cx="-2.1" cy="-2.1" rx="1.7" ry="1.0" fill="#7A9C5C" transform="rotate(225 -2.1 -2.1)"/>
+                <ellipse cx="2.1" cy="-2.1" rx="1.7" ry="1.0" fill="#7A9C5C" transform="rotate(315 2.1 -2.1)"/>
+              </g>
+              <path d="M 0 0 Q -2.5 -3.8 -1.7 -7.6 Q 0 -8.4 1.7 -7.6 Q 2.5 -3.8 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(90)"/>
+              <path d="M 0 0 Q -2.5 -3.8 -1.7 -7.6 Q 0 -8.4 1.7 -7.6 Q 2.5 -3.8 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(180)"/>
+              <path d="M 0 0 Q -2.5 -3.8 -1.7 -7.6 Q 0 -8.4 1.7 -7.6 Q 2.5 -3.8 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(270)"/>
+              <path d="M 0 0 Q -2.5 -3.8 -1.7 -7.6 Q 0 -8.4 1.7 -7.6 Q 2.5 -3.8 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(360)"/>
+              <g stroke-linecap="round">
+                <path d="M 1.27 0.01 Q 5.61 0.62, 10.02 0.12" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.26 0.21 Q 7.38 1.70, 13.71 2.25" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.15 0.55 Q 6.12 3.39, 11.46 5.48" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.06 0.70 Q 5.86 4.32, 10.28 6.81" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.99 0.80 Q 4.42 3.76, 7.40 6.00" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.84 0.96 Q 5.11 6.05, 9.27 10.48" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.53 1.16 Q 3.02 7.46, 5.94 12.96" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.44 1.20 Q 2.60 7.04, 4.36 11.81" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.12 1.27 Q 0.81 7.72, 1.24 13.02" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.08 1.27 Q -0.63 8.11, -0.92 14.42" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.26 1.25 Q -1.42 6.87, -2.52 11.87" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.61 1.12 Q -3.82 7.04, -6.68 12.23" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.81 0.99 Q -4.42 5.90, -8.18 10.02" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.98 0.81 Q -6.00 5.42, -10.79 8.95" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.07 0.70 Q -5.62 4.24, -10.76 7.02" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.22 0.38 Q -7.44 2.48, -13.15 4.15" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.25 0.25 Q -6.96 1.66, -13.12 2.63" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.27 -0.07 Q -6.64 0.03, -12.25 -0.71" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.25 -0.26 Q -6.27 -0.76, -11.06 -2.30" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.18 -0.48 Q -6.66 -2.31, -11.55 -4.65" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.13 -0.60 Q -6.16 -3.04, -11.14 -5.90" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.87 -0.93 Q -4.97 -5.22, -9.46 -10.10" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.73 -1.04 Q -3.83 -4.95, -6.49 -9.29" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.53 -1.16 Q -2.72 -5.81, -5.07 -11.22" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.36 -1.22 Q -2.03 -6.68, -3.85 -13.07" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.20 -1.26 Q -0.96 -6.55, -2.09 -13.01" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.02 -1.27 Q 0.23 -6.57, 0.21 -12.41" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.35 -1.23 Q 1.58 -5.41, 2.85 -10.13" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.60 -1.12 Q 2.83 -5.41, 5.63 -10.47" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.79 -1.00 Q 4.86 -5.76, 8.67 -11.05" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.91 -0.90 Q 3.67 -3.41, 6.70 -6.60" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.06 -0.71 Q 5.98 -3.49, 10.67 -7.09" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.17 -0.52 Q 5.32 -1.83, 9.34 -4.14" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.27 -0.15 Q 6.88 -0.32, 12.62 -1.52" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <circle cx="10.02" cy="0.12" r="1.19" fill="#D7567C"/>
+                <circle cx="10.02" cy="0.12" r="0.47" fill="#FFE8EA"/>
+                <circle cx="13.71" cy="2.25" r="1.19" fill="#D7567C"/>
+                <circle cx="13.71" cy="2.25" r="0.47" fill="#FFE8EA"/>
+                <circle cx="11.46" cy="5.48" r="1.19" fill="#D7567C"/>
+                <circle cx="11.46" cy="5.48" r="0.47" fill="#FFE8EA"/>
+                <circle cx="10.28" cy="6.81" r="1.19" fill="#D7567C"/>
+                <circle cx="10.28" cy="6.81" r="0.47" fill="#FFE8EA"/>
+                <circle cx="7.40" cy="6.00" r="1.19" fill="#D7567C"/>
+                <circle cx="7.40" cy="6.00" r="0.47" fill="#FFE8EA"/>
+                <circle cx="9.27" cy="10.48" r="1.19" fill="#D7567C"/>
+                <circle cx="9.27" cy="10.48" r="0.47" fill="#FFE8EA"/>
+                <circle cx="5.94" cy="12.96" r="1.19" fill="#D7567C"/>
+                <circle cx="5.94" cy="12.96" r="0.47" fill="#FFE8EA"/>
+                <circle cx="4.36" cy="11.81" r="1.19" fill="#D7567C"/>
+                <circle cx="4.36" cy="11.81" r="0.47" fill="#FFE8EA"/>
+                <circle cx="1.24" cy="13.02" r="1.19" fill="#D7567C"/>
+                <circle cx="1.24" cy="13.02" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-0.92" cy="14.42" r="1.19" fill="#D7567C"/>
+                <circle cx="-0.92" cy="14.42" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-2.52" cy="11.87" r="1.19" fill="#D7567C"/>
+                <circle cx="-2.52" cy="11.87" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-6.68" cy="12.23" r="1.19" fill="#D7567C"/>
+                <circle cx="-6.68" cy="12.23" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-8.18" cy="10.02" r="1.19" fill="#D7567C"/>
+                <circle cx="-8.18" cy="10.02" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-10.79" cy="8.95" r="1.19" fill="#D7567C"/>
+                <circle cx="-10.79" cy="8.95" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-10.76" cy="7.02" r="1.19" fill="#D7567C"/>
+                <circle cx="-10.76" cy="7.02" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-13.15" cy="4.15" r="1.19" fill="#D7567C"/>
+                <circle cx="-13.15" cy="4.15" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-13.12" cy="2.63" r="1.19" fill="#D7567C"/>
+                <circle cx="-13.12" cy="2.63" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-12.25" cy="-0.71" r="1.19" fill="#D7567C"/>
+                <circle cx="-12.25" cy="-0.71" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-11.06" cy="-2.30" r="1.19" fill="#D7567C"/>
+                <circle cx="-11.06" cy="-2.30" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-11.55" cy="-4.65" r="1.19" fill="#D7567C"/>
+                <circle cx="-11.55" cy="-4.65" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-11.14" cy="-5.90" r="1.19" fill="#D7567C"/>
+                <circle cx="-11.14" cy="-5.90" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-9.46" cy="-10.10" r="1.19" fill="#D7567C"/>
+                <circle cx="-9.46" cy="-10.10" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-6.49" cy="-9.29" r="1.19" fill="#D7567C"/>
+                <circle cx="-6.49" cy="-9.29" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-5.07" cy="-11.22" r="1.19" fill="#D7567C"/>
+                <circle cx="-5.07" cy="-11.22" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-3.85" cy="-13.07" r="1.19" fill="#D7567C"/>
+                <circle cx="-3.85" cy="-13.07" r="0.47" fill="#FFE8EA"/>
+                <circle cx="-2.09" cy="-13.01" r="1.19" fill="#D7567C"/>
+                <circle cx="-2.09" cy="-13.01" r="0.47" fill="#FFE8EA"/>
+                <circle cx="0.21" cy="-12.41" r="1.19" fill="#D7567C"/>
+                <circle cx="0.21" cy="-12.41" r="0.47" fill="#FFE8EA"/>
+                <circle cx="2.85" cy="-10.13" r="1.19" fill="#D7567C"/>
+                <circle cx="2.85" cy="-10.13" r="0.47" fill="#FFE8EA"/>
+                <circle cx="5.63" cy="-10.47" r="1.19" fill="#D7567C"/>
+                <circle cx="5.63" cy="-10.47" r="0.47" fill="#FFE8EA"/>
+                <circle cx="8.67" cy="-11.05" r="1.19" fill="#D7567C"/>
+                <circle cx="8.67" cy="-11.05" r="0.47" fill="#FFE8EA"/>
+                <circle cx="6.70" cy="-6.60" r="1.19" fill="#D7567C"/>
+                <circle cx="6.70" cy="-6.60" r="0.47" fill="#FFE8EA"/>
+                <circle cx="10.67" cy="-7.09" r="1.19" fill="#D7567C"/>
+                <circle cx="10.67" cy="-7.09" r="0.47" fill="#FFE8EA"/>
+                <circle cx="9.34" cy="-4.14" r="1.19" fill="#D7567C"/>
+                <circle cx="9.34" cy="-4.14" r="0.47" fill="#FFE8EA"/>
+                <circle cx="12.62" cy="-1.52" r="1.19" fill="#D7567C"/>
+                <circle cx="12.62" cy="-1.52" r="0.47" fill="#FFE8EA"/>
+              </g>
+              <circle cx="0" cy="0" r="2.04" fill="#9C3B5A"/>
+              <circle cx="0" cy="0" r="1.10" fill="#C04E72"/>
+              <circle cx="-0.34" cy="-0.34" r="0.42" fill="#F5C0CC"/>
+            </g>
+            <!-- flower at (115,305) — based on educational sign reference -->
+            <g transform="translate(115,305)">
+              <g opacity="0.7">
+                <ellipse cx="1.9" cy="1.9" rx="1.5" ry="0.9" fill="#7A9C5C" transform="rotate(45 1.9 1.9)"/>
+                <ellipse cx="-1.9" cy="1.9" rx="1.5" ry="0.9" fill="#7A9C5C" transform="rotate(135 -1.9 1.9)"/>
+                <ellipse cx="-1.9" cy="-1.9" rx="1.5" ry="0.9" fill="#7A9C5C" transform="rotate(225 -1.9 -1.9)"/>
+                <ellipse cx="1.9" cy="-1.9" rx="1.5" ry="0.9" fill="#7A9C5C" transform="rotate(315 1.9 -1.9)"/>
+              </g>
+              <path d="M 0 0 Q -2.2 -3.4 -1.5 -6.8 Q 0 -7.4 1.5 -6.8 Q 2.2 -3.4 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(90)"/>
+              <path d="M 0 0 Q -2.2 -3.4 -1.5 -6.8 Q 0 -7.4 1.5 -6.8 Q 2.2 -3.4 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(180)"/>
+              <path d="M 0 0 Q -2.2 -3.4 -1.5 -6.8 Q 0 -7.4 1.5 -6.8 Q 2.2 -3.4 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(270)"/>
+              <path d="M 0 0 Q -2.2 -3.4 -1.5 -6.8 Q 0 -7.4 1.5 -6.8 Q 2.2 -3.4 0 0 Z" fill="#FBF5F0" stroke="#E8D5CC" stroke-width="0.5" transform="rotate(360)"/>
+              <g stroke-linecap="round">
+                <path d="M 1.12 0.07 Q 4.70 0.86, 8.62 0.56" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.09 0.30 Q 6.37 2.07, 11.10 3.02" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.06 0.37 Q 5.44 2.15, 9.72 3.37" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.92 0.64 Q 5.55 4.25, 10.12 7.06" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.81 0.78 Q 4.37 4.35, 7.79 7.49" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.57 0.97 Q 3.55 6.00, 5.97 10.22" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.36 1.07 Q 1.75 5.96, 3.27 9.81" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.19 1.11 Q 0.92 5.47, 1.57 9.04" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.04 1.12 Q -0.12 6.75, -0.42 11.93" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.24 1.10 Q -1.35 6.52, -2.49 11.21" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.38 1.06 Q -2.01 6.88, -4.18 11.57" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.70 0.88 Q -4.39 5.80, -7.81 9.95" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.80 0.79 Q -4.82 4.92, -8.40 8.30" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.92 0.65 Q -5.30 4.46, -10.06 7.15" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.06 0.37 Q -5.18 2.13, -9.27 3.24" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.09 0.29 Q -5.67 1.92, -9.88 2.66" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.12 -0.01 Q -6.16 0.20, -11.71 -0.09" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.10 -0.22 Q -4.49 -0.71, -8.22 -1.62" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -1.02 -0.48 Q -4.55 -1.78, -7.72 -3.65" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.90 -0.67 Q -3.97 -2.69, -7.26 -5.37" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.82 -0.77 Q -4.77 -4.00, -8.56 -8.12" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.68 -0.90 Q -3.26 -3.52, -5.37 -7.12" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.43 -1.04 Q -2.63 -5.44, -4.38 -10.64" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M -0.16 -1.11 Q -1.03 -5.90, -1.61 -11.24" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.08 -1.12 Q 0.43 -5.41, 0.75 -10.44" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.30 -1.08 Q 1.22 -4.34, 2.29 -8.33" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.38 -1.06 Q 2.02 -5.26, 3.62 -9.98" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.59 -0.96 Q 3.16 -4.92, 6.08 -9.80" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.81 -0.78 Q 4.32 -3.64, 7.66 -7.33" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 0.97 -0.57 Q 5.33 -2.58, 9.27 -5.48" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.03 -0.46 Q 5.27 -1.98, 9.09 -4.09" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <path d="M 1.11 -0.16 Q 6.79 -0.42, 12.18 -1.73" stroke="#FAF0EE" stroke-width="0.55" fill="none" opacity="0.95"/>
+                <circle cx="8.62" cy="0.56" r="1.05" fill="#D7567C"/>
+                <circle cx="8.62" cy="0.56" r="0.41" fill="#FFE8EA"/>
+                <circle cx="11.10" cy="3.02" r="1.05" fill="#D7567C"/>
+                <circle cx="11.10" cy="3.02" r="0.41" fill="#FFE8EA"/>
+                <circle cx="9.72" cy="3.37" r="1.05" fill="#D7567C"/>
+                <circle cx="9.72" cy="3.37" r="0.41" fill="#FFE8EA"/>
+                <circle cx="10.12" cy="7.06" r="1.05" fill="#D7567C"/>
+                <circle cx="10.12" cy="7.06" r="0.41" fill="#FFE8EA"/>
+                <circle cx="7.79" cy="7.49" r="1.05" fill="#D7567C"/>
+                <circle cx="7.79" cy="7.49" r="0.41" fill="#FFE8EA"/>
+                <circle cx="5.97" cy="10.22" r="1.05" fill="#D7567C"/>
+                <circle cx="5.97" cy="10.22" r="0.41" fill="#FFE8EA"/>
+                <circle cx="3.27" cy="9.81" r="1.05" fill="#D7567C"/>
+                <circle cx="3.27" cy="9.81" r="0.41" fill="#FFE8EA"/>
+                <circle cx="1.57" cy="9.04" r="1.05" fill="#D7567C"/>
+                <circle cx="1.57" cy="9.04" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-0.42" cy="11.93" r="1.05" fill="#D7567C"/>
+                <circle cx="-0.42" cy="11.93" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-2.49" cy="11.21" r="1.05" fill="#D7567C"/>
+                <circle cx="-2.49" cy="11.21" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-4.18" cy="11.57" r="1.05" fill="#D7567C"/>
+                <circle cx="-4.18" cy="11.57" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-7.81" cy="9.95" r="1.05" fill="#D7567C"/>
+                <circle cx="-7.81" cy="9.95" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-8.40" cy="8.30" r="1.05" fill="#D7567C"/>
+                <circle cx="-8.40" cy="8.30" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-10.06" cy="7.15" r="1.05" fill="#D7567C"/>
+                <circle cx="-10.06" cy="7.15" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-9.27" cy="3.24" r="1.05" fill="#D7567C"/>
+                <circle cx="-9.27" cy="3.24" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-9.88" cy="2.66" r="1.05" fill="#D7567C"/>
+                <circle cx="-9.88" cy="2.66" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-11.71" cy="-0.09" r="1.05" fill="#D7567C"/>
+                <circle cx="-11.71" cy="-0.09" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-8.22" cy="-1.62" r="1.05" fill="#D7567C"/>
+                <circle cx="-8.22" cy="-1.62" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-7.72" cy="-3.65" r="1.05" fill="#D7567C"/>
+                <circle cx="-7.72" cy="-3.65" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-7.26" cy="-5.37" r="1.05" fill="#D7567C"/>
+                <circle cx="-7.26" cy="-5.37" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-8.56" cy="-8.12" r="1.05" fill="#D7567C"/>
+                <circle cx="-8.56" cy="-8.12" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-5.37" cy="-7.12" r="1.05" fill="#D7567C"/>
+                <circle cx="-5.37" cy="-7.12" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-4.38" cy="-10.64" r="1.05" fill="#D7567C"/>
+                <circle cx="-4.38" cy="-10.64" r="0.41" fill="#FFE8EA"/>
+                <circle cx="-1.61" cy="-11.24" r="1.05" fill="#D7567C"/>
+                <circle cx="-1.61" cy="-11.24" r="0.41" fill="#FFE8EA"/>
+                <circle cx="0.75" cy="-10.44" r="1.05" fill="#D7567C"/>
+                <circle cx="0.75" cy="-10.44" r="0.41" fill="#FFE8EA"/>
+                <circle cx="2.29" cy="-8.33" r="1.05" fill="#D7567C"/>
+                <circle cx="2.29" cy="-8.33" r="0.41" fill="#FFE8EA"/>
+                <circle cx="3.62" cy="-9.98" r="1.05" fill="#D7567C"/>
+                <circle cx="3.62" cy="-9.98" r="0.41" fill="#FFE8EA"/>
+                <circle cx="6.08" cy="-9.80" r="1.05" fill="#D7567C"/>
+                <circle cx="6.08" cy="-9.80" r="0.41" fill="#FFE8EA"/>
+                <circle cx="7.66" cy="-7.33" r="1.05" fill="#D7567C"/>
+                <circle cx="7.66" cy="-7.33" r="0.41" fill="#FFE8EA"/>
+                <circle cx="9.27" cy="-5.48" r="1.05" fill="#D7567C"/>
+                <circle cx="9.27" cy="-5.48" r="0.41" fill="#FFE8EA"/>
+                <circle cx="9.09" cy="-4.09" r="1.05" fill="#D7567C"/>
+                <circle cx="9.09" cy="-4.09" r="0.41" fill="#FFE8EA"/>
+                <circle cx="12.18" cy="-1.73" r="1.05" fill="#D7567C"/>
+                <circle cx="12.18" cy="-1.73" r="0.41" fill="#FFE8EA"/>
+              </g>
+              <circle cx="0" cy="0" r="1.80" fill="#9C3B5A"/>
+              <circle cx="0" cy="0" r="0.98" fill="#C04E72"/>
+              <circle cx="-0.30" cy="-0.30" r="0.38" fill="#F5C0CC"/>
+            </g>
+            <use href="#bud" x="204.0" y="167.0" width="12.0" height="16.0"/>
+            <use href="#bud" x="84.9" y="233.2" width="10.2" height="13.6"/>
+            <use href="#bud" x="294.9" y="223.2" width="10.2" height="13.6"/>
+            <use href="#bud" x="154.6" y="352.8" width="10.8" height="14.4"/>
+            <use href="#bud" x="274.9" y="353.2" width="10.2" height="13.6"/>
+            <!-- Pyramid fruits (signature Barringtonia botany) -->
+            <use href="#fruit" x="115" y="335" width="24" height="32"/>
+            <use href="#fruit" x="245" y="305" width="26" height="34"/>
+            <!-- foreground accent leaves over flowers for depth -->
+            <use href="#leaf" x="164.1" y="280.3" width="28.3" height="56.6" transform="rotate(230.6 178.2 336.9)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="203.7" y="262.4" width="26.1" height="52.1" transform="rotate(358.5 216.7 314.5)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="141.5" y="149.6" width="30.2" height="60.4" transform="rotate(19.1 156.6 210.0)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="197.8" y="241.1" width="26.7" height="53.4" transform="rotate(61.3 211.1 294.5)" style="color:#4F7758;opacity:0.92"/>
+            <use href="#leaf" x="307.4" y="246.6" width="27.9" height="55.8" transform="rotate(207.3 321.3 302.4)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="286.5" y="354.4" width="26.2" height="52.4" transform="rotate(182.4 299.6 406.8)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="119.7" y="224.1" width="28.4" height="56.9" transform="rotate(313.2 133.9 280.9)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="179.2" y="212.5" width="31.3" height="62.7" transform="rotate(230.2 194.9 275.2)" style="color:#4F7758;opacity:0.92"/>
+            <use href="#leaf" x="46.6" y="263.8" width="29.5" height="59.1" transform="rotate(93.7 61.4 322.9)" style="color:#3D6147;opacity:0.92"/>
+            <use href="#leaf" x="182.6" y="91.8" width="28.9" height="57.8" transform="rotate(234.3 197.1 149.7)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="296.2" y="111.3" width="27.5" height="54.9" transform="rotate(241.6 310.0 166.3)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="156.4" y="239.8" width="33.8" height="67.5" transform="rotate(213.6 173.2 307.4)" style="color:#5C8A66;opacity:0.92"/>
+            <use href="#leaf" x="244.6" y="90.0" width="28.8" height="57.7" transform="rotate(222.0 259.0 147.7)" style="color:#3D6147;opacity:0.92"/>
+            <use href="#leaf" x="267.9" y="220.1" width="26.9" height="53.7" transform="rotate(52.0 281.3 273.8)" style="color:#65967A;opacity:0.92"/>
+          </g>
+
+          <ellipse cx="190" cy="545" rx="65" ry="7" fill="#8B7355" opacity="0.5"/>
+          <ellipse cx="190" cy="542" rx="44" ry="5" fill="#5C4128" opacity="0.6"/>
+          <ellipse cx="190" cy="540" rx="24" ry="3" fill="#3D2818"/>
+          <g stroke="#5C7A5F" stroke-width="0.8" stroke-linecap="round" fill="none">
+            <path d="M 145 542 L 145 537"/>
+            <path d="M 148 542 L 149 538"/>
+            <path d="M 152 542 L 151 537"/>
+            <path d="M 225 542 L 226 538"/>
+            <path d="M 230 542 L 229 537"/>
+            <path d="M 233 542 L 234 538"/>
+            <path d="M 160 543 L 160 540"/>
+            <path d="M 220 543 L 220 540"/>
+          </g>
+        </svg>
+      </div>
+      <!-- end of dim-visual -->
+
+      <div class="dim-cards reveal-stagger">
+        <div class="dim-card">
+          <div class="label">Diameter at Breast Height</div>
+          <div class="value">15<span class="unit">เซนติเมตร</span></div>
+          <div class="desc">เส้นผ่านศูนย์กลางวัดที่ความสูง ๑.๓ เมตรจากพื้นดิน — มาตรฐานสากลการวัดต้นไม้</div>
+        </div>
+        <div class="dim-card">
+          <div class="label">Total Height</div>
+          <div class="value">4.8<span class="unit">เมตร</span></div>
+          <div class="desc">ความสูงปัจจุบันจากผิวดินจนถึงยอด แสดงถึงการเติบโตอย่างมั่นคง</div>
+        </div>
+        <div class="dim-card">
+          <div class="label">Years Standing</div>
+          <div class="value">17<span class="unit">ปี</span></div>
+          <div class="desc">นับจาก ๔ สิงหาคม ๒๕๕๒ จนถึงปัจจุบัน — ต้นไม้ยังคงเติบโตอย่างต่อเนื่อง</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CO2 SECTION ============ -->
+<section class="section co2-section" id="carbon">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Carbon Sequestration</div>
+      <h2 class="section-title">การกักเก็บ<em>คาร์บอน</em><br>โดยต้นไม้ทรงปลูก</h2>
+      <p class="section-desc">ตลอดระยะเวลา ๑๗ ปีที่ผ่านมา ต้นจิกทะเลต้นนี้ได้ดึงคาร์บอนไดออกไซด์<br>จากชั้นบรรยากาศมาเก็บไว้ในเนื้อไม้และระบบราก</p>
+    </div>
+
+    <div class="co2-hero-number reveal">
+      <div class="number-wrap">
+        <span class="co2-number" id="co2-counter">0</span>
+        <span class="co2-unit">KG CO₂e</span>
+      </div>
+      <div class="co2-caption">~ 0.073 ตันคาร์บอนไดออกไซด์เทียบเท่า</div>
+    </div>
+
+    <div class="compare-grid reveal-stagger">
+      <div class="compare-card">
+        <svg class="compare-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 38 L10 28 L18 22 L46 22 L54 28 L54 38" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M 10 38 L54 38 L54 44 L10 44 Z" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="44" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="44" cy="44" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M18 28 L46 28" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <div class="big" data-target="431">0</div>
+        <div class="small">กิโลเมตร<br><em style="font-family:'Cormorant Garamond',serif">การขับรถยนต์</em></div>
+      </div>
+      <div class="compare-card">
+        <svg class="compare-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 12 L50 12 L50 44 L14 44 Z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M14 20 L50 20" stroke="currentColor" stroke-width="1"/>
+          <path d="M 20 44 L20 52" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M 44 44 L44 52" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M32 26 L26 36 L31 36 L29 42 L36 32 L31 32 L33 26 Z" fill="currentColor"/>
+        </svg>
+        <div class="big" data-target="15">0</div>
+        <div class="small">วัน<br><em style="font-family:'Cormorant Garamond',serif">การใช้ไฟฟ้าในครัวเรือน</em></div>
+      </div>
+      <div class="compare-card">
+        <svg class="compare-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="8" width="24" height="48" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="28" y1="50" x2="36" y2="50" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M32 22 L28 32 L33 32 L30 40 L37 28 L32 28 L34 22 Z" fill="currentColor"/>
+        </svg>
+        <div class="big" data-target="14657">0</div>
+        <div class="small">ครั้ง<br><em style="font-family:'Cormorant Garamond',serif">การชาร์จโทรศัพท์มือถือ</em></div>
+      </div>
+    </div>
+
+    <div class="breakdown reveal">
+      <h3>การคำนวณตามมาตรฐานสากล</h3>
+      <p class="sub">Allometric estimation · Chave et al. 2014 pantropical equation · IPCC 2006 carbon factor</p>
+      <div class="breakdown-rows">
+        <div class="breakdown-row" data-w="48">
+          <div class="name">มวลชีวภาพเหนือพื้นดิน <small>Above-ground biomass</small></div>
+          <div class="bar"></div>
+          <div class="val">34.3 kg</div>
+        </div>
+        <div class="breakdown-row" data-w="12">
+          <div class="name">มวลชีวภาพใต้พื้นดิน <small>Below-ground biomass (root system)</small></div>
+          <div class="bar"></div>
+          <div class="val">8.2 kg</div>
+        </div>
+        <div class="breakdown-row" data-w="28">
+          <div class="name">คาร์บอนสุทธิที่ถูกกักเก็บ <small>Carbon stock (47% of biomass)</small></div>
+          <div class="bar"></div>
+          <div class="val">20.0 kg C</div>
+        </div>
+        <div class="breakdown-row total" data-w="100">
+          <div class="name">เทียบเท่าคาร์บอนไดออกไซด์ <small>CO₂ equivalent (×3.67)</small></div>
+          <div class="bar"></div>
+          <div class="val">~73 kg CO₂e</div>
+        </div>
+      </div>
+      <p style="margin-top:24px;font-size:13px;color:var(--ink-soft);font-style:italic;font-family:'Cormorant Garamond',serif;line-height:1.7;">
+        การประมาณการนี้ใช้ค่าความหนาแน่นเนื้อไม้ของ <em>Barringtonia asiatica</em> ที่ ๐.๕๕ g/cm³ และคำนวณตามสมการ AGB = 0.0673 × (ρD²H)<sup>0.976</sup>
+        — แนวทางมาตรฐานที่ใช้ในงานประเมินคาร์บอนเครดิตและการรายงานความยั่งยืน (TNFD / TCFD / VCS)
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">
+  <div class="ornament-line"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-line"></div>
+</div>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section edu-section" id="species">
+  <div class="container">
+    <div class="edu-grid">
+      <div class="edu-content reveal">
+        <div class="section-eyebrow" style="text-align:left;margin-bottom:16px">Beach Barringtonia</div>
+        <h2>จิกทะเล</h2>
+        <div class="edu-latin">Barringtonia asiatica (L.) Kurz</div>
+        <dl class="taxonomy">
+          <dt>Family</dt><dd>LECYTHIDACEAE</dd>
+          <dt>Common Name</dt><dd>Beach Barringtonia · Fish Poison Tree</dd>
+          <dt>Habitat</dt><dd>พรรณไม้ชายฝั่ง · เขตเอเชียตะวันออกเฉียงใต้</dd>
+          <dt>Average Height</dt><dd>8–15 เมตร</dd>
+        </dl>
+        <p>ในยามที่ลมทะเลพัดพาคลื่นเสียงมาพร้อมกลิ่นไอเกลือ เราอาจสะดุดตากับต้นจิกทะเล ไม้ยืนต้นชอบขึ้นริมชายฝั่ง ลำต้นตั้งตรงและแข็งแรง เปลือกหนาหยาบสีเทาเข้ม ใบรูปไข่กลับขนาดใหญ่ ๑๐–๒๕ × ๒๕–๔๐ เซนติเมตร เรียงเวียนรอบกิ่งหนาแน่น ทนทานต่อลมเค็ม</p>
+        <p>เมื่อถึงฤดูออกดอกระหว่างเดือนสิงหาคมถึงพฤศจิกายน ต้นจิกทะเลจะเปลี่ยนโฉมอย่างน่าตื่นใจ ดอกใหญ่ ๗–๑๐ เซนติเมตร เมื่อบานเต็มที่กลีบโค้งออก เผยให้เห็นเกสรผู้สีแดงและขาวจำนวนมากอย่างโดดเด่น</p>
+        <p>ผลรูปพีระมิดสี่เหลี่ยมเหมือนลูกข่าง เปลือกผลเป็นเส้นใยหนาเหมือนเปลือกมะพร้าว ทำให้ลอยน้ำทะเลไปได้ไกล จึงเป็นสุดยอดนักกระจายพันธุ์ริมทะเล</p>
+      </div>
+      <div class="edu-sign-frame reveal">
+        <img src="educational-sign.png" alt="ป้ายให้ความรู้เกี่ยวกับต้นจิกทะเล">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECT (อพ.สธ.) ============ -->
+<section class="project-section" id="project">
+  <div class="container">
+    <div class="project-inner reveal">
+      <div class="project-seal">
+        <img src="monogram.svg" alt="ตราพระนามาภิไธยย่อ ส.ธ.">
+      </div>
+      <div class="section-eyebrow royal" style="margin-bottom:16px">Royal Initiative</div>
+      <h2>โครงการอนุรักษ์พันธุกรรมพืช<br>อันเนื่องมาจากพระราชดำริ<br>
+        <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--purple);font-size:0.7em">สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี</em>
+      </h2>
+      <p>ต้นจิกทะเลต้นนี้ได้รับการดูแลโดยองค์การบริหารส่วนจังหวัดสมุทรสาคร ภายใต้โครงการอนุรักษ์พันธุกรรมพืชอันเนื่องมาจากพระราชดำริ (อพ.สธ.) เพื่อสนองพระราชดำริในการอนุรักษ์ความหลากหลายทางชีวภาพและพันธุกรรมพืชของชาติ</p>
+      <div class="project-meta">
+        <div class="item"><div class="k">Planted</div><div class="v">๔ สิงหาคม ๒๕๕๒</div></div>
+        <div class="item"><div class="k">Location</div><div class="v">ต.โคกขาม · สมุทรสาคร</div></div>
+        <div class="item"><div class="k">Steward</div><div class="v">อบจ. สมุทรสาคร</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Eco Companion <span class="accent">Consultants</span></div>
+        <p class="footer-tagline">ที่ปรึกษาด้านการประเมินความหลากหลายทางชีวภาพและความยั่งยืน<br>Biodiversity Assessment · ESG Advisory · TNFD LEAP Framework</p>
+      </div>
+      <div class="footer-col">
+        <h4>Page</h4>
+        <a href="#ceremony">วันที่ทรงปลูก</a>
+      <a href="#tree">ต้นไม้ทรงปลูก</a>
+        <a href="#carbon">การกักเก็บคาร์บอน</a>
+        <a href="#species">พรรณไม้ศึกษา</a>
+        <a href="#project">โครงการ อพ.สธ.</a>
+      </div>
+      <div class="footer-col">
+        <h4>Reference</h4>
+        <p>Chave et al. 2014</p>
+        <p>IPCC 2006 Guidelines</p>
+        <p>TNFD v1.0 Framework</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© ๒๕๖๙ Eco Companion Consultants · All rights reserved</div>
+      <div class="credit">In reverence to Her Royal Highness's vision of conservation</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+
+  // falling leaves
+  (function spawnLeaves(){
+    const c = document.getElementById('leaves');
+    const colors = ['#5C7A5F','#3D6147','#B8902C','#7A9C7E','#5C2C7E'];
+    for(let i=0;i<14;i++){
+      const s = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      s.classList.add('leaf-fall');
+      s.setAttribute('viewBox','0 0 20 30');
+      s.setAttribute('width', 12 + Math.random()*10);
+      s.setAttribute('height', 18 + Math.random()*14);
+      const color = colors[i%colors.length];
+      s.innerHTML = `<path d="M10 2 Q4 10, 4 18 Q4 26, 10 28 Q16 26, 16 18 Q16 10, 10 2 Z M10 4 L10 26" stroke="${color}" stroke-width="0.8" fill="${color}" fill-opacity="0.5"/>`;
+      s.style.left = Math.random()*100 + '%';
+      s.style.animationDuration = (8 + Math.random()*8) + 's';
+      s.style.animationDelay = -(Math.random()*12) + 's';
+      c.appendChild(s);
+    }
+  })();
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        if(e.target.classList.contains('breakdown')){
+          e.target.querySelectorAll('.breakdown-row').forEach(r=>{
+            const w = r.dataset.w || 50;
+            const bar = r.querySelector('.bar');
+            if(bar) bar.style.setProperty('--w', w+'%');
+          });
+        }
+        if(e.target.classList.contains('co2-hero-number')){
+          animateCounter(document.getElementById('co2-counter'), 73, 1800);
+        }
+        if(e.target.classList.contains('compare-grid')){
+          e.target.querySelectorAll('.big').forEach((el,i)=>{
+            setTimeout(()=>animateCounter(el, parseInt(el.dataset.target,10), 1400), i*180);
+          });
+        }
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.18, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>io.observe(el));
+
+  function animateCounter(el, target, duration){
+    const start = performance.now();
+    const ease = t => 1 - Math.pow(1-t, 3);
+    function step(now){
+      const p = Math.min(1,(now-start)/duration);
+      const v = Math.floor(ease(p) * target);
+      el.textContent = v.toLocaleString('en-US');
+      if(p<1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString('en-US');
+    }
+    requestAnimationFrame(step);
+  }
+
+  // subtle parallax on plaque
+  const plaque = document.querySelector('.royal-plaque');
+  if(plaque){
+    window.addEventListener('scroll',()=>{
+      const y = window.scrollY;
+      if(y < 700) plaque.style.transform = `translateY(${y*0.06}px)`;
+    },{passive:true});
+  }
+</script>
+
+</body>
+</html>
