@@ -603,6 +603,34 @@
     color:var(--purple-deep);font-size:1.05em;
   }
 
+
+  /* ============ PROJECT ATTRIBUTION (โดย หน่วยงาน) ============ */
+  .project-by{margin-top:28px;margin-bottom:8px}
+  .by-divider{
+    display:flex;align-items:center;justify-content:center;
+    gap:12px;margin-bottom:16px;
+  }
+  .by-line{
+    width:60px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);
+    display:inline-block;
+  }
+  .by-diamond{
+    width:8px;height:8px;
+    background:linear-gradient(135deg,var(--gold) 50%,var(--purple) 50%);
+    transform:rotate(45deg);display:inline-block;
+  }
+  .by-text{
+    font-family:'Bai Jamjuree',serif;font-weight:500;
+    font-size:clamp(16px,1.85vw,19px);color:var(--forest);
+    letter-spacing:.01em;line-height:1.4;
+  }
+  .by-prefix{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:0.85em;color:var(--gold-deep);
+    margin-right:10px;font-weight:400;
+  }
+
 </style>
 </head>
 <body>
@@ -1870,6 +1898,16 @@
       <h2>โครงการอนุรักษ์พันธุกรรมพืช<br>อันเนื่องมาจากพระราชดำริ<br>
         <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--purple);font-size:0.7em">สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี</em>
       </h2>
+      <div class="project-by">
+        <div class="by-divider">
+          <span class="by-line"></span>
+          <span class="by-diamond"></span>
+          <span class="by-line"></span>
+        </div>
+        <div class="by-text">
+          <span class="by-prefix">โดย</span>องค์การบริหารส่วนจังหวัดสมุทรสาคร
+        </div>
+      </div>
       <p>ต้นจิกทะเลต้นนี้ได้รับการดูแลโดยองค์การบริหารส่วนจังหวัดสมุทรสาคร ภายใต้โครงการอนุรักษ์พันธุกรรมพืชอันเนื่องมาจากพระราชดำริ (อพ.สธ.) เพื่อสนองพระราชดำริในการอนุรักษ์ความหลากหลายทางชีวภาพและพันธุกรรมพืชของชาติ</p>
       <div class="project-meta">
         <div class="item"><div class="k">Planted</div><div class="v">๔ สิงหาคม ๒๕๕๒</div></div>
