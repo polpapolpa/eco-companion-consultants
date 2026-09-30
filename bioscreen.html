@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioScreen™ | Automated Biodiversity Screening & Nature Intelligence | Eco Companion</title>
+    <meta name="description" content="จากพิกัดแปลงที่ดิน สู่ข้อมูลความเสี่ยงทางธรรมชาติที่บอร์ดและสถาบันการเงินอ่านเข้าใจได้ทันที แพลตฟอร์มคัดกรองความหลากหลายทางชีวภาพอัตโนมัติโดย Eco Companion">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Thai"', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Inter', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F392B',
+                            darker: '#061C15',
+                            light: '#E6F0EB',
+                            gold: '#C5A065',
+                            sand: '#F5F5F0',
+                            slate: '#334155',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F5F5F0; font-family: 'Noto Sans Thai', sans-serif; }
+    </style>
+</head>
+<body class="text-slate-700 antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-darker text-brand-gold text-xs py-2 px-4 text-center border-b border-white/10 font-medium">
+        <span>🚀 <strong>New Technology:</strong> เปิดตัว BioScreen™ ระบบคัดกรองความหลากหลายทางชีวภาพเชิงพื้นที่อัตโนมัติ เพื่อการรายงาน TNFD และ IFC PS6</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="logo.png" alt="Eco Companion" class="h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="hidden flex-col">
+                        <span class="font-serif font-bold text-lg text-brand-dark leading-none uppercase">Eco Companion</span>
+                        <span class="text-[9px] text-brand-gold font-bold tracking-[0.1em] uppercase mt-1">Consultants</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                    <a href="index.html#about" class="hover:text-brand-dark transition">เกี่ยวกับเรา</a>
+                    <a href="EcoCompanion_Service_Catalog.html" class="hover:text-brand-dark transition">บริการที่ปรึกษา</a>
+                    <a href="#" class="text-brand-gold font-bold border-b-2 border-brand-gold pb-1">BioScreen™ Platform</a>
+                    <a href="EcoCompanion_Blog.html" class="hover:text-brand-dark transition">Insights</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#demo" class="bg-brand-dark text-white px-5 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition shadow-md">
+                        นัดหมาย Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-brand-dark text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#C5A065_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Nature Intelligence Platform
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    จากพิกัดแปลงที่ดิน สู่ข้อมูลความเสี่ยงธรรมชาติที่ <span class="text-brand-gold font-serif italic">บอร์ดและสถาบันการเงิน</span> อ่านเข้าใจทันที
+                </h1>
+                <p class="text-brand-light/90 text-lg md:text-xl font-light leading-relaxed mb-8">
+                    BioScreen™ คือเครื่องมือคัดกรองความหลากหลายทางชีวภาพและประเมินความเสี่ยงทางนิเวศเชิงพื้นที่อัตโนมัติ รวบรวมข้อมูลระดับโลกและข้อกฎหมายไทย 11 มิติ เพื่อให้คุณรู้ Red Flags ตั้งแต่ก่อนเริ่มโครงการ
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="#prescreen-sandbox" class="bg-brand-gold text-brand-darker px-6 py-3.5 rounded-sm font-bold text-sm uppercase tracking-wider hover:bg-white transition shadow-lg flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i> ลองสำรวจพื้นที่ตัวอย่าง (Prescreen)
+                    </a>
+                    <a href="#how-it-works" class="border border-white/30 text-white px-6 py-3.5 rounded-sm font-medium text-sm hover:bg-white/10 transition">
+                        ดูวิธีการทำงาน →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Metrics Strip -->
+    <section class="bg-brand-darker border-t border-b border-white/10 py-8 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+                <div class="text-3xl font-bold text-brand-gold font-mono mb-1">&lt; 3 นาที</div>
+                <div class="text-xs text-slate-400">สรุปความเสี่ยงเบื้องต้น (Prescreen Brief)</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-white font-mono mb-1">11+ เลเยอร์</div>
+                <div class="text-xs text-slate-400">PostGIS, WDPA, KBA, NRF, GBIF, WRI</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-brand-gold font-mono mb-1">IFC PS6 / TNFD</div>
+                <div class="text-xs text-slate-400">สอดคล้องกับมาตรฐานสถาบันการเงินสากล</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-white font-mono mb-1">HITL Review</div>
+                <div class="text-xs text-slate-400">ตรวจทานโดยเครือข่ายนักนิเวศวิทยามหิดล</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem & Solution Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-2">Why Automated Screening?</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">ทำไมการคัดกรองตั้งแต่ก้าวแรกถึงเปลี่ยนเกม?</h2>
+                <p class="text-slate-500 mt-4 leading-relaxed">
+                    การทำรายงานสิ่งแวดล้อมแบบเดิมใช้เวลาหลายเดือนและมีค่าใช้จ่ายสูง การนำ BioScreen™ เข้ามาเป็นหน้าด่านช่วยให้ผู้บริหารตัดสินใจได้ทันทีก่อนลงทุนจริง
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-lg bg-slate-50 border border-slate-200 hover:border-brand-gold transition">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-md flex items-center justify-center mb-6">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-3">ป้องกัน Red Flags ค้างท่อ</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        ตรวจพบการทับซ้อนแนวเขตป่าสงวนฯ หรือพื้นที่ Critical Habitat ก่อนยื่นขออนุญาต ลดความเสี่ยงโครงการถูกสั่งชะลอหรือถูกระงับเงินกู้
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-lg bg-slate-50 border border-slate-200 hover:border-brand-gold transition">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-md flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-3">Confidence ≠ Correctness</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        BioScreen ยึดมั่นในหลักวิชาการ "ความเชื่อมั่นของระบบระบุคุณภาพข้อมูล ไม่ใช่ความจริงทางธรรมชาติ" เราชี้ชัดจุดที่เป็น Data Gaps โดยไม่แต่งเรื่อง
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-lg bg-slate-50 border border-slate-200 hover:border-brand-gold transition">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-md flex items-center justify-center mb-6">
+                        <i data-lucide="file-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-3">พร้อมสำหรับสถาบันการเงิน</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        โครงสร้างข้อมูลและรายงานถูกจัดทำให้อยู่ในรูปแบบที่สอดคล้องกับ IFC Performance Standard 6 และพร้อมเข้าสู่กระบวนการ TNFD LEAP
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works (NatureMetrics Style) -->
+    <section id="how-it-works" class="py-20 bg-brand-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-2">How It Works</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">กระบวนการคัดกรอง 3 ขั้นตอน</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-4xl font-serif font-bold text-brand-gold mb-4">01</div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-2">ระบุแปลงที่ดิน (Input Boundary)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        วาด Polygon บนแผนที่ดาวเทียม, อัปโหลดไฟล์ Shapefile / GeoJSON หรือปักหมุดพิกัดพร้อมกำหนดรัศมีกันชน (Search Buffer)
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-4xl font-serif font-bold text-brand-gold mb-4">02</div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-2">ประมวลผลเชิงพื้นที่ (Multi-Agent Synthesis)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        ระบบคำนวณระยะห่างพื้นที่คุ้มครอง, ป่าสงวนฯ, ความเสี่ยงน้ำ, พร้อมค้นหาระเบียนสิ่งมีชีวิตในรัศมีรอบแปลงจาก GBIF และ eBird
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-4xl font-serif font-bold text-brand-gold mb-4">03</div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-2">ส่งมอบรายงานและการตรวจทาน (Action & Audit)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        สรุปเป็น Executive Brief ที่เข้าใจง่ายสำหรับบอร์ด พร้อมเข้าสู่การตรวจทานโดยผู้เชี่ยวชาญ (HITL) เพื่อนำไปออกรายงานฉบับสมบูรณ์
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Prescreen Mock Sandbox Preview -->
+    <section id="prescreen-sandbox" class="py-20 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex items-center justify-between gap-12">
+                <div class="max-w-xl mb-12 lg:mb-0">
+                    <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-2">Live Screening Intelligence</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                        เปิดมุมมองนิเวศรอบแปลงของคุณ <span class="text-brand-gold italic font-serif">แบบเรียลไทม์</span>
+                    </h2>
+                    <p class="text-brand-light/80 text-base leading-relaxed mb-6">
+                        ด้วยระบบจัดข้อมูล 3 ระดับ (3-Tier Progressive Disclosure) ของ BioScreen: ผู้บริหารอ่าน Executive Summary ได้ใน 1 หน้า ขณะที่นักนิเวศและผู้เชี่ยวชาญสามารถเจาะลึก Evidence Explorer ตรวจสอบพิกัดและประวัติย้อนหลังได้ถึงระดับดาวเทียม
+                    </p>
+                    <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="text-brand-gold w-4 h-4"></i> สรุประยะห่างพื้นที่คุ้มครองจากจุดกึ่งกลาง (Centroid Distance)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="text-brand-gold w-4 h-4"></i> แจ้งเตือนสิ่งมีชีวิต CITES และสัตว์ป่าสงวน/คุ้มครองไทย</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="text-brand-gold w-4 h-4"></i> ส่งออกรายงานผูกกับ Assessment ID ป้องกันข้อมูลสับสน</li>
+                    </ul>
+                    <a href="#demo" class="bg-brand-gold text-brand-darker px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-white transition inline-block">
+                        ขอเข้าชมระบบจำลองการทำงานจริง (Live Demo)
+                    </a>
+                </div>
+
+                <!-- Mockup Graphic / Card -->
+                <div class="flex-1 bg-slate-900 border border-white/10 rounded-xl p-6 shadow-2xl text-slate-200">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                        <div class="flex items-center gap-2 text-xs font-mono text-brand-gold">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            BIOSCREEN-EXPLORER-V2
+                        </div>
+                        <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-slate-300">Khao Yai Gateway Project</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs">
+                        <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded text-amber-200">
+                            <strong>⚠️ Critical Habitat Trigger Notice:</strong> ตรวจพบระเบียนช้างป่าเอเชีย (EN) และนกเงือกกรามช้าง (VU) ในรัศมี 2.8 km จากจุดกึ่งกลางแปลง
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-slate-800 p-3 rounded">
+                                <div class="text-[10px] text-slate-400">แนวเขตอุทยานฯ ที่ใกล้ที่สุด</div>
+                                <div class="text-lg font-bold text-white font-mono mt-1">1.2 km</div>
+                                <div class="text-[10px] text-emerald-400">อุทยานแห่งชาติเขาใหญ่ (WDPA)</div>
+                            </div>
+                            <div class="bg-slate-800 p-3 rounded">
+                                <div class="text-[10px] text-slate-400">สถานะระเบียนสิ่งมีชีวิต</div>
+                                <div class="text-lg font-bold text-white font-mono mt-1">4 ชนิดพันธุ์</div>
+                                <div class="text-[10px] text-amber-400">มีสัตว์ป่าสงวนตาม พ.ร.บ. 2562</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800 p-3 rounded">
+                            <div class="text-[10px] text-slate-400 mb-1">ความคืบหน้าการประมวลผล (Workflow Progress)</div>
+                            <div class="flex items-center justify-between text-[11px] font-mono">
+                                <span>11/11 Steps Completed</span>
+                                <span class="text-brand-gold">พร้อมเข้าสู่กระบวนการ Expert Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="demo" class="py-24 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="text-brand-gold text-xs font-bold uppercase tracking-widest block mb-3">Partner with Eco Companion</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-dark mb-6">พร้อมยกระดับการคัดกรองความหลากหลายทางชีวภาพขององค์กรคุณ?</h2>
+            <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                ไม่ว่าคุณจะเป็นผู้พัฒนาโครงการพลังงาน อสังหาริมทรัพย์ หรือสถาบันการเงิน ปรึกษาเราเพื่อทดลองนำแปลงที่ดินของคุณเข้าสู่ระบบ BioScreen™
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:contact@eco-companion-consultants.com" class="bg-brand-dark text-white px-8 py-4 rounded-sm font-bold text-sm uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition shadow-lg">
+                    ติดต่อทีมนักนิเวศวิทยาของเรา
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker text-slate-400 py-12 border-t border-white/10 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                © 2026 Eco Companion Consultants Co., Ltd. All rights reserved. Powered by BioScreen™ Engine.
+            </div>
+            <div class="flex gap-6">
+                <a href="index.html" class="hover:text-white transition">หน้าแรก</a>
+                <a href="EcoCompanion_Service_Catalog.html" class="hover:text-white transition">Service Catalog</a>
+                <a href="EcoCompanion_Blog.html" class="hover:text-white transition">Blog</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
