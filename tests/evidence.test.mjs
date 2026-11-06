@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {evidenceManifest,authorizedPhoto,safeImage} from '../supabase/functions/connect-evidence/evidence.js';
+import {username,usernameEmail,loginEmail,accountLabel} from '../supabase/functions/_shared/identity.js';
+const field='closeout/evidence/evidence_1/evidence_1_';
+const raw={_attachments:[{id:123,filename:'folder/photo.jpg',mimetype:'image/jpeg'}],[field+'image']:'photo.jpg',[field+'caption']:'ทดสอบเท่านั้น'};
+test('manifest maps only matching image attachments, no private URLs',()=>{const m=evidenceManifest(raw);assert.equal(m.length,1);assert.equal(m[0].id,'123');assert.equal(m[0].caption,'ทดสอบเท่านั้น');assert.equal(m[0].url,undefined);assert.deepEqual(evidenceManifest({_attachments:[]}),[]);});
+test('ambiguous filenames and non-image attachments are rejected',()=>{assert.equal(evidenceManifest({...raw,_attachments:[...raw._attachments,...raw._attachments]}).length,0);assert.equal(evidenceManifest({...raw,_attachments:[{...raw._attachments[0],mimetype:'text/html'}]}).length,0);});
+test('clients see selected photos only and cannot request another record attachment',()=>{const m=evidenceManifest(raw);assert.equal(authorizedPhoto(m,[],'123',false),null);assert.equal(authorizedPhoto(m,[{id:'123'}],'999',true),null);assert.equal(authorizedPhoto(m,[{id:'123'}],'123',false)?.id,'123');assert.equal(authorizedPhoto(m,[],'123',true)?.id,'123');});
+test('image signature and MIME must agree',()=>{assert.ok(safeImage(new Uint8Array([255,216,255]),'image/jpeg'));assert.equal(safeImage(new Uint8Array([60,104,116,109,108]),'image/jpeg'),false);assert.equal(safeImage(new Uint8Array([255,216,255]),'text/html'),false);});
+test('usernames normalize predictably and preserve email admin login',()=>{assert.equal(username(' Client_01 '),'client_01');assert.equal(usernameEmail('Client_01'),'client_01@clients.eco-companion.invalid');assert.equal(loginEmail('Admin@Example.com'),'admin@example.com');assert.equal(accountLabel(usernameEmail('Client_01')),'client_01');for(const bad of ['ab','a@b.com','../abc','ลูกค้า','a b','a'.repeat(41)])assert.throws(()=>username(bad));});

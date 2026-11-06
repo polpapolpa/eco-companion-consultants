@@ -7,3 +7,5 @@ connect/
 dist/
 
 .vite/
+
+supabase/.temp/
