@@ -80,7 +80,7 @@ node tests/render-reports.mjs
 - ตรวจ PDF ภาษาไทยจาก render fixture ด้วยภาพจริง
 - บัญชีผู้ดูแลจริงเข้าสู่ระบบ local ได้แล้ว
 
-เชื่อมต่อ Kobo จริงผ่าน Secret KOBO และอ่านโครงสร้างแบบฟอร์มสำเร็จแล้ว เปิดหน้า login บน Cloudflare จริงสำเร็จแล้ว การดาวน์โหลดจาก browser หลังเข้าสู่ระบบยังต้องตรวจแยก
+เชื่อมต่อ Kobo จริงผ่าน Secret KOBO และอ่านโครงสร้างแบบฟอร์มสำเร็จแล้ว เปิดหน้า login และ Dashboard บน Cloudflare จริงสำเร็จแล้ว ทดสอบดาวน์โหลด PDF และ Word ของฉบับร่างจริงผ่านบัญชีผู้ดูแลบนเว็บที่เผยแพร่สำเร็จ
 
 การเผยแพร่ครั้งแรกใช้ Cloudflare Pages Direct Upload: เปลี่ยน source ใน GitHub แล้วต้อง build และ upload `dist` ใหม่จึงจะอัปเดต portal ส่วนหน้าแรกบริษัทใช้ GitHub Pages ตามเดิม
 
