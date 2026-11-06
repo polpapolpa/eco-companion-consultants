@@ -1,7 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_URL,SUPABASE_KEY } from './config.js';
 import { sections,display,reportModel } from './report-model.js';
+import '@fontsource/ibm-plex-sans-thai/400.css';
+import '@fontsource/ibm-plex-sans-thai/600.css';
+import '@fontsource/noto-serif-thai/700.css';
+import '@fontsource/playfair-display/700.css';
+import {masthead,companyFooter,workspaceHtml} from './brand.js';
 import './style.css';
+import './company-theme.css';
 
 let recovering=new URLSearchParams(location.hash.slice(1)).get('type')==='recovery';
 const db=createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,storage:window.sessionStorage,detectSessionInUrl:true}});
@@ -15,7 +21,7 @@ function notify(message,error=false) {const n=document.querySelector('#notice');
 async function action(button,work) {if(button.disabled)return;button.disabled=true;try{await work();}catch(error){notify(error.message || 'ดำเนินการไม่สำเร็จ',true);}finally{button.disabled=false;}}
 function bindForm(id,work) {document.getElementById(id)?.addEventListener('submit',event=>{event.preventDefault();action(event.submitter,()=>work(new FormData(event.target),event.target));});}
 function shell(content) {
- app.innerHTML=`<aside><a class="brand" href="/">ec<span>o</span><small>COMPANION CONSULTANTS</small></a><div class="portal-label">CLIENT WORKSPACE</div><nav><button data-nav="dashboard" class="${view==='dashboard'?'active':''}">◈ &nbsp; ภาพรวมโครงการ</button><button data-nav="reports" class="${view==='reports'?'active':''}">▤ &nbsp; รายงานการประเมิน</button>${admin?`<button data-nav="admin" class="${view==='admin'?'active':''}">⚙ &nbsp; จัดการข้อมูลและสิทธิ์</button>`:''}</nav><div class="side-bottom"><span class="secure-dot"></span> พื้นที่ข้อมูลเฉพาะลูกค้า<small>Eco Companion Connect · v0.1</small></div></aside><div class="workspace"><header><div><b>Connect</b><span class="header-tag">${admin?'ผู้ดูแลระบบ':'พื้นที่ลูกค้า'}</span></div><div class="account"><span>${esc(user.email)}</span><button class="quiet" id="password">เปลี่ยนรหัสผ่าน</button><button class="quiet" id="logout">ออกจากระบบ</button></div></header><main>${content}</main><footer>Eco Companion Consultants <span>ข้อมูลเพื่อการติดตามและตัดสินใจอย่างมีหลักฐาน</span></footer></div><dialog id="modal"></dialog>`;
+ app.innerHTML=workspaceHtml({content,view,admin,email:esc(user.email)});
  document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{view=b.dataset.nav;render();});
  document.querySelector('#logout').onclick=()=>action(document.querySelector('#logout'),async()=>{await db.auth.signOut();user=null;admin=false;clients=[];projects=[];visits=[];login();});
  document.querySelector('#password').onclick=()=>{
@@ -26,7 +32,7 @@ function shell(content) {
 function modal(html) {const el=document.querySelector('#modal');el.innerHTML=`<button class="close quiet" aria-label="ปิด">×</button>${html}`;el.querySelector('.close').onclick=()=>el.close();el.showModal();}
 function closeModal(){document.querySelector('#modal').close();}
 function login() {
- app.innerHTML=`<div class="login"><section class="login-story"><a class="brand" href="/">ec<span>o</span><small>COMPANION CONSULTANTS</small></a><div class="story-copy"><span class="eyebrow">ECO COMPANION CONNECT</span><h1>ติดตามความเปลี่ยนแปลง<br>ร่วมสร้างการฟื้นฟูที่ยั่งยืน</h1><p>ข้อมูลภาคสนาม ผลการติดตาม และรายงานโครงการ<br>ในพื้นที่ทำงานเดียวสำหรับคุณ</p><div class="dimensions"><span>01 &nbsp; นิเวศ</span><span>02 &nbsp; สังคม</span><span>03 &nbsp; เศรษฐกิจ</span></div></div><small>FROM FIELD EVIDENCE TO INFORMED ACTION</small></section><section class="login-panel"><div class="login-box"><span class="eyebrow">YOUR PROJECT WORKSPACE</span><h2>ยินดีต้อนรับ</h2><p>เข้าสู่ระบบเพื่อดูข้อมูลโครงการของคุณ</p><form id="login"><label>อีเมล<input type="email" name="email" autocomplete="username" required placeholder="name@company.com"></label><label>รหัสผ่าน<input type="password" name="password" autocomplete="current-password" required placeholder="รหัสผ่านของคุณ"></label><button class="primary full">เข้าสู่ระบบ <span>→</span></button></form><p class="help">หากยังไม่มีบัญชีหรือลืมรหัสผ่าน<br>กรุณาติดต่อผู้ประสานงาน Eco Companion</p><div class="login-note"><span class="secure-dot"></span> เข้าถึงเฉพาะข้อมูลโครงการที่คุณได้รับสิทธิ์</div></div></section></div>`;
+ app.innerHTML=`${masthead()}<div class="login"><section class="login-story"><div class="story-copy"><span class="eyebrow">ECO COMPANION CONNECT</span><h1>ติดตามความเปลี่ยนแปลง<br>ร่วมสร้างการฟื้นฟูที่ยั่งยืน</h1><p>ข้อมูลภาคสนาม ผลการติดตาม และรายงานโครงการ<br>ในพื้นที่ทำงานเดียวสำหรับคุณ</p><div class="dimensions"><span>01 &nbsp; นิเวศ</span><span>02 &nbsp; สังคม</span><span>03 &nbsp; เศรษฐกิจ</span></div></div><small>FROM FIELD EVIDENCE TO INFORMED ACTION</small></section><section class="login-panel"><div class="login-box"><span class="eyebrow">YOUR PROJECT WORKSPACE</span><h2>ยินดีต้อนรับ</h2><p>เข้าสู่ระบบเพื่อดูข้อมูลโครงการของคุณ</p><form id="login"><label>อีเมล<input type="email" name="email" autocomplete="username" required placeholder="name@company.com"></label><label>รหัสผ่าน<input type="password" name="password" autocomplete="current-password" required placeholder="รหัสผ่านของคุณ"></label><button class="primary full">เข้าสู่ระบบ <span>→</span></button></form><p class="help">หากยังไม่มีบัญชีหรือลืมรหัสผ่าน<br>กรุณาติดต่อผู้ประสานงาน Eco Companion</p><div class="login-note"><span class="secure-dot"></span> เข้าถึงเฉพาะข้อมูลโครงการที่คุณได้รับสิทธิ์</div></div></section></div>${companyFooter()}`;
  bindForm('login',async f=>{const {data,error}=await db.auth.signInWithPassword({email:f.get('email'),password:f.get('password')});if(error)throw Error('เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบอีเมลและรหัสผ่าน');user=data.user;await load();});
 }
 async function load() {

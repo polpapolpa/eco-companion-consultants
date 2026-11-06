@@ -83,3 +83,9 @@ node tests/render-reports.mjs
 เชื่อมต่อ Kobo จริงผ่าน Secret KOBO และอ่านโครงสร้างแบบฟอร์มสำเร็จแล้ว เปิดหน้า login บน Cloudflare จริงสำเร็จแล้ว การดาวน์โหลดจาก browser หลังเข้าสู่ระบบยังต้องตรวจแยก
 
 การเผยแพร่ครั้งแรกใช้ Cloudflare Pages Direct Upload: เปลี่ยน source ใน GitHub แล้วต้อง build และ upload `dist` ใหม่จึงจะอัปเดต portal ส่วนหน้าแรกบริษัทใช้ GitHub Pages ตามเดิม
+
+## รูปแบบเว็บไซต์
+
+หน้า Connect ใช้โลโก้ `favicon.png`, สี และภาพป่าภาพเดียวกับหน้าแรกบริษัท ฟอนต์บนหน้าจอคือ IBM Plex Sans Thai, Noto Serif Thai และ Playfair Display (บรรจุผ่าน @fontsource) ส่วน PDF ใช้ Sarabun เพื่อความสม่ำเสมอของเอกสารไทย
+
+ภาพ `public/forest.jpg` มาจาก URL เดิมที่หน้าแรกใช้: https://images.unsplash.com/photo-1447752875215-b2761acb3c5d รูปแบบเมนูด้านบนและลิงก์กลับเว็บไซต์บริษัทใช้ร่วมกันทั้งหน้า login และพื้นที่ทำงาน
