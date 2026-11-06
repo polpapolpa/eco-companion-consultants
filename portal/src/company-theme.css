@@ -1,0 +1,38 @@
+/* Shared visual language with the company homepage: forest, sand, gold,
+   IBM Plex Sans Thai body, Noto Serif Thai headings and Playfair wordmark. */
+:root{font-family:'IBM Plex Sans Thai',sans-serif;color:#334155;background:#f5f5f0;--green:#0f392b;--gold:#c5a065;--line:#0f392b20;--muted:#64756d}
+h1,h2,h3{font-family:'Noto Serif Thai',serif;color:var(--green)}
+button,input,select,textarea,.stats article,.insight,.report-card,.panel,.empty,dialog{border-radius:2px}
+button{font-weight:600;min-height:44px}input,select,textarea{min-height:44px}
+.primary{background:var(--green);padding:12px 21px}.primary:hover{background:#061c15}
+.secondary:hover{background:#e6f0eb}.eyebrow{letter-spacing:2.5px;color:#6c806f}
+.company-masthead{background:#0f392b;color:#fff;border-bottom:1px solid #ffffff18}
+.masthead-inner{max-width:1280px;margin:auto;min-height:96px;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.company-brand{display:inline-flex;align-items:center;gap:12px;flex-shrink:0;color:#fff}
+.company-brand img{width:48px;height:48px;object-fit:contain}
+.company-brand>span{display:flex;flex-direction:column;gap:3px}
+.company-brand strong{font-family:'Playfair Display',serif;font-size:23px;line-height:1.2;text-transform:uppercase;letter-spacing:.2px}
+.company-brand small{font-size:10px;color:var(--gold);letter-spacing:3px;font-weight:600;text-transform:uppercase}
+.masthead-links{display:flex;align-items:center;gap:32px;font-size:13px}.masthead-links>a{color:#ffffffc9}.masthead-links>a:hover{color:var(--gold)}
+.client-entry{border:1px solid #c5a065b3;padding:10px 20px;color:var(--gold);font-weight:600;white-space:nowrap}
+.login{min-height:660px;grid-template-columns:1.1fr 1fr}
+.login-story{padding:65px max(32px,calc((100vw - 1216px)/2));background:linear-gradient(100deg,#061c15e6,#0f392ba6),url('/forest.jpg') center/cover;justify-content:center}
+.login-story:after{display:none}.story-copy{margin:0 0 50px;max-width:590px}.story-copy h1{font-size:clamp(29px,3vw,42px);line-height:1.55;color:#fff;font-weight:700;letter-spacing:0}.story-copy h1::first-line{color:#fff}
+.story-copy .eyebrow{color:var(--gold);margin-bottom:25px}.story-copy p{color:#e1e9df;font-size:16px;line-height:1.9}
+.dimensions{padding-top:25px;border-top:1px solid #ffffff30;color:#e6f0eb;margin-top:35px;gap:24px}.login-story>small{color:#d0d8cd}
+.login-panel{background:#f5f5f0;padding:60px 40px}.login-box{max-width:380px}.login-box h2{font-size:32px}.login-box .eyebrow{color:#7b816b}.login-box .help{line-height:1.9}.login-note{line-height:1.7}
+.workspace{margin:0;min-height:calc(100vh - 96px);background:#f5f5f0}
+.workspace-bar{height:auto;min-height:83px;padding:20px max(32px,calc((100vw - 1216px)/2));background:#fff;border-bottom:1px solid var(--line);gap:20px}
+.workspace-name{display:flex;align-items:center}.workspace-name b{font-family:'Playfair Display',serif;color:var(--green);font-size:28px}.header-tag{font-size:12px}.account{font-size:12px}.account .quiet{font-size:12px}
+.workspace-nav{display:flex;padding:0 max(32px,calc((100vw - 1216px)/2));margin:0;background:#fff;gap:32px;border-bottom:1px solid var(--line);overflow-x:auto}
+.workspace-nav button{color:#64756d;background:transparent;border-radius:0;padding:18px 0;font-size:14px;white-space:nowrap;border-bottom:3px solid transparent}
+.workspace-nav button:hover{color:var(--green);background:transparent}.workspace-nav button.active{color:var(--green);border-color:var(--gold);background:transparent}
+main{max-width:1280px;padding:48px 32px 65px}h1{font-size:32px}.page-heading{margin-bottom:36px}.page-heading p{font-size:14px}.filter{min-width:260px;font-size:12px}.filter select{font-size:13px}
+.stats{gap:24px}.stats article{padding:27px 30px;border-top:3px solid var(--gold);box-shadow:0 5px 20px #0f392b04}.stats strong{font-family:'Playfair Display',serif}.stats strong.date{font-family:'IBM Plex Sans Thai',sans-serif}.stats span{font-size:14px}.stats small{font-size:12px}
+.insight{margin:32px 0 40px;background:#e6f0eb;border-color:#0f392b12;padding:32px}.insight p{font-size:14px}.dimension-chips span{background:#ffffffab;border-color:#0f392b1f;border-radius:2px}
+.report-card{padding:28px;transition:box-shadow .2s,border-color .2s}.report-card:hover{border-color:#c5a06570;box-shadow:0 8px 24px #0f392b08}.report-card h3{font-size:19px}.project-name,.excerpt{font-size:13px}.card-bottom{font-size:12px}.badge{font-size:11px;border-radius:2px}.card-top time{font-size:12px}
+.panel{padding:28px}.panel h2{font-size:20px}.help{line-height:1.8}.document h1{font-size:28px}.document section h2{font-size:20px}
+.company-footer{background:#061c15;color:#ffffff8c;padding:45px max(32px,calc((100vw - 1216px)/2));display:grid;grid-template-columns:1fr auto;align-items:center;gap:22px;font-size:12px;border:0}
+.company-footer .company-brand img{width:38px;height:38px}.company-footer .company-brand strong{font-size:20px}.company-footer p{font-size:12px;margin:18px 0 0}.company-footer>a{color:var(--gold)}.company-footer>small{grid-column:1/-1;border-top:1px solid #ffffff18;padding-top:22px;font-size:10px;color:#ffffff70}
+@media(max-width:1000px){.masthead-inner{min-height:84px}.masthead-links{gap:20px}.login-story{padding:48px 32px}.story-copy h1{font-size:30px}.story-copy p{font-size:14px}.workspace-bar{padding:18px 32px}.account>span{display:none}.page-heading{align-items:flex-start}.stats article{padding:24px}.insight{align-items:flex-start;flex-direction:column}.stats strong.date{font-size:20px}}
+@media(max-width:760px){.masthead-inner{min-height:78px;padding:16px 20px;gap:12px}.company-brand{gap:9px}.company-brand img{width:35px;height:35px}.company-brand strong{font-size:17px}.company-brand small{font-size:8px;letter-spacing:2px}.masthead-links{gap:10px}.masthead-links>a{font-size:12px}.masthead-links>a span{display:none}.client-entry{padding:8px 10px;font-size:11px}.login{grid-template-columns:1fr}.login-story{padding:36px 24px;min-height:0}.story-copy{margin:0}.story-copy h1{font-size:27px;line-height:1.6}.story-copy p{display:block;font-size:13px;margin:16px 0 0}.story-copy .eyebrow{font-size:9px;margin-bottom:16px}.dimensions{margin-top:24px;padding-top:18px;font-size:11px}.login-story>small{display:none}.login-panel{padding:40px 24px 50px}.login-box h2{font-size:28px}.workspace-bar{padding:16px 20px;flex-wrap:wrap;gap:8px;min-height:74px}.workspace-name b{font-size:24px}.header-tag{display:block;font-size:10px}.account{gap:8px}.account button{padding:7px;font-size:10px!important}.workspace-nav{padding:0 20px;gap:24px}.workspace-nav button{font-size:12px;padding:14px 0}main{padding:30px 20px 45px}.page-heading{margin-bottom:25px}.page-heading h1{font-size:26px}.page-heading p{font-size:13px}.stats{grid-template-columns:1fr;gap:12px}.stats article{position:relative;padding:20px 24px;min-height:118px}.stats span{font-size:13px;max-width:55%}.stats strong{position:absolute;right:24px;top:32px;margin:0;font-size:38px}.stats strong.date{font-size:17px;min-height:0;top:43px}.stats small{margin-top:15px;font-size:11px;max-width:55%}.insight{padding:25px;margin:24px 0 30px}.insight h2{font-size:20px}.insight p{font-size:13px}.dimension-chips{flex-wrap:wrap}.report-card,.panel{padding:24px}.report-card h3{font-size:18px}.company-footer{padding:32px 24px;grid-template-columns:1fr;gap:20px}.company-footer .company-brand>span{display:flex}.company-footer>small{grid-column:1}.document h1{font-size:23px}.document section h2{font-size:18px}}
