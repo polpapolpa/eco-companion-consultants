@@ -1,5 +1,6 @@
-import { createClient } from 'npm:@supabase/supabase-js@2';
+import { createClient } from 'npm:@supabase/supabase-js@2.119.0';
 import { normalizeVisit } from './normalize.js';
+import {username,usernameEmail} from '../_shared/identity.js';
 
 const cors = {
  'Access-Control-Allow-Origin': '*',
@@ -49,7 +50,9 @@ Deno.serve(async req => {
   if(projectError || !project) throw new Failure('ไม่พบโครงการ',404);
 
   if(body.action==='grant_access') {
-   const email=required(body.email,'อีเมล',254).toLowerCase();
+   let loginName=null;
+   if(body.username){try{loginName=username(body.username);}catch(error){throw new Failure(error.message);}}
+   const email=loginName?usernameEmail(loginName):required(body.email,'อีเมล',254).toLowerCase();
    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Failure('อีเมลไม่ถูกต้อง');
    // Resolve existing users without changing their passwords or claiming their identity.
    let target=null;
@@ -63,12 +66,17 @@ Deno.serve(async req => {
    if(!target) {
     const password=body.password;
     if(typeof password!=='string' || password.length<12 || password.length>128) throw new Failure('บัญชีใหม่ต้องมีรหัสผ่าน 12–128 ตัวอักษร');
-    const {data,error}=await db.auth.admin.createUser({email,password,email_confirm:true});
+    const {data,error}=await db.auth.admin.createUser({email,password,email_confirm:true,...(loginName?{app_metadata:{ecc_issued:true,ecc_username:loginName}}:{})});
     if(error || !data.user) throw new Failure('สร้างบัญชีไม่สำเร็จ กรุณาตรวจสอบอีเมลและรหัสผ่าน');
     target=data.user; created=true;
    }
+   if(loginName){
+    // Do not adopt an account pre-registered through public sign-up at the reserved alias.
+    if(target.app_metadata?.ecc_issued!==true || target.app_metadata?.ecc_username!==loginName)throw new Failure('Username นี้ไม่พร้อมใช้งาน กรุณาเลือกชื่ออื่น',409);
+    const {error:accountError}=await db.from('ecc_accounts').upsert({user_id:target.id,username:loginName},{onConflict:'user_id'});check(accountError);
+   }
    const {error}=await db.from('ecc_members').upsert({project_id:projectId,user_id:target.id});check(error);
-   return reply({created,user_id:target.id});
+   return reply({created,user_id:target.id,username:loginName});
   }
   if(body.action==='sync') {
    const secret=Deno.env.get('KOBO_API_TOKEN') || Deno.env.get('KOBO') || Deno.env.get('kobo');

@@ -10,9 +10,15 @@ insert into public.ecc_members values(current_setting('test.pa')::uuid,current_s
 insert into public.ecc_visits(project_id,title,status) values(current_setting('test.pa')::uuid,'TEST PUBLISHED A','published'),(current_setting('test.pa')::uuid,'TEST DRAFT A','draft'),(current_setting('test.pb')::uuid,'TEST PUBLISHED B','published');
 insert into public.ecc_imports(project_id,asset_uid,source_id,raw) values(current_setting('test.pa')::uuid,'test_asset_uid','test_record','{"private":"must never be readable by clients"}');
 
+insert into public.ecc_accounts(user_id,username) values(current_setting('test.a')::uuid,'qa_client_a'),(current_setting('test.b')::uuid,'qa_client_b');
 set local role authenticated;
 select set_config('request.jwt.claim.sub',current_setting('test.a'),true);
 do $$ begin
+ if (select count(*) from public.ecc_accounts)<>1 or (select username from public.ecc_accounts)<>'qa_client_a' then raise exception 'username isolation failed';end if;
+ begin
+  update public.ecc_accounts set username='stolen';
+  raise exception 'username write allowed';
+ exception when insufficient_privilege then null;end;
  if (select count(*) from public.ecc_clients)<>1 then raise exception 'client isolation failed';end if;
  if (select count(*) from public.ecc_projects)<>1 then raise exception 'project isolation failed';end if;
  if (select count(*) from public.ecc_visits)<>1 then raise exception 'draft or cross-client report leaked';end if;
@@ -50,7 +56,7 @@ end $$;
 set local role anon;
 do $$ begin
  begin
-  perform * from public.ecc_visits;
+  perform * from public.ecc_accounts;
   raise exception 'anonymous query allowed';
  exception when insufficient_privilege then null;end;
 end $$;
