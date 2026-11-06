@@ -1,0 +1,9 @@
+portal/node_modules/
+.env
+.env.*
+!*.example
+test-output/
+connect/
+dist/
+
+.vite/

@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { display,reportModel,fileName } from '../portal/src/report-model.js';
+import { pdfDefinition,docxBlob } from '../portal/src/reports.js';
+test('unknown is distinct from zero and false',()=>{assert.equal(display(null),'ไม่มีข้อมูล');assert.equal(display(''),'ไม่มีข้อมูล');assert.equal(display(0),'0');assert.equal(display(false),'false');});
+const model=reportModel({id:'test-only',title:'รายงานทดสอบภาษาไทย',status:'draft',ecology:'มีข้อมูลการสำรวจ\nพื้นที่ฟื้นฟู',economics:'ไม่เกี่ยวข้อง'}, {name:'โครงการทดสอบ'}, {name:'ลูกค้าทดสอบ'});
+test('report contains all six sections, missing values and draft marking',()=>{assert.equal(model.sections.length,6);assert.equal(model.draft,true);assert.equal(model.sections[0].text,'ไม่มีข้อมูล');assert.equal(model.sections[3].text,'ไม่เกี่ยวข้อง');assert.ok(pdfDefinition(model).watermark);});
+test('published PDF uses matching curated values without draft mark',()=>{const m={...model,draft:false};assert.equal(pdfDefinition(m).watermark,undefined);assert.ok(JSON.stringify(pdfDefinition(m)).includes('มีข้อมูลการสำรวจ'));});
+test('file names cannot contain path separators',()=>assert.ok(!/[<>:"/\\|?*]/.test(fileName({...model,title:'../bad:filename'},'pdf'))));
+test('Word produces a real zip document',async()=>{const b=await docxBlob(model);const bytes=new Uint8Array(await b.arrayBuffer());assert.equal(bytes[0],80);assert.equal(bytes[1],75);assert.ok(bytes.length>5000);});

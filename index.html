@@ -139,11 +139,14 @@
                 </div>
             </div>
             
-            <div class="hidden lg:flex space-x-10 items-center">
+            <div class="hidden lg:flex gap-5 xl:gap-8 items-center">
                 <!-- เพิ่ม drop-shadow-md ให้ลิงก์เมนู -->
                 <a href="#about" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md" data-i18n="nav_about">About</a>
                 <a href="#expertise" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md" data-i18n="nav_expertise">Success Stories</a>
                 <a href="#services" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md" data-i18n="nav_services">Solutions</a>
+                <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="inline-flex items-center gap-2 border border-brand-gold/70 text-brand-gold px-4 py-2.5 rounded-sm text-sm font-bold hover:bg-brand-gold hover:text-brand-dark transition whitespace-nowrap">
+                    <i data-lucide="user-round" class="w-4 h-4" aria-hidden="true"></i><span data-i18n="nav_clients">สำหรับลูกค้า</span>
+                </a>
                 <div class="flex items-center gap-3 text-xs border-l border-white/20 pl-6 drop-shadow-md">
                     <button onclick="changeLanguage('th')" id="btn-th" class="nav-text text-white lang-active">TH</button>
                     <button onclick="changeLanguage('en')" id="btn-en" class="nav-text text-white">EN</button>
@@ -153,7 +156,8 @@
                     <i data-lucide="calendar" class="w-4 h-4"></i>
                 </a>
             </div>
-            <div class="lg:hidden">
+            <div class="lg:hidden flex items-center gap-4">
+                <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="text-brand-gold border border-brand-gold/50 rounded-sm p-2" aria-label="สำหรับลูกค้า — เข้าสู่ Eco Companion Connect"><i data-lucide="user-round" class="w-5 h-5" aria-hidden="true"></i></a>
                 <!-- จัดการไอคอนเมนูบนมือถือด้วยคลาสเดียวกัน -->
                 <button id="mobile-menu-btn" class="nav-text text-white drop-shadow-md"><i data-lucide="menu" class="w-6 h-6"></i></button>
             </div>
@@ -173,6 +177,7 @@
             <a href="#about" onclick="document.getElementById('close-menu-btn').click()">About Us</a>
             <a href="#expertise" onclick="document.getElementById('close-menu-btn').click()">Expertise</a>
             <a href="#services" onclick="document.getElementById('close-menu-btn').click()">Solutions</a>
+            <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="border border-brand-gold/60 text-brand-gold py-4 px-6 rounded-sm flex items-center justify-center gap-3"><i data-lucide="user-round" class="w-5 h-5" aria-hidden="true"></i><span data-i18n="nav_clients">สำหรับลูกค้า</span></a>
             <a href="#contact" onclick="document.getElementById('close-menu-btn').click()" class="text-brand-gold">Contact</a>
         </div>
     </div>
@@ -685,6 +690,25 @@
         </div>
     </section>
 
+    <!-- Client workspace -->
+    <section id="client-connect" class="py-20 md:py-28 bg-brand-light border-y border-brand-dark/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
+            <div>
+                <span class="text-brand-dark/60 text-xs font-bold uppercase tracking-[0.25em] block mb-5">Eco Companion Connect</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-dark mb-6" data-i18n="client_title">พื้นที่โครงการของคุณ<br>เชื่อมต่อข้อมูลจากภาคสนาม</h2>
+                <p class="text-brand-dark/70 leading-relaxed max-w-xl mb-8" data-i18n="client_desc">สำหรับลูกค้าและพันธมิตรของ Eco Companion ติดตามข้อมูลโครงการ อ่านผลการประเมิน และดาวน์โหลดรายงานจากพื้นที่ทำงานเฉพาะของคุณ</p>
+                <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="inline-flex items-center gap-4 bg-brand-dark text-white px-7 py-4 rounded-sm font-bold hover:bg-brand-darker transition shadow-lg"><span data-i18n="client_login">เข้าสู่ระบบลูกค้า</span><i data-lucide="arrow-up-right" class="w-5 h-5" aria-hidden="true"></i></a>
+                <p class="text-xs text-brand-dark/55 mt-5" data-i18n="client_help">ใช้บัญชีที่ทีมงานจัดเตรียมให้ หากต้องการสิทธิ์เข้าถึง กรุณาติดต่อผู้ประสานงานโครงการ</p>
+            </div>
+            <div class="bg-white/80 border border-white rounded-sm p-7 md:p-9 shadow-sm">
+                <div class="flex items-center gap-3 pb-6 border-b border-brand-dark/10"><span class="w-9 h-9 bg-brand-dark rounded-full flex items-center justify-center text-brand-gold"><i data-lucide="leaf" class="w-4 h-4" aria-hidden="true"></i></span><span class="font-serif text-xl font-bold text-brand-dark">Your project. Connected.</span></div>
+                <div class="py-6 border-b border-brand-dark/10 flex gap-4"><i data-lucide="layout-dashboard" class="w-5 h-5 text-brand-dark mt-1 flex-shrink-0" aria-hidden="true"></i><div><h3 class="font-bold text-brand-dark mb-1" data-i18n="client_dashboard">ภาพรวมโครงการ</h3><p class="text-sm text-slate-500" data-i18n="client_dashboard_desc">ติดตามรอบสำรวจและรายงานที่ผ่านการตรวจสอบ</p></div></div>
+                <div class="py-6 border-b border-brand-dark/10 flex gap-4"><i data-lucide="file-down" class="w-5 h-5 text-brand-dark mt-1 flex-shrink-0" aria-hidden="true"></i><div><h3 class="font-bold text-brand-dark mb-1" data-i18n="client_reports">รายงานพร้อมใช้งาน</h3><p class="text-sm text-slate-500" data-i18n="client_reports_desc">ดาวน์โหลด PDF สำหรับนำเสนอ และ Word สำหรับใช้งานต่อ</p></div></div>
+                <div class="pt-6 flex gap-4"><i data-lucide="key-round" class="w-5 h-5 text-brand-dark mt-1 flex-shrink-0" aria-hidden="true"></i><div><h3 class="font-bold text-brand-dark mb-1" data-i18n="client_access">ข้อมูลเฉพาะโครงการของคุณ</h3><p class="text-sm text-slate-500" data-i18n="client_access_desc">เข้าสู่ระบบด้วยบัญชีผู้ใช้ตามสิทธิ์ที่ได้รับ</p></div></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="py-32 bg-brand-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -721,6 +745,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <span class="font-serif font-bold text-2xl text-white uppercase">Eco Companion</span><br/>
             <span class="text-xs text-brand-gold font-bold tracking-widest mt-2">CONSULTANTS</span>
+            <div class="mt-7"><a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="text-sm text-brand-gold hover:text-white transition" data-i18n="nav_clients">สำหรับลูกค้า</a></div>
             <div class="mt-10 text-[10px] uppercase tracking-widest">&copy; 2026 Eco Companion Consultants Co., Ltd. All Rights Reserved.</div>
         </div>
     </footer>
@@ -744,7 +769,8 @@
         // --- DATA & LOGIC ---
         const translations = {
             en: {
-                nav_about: "About", nav_expertise: "Success Stories", nav_services: "Solutions", nav_insights: "Insights", nav_book: "Book Consultation",
+                nav_about: "About", nav_expertise: "Success Stories", nav_services: "Solutions", nav_insights: "Insights", nav_book: "Book Consultation", nav_clients: "Client Login",
+                client_title: "Your project workspace.<br>Connected to the field.", client_desc: "A dedicated workspace for Eco Companion clients and partners. Follow project updates, review assessment findings and download your reports.", client_login: "Open client workspace", client_help: "Use the account provided by our team. Contact your project coordinator to request access.", client_dashboard: "Project overview", client_dashboard_desc: "Follow survey visits and reviewed reports.", client_reports: "Reports ready to use", client_reports_desc: "Download PDF for presentation and Word for further work.", client_access: "Your project information", client_access_desc: "Sign in to the projects your account is authorized to access.",
                 hero_title: "Turn Nature Risks into <br/><span class='text-brand-gold italic'>Strategic Assets.</span>",
                 hero_desc: "Specialized biodiversity consultancy combining science with business strategy to turn 'burdens' into measurable 'sustainability'.",
                 btn_explore: "See Impact", trusted_label: "Trusted by Leading Organizations",
@@ -779,7 +805,8 @@
                 expertise_label: "Industry Expertise"
             },
             th: {
-                nav_about: "เกี่ยวกับเรา", nav_expertise: "ผลงานของเรา", nav_services: "บริการ", nav_insights: "บทความ", nav_book: "นัดปรึกษาฟรี",
+                nav_about: "เกี่ยวกับเรา", nav_expertise: "ผลงานของเรา", nav_services: "บริการ", nav_insights: "บทความ", nav_book: "นัดปรึกษาฟรี", nav_clients: "สำหรับลูกค้า",
+                client_title: "พื้นที่โครงการของคุณ<br>เชื่อมต่อข้อมูลจากภาคสนาม", client_desc: "สำหรับลูกค้าและพันธมิตรของ Eco Companion ติดตามข้อมูลโครงการ อ่านผลการประเมิน และดาวน์โหลดรายงานจากพื้นที่ทำงานเฉพาะของคุณ", client_login: "เข้าสู่ระบบลูกค้า", client_help: "ใช้บัญชีที่ทีมงานจัดเตรียมให้ หากต้องการสิทธิ์เข้าถึง กรุณาติดต่อผู้ประสานงานโครงการ", client_dashboard: "ภาพรวมโครงการ", client_dashboard_desc: "ติดตามรอบสำรวจและรายงานที่ผ่านการตรวจสอบ", client_reports: "รายงานพร้อมใช้งาน", client_reports_desc: "ดาวน์โหลด PDF สำหรับนำเสนอ และ Word สำหรับใช้งานต่อ", client_access: "ข้อมูลเฉพาะโครงการของคุณ", client_access_desc: "เข้าสู่ระบบด้วยบัญชีผู้ใช้ตามสิทธิ์ที่ได้รับ",
                 hero_title: "เปลี่ยนความเสี่ยงธรรมชาติ <br/><span class='text-brand-gold italic'>ให้เป็นกลยุทธ์ที่ยั่งยืน</span>",
                 hero_desc: "ที่ปรึกษาเฉพาะทางด้านความหลากหลายทางชีวภาพ เราผสานวิทยาศาสตร์เข้ากับกลยุทธ์ทางธุรกิจ เพื่อเปลี่ยน 'ภาระ' ให้เป็น 'ความยั่งยืน' ที่วัดผลได้จริง",
                 btn_explore: "ดูผลลัพธ์", trusted_label: "ได้รับความไว้วางใจจากองค์กรชั้นนำและพันธมิตร",
