@@ -7,7 +7,7 @@ insert into public.ecc_admins values(current_setting('test.admin')::uuid);
 insert into public.ecc_clients(id,name) values(current_setting('test.ca')::uuid,'TEST A'),(current_setting('test.cb')::uuid,'TEST B');
 insert into public.ecc_projects(id,client_id,name) values(current_setting('test.pa')::uuid,current_setting('test.ca')::uuid,'TEST A'),(current_setting('test.pb')::uuid,current_setting('test.cb')::uuid,'TEST B');
 insert into public.ecc_members values(current_setting('test.pa')::uuid,current_setting('test.a')::uuid),(current_setting('test.pb')::uuid,current_setting('test.b')::uuid);
-insert into public.ecc_visits(project_id,title,status) values(current_setting('test.pa')::uuid,'TEST PUBLISHED A','published'),(current_setting('test.pa')::uuid,'TEST DRAFT A','draft'),(current_setting('test.pb')::uuid,'TEST PUBLISHED B','published');
+insert into public.ecc_visits(project_id,title,status) values(current_setting('test.pa')::uuid,'TEST PUBLISHED A','published'),(current_setting('test.pa')::uuid,'TEST DRAFT A','draft'),(current_setting('test.pb')::uuid,'TEST PUBLISHED B','published'),(current_setting('test.pa')::uuid,'TEST AUTO A','automatic'),(current_setting('test.pb')::uuid,'TEST AUTO B','automatic');
 insert into public.ecc_imports(project_id,asset_uid,source_id,raw) values(current_setting('test.pa')::uuid,'test_asset_uid','test_record','{"private":"must never be readable by clients"}');
 
 insert into public.ecc_accounts(user_id,username) values(current_setting('test.a')::uuid,'qa_client_a'),(current_setting('test.b')::uuid,'qa_client_b');
@@ -21,8 +21,9 @@ do $$ begin
  exception when insufficient_privilege then null;end;
  if (select count(*) from public.ecc_clients)<>1 then raise exception 'client isolation failed';end if;
  if (select count(*) from public.ecc_projects)<>1 then raise exception 'project isolation failed';end if;
- if (select count(*) from public.ecc_visits)<>1 then raise exception 'draft or cross-client report leaked';end if;
- if (select title from public.ecc_visits)<>'TEST PUBLISHED A' then raise exception 'wrong report';end if;
+ if (select count(*) from public.ecc_visits)<>2 then raise exception 'draft or cross-client report leaked';end if;
+ if exists(select 1 from public.ecc_visits where title not in ('TEST PUBLISHED A','TEST AUTO A')) then raise exception 'wrong report';end if;
+ if has_function_privilege('authenticated','public.ecc_claim_auto_sync(uuid,text)','execute') or has_table_privilege('authenticated','public.ecc_auto_sync','select') then raise exception 'sync metadata exposed';end if;
  if exists(select 1 from public.ecc_imports) then raise exception 'raw Kobo leaked';end if;
  if exists(select 1 from public.ecc_admins) then raise exception 'admin role leaked';end if;
  if (select count(*) from public.ecc_members)<>1 then raise exception 'membership leaked';end if;
@@ -41,12 +42,12 @@ do $$ begin
 end $$;
 select set_config('request.jwt.claim.sub',current_setting('test.b'),true);
 do $$ begin
- if (select count(*) from public.ecc_visits)<>1 or (select title from public.ecc_visits)<>'TEST PUBLISHED B' then raise exception 'client B isolation failed';end if;
+ if (select count(*) from public.ecc_visits)<>2 or exists(select 1 from public.ecc_visits where title not in ('TEST PUBLISHED B','TEST AUTO B')) then raise exception 'client B isolation failed';end if;
 end $$;
 select set_config('request.jwt.claim.sub',current_setting('test.admin'),true);
 do $$ begin
  if not ecc_private.is_admin() then raise exception 'admin missing';end if;
- if (select count(*) from public.ecc_visits where title like 'TEST %')<>3 then raise exception 'admin cannot review drafts';end if;
+ if (select count(*) from public.ecc_visits where project_id in (current_setting('test.pa')::uuid,current_setting('test.pb')::uuid))<>5 then raise exception 'admin cannot review drafts';end if;
  delete from public.ecc_members where user_id=current_setting('test.a')::uuid;
 end $$;
 select set_config('request.jwt.claim.sub',current_setting('test.a'),true);
