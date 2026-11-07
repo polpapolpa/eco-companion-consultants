@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {reportParagraphs,reportRuns} from '../portal/src/report-text.js';
+import {pdfDefinition,docxBlob} from '../portal/src/reports.js';
+import {reportModel} from '../portal/src/report-model.js';
+const water='EW การใช้น้ำจากพื้นที่ — EW การใช้น้ำจากพื้นที่: ยังไม่ใช้';
+const impact='ED S5 ประโยชน์และผลกระทบที่ผู้ให้ข้อมูลเล่า — ED S5 ประโยชน์/ผลกระทบที่ผู้ให้ข้อมูลเล่า: ไม่ทราบ';
+test('EW is shown once after the heading, answer unchanged',()=>assert.deepEqual(reportParagraphs(water),[{title:'การใช้น้ำจากพื้นที่',codes:['EW'],body:'ยังไม่ใช้'}]));
+test('paired ED S5 codes are deduplicated with the more specific question label',()=>assert.deepEqual(reportParagraphs(impact),[{title:'ประโยชน์/ผลกระทบที่ผู้ให้ข้อมูลเล่า',codes:['ED','S5'],body:'ไม่ทราบ'}]));
+test('details keep their parent context and answer code mentions',()=>assert.deepEqual(reportParagraphs('E1b สัตว์หรือร่องรอยสัตว์ — รายละเอียดเพิ่มเติม (ถ้ามี): ไม่พบ\nติดตาม E1b อีกครั้ง'),[{title:'สัตว์หรือร่องรอยสัตว์ — รายละเอียดเพิ่มเติม (ถ้ามี)',codes:['E1b'],body:'ไม่พบ\nติดตาม E1b อีกครั้ง'}]));
+test('free text, time values, zero and NA are preserved',()=>{for(const s of ['ไม่มีข้อมูล','หมายเหตุ: เวลา 11:00','EW เป็นข้อความที่ไม่มีเครื่องหมายแบ่งคำตอบ'])assert.deepEqual(reportParagraphs(s),[{text:s}]);assert.equal(reportParagraphs('EW การใช้น้ำ: 0')[0].body,'0');assert.equal(reportParagraphs('EW การใช้น้ำ: ไม่เกี่ยวข้อง')[0].body,'ไม่เกี่ยวข้อง');});
+test('all output formats share an ordered small-code run',async()=>{const runs=reportRuns(water)[0];assert.deepEqual(runs.map(r=>r.kind),['label','code','text']);assert.equal(runs.map(r=>r.text).join(''),'การใช้น้ำจากพื้นที่ (EW): ยังไม่ใช้');const m=reportModel({id:'test',title:'ทดสอบ',economics:water+'\n\n'+impact}, {}, {});const d=pdfDefinition(m);const row=d.content.find(c=>Array.isArray(c.text)&&c.text.some(r=>r.text===' (EW)'));assert.equal(row.text[1].fontSize,9);assert.ok((await docxBlob(m)).size>5000);});

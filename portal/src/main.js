@@ -1,3 +1,4 @@
+import {reportRuns} from './report-text.js';
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_URL,SUPABASE_KEY } from './config.js';
 import { sections,display,reportModel } from './report-model.js';
@@ -66,7 +67,7 @@ function reportList(items) {
 function bindReports(){document.querySelectorAll('[data-report]').forEach(b=>b.onclick=()=>report(b.dataset.report));}
 function report(id) {
  const v=visits.find(x=>x.id===id);if(!v)return;const project=projects.find(x=>x.id===v.project_id);const m=reportModel(v,project,clients.find(c=>c.id===project.client_id));
- const section=(title,text)=>`<section><h2>${esc(title)}</h2><p class="pre">${esc(text)}</p></section>`;
+ const section=(title,text)=>`<section><h2>${esc(title)}</h2>${reportRuns(text).map(runs=>`<p class="pre">${runs.map(r=>r.kind==='code'?`<small class="question-code">${esc(r.text)}</small>`:r.kind==='label'?`<strong>${esc(r.text)}</strong>`:esc(r.text)).join('')}</p>`).join('')}</section>`;
  shell(`<div class="report-toolbar"><button class="quiet" id="back">← กลับหน้ารายงาน</button><div><button id="pdf" class="primary">ดาวน์โหลด PDF</button><button id="docx" class="secondary">ดาวน์โหลด Word</button>${admin?'<button id="edit" class="secondary">แก้ไขบทสรุป / รายงาน</button><button id="photos" class="secondary">จัดการรูปจาก Kobo</button>':''}</div></div><article class="document"><div class="document-brand">ECO COMPANION CONSULTANTS <span>${m.draft?'ฉบับร่าง • รอตรวจทาน':'รายงานที่เผยแพร่แล้ว'}</span></div><p class="eyebrow">รายงานการติดตามและประเมินผล</p><h1>${esc(m.title)}</h1><p>จัดทำสำหรับ ${esc(m.client)}<br>โครงการ ${esc(m.project)}</p><dl>${m.metadata.map(([k,val])=>`<div><dt>${k}</dt><dd>${esc(val)}</dd></div>`).join('')}</dl>${section('สรุปสำหรับผู้บริหาร',m.sections[0].text)}${section('ประเด็นเสนอเพื่อพิจารณา',m.decisions)}${section('ขอบเขตและวิธีการสำรวจ',m.scope)}${m.sections.slice(1).map(s=>section(s.title,s.text)).join('')}${section('การตรวจทานรายงาน',`ผู้ตรวจทาน: ${m.reviewer}`)}<section><h2>ภาพถ่ายประกอบการประเมิน</h2><div id="report-images">${m.photos.length?'<p>กำลังโหลดรูปที่เลือกไว้…</p>':'<p class="help">ไม่มีรูปภาพที่เลือกแนบในรายงานฉบับนี้</p>'}</div></section><small>รหัสรายงาน ${esc(v.id)}</small></article>`);
  document.querySelector('#back').onclick=()=>{view='reports';render();};
  for(const kind of ['pdf','docx'])document.querySelector('#'+kind).onclick=e=>action(e.currentTarget,async()=>{notify('กำลังเตรียมเอกสารและรูปภาพ…');const photos=await reportImages(db,v.id,m.photos);const exports=await import('./reports.js');await exports[kind==='pdf'?'downloadPdf':'downloadDocx']({...m,photos});notify(`สร้างไฟล์ ${kind==='pdf'?'PDF':'Word'} แล้ว`);});

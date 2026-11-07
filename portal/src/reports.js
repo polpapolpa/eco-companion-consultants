@@ -1,9 +1,10 @@
+import {reportRuns} from './report-text.js';
 import {fileName} from './report-model.js';
 const green='#0F392B',muted='#65756C';
 const paragraphs=text=>String(text || '').split(/\n\s*\n/).filter(Boolean);
 const photoLabel=(p,i)=>`ภาพที่ ${i+1}${p.code?'  '+p.code:''}`;
 export function pdfDefinition(m){
- const textBlocks=text=>paragraphs(text).map(text=>({text,margin:[0,0,0,9]}));
+ const textBlocks=text=>reportRuns(text).map(runs=>({text:runs.map(run=>({text:run.text,...(run.kind==='code'?{fontSize:9,color:muted}:run.kind==='label'?{bold:true}:{})})),margin:[0,0,0,9]}));
  const heading=(text,extra={})=>({text,bold:true,fontSize:15,color:green,margin:[0,20,0,10],headlineLevel:1,...extra});
  return {
   info:{title:m.title,author:'Eco Companion Consultants',subject:'รายงานการติดตามและประเมินผลโครงการ'},
@@ -47,7 +48,7 @@ export async function downloadPdf(model){
 export async function docxBlob(m){
  const {Document,Packer,Paragraph,TextRun,HeadingLevel,Header,Footer,PageNumber,Table,TableRow,TableCell,WidthType,ImageRun,AlignmentType,BorderStyle}=await import('docx');
  const p=(text,opts={})=>new Paragraph({...opts,children:[new TextRun({text,font:'Sarabun',...(opts.bold?{bold:true}:{})})]});
- const blocks=text=>paragraphs(text).map(t=>p(t));
+ const blocks=text=>reportRuns(text).map(runs=>new Paragraph({children:runs.map(run=>new TextRun({text:run.text,font:'Sarabun',...(run.kind==='code'?{size:18,color:'65756C'}:run.kind==='label'?{bold:true}:{})}))}));
  const h=(text,opts={})=>p(text,{heading:HeadingLevel.HEADING_1,keepNext:true,spacing:{before:320,after:160},...opts});
  const bytes=dataUrl=>Uint8Array.from(atob(dataUrl.split(',')[1]),c=>c.charCodeAt(0));
  const headerRuns=[...(m.logo?[new ImageRun({type:'png',data:bytes(m.logo),transformation:{width:30,height:30}})]:[]),new TextRun({text:'   ECO COMPANION CONSULTANTS',font:'Sarabun',bold:true,size:17,color:'0F392B'})];
