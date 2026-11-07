@@ -1,7 +1,7 @@
 import {reportRuns} from './report-text.js';
 import {fileName} from './report-model.js';
 const green='#0F392B',muted='#65756C';
-const paragraphs=text=>String(text || '').split(/\n\s*\n/).filter(Boolean);
+const statusText=m=>m.statusLabel || (m.draft?'ฉบับร่าง — รอตรวจทาน':'เผยแพร่แล้ว');
 const photoLabel=(p,i)=>`ภาพที่ ${i+1}${p.code?'  '+p.code:''}`;
 export function pdfDefinition(m){
  const textBlocks=text=>reportRuns(text).map(runs=>({text:runs.map(run=>({text:run.text,...(run.kind==='code'?{fontSize:9,color:muted}:run.kind==='label'?{bold:true}:{})})),margin:[0,0,0,9]}));
@@ -11,8 +11,8 @@ export function pdfDefinition(m){
   pageSize:'A4',pageMargins:[48,62,48,62],
   defaultStyle:{font:'Sarabun',fontSize:11.5,lineHeight:1.25,color:'#263C32'},
   header:{columns:[...(m.logo?[{image:m.logo,width:25,margin:[0,0,10,0]}]:[]),{stack:[{text:'ECO COMPANION CONSULTANTS',bold:true,fontSize:9,color:green},{text:'รายงานการติดตามและประเมินผล',fontSize:8,color:muted,margin:[0,3,0,0]}]}],margin:[48,22,48,0]},
-  footer:(page,count)=>({columns:[{text:`${m.draft?'ฉบับร่าง • ยังไม่รับรองเพื่อส่งมอบ':'เผยแพร่แล้ว'}\nรหัสรายงาน ${m.id}`,fontSize:7.5,color:muted,width:'*'},{text:`${page} / ${count}`,fontSize:9,color:muted,width:50,alignment:'right'}],margin:[48,18,48,0]}),
-  ...(m.draft?{watermark:{text:'DRAFT',color:green,opacity:.055}}:{}),
+  footer:(page,count)=>({columns:[{text:`${statusText(m)}\nรหัสรายงาน ${m.id}`,fontSize:7.5,color:muted,width:'*'},{text:`${page} / ${count}`,fontSize:9,color:muted,width:50,alignment:'right'}],margin:[48,18,48,0]}),
+  ...((m.draft||m.automatic)?{watermark:{text:m.automatic?'AUTO':'DRAFT',color:green,opacity:.055}}:{}),
   content:[
    {text:'รายงานการติดตามและประเมินผลโครงการ',fontSize:11,color:green,margin:[0,12,0,12]},
    {text:m.title,fontSize:23,bold:true,color:'#182A21',margin:[0,0,0,15]},
@@ -25,7 +25,7 @@ export function pdfDefinition(m){
    ...m.sections.slice(1,4).flatMap(s=>[heading(s.title),...textBlocks(s.text)]),
    heading('หลักฐานและข้อจำกัดของข้อมูล'),...textBlocks(m.sections[4].text),
    heading('ข้อเสนอแนะและการดำเนินงานถัดไป',{pageBreak:'before'}),...textBlocks(m.sections[5].text),
-   heading('การตรวจทานรายงาน'),{text:`ผู้ประเมิน: ${m.metadata[2][1]}\nผู้ตรวจทาน: ${m.reviewer || 'ยังไม่ระบุ'}\nสถานะ: ${m.draft?'ฉบับร่าง รอการตรวจสอบและรับรอง':'เผยแพร่แล้ว'}`,margin:[0,0,0,15]},
+   heading('การตรวจทานรายงาน'),{text:`ผู้ประเมิน: ${m.metadata[2][1]}\nผู้ตรวจทาน: ${m.reviewer || 'ยังไม่ระบุ'}\nสถานะ: ${statusText(m)}`,margin:[0,0,0,15]},
    ...(m.photos?.length?m.photos.flatMap((p,i)=>[
     heading(i===0?'ภาพถ่ายประกอบการประเมิน':'ภาพถ่ายประกอบการประเมินต่อ',{pageBreak:'before'}),
     {image:p.dataUrl,fit:[499,365],alignment:'center',margin:[0,8,0,18]},
@@ -56,7 +56,7 @@ export async function docxBlob(m){
   styles:{default:{document:{run:{font:'Sarabun',size:23,color:'263C32'},paragraph:{spacing:{after:160,line:310}}}},paragraphStyles:[{id:'Title',name:'Title',basedOn:'Normal',next:'Normal',run:{font:'Sarabun',size:44,bold:true,color:'182A21'},paragraph:{spacing:{after:280}}},{id:'Heading1',name:'heading 1',basedOn:'Normal',next:'Normal',quickFormat:true,run:{font:'Sarabun',size:30,bold:true,color:'0F392B'},paragraph:{keepNext:true,spacing:{before:320,after:160}}}]},
   sections:[{properties:{page:{size:{width:11906,height:16838},margin:{top:1240,bottom:1240,left:960,right:960,header:420,footer:480}}},
    headers:{default:new Header({children:[new Paragraph({children:headerRuns})]})},
-   footers:{default:new Footer({children:[new Paragraph({children:[new TextRun({text:`${m.draft?'ฉบับร่าง รอรับรอง':'เผยแพร่แล้ว'} • ${m.id}   |   `,size:15,font:'Sarabun',color:'65756C'}),new TextRun({children:[PageNumber.CURRENT,' / ',PageNumber.TOTAL_PAGES],size:16,font:'Sarabun'})]})]})},
+   footers:{default:new Footer({children:[new Paragraph({children:[new TextRun({text:`${statusText(m)} • ${m.id}   |   `,size:15,font:'Sarabun',color:'65756C'}),new TextRun({children:[PageNumber.CURRENT,' / ',PageNumber.TOTAL_PAGES],size:16,font:'Sarabun'})]})]})},
    children:[p('รายงานการติดตามและประเมินผลโครงการ'),p(m.title,{heading:HeadingLevel.TITLE}),p(`จัดทำสำหรับ ${m.client}`),p(`โครงการ ${m.project}`),
     new Table({width:{size:100,type:WidthType.PERCENTAGE},columnWidths:[2200,7786],rows:m.metadata.map(([key,value])=>new TableRow({children:[key,value].map((text,i)=>new TableCell({width:{size:i?7786:2200,type:WidthType.DXA},margins:{top:100,bottom:100,left:100,right:140},borders:{top:{style:BorderStyle.NONE},bottom:{style:BorderStyle.SINGLE,size:3,color:'DFE5E0'},left:{style:BorderStyle.NONE},right:{style:BorderStyle.NONE}},children:[p(text,{spacing:{after:0},bold:i===0})]}))}))}),
     h('สรุปสำหรับผู้บริหาร'),...blocks(m.sections[0].text),h('ประเด็นเสนอเพื่อพิจารณา'),...blocks(m.decisions || 'ยังไม่ระบุ'),
