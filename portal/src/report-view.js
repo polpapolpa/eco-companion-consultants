@@ -6,7 +6,8 @@ const table=(headers,rows)=>'<div class="report-table-wrap"><table class="report
 const photos=items=>items.map(p=>'<figure class="evidence-photo" id="evidence-'+p.number+'"><div data-report-photo="'+esc(p.id)+'"><p class="help">กำลังโหลดภาพ…</p></div><figcaption><strong>'+esc(photoTitle(p))+'</strong><p class="pre">'+esc(p.caption || 'ไม่ได้ระบุคำบรรยายภาพ')+'</p><small>ประเด็น: '+esc(p.question || 'ไม่ได้ระบุ')+' · ไฟล์ Kobo '+esc(p.id)+'</small></figcaption></figure>').join('');
 export function reportDetailsHtml(model){
  const report=reportLayout(model);
- return '<section class="report-scope"><h2>ขอบเขตและวิธีการสำรวจ</h2>'+paragraphs(model.scope)+'</section>'+
+ return '<section class="report-basics"><h2>ข้อมูลพื้นฐานโครงการและแปลง</h2>'+table(['รายการ','ข้อมูลที่บันทึก'],(model.basics || []).map(row=>row.map(v=>'<div class="pre">'+esc(v)+'</div>')))+'<p class="help">'+esc(model.basicsNote)+'</p></section>'+
+ '<section class="report-scope"><h2>ขอบเขตและวิธีการสำรวจ</h2>'+paragraphs(model.scope)+'</section>'+
  report.groups.map(g=>'<section class="report-dimension"><h2>'+esc(g.title)+'</h2>'+ 
  (g.rows.length?table(['ประเด็นประเมิน','ผลที่บันทึก','รายละเอียด / หลักฐาน'],g.rows.map(r=>[
  '<strong>'+esc(r.title)+'</strong>'+(r.codes.length?' <small class="question-code">('+esc(r.codes.join(' · '))+')</small>':''),

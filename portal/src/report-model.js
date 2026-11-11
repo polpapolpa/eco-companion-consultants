@@ -7,7 +7,15 @@ export const reportStatus=status=>status==='automatic'?'รายงานอั
 export const display = value => value === null || value === undefined || String(value).trim()==='' ? 'ไม่มีข้อมูล' : String(value);
 export const reportDate=value=>{if(!value)return 'ไม่ระบุ';const d=new Date(value);return Number.isNaN(d.getTime())?'ไม่ระบุ':d.toLocaleDateString('th-TH',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Bangkok'});};
 export function reportModel(visit,project,client) {
+ const info=visit.plot_info || {};
  return {
+  basics:[['โครงการ',display(project?.name)],['รหัสแปลง',display(visit.plot)],
+   ['ที่ตั้งแปลง',display(info.location)],['พื้นที่แปลง (ไร่)',display(info.area_rai)],
+   ['ประเภทป่า',display(info.forest_type)],['ช่วงเวลาที่ปลูก',display(info.planting_when)],
+   ['พิกัดจุดอ้างอิง (ละติจูด / ลองจิจูด)',display(info.gps?.trim().split(/\s+/).slice(0,2).join(' / '))],
+   ['วิธีการฟื้นฟู','ไม่มีข้อมูล — แบบฟอร์มต้นทางยังไม่มีช่องเก็บข้อมูลนี้'],
+   ['จำนวนต้นที่ปลูกเดิม (ต้น)','ไม่มีข้อมูล — แบบฟอร์มต้นทางยังไม่มีช่องเก็บข้อมูลนี้']],
+  basicsNote:'ที่มา: ข้อมูลพื้นฐานที่บันทึกใน Kobo สำหรับการสำรวจครั้งนี้ ช่องว่างหมายถึงไม่มีข้อมูล ไม่ใช่ศูนย์ จำนวนต้นที่ตรวจและจำนวนที่มีชีวิตแสดงแยกในผลสำรวจ ไม่ใช้แทนจำนวนต้นที่ปลูกเดิม',
   title:display(visit.title), client:display(client?.name), project:display(project?.name),
   draft:visit.status!=='published' && visit.status!=='automatic', automatic:visit.status==='automatic', statusLabel:reportStatus(visit.status), id:visit.id,
   scope:visit.scope?.trim() || 'ยังไม่ได้ระบุขอบเขตและวิธีสำรวจเพิ่มเติม โปรดอ่านข้อจำกัดที่ระบุในแต่ละมิติก่อนใช้ผลประเมิน',
