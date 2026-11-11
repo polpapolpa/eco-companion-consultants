@@ -1,5 +1,5 @@
 import {createClient} from 'npm:@supabase/supabase-js@2.119.0';
-import {automaticVisit,sourceMatches,canAutoUpdate,sourceKey,sameSubmission,submissionHash} from './model.js';
+import {automaticVisit,sourceMatches,canAutoUpdate,gpsOnlyPatch,sourceKey,sameSubmission,submissionHash} from './model.js';
 const cors={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'authorization, apikey, content-type, x-client-info','Access-Control-Allow-Methods':'POST, OPTIONS','Cache-Control':'no-store'};
 const json=(data:unknown,status=200)=>new Response(JSON.stringify(data),{status,headers:{...cors,'Content-Type':'application/json'}});
 class Failure extends Error{constructor(message:string,public status=400){super(message);}}
@@ -48,8 +48,10 @@ Deno.serve(async req=>{
    let record=previous;
    const rawChanged=!previous || !sameSubmission(previous.raw,raw);
    if(rawChanged){const r=await service.from('ecc_imports').upsert({project_id:project.id,asset_uid:source.asset_uid,source_id:sourceId,raw,imported_at:new Date().toISOString()},{onConflict:'project_id,asset_uid,source_id'}).select('id').single();check(r.error);record=r.data;}
-   const {data:existing,error:existingError}=await service.from('ecc_visits').select('id,status,auto_update,auto_source_hash').eq('import_id',record.id).maybeSingle();check(existingError);
-   // Curated drafts, published reports and administrator-edited auto reports are immutable to this sync.
+   const {data:existing,error:existingError}=await service.from('ecc_visits').select('id,status,auto_update,auto_source_hash,plot_info').eq('import_id',record.id).maybeSingle();check(existingError);
+   const gpsPatch=gpsOnlyPatch(existing,raw);
+   if(gpsPatch){const r=await service.from('ecc_visits').update(gpsPatch).eq('id',existing.id).eq('status','automatic').eq('auto_update',false).select('id');check(r.error);changed+=r.data?.length||0;}
+   // Preserve curated narratives and all published/draft metadata.
    const hash=await submissionHash(raw);
    if(existing && (!canAutoUpdate(existing)||existing.auto_source_hash===hash))continue;
    const row={...automaticVisit(raw,asset.content),auto_source_hash:hash,project_id:project.id,import_id:record.id};

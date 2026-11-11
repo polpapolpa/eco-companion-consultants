@@ -1,4 +1,5 @@
 import {reportDetailsHtml} from './report-view.js';
+import {loadReportMap,mapHtml} from './report-map.js';
 import {syncProjects} from './auto-sync.js';
 import {reportRuns} from './report-text.js';
 import { createClient } from '@supabase/supabase-js';
@@ -12,6 +13,7 @@ import '@fontsource/noto-serif-thai/700.css';
 import '@fontsource/playfair-display/700.css';
 import {masthead,companyFooter,workspaceHtml} from './brand.js';
 import './style.css';
+import './report-map.css';
 import './company-theme.css';
 
 let recovering=new URLSearchParams(location.hash.slice(1)).get('type')==='recovery';
@@ -86,7 +88,9 @@ function report(id) {
  const section=(title,text)=>`<section><h2>${esc(title)}</h2>${reportRuns(text).map(runs=>`<p class="pre">${runs.map(r=>r.kind==='code'?`<small class="question-code">${esc(r.text)}</small>`:r.kind==='label'?`<strong>${esc(r.text)}</strong>`:esc(r.text)).join('')}</p>`).join('')}</section>`;
  shell(`<div class="report-toolbar"><button class="quiet" id="back">← กลับหน้ารายงาน</button><div><button id="pdf" class="primary">ดาวน์โหลด PDF</button><button id="docx" class="secondary">ดาวน์โหลด Word</button>${admin?'<button id="edit" class="secondary">แก้ไขบทสรุป / รายงาน</button><button id="photos" class="secondary">จัดการรูปจาก Kobo</button>':''}</div></div><article class="document"><div class="document-brand">ECO COMPANION CONSULTANTS <span>${esc(m.statusLabel)}</span></div><p class="eyebrow">รายงานการติดตามและประเมินผล</p><h1>${esc(m.title)}</h1><p>จัดทำสำหรับ ${esc(m.client)}<br>โครงการ ${esc(m.project)}</p><dl>${m.metadata.map(([k,val])=>`<div><dt>${k}</dt><dd>${esc(val)}</dd></div>`).join('')}</dl>${section('สรุปสำหรับผู้บริหาร',m.sections[0].text)}${section('ประเด็นเสนอเพื่อพิจารณา',m.decisions)}${reportDetailsHtml(m)}<small>รหัสรายงาน ${esc(v.id)}</small></article>`);
  document.querySelector('#back').onclick=()=>{view='reports';render();};
- for(const kind of ['pdf','docx'])document.querySelector('#'+kind).onclick=e=>action(e.currentTarget,async()=>{notify('กำลังเตรียมเอกสารและรูปภาพ…');const photos=await reportImages(db,v.id,m.photos);const exports=await import('./reports.js');await exports[kind==='pdf'?'downloadPdf':'downloadDocx']({...m,photos});notify(`สร้างไฟล์ ${kind==='pdf'?'PDF':'Word'} แล้ว`);});
+ const mapSlot=document.querySelector('[data-report-map]');let mapPromise;
+ const refreshMap=()=>{mapPromise=loadReportMap(db,v).then(map=>{if(mapSlot.isConnected){mapSlot.innerHTML=mapHtml(map);if(['busy','error'].includes(map.status)){const retry=document.createElement('button');retry.className='secondary';retry.textContent='ลองโหลดแผนที่อีกครั้ง';retry.onclick=()=>{mapSlot.textContent='กำลังโหลดแผนที่…';refreshMap();};mapSlot.append(retry);}}return map;});};refreshMap();
+ for(const kind of ['pdf','docx'])document.querySelector('#'+kind).onclick=e=>action(e.currentTarget,async()=>{notify('กำลังเตรียมเอกสาร รูปภาพ และแผนที่…');const [photos,map]=await Promise.all([reportImages(db,v.id,m.photos),mapPromise]);const exports=await import('./reports.js');await exports[kind==='pdf'?'downloadPdf':'downloadDocx']({...m,photos,map});notify(`สร้างไฟล์ ${kind==='pdf'?'PDF':'Word'} แล้ว${map.status==='error'?' — แผนที่ยังโหลดไม่สำเร็จ':''}`);});
  if(admin){document.querySelector('#edit').onclick=()=>editReport(v);document.querySelector('#photos').onclick=()=>photoEditor(v);}
  const imageSlots=[...document.querySelectorAll('[data-report-photo]')];
  if(m.photos.length)reportImages(db,v.id,m.photos).then(images=>{for(const slot of imageSlots){const p=images.find(p=>String(p.id)===slot.dataset.reportPhoto);if(slot.isConnected&&p){const img=document.createElement('img');img.src=p.dataUrl;img.alt=p.caption || 'ภาพหลักฐาน';slot.replaceChildren(img);}}}).catch(error=>{for(const slot of imageSlots)if(slot.isConnected){slot.textContent=error.message;slot.className='photo-error';}});
@@ -110,8 +114,10 @@ async function photoEditor(v){
 
 function adminPage() {
  shell(heading('WORKSPACE ADMINISTRATION','จัดการข้อมูลและสิทธิ์','รายงานอัตโนมัติแสดงให้ลูกค้าที่มีสิทธิ์ทันที ส่วนฉบับร่างจะเห็นเฉพาะผู้ดูแล')+
+  `<section class="panel"><h2>ภาพดาวเทียมประกอบรายงาน</h2><p class="help">ใช้พิกัดจุดอ้างอิงจาก Kobo ค้นภาพ Sentinel-2 ภายใน 60 วันก่อนหรือในวันสำรวจ ภาพที่เตรียมแล้วจะถูกใช้ซ้ำในเว็บ PDF และ Word</p><button class="secondary" id="map-demo">ทดสอบการเชื่อมต่อภาพดาวเทียม</button><p class="help">ใช้พิกัดทดสอบในกรุงเทพฯ ไม่ใช่แปลงของลูกค้า และไม่เพิ่มรายงานใหม่</p><div class="map-demo" id="map-demo-result"></div></section>`+
   `<section class="panel"><h2>ตรวจสอบแบบฟอร์ม Kobo</h2><p class="help">ตรวจฟิลด์จริงเพื่อเลือกรหัสโครงการให้ตรงกัน ก่อนตั้งค่าการนำเข้าข้อมูลหลายโครงการ</p><form id="inspect-kobo">${field('asset_uid','Asset UID ของแบบฟอร์ม','aKSW6sV9VPkFPjjkKJEd75','text',true)}<button class="secondary">ตรวจการเชื่อมต่อและดูคำถาม</button></form><div id="kobo-schema"></div></section>`+
   `<div class="admin-grid"><section class="panel"><h2>1. เพิ่มลูกค้า</h2><form id="client">${field('name','ชื่อบริษัท / ลูกค้า','','text',true)}<button class="primary">เพิ่มลูกค้า</button></form></section><section class="panel"><h2>2. เพิ่มโครงการ</h2><form id="project"><label>ลูกค้า<select name="client_id" required><option value="">เลือกลูกค้า</option>${select(clients)}</select></label>${field('name','ชื่อโครงการจริง','','text',true)}<button class="primary">เพิ่มโครงการ</button></form></section></div><section class="panel"><h2>3. เลือกโครงการเพื่อจัดการ</h2><select id="manage-project"><option value="">เลือกโครงการ</option>${select(projects)}</select><div id="project-tools"></div></section>`);
+ document.querySelector('#map-demo').onclick=e=>action(e.currentTarget,async()=>{const slot=document.querySelector('#map-demo-result');slot.textContent='กำลังทดสอบภาพดาวเทียม…';const map=await loadReportMap(db,{},'demo');if(slot.isConnected)slot.innerHTML='<h3>ภาพทดสอบระบบ — ไม่ใช่แปลงลูกค้า</h3>'+mapHtml(map);});
  bindForm('client',async f=>{await query(db.from('ecc_clients').insert({name:f.get('name').trim()}));await load();notify('เพิ่มลูกค้าแล้ว');});
  bindForm('inspect-kobo',async f=>{const asset=await api({action:'inspect_kobo',asset_uid:f.get('asset_uid')});document.querySelector('#kobo-schema').innerHTML=`<h3>${esc(asset.name)}</h3><p>จำนวนข้อมูลที่ Kobo รายงาน: ${esc(display(asset.submission_count))}</p><p>ชื่อโครงการที่พบใน 100 รายการแรก: ${esc((asset.project_values || []).join(' / ') || 'ยังไม่พบ')}</p><details><summary>ดูคำถามและตัวเลือกต้นฉบับ</summary><pre>${esc(JSON.stringify({survey:asset.survey,choices:asset.choices},null,2))}</pre></details>`;notify('เชื่อมต่อ Kobo สำเร็จ');});
  bindForm('project',async f=>{await query(db.from('ecc_projects').insert({client_id:f.get('client_id'),name:f.get('name').trim()}));await load();notify('เพิ่มโครงการแล้ว');});

@@ -1,4 +1,5 @@
 import {reportRuns} from './report-text.js';
+import {mapNotes} from './report-map.js';
 import {fileName} from './report-model.js';
 import {reportLayout,detailText,followupText,photoTitle} from './report-layout.js';
 const green='#0F392B',muted='#65756C';
@@ -32,6 +33,9 @@ export function pdfDefinition(m){
    heading('ประเด็นเสนอเพื่อพิจารณา'),...textBlocks(m.decisions || 'ยังไม่ได้ระบุประเด็นเสนอเพื่อพิจารณา'),
    heading('ข้อมูลพื้นฐานโครงการและแปลง',{pageBreak:'before'}),table(['รายการ','ข้อมูลที่บันทึก'],m.basics || [],[160,'*']),
    {text:m.basicsNote || '',fontSize:9,color:muted,margin:[0,0,0,12]},
+   heading('แผนที่และภาพดาวเทียมประกอบ',m.map?.status==='ready'?{pageBreak:'before'}:{}),
+   ...(m.map?.status==='ready'?[{image:m.map.dataUrl,fit:[499,312],margin:[0,0,0,12]}]:[]),
+   ...mapNotes(m.map).map(text=>({text,fontSize:9,color:muted,margin:[0,0,0,6]})),
    heading('ขอบเขตและวิธีการสำรวจ'),...textBlocks(m.scope || 'ยังไม่ระบุ'),
    ...report.groups.flatMap(g=>[heading(g.title),...(g.rows.length?[table(['ประเด็นประเมิน','ผลที่บันทึก','รายละเอียด / หลักฐาน'],g.rows.map(r=>[{text:[{text:r.title,bold:true},...(r.codes.length?[{text:` (${r.codes.join(' · ')})`,fontSize:9,color:muted}]:[])]},r.result || 'ไม่มีข้อมูล',detailText(r)]),[145,100,'*'])]:[]),...g.notes.flatMap(textBlocks),...photoBlocks(g.photos)]),
    heading('หลักฐานและข้อจำกัดของข้อมูล'),...textBlocks(m.sections[4].text),
@@ -71,6 +75,9 @@ export async function docxBlob(m){
     new Table({width:{size:100,type:WidthType.PERCENTAGE},columnWidths:[2200,7786],rows:m.metadata.map(([key,value])=>new TableRow({children:[key,value].map((text,i)=>new TableCell({width:{size:i?7786:2200,type:WidthType.DXA},margins:{top:100,bottom:100,left:100,right:140},borders:{top:{style:BorderStyle.NONE},bottom:{style:BorderStyle.SINGLE,size:3,color:'DFE5E0'},left:{style:BorderStyle.NONE},right:{style:BorderStyle.NONE}},children:[p(text,{spacing:{after:0},bold:i===0})]}))}))}),
     h('สรุปสำหรับผู้บริหาร'),...blocks(m.sections[0].text),h('ประเด็นเสนอเพื่อพิจารณา'),...blocks(m.decisions || 'ยังไม่ระบุ'),
     h('ข้อมูลพื้นฐานโครงการและแปลง',{pageBreakBefore:true}),table(['รายการ','ข้อมูลที่บันทึก'],m.basics || [],[3400,6586]),p(m.basicsNote || ''),
+    h('แผนที่และภาพดาวเทียมประกอบ',m.map?.status==='ready'?{pageBreakBefore:true}:{}),
+    ...(m.map?.status==='ready'?[new Paragraph({keepNext:true,children:[new ImageRun({type:'jpg',data:bytes(m.map.dataUrl),transformation:{width:620,height:388}})]})]:[]),
+    ...mapNotes(m.map).map(text=>p(text,{spacing:{after:100}})),
     h('ขอบเขตและวิธีการสำรวจ'),...blocks(m.scope || 'ยังไม่ระบุ'),
     ...report.groups.flatMap(g=>[h(g.title),...(g.rows.length?[table(['ประเด็นประเมิน','ผลที่บันทึก','รายละเอียด / หลักฐาน'],g.rows.map(r=>[[{text:r.title,bold:true},...(r.codes.length?[{text:' ('+r.codes.join(' · ')+')',size:18,color:'65756C'}]:[])],r.result || 'ไม่มีข้อมูล',detailText(r)]),[3000,2100,4886]),p('',{spacing:{after:80}})]:[]),...g.notes.flatMap(blocks),...photoBlocks(g.photos)]),
     h('หลักฐานและข้อจำกัดของข้อมูล'),...blocks(m.sections[4].text),

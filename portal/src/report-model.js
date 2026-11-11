@@ -1,3 +1,4 @@
+import {initialMap} from './report-map.js';
 export const sections = [
  ['summary','สรุปสำหรับผู้บริหาร'], ['ecology','ผลการประเมินด้านนิเวศ'],
  ['social','ผลการประเมินด้านสังคม'], ['economics','ผลการประเมินด้านเศรษฐกิจ'],
@@ -9,6 +10,7 @@ export const reportDate=value=>{if(!value)return 'ไม่ระบุ';const d
 export function reportModel(visit,project,client) {
  const info=visit.plot_info || {};
  return {
+  map:initialMap(visit),
   basics:[['โครงการ',display(project?.name)],['รหัสแปลง',display(visit.plot)],
    ['ที่ตั้งแปลง',display(info.location)],['พื้นที่แปลง (ไร่)',display(info.area_rai)],
    ['ประเภทป่า',display(info.forest_type)],['ช่วงเวลาที่ปลูก',display(info.planting_when)],
