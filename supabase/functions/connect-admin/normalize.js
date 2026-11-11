@@ -2,6 +2,12 @@
 // Choice wording comes from Kobo's schema, never from a guessed score interpretation.
 const label=x=>Array.isArray(x)?x[0]:typeof x==='string'?x:'';
 const has=v=>v!==undefined && v!==null && String(v).trim()!=='';
+// Explicit report allowlist: contact identities remain in the admin-only import.
+export function normalizePlotInfo(raw) {
+ return Object.fromEntries(['location','gps','forest_type','planting_when','area_rai']
+  .filter(key=>has(raw['plot_profile/'+key]) && ['string','number'].includes(typeof raw['plot_profile/'+key]))
+  .map(key=>[key,String(raw['plot_profile/'+key]).trim()]));
+}
 export function normalizeVisit(raw,schema) {
  const survey=schema.survey || [];
  const choices=schema.choices || [];
@@ -32,6 +38,7 @@ export function normalizeVisit(raw,schema) {
  const date=String(raw['identity/visit_date'] || '');
  const surveyDate=/^\d{4}-\d{2}-\d{2}$/.test(date) && !Number.isNaN(Date.parse(date))?date:null;
  const result={title:`รายงานตรวจเยี่ยม${plot?'แปลง '+plot:''}${surveyDate?' · '+surveyDate:''}`,survey_date:surveyDate,plot,assessor:raw['identity/recorder'] || null,status:'draft'};
+ result.plot_info=normalizePlotInfo(raw);
  for(const [key,values] of Object.entries(buckets))result[key]=values.join('\n\n');
  if(result.social)result.social='ข้อมูลจากการสัมภาษณ์/การนับตามช่วงที่ระบุ ความเห็นรายบุคคลไม่ใช่ข้อสรุปแทนทั้งชุมชน\n\n'+result.social;
  if(result.economics)result.economics='เงินที่ได้รับไม่ใช่กำไร และคำบอกเล่ายังไม่ยืนยันสาเหตุจากโครงการ ไม่รวมยอดต่างหน่วยหรือช่วงเวลาเข้าด้วยกัน\n\n'+result.economics;

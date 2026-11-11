@@ -39,7 +39,7 @@ test('web escapes arbitrary answers and retains review state',()=>{
 });
 test('opening PDF content and metadata stay before structured results',()=>{
  const m=make({summary:'บทสรุปเดิม',decisions:'ประเด็นเดิม',ecology:'E1b สัตว์: พบ'});
- const d=pdfDefinition(m);const split=d.content.findIndex(c=>c.text==='ขอบเขตและวิธีการสำรวจ');
+ const d=pdfDefinition(m);const split=d.content.findIndex(c=>c.text==='ข้อมูลพื้นฐานโครงการและแปลง');
  assert.ok(JSON.stringify(d.content.slice(0,split)).includes('บทสรุปเดิม'));
  assert.ok(!d.content.slice(0,split).some(c=>c.table?.headerRows));
  assert.ok(d.content.slice(split).some(c=>c.table?.headerRows===1));
