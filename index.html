@@ -139,11 +139,12 @@
                 </div>
             </div>
             
-            <div class="hidden lg:flex gap-5 xl:gap-8 items-center">
+            <div class="hidden xl:flex gap-4 2xl:gap-6 items-center">
                 <!-- เพิ่ม drop-shadow-md ให้ลิงก์เมนู -->
                 <a href="#about" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md" data-i18n="nav_about">About</a>
                 <a href="#expertise" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md" data-i18n="nav_expertise">Success Stories</a>
                 <a href="#services" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md" data-i18n="nav_services">Solutions</a>
+                <a href="pangola-farm.html" class="nav-text text-sm font-medium text-white/90 hover:text-brand-gold transition drop-shadow-md whitespace-nowrap">Pangola Farm</a>
                 <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="inline-flex items-center gap-2 border border-brand-gold/70 text-brand-gold px-4 py-2.5 rounded-sm text-sm font-bold hover:bg-brand-gold hover:text-brand-dark transition whitespace-nowrap">
                     <i data-lucide="user-round" class="w-4 h-4" aria-hidden="true"></i><span data-i18n="nav_clients">สำหรับลูกค้า</span>
                 </a>
@@ -156,7 +157,7 @@
                     <i data-lucide="calendar" class="w-4 h-4"></i>
                 </a>
             </div>
-            <div class="lg:hidden flex items-center gap-4">
+            <div class="xl:hidden flex items-center gap-4">
                 <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="text-brand-gold border border-brand-gold/50 rounded-sm p-2" aria-label="สำหรับลูกค้า — เข้าสู่ Eco Companion Connect"><i data-lucide="user-round" class="w-5 h-5" aria-hidden="true"></i></a>
                 <!-- จัดการไอคอนเมนูบนมือถือด้วยคลาสเดียวกัน -->
                 <button id="mobile-menu-btn" class="nav-text text-white drop-shadow-md"><i data-lucide="menu" class="w-6 h-6"></i></button>
@@ -165,7 +166,7 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark transform translate-x-full transition-transform duration-300 lg:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-dark transform translate-x-full transition-transform duration-300 xl:hidden">
         <div class="p-6 flex justify-between items-center border-b border-white/10">
             <div class="flex items-center gap-2">
                 <img src="favicon.png" alt="Eco Companion Logo" class="w-6 h-6 object-contain">
@@ -177,6 +178,7 @@
             <a href="#about" onclick="document.getElementById('close-menu-btn').click()">About Us</a>
             <a href="#expertise" onclick="document.getElementById('close-menu-btn').click()">Expertise</a>
             <a href="#services" onclick="document.getElementById('close-menu-btn').click()">Solutions</a>
+            <a href="pangola-farm.html">Pangola Farm <span class="block text-sm text-brand-gold">Biodiversity Hub</span></a>
             <a href="https://eco-companion-connect.pages.dev/connect/" data-client-portal class="border border-brand-gold/60 text-brand-gold py-4 px-6 rounded-sm flex items-center justify-center gap-3"><i data-lucide="user-round" class="w-5 h-5" aria-hidden="true"></i><span data-i18n="nav_clients">สำหรับลูกค้า</span></a>
             <a href="#contact" onclick="document.getElementById('close-menu-btn').click()" class="text-brand-gold">Contact</a>
         </div>
@@ -709,7 +711,21 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Pangola Farm learning hub -->
+    <section id="pangola" class="bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2">
+        <img src="assets/pangola/farm-landscape.webp" alt="ทุ่งควายและพื้นที่ธรรมชาติที่ Pangola Farm" width="1600" height="1200" loading="lazy" class="w-full h-80 md:h-full object-cover">
+        <div class="px-8 py-16 lg:p-20 flex flex-col justify-center">
+          <p class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-5">Our Learning Hub</p>
+          <h2 class="font-serif text-4xl lg:text-5xl mb-3">Pangola Farm</h2>
+          <p class="text-brand-gold text-sm tracking-widest mb-7">BIODIVERSITY HUB</p>
+          <h3 class="text-2xl mb-5" data-i18n="pangola_title">ให้ธรรมชาติเป็นห้องเรียนของเรา</h3>
+          <p class="text-white/75 leading-relaxed mb-8" data-i18n="pangola_desc">พื้นที่เรียนรู้ธรรมชาติของ Eco Companion สำหรับเด็ก นักเรียน และนักศึกษาทั้งไทยและต่างประเทศ เรียนรู้ผ่านการสังเกต ลงมือทำ และเชื่อมโยงกับชีวิตรอบตัว</p>
+          <a href="pangola-farm.html" class="inline-flex items-center justify-between gap-6 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark px-6 py-3 transition w-fit"><span data-i18n="pangola_cta">รู้จัก Pangola Farm</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="py-32 bg-brand-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-sm shadow-2xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-2">
@@ -769,6 +785,7 @@
         // --- DATA & LOGIC ---
         const translations = {
             en: {
+                pangola_title: "Let nature be our classroom.", pangola_desc: "Eco Companion’s nature learning hub for children, schools and university groups from Thailand and abroad. Observe, learn by doing and connect with the living world.", pangola_cta: "Discover Pangola Farm",
                 nav_about: "About", nav_expertise: "Success Stories", nav_services: "Solutions", nav_insights: "Insights", nav_book: "Book Consultation", nav_clients: "Client Login",
                 client_title: "Your project workspace.<br>Connected to the field.", client_desc: "A dedicated workspace for Eco Companion clients and partners. Follow project updates, review assessment findings and download your reports.", client_login: "Open client workspace", client_help: "Use the account provided by our team. Contact your project coordinator to request access.", client_dashboard: "Project overview", client_dashboard_desc: "Follow survey visits and reviewed reports.", client_reports: "Reports ready to use", client_reports_desc: "Download PDF for presentation and Word for further work.", client_access: "Your project information", client_access_desc: "Sign in to the projects your account is authorized to access.",
                 hero_title: "Turn Nature Risks into <br/><span class='text-brand-gold italic'>Strategic Assets.</span>",
@@ -805,6 +822,7 @@
                 expertise_label: "Industry Expertise"
             },
             th: {
+                pangola_title: "ให้ธรรมชาติเป็นห้องเรียนของเรา", pangola_desc: "พื้นที่เรียนรู้ธรรมชาติของ Eco Companion สำหรับเด็ก นักเรียน และนักศึกษาทั้งไทยและต่างประเทศ เรียนรู้ผ่านการสังเกต ลงมือทำ และเชื่อมโยงกับชีวิตรอบตัว", pangola_cta: "รู้จัก Pangola Farm",
                 nav_about: "เกี่ยวกับเรา", nav_expertise: "ผลงานของเรา", nav_services: "บริการ", nav_insights: "บทความ", nav_book: "นัดปรึกษาฟรี", nav_clients: "สำหรับลูกค้า",
                 client_title: "พื้นที่โครงการของคุณ<br>เชื่อมต่อข้อมูลจากภาคสนาม", client_desc: "สำหรับลูกค้าและพันธมิตรของ Eco Companion ติดตามข้อมูลโครงการ อ่านผลการประเมิน และดาวน์โหลดรายงานจากพื้นที่ทำงานเฉพาะของคุณ", client_login: "เข้าสู่ระบบลูกค้า", client_help: "ใช้บัญชีที่ทีมงานจัดเตรียมให้ หากต้องการสิทธิ์เข้าถึง กรุณาติดต่อผู้ประสานงานโครงการ", client_dashboard: "ภาพรวมโครงการ", client_dashboard_desc: "ติดตามรอบสำรวจและรายงานที่ผ่านการตรวจสอบ", client_reports: "รายงานพร้อมใช้งาน", client_reports_desc: "ดาวน์โหลด PDF สำหรับนำเสนอ และ Word สำหรับใช้งานต่อ", client_access: "ข้อมูลเฉพาะโครงการของคุณ", client_access_desc: "เข้าสู่ระบบด้วยบัญชีผู้ใช้ตามสิทธิ์ที่ได้รับ",
                 hero_title: "เปลี่ยนความเสี่ยงธรรมชาติ <br/><span class='text-brand-gold italic'>ให้เป็นกลยุทธ์ที่ยั่งยืน</span>",
