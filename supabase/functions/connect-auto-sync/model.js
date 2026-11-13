@@ -11,6 +11,14 @@ export function automaticVisit(raw,schema){
  return {...visit,status:'automatic',auto_update:true,scope:typeof scopeValue==='string'?scopeValue:'',decisions:[1,2].map(n=>{const prefix=`closeout/priority_${n}/priority_${n}_`;return [raw[prefix+'issue'],raw[prefix+'task']].filter(x=>typeof x==='string'&&x.trim()).join(' — ');}).filter(Boolean).join('\n\n'),reviewer:'',report_photos:evidenceManifest(raw)};
 }
 export function canAutoUpdate(visit){return visit?.status==='automatic' && visit.auto_update===true;}
+// GPS remains sourced from Kobo even when an automatic report's narrative is edited.
+// Published reports and drafts retain their frozen metadata.
+export function gpsOnlyPatch(visit,raw){
+ if(visit?.status!=='automatic'||canAutoUpdate(visit))return null;
+ const info={...(visit.plot_info||{})};const value=raw['plot_profile/gps'];
+ if(typeof value==='string'&&value.trim())info.gps=value.trim();else delete info.gps;
+ return sameSubmission(info,visit.plot_info||{})?null:{plot_info:info};
+}
 export function sourceKey(source){return JSON.stringify([source.asset_uid,source.whole_asset,source.filter_field,source.filter_value]);}
 
 const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])])):value;
